@@ -31,7 +31,14 @@
 
 - 알아볼 수 있는 네이밍을 사용해주세요!
 - **lowerCamelCase**를 사용합니다.
-- 약어인 경우 CamelCase라고 하더라도 모두 대문자로 씀 ex) ID, URL 등
+- 약어인 경우 CamelCase라고 하더라도 모두 대문자로 씀
+  <details>
+<summary>여기에 토글 제목</summary>
+<div>
+<br>
+여기에 토글 안 세부 내용
+</div>
+</details>
 - myContentCollectionViewCell (O)
     
     myContentCVCell (x)
