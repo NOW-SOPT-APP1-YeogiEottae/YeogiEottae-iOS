@@ -33,12 +33,15 @@
 - **lowerCamelCase**를 사용합니다.
 - 약어인 경우 CamelCase라고 하더라도 모두 대문자로 씀
   <details>
-<summary>여기에 토글 제목</summary>
-<div>
-<br>
-여기에 토글 안 세부 내용
-</div>
-</details>
+    <summary>대문자로만 쓰는 용어 모음</summary>
+    <div>
+    <br>
+    - URL<br>
+    - ID<br>
+    - API<br>
+    - 필요시 여기에 추가<br>
+    </div>
+    </details>
 - myContentCollectionViewCell (O)
     
     myContentCVCell (x)
