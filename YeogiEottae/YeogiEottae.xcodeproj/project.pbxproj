@@ -8,18 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */; };
-		0B4AA6D52BEB9E6A00BCEA76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D42BEB9E6A00BCEA76 /* SceneDelegate.swift */; };
 		0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */; };
 		0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */; };
 		0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DE2BEB9E6B00BCEA76 /* Base */; };
-		4E278F982BEFADF60034097A /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F972BEFADF60034097A /* SearchListViewController.swift */; };
-		4E278F9A2BEFB4850034097A /* UITabBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F992BEFB4850034097A /* UITabBarExtension.swift */; };
-		4E278F9C2BEFB5B40034097A /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColorExtensions.swift */; };
-		4E278F9E2BF0B15D0034097A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* StringExtensions.swift */; };
-		4E278FA02BF0C6880034097A /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9F2BF0C6880034097A /* SearchListView.swift */; };
-		4E278FA22BF0C7960034097A /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA12BF0C7960034097A /* AccomodationKindSegmentController.swift */; };
-		4E278FA42BF0CA200034097A /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFontExtensions.swift */; };
-		4E278FB02BF0DA4D0034097A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E278FAF2BF0DA4D0034097A /* SnapKit */; };
+		0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */; };
+		0B719C482BF20B3500DF1D92 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C472BF20B3500DF1D92 /* Moya */; };
+		0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4A2BF20B5400DF1D92 /* Kingfisher */; };
+		0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4D2BF20BD700DF1D92 /* SnapKit */; };
+		0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */; };
+		0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C512BF21C3E00DF1D92 /* UIImage+.swift */; };
+		0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C532BF21C4F00DF1D92 /* UIStackView+.swift */; };
+		0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C552BF21C6400DF1D92 /* UITextField+.swift */; };
+		0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C572BF21C7600DF1D92 /* UIView+.swift */; };
+		0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */; };
+		0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
+		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
+		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
+		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
 		4E278FB12BF0EF520034097A /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA52BF0D5F20034097A /* Pretendard-Bold.otf */; };
 		4E278FB22BF0EF520034097A /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */; };
 		4E278FB32BF0EF520034097A /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA82BF0D5F30034097A /* Pretendard-ExtraLight.otf */; };
@@ -29,27 +34,26 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
-		4E278FBB2BF100570034097A /* SearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FBA2BF100570034097A /* SearchFilter.swift */; };
-		4E278FBF2BF10D9C0034097A /* SearchFilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FBE2BF10D9C0034097A /* SearchFilterListCell.swift */; };
-		4E278FC12BF115E50034097A /* AddSearchFilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FC02BF115E50034097A /* AddSearchFilterListCell.swift */; };
-		4E7BB0572BF202CC00D94857 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4E7BB0562BF202CC00D94857 /* .gitkeep */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YeogiEottae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B4AA6D42BEB9E6A00BCEA76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B4AA6DE2BEB9E6B00BCEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B4AA6E02BEB9E6B00BCEA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E278F972BEFADF60034097A /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
-		4E278F992BEFB4850034097A /* UITabBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtension.swift; sourceTree = "<group>"; };
-		4E278F9B2BEFB5B40034097A /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
-		4E278F9D2BF0B15D0034097A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		4E278F9F2BF0C6880034097A /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
-		4E278FA12BF0C7960034097A /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
-		4E278FA32BF0CA200034097A /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+.swift"; sourceTree = "<group>"; };
+		0B719C512BF21C3E00DF1D92 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		0B719C532BF21C4F00DF1D92 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		0B719C552BF21C6400DF1D92 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		0B719C572BF21C7600DF1D92 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		0B719C5B2BF21D9100DF1D92 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		4E278FA52BF0D5F20034097A /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		4E278FA62BF0D5F30034097A /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
@@ -59,16 +63,6 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		4E278FBA2BF100570034097A /* SearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilter.swift; sourceTree = "<group>"; };
-		4E278FBE2BF10D9C0034097A /* SearchFilterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterListCell.swift; sourceTree = "<group>"; };
-		4E278FC02BF115E50034097A /* AddSearchFilterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchFilterListCell.swift; sourceTree = "<group>"; };
-		4E7BB0562BF202CC00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB0582BF203A200D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB0592BF203A500D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05A2BF203A700D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05B2BF203AC00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05C2BF203CB00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05D2BF203CD00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E278FB02BF0DA4D0034097A /* SnapKit in Frameworks */,
+				0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */,
+				0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */,
+				0B719C482BF20B3500DF1D92 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,11 +107,18 @@
 			path = YeogiEottae;
 			sourceTree = "<group>";
 		};
+		0B719C432BF20AA900DF1D92 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		4E278F7F2BEFACE60034097A /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */,
-				0B4AA6D42BEB9E6A00BCEA76 /* SceneDelegate.swift */,
+				0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -123,9 +126,9 @@
 		4E278F802BEFACF90034097A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				0B719C432BF20AA900DF1D92 /* Protocols */,
 				4E278F892BEFAD400034097A /* SupportingFiles */,
 				4E278F862BEFAD230034097A /* Resources */,
-				4E278F852BEFAD1E0034097A /* Protocols */,
 				4E278F822BEFAD060034097A /* Literals */,
 				4E278F812BEFAD010034097A /* Extension */,
 			);
@@ -135,10 +138,15 @@
 		4E278F812BEFAD010034097A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				4E278F992BEFB4850034097A /* UITabBarExtension.swift */,
-				4E278F9B2BEFB5B40034097A /* UIColorExtensions.swift */,
-				4E278F9D2BF0B15D0034097A /* StringExtensions.swift */,
-				4E278FA32BF0CA200034097A /* UIFontExtensions.swift */,
+				4E278F9B2BEFB5B40034097A /* UIColor+.swift */,
+				4E278F9D2BF0B15D0034097A /* String+.swift */,
+				4E278FA32BF0CA200034097A /* UIFont+.swift */,
+				0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */,
+				0B719C512BF21C3E00DF1D92 /* UIImage+.swift */,
+				0B719C532BF21C4F00DF1D92 /* UIStackView+.swift */,
+				0B719C552BF21C6400DF1D92 /* UITextField+.swift */,
+				0B719C572BF21C7600DF1D92 /* UIView+.swift */,
+				0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -155,7 +163,6 @@
 		4E278F832BEFAD0A0034097A /* Literal */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05D2BF203CD00D94857 /* .gitkeep */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -163,16 +170,9 @@
 		4E278F842BEFAD110034097A /* String */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05C2BF203CB00D94857 /* .gitkeep */,
+				0B719C5B2BF21D9100DF1D92 /* String.swift */,
 			);
 			path = String;
-			sourceTree = "<group>";
-		};
-		4E278F852BEFAD1E0034097A /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4E278F862BEFAD230034097A /* Resources */ = {
@@ -221,7 +221,6 @@
 		4E278F8A2BEFAD490034097A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05B2BF203AC00D94857 /* .gitkeep */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -239,7 +238,6 @@
 		4E278F8C2BEFAD690034097A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05A2BF203A700D94857 /* .gitkeep */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -247,7 +245,6 @@
 		4E278F8D2BEFAD6D0034097A /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB0592BF203A500D94857 /* .gitkeep */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 		4E278F8E2BEFAD780034097A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB0582BF203A200D94857 /* .gitkeep */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -263,7 +259,6 @@
 		4E278F8F2BEFAD830034097A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				4E278F922BEFAD930034097A /* Home */,
 				4E278F902BEFAD870034097A /* Common */,
 			);
 			path = Presentation;
@@ -280,54 +275,8 @@
 		4E278F912BEFAD8A0034097A /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB0562BF202CC00D94857 /* .gitkeep */,
 			);
 			path = UIComponents;
-			sourceTree = "<group>";
-		};
-		4E278F922BEFAD930034097A /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				4E278F962BEFADA60034097A /* Cells */,
-				4E278F952BEFADA30034097A /* Models */,
-				4E278F942BEFAD9E0034097A /* Views */,
-				4E278F932BEFAD960034097A /* ViewControllers */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		4E278F932BEFAD960034097A /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				4E278F972BEFADF60034097A /* SearchListViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		4E278F942BEFAD9E0034097A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4E278F9F2BF0C6880034097A /* SearchListView.swift */,
-				4E278FA12BF0C7960034097A /* AccomodationKindSegmentController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4E278F952BEFADA30034097A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4E278FBA2BF100570034097A /* SearchFilter.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4E278F962BEFADA60034097A /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				4E278FBE2BF10D9C0034097A /* SearchFilterListCell.swift */,
-				4E278FC02BF115E50034097A /* AddSearchFilterListCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,7 +296,9 @@
 			);
 			name = YeogiEottae;
 			packageProductDependencies = (
-				4E278FAF2BF0DA4D0034097A /* SnapKit */,
+				0B719C472BF20B3500DF1D92 /* Moya */,
+				0B719C4A2BF20B5400DF1D92 /* Kingfisher */,
+				0B719C4D2BF20BD700DF1D92 /* SnapKit */,
 			);
 			productName = YeogiEottae;
 			productReference = 0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */;
@@ -378,7 +329,9 @@
 			);
 			mainGroup = 0B4AA6C62BEB9E6A00BCEA76;
 			packageReferences = (
-				4E278FAE2BF0DA4D0034097A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */,
+				0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 0B4AA6D02BEB9E6A00BCEA76 /* Products */;
 			projectDirPath = "";
@@ -397,7 +350,6 @@
 				4E278FB52BF0EF520034097A /* Pretendard-Medium.otf in Resources */,
 				0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */,
 				4E278FB22BF0EF520034097A /* Pretendard-Light.otf in Resources */,
-				4E7BB0572BF202CC00D94857 /* .gitkeep in Resources */,
 				4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */,
 				4E278FB42BF0EF520034097A /* Pretendard-ExtraBold.otf in Resources */,
 				4E278FB32BF0EF520034097A /* Pretendard-ExtraLight.otf in Resources */,
@@ -417,18 +369,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
-				4E278FBF2BF10D9C0034097A /* SearchFilterListCell.swift in Sources */,
+				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
-				4E278FBB2BF100570034097A /* SearchFilter.swift in Sources */,
-				4E278FA42BF0CA200034097A /* UIFontExtensions.swift in Sources */,
-				4E278FA22BF0C7960034097A /* AccomodationKindSegmentController.swift in Sources */,
-				4E278F9A2BEFB4850034097A /* UITabBarExtension.swift in Sources */,
-				4E278F9E2BF0B15D0034097A /* StringExtensions.swift in Sources */,
-				4E278FA02BF0C6880034097A /* SearchListView.swift in Sources */,
-				4E278F9C2BEFB5B40034097A /* UIColorExtensions.swift in Sources */,
-				4E278F982BEFADF60034097A /* SearchListViewController.swift in Sources */,
-				0B4AA6D52BEB9E6A00BCEA76 /* SceneDelegate.swift in Sources */,
-				4E278FC12BF115E50034097A /* AddSearchFilterListCell.swift in Sources */,
+				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
+				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
+				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
+				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
+				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
+				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
+				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
+				4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */,
+				0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 548W892M42;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeogiEottae/Global/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -600,7 +552,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 548W892M42;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeogiEottae/Global/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -645,9 +597,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4E278FAE2BF0DA4D0034097A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+		0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.7.1;
@@ -656,9 +624,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4E278FAF2BF0DA4D0034097A /* SnapKit */ = {
+		0B719C472BF20B3500DF1D92 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4E278FAE2BF0DA4D0034097A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		0B719C4A2BF20B5400DF1D92 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		0B719C4D2BF20BD700DF1D92 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

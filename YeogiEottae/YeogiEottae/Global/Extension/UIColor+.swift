@@ -24,7 +24,7 @@ enum SecondaryColor: String, ProjectColor {
     case secondary400 = "#479AF6"
     case secondary300 = "#B7D5F6"
     case secondary200 = "#ECF4FD"
-    case secondary100 = "#F2F5F9" // 임의로 설정한 것. 피그마에 댓글 답변 올라오면 적용 예정
+    case secondary100 = "#F2F5F9" // 임의로 설정한 것. 피그마에 댓글 답변 올라오면 적용 예정x
 }
 
 enum GrayColor: String, ProjectColor {
@@ -93,3 +93,5 @@ extension UIColor {
     
     
 }
+
+
