@@ -37,6 +37,7 @@
 		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
 		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */; };
+		4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
+		4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 		4E70213A2BF22AD700D480AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */,
+				4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
