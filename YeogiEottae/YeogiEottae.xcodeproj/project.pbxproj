@@ -36,6 +36,7 @@
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
 		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
 		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
+		4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				4E70213C2BF22B0E00D480AE /* SearchListView.swift */,
+				4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
