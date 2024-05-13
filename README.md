@@ -77,11 +77,11 @@
 
 커밋 메시지 : `[종류/#이슈번호]작업 이름` - 예시 `[Feat/#1] 메인 UI 구현`
 
-Conflict 해결 시 : `[Conflict] #이슈 - Conflict 해결`
+Conflict 해결 시 : `[Conflict/ #이슈] Conflict 해결`
 
 PR을 develop에 merge 시 : 기본 머지 메시지
 
-내 브랜치에 develop merge 시 (브랜치 최신화) : `[Merge] #이슈 - Pull Develop` - `[Merge] #13 - Pull Develop`
+내 브랜치에 develop merge 시 (브랜치 최신화) : `[Merge/#이슈] Pull Develop` - `[Merge/#13] Pull Develop`
 ## 📌Issue Convention
 
 ### Branch
