@@ -261,6 +261,7 @@
 		4E278F8F2BEFAD830034097A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4E7021352BF2276800D480AE /* SearchList */,
 				4E278F902BEFAD870034097A /* Common */,
 			);
 			path = Presentation;
@@ -270,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				4E278F912BEFAD8A0034097A /* UIComponents */,
-				4E7021352BF2276800D480AE /* SearchList */,
 			);
 			path = Common;
 			sourceTree = "<group>";
