@@ -38,6 +38,7 @@
 		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */; };
 		4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */; };
+		4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
 		4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterModel.swift; sourceTree = "<group>"; };
+		4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 		4E70213B2BF22ADA00D480AE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
 				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
+				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
 				4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */,
