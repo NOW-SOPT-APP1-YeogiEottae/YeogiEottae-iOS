@@ -21,6 +21,7 @@
 		0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C552BF21C6400DF1D92 /* UITextField+.swift */; };
 		0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C572BF21C7600DF1D92 /* UIView+.swift */; };
 		0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */; };
+		0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
 		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
 		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
 		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
@@ -49,6 +50,7 @@
 		0B719C552BF21C6400DF1D92 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		0B719C572BF21C7600DF1D92 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		0B719C5B2BF21D9100DF1D92 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		4E278F842BEFAD110034097A /* String */ = {
 			isa = PBXGroup;
 			children = (
+				0B719C5B2BF21D9100DF1D92 /* String.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
+				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
