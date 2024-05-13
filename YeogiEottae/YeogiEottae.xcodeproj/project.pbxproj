@@ -291,7 +291,6 @@
 				4E70213A2BF22AD700D480AE /* Models */,
 				4E7021392BF22AD100D480AE /* ViewControllers */,
 				4E7021382BF22ACC00D480AE /* Views */,
-				4E7021362BF2286F00D480AE /* SearchListViewController.swift */,
 			);
 			path = SearchList;
 			sourceTree = "<group>";
@@ -307,6 +306,7 @@
 		4E7021392BF22AD100D480AE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4E7021362BF2286F00D480AE /* SearchListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
