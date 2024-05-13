@@ -123,7 +123,27 @@ default branch : `develop`
 ├── Presentation 
 │   ├── Common
 │   │   ├── UIComponents 
-│   ├── Home
+│   ├── SearchList
+│   │   ├── ViewControllers
+│   │   ├── Views
+│   │   ├── Models
+├───├───├── Cells
+│   ├── HotelDetail
+│   │   ├── ViewControllers
+│   │   ├── Views
+│   │   ├── Models
+├───├───├── Cells
+│   ├── RoomDetail
+│   │   ├── ViewControllers
+│   │   ├── Views
+│   │   ├── Models
+├───├───├── Cells
+│   ├── Favorites
+│   │   ├── ViewControllers
+│   │   ├── Views
+│   │   ├── Models
+├───├───├── Cells
+│   ├── CompareRoom
 │   │   ├── ViewControllers
 │   │   ├── Views
 │   │   ├── Models
