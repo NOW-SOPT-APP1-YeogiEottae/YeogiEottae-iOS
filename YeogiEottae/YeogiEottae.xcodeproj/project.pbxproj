@@ -12,14 +12,12 @@
 		0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */; };
 		0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DE2BEB9E6B00BCEA76 /* Base */; };
 		0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */; };
-		0B719C452BF20ABB00DF1D92 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 0B719C442BF20ABB00DF1D92 /* .gitkeep */; };
 		0B719C482BF20B3500DF1D92 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C472BF20B3500DF1D92 /* Moya */; };
 		0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4A2BF20B5400DF1D92 /* Kingfisher */; };
-		4E278F9A2BEFB4850034097A /* UITabBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F992BEFB4850034097A /* UITabBarExtension.swift */; };
+		0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4D2BF20BD700DF1D92 /* SnapKit */; };
 		4E278F9C2BEFB5B40034097A /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColorExtensions.swift */; };
 		4E278F9E2BF0B15D0034097A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* StringExtensions.swift */; };
 		4E278FA42BF0CA200034097A /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFontExtensions.swift */; };
-		4E278FB02BF0DA4D0034097A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E278FAF2BF0DA4D0034097A /* SnapKit */; };
 		4E278FB12BF0EF520034097A /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA52BF0D5F20034097A /* Pretendard-Bold.otf */; };
 		4E278FB22BF0EF520034097A /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */; };
 		4E278FB32BF0EF520034097A /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA82BF0D5F30034097A /* Pretendard-ExtraLight.otf */; };
@@ -29,7 +27,6 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
-		4E7BB0572BF202CC00D94857 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4E7BB0562BF202CC00D94857 /* .gitkeep */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +37,6 @@
 		0B4AA6DE2BEB9E6B00BCEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B4AA6E02BEB9E6B00BCEA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0B719C442BF20ABB00DF1D92 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E278F992BEFB4850034097A /* UITabBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtension.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
@@ -54,13 +49,6 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		4E7BB0562BF202CC00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB0582BF203A200D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB0592BF203A500D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05A2BF203A700D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05B2BF203AC00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05C2BF203CB00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4E7BB05D2BF203CD00D94857 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */,
 				0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */,
 				0B719C482BF20B3500DF1D92 /* Moya in Frameworks */,
-				4E278FB02BF0DA4D0034097A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +96,6 @@
 		0B719C432BF20AA900DF1D92 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0B719C442BF20ABB00DF1D92 /* .gitkeep */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -137,7 +124,6 @@
 		4E278F812BEFAD010034097A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				4E278F992BEFB4850034097A /* UITabBarExtension.swift */,
 				4E278F9B2BEFB5B40034097A /* UIColorExtensions.swift */,
 				4E278F9D2BF0B15D0034097A /* StringExtensions.swift */,
 				4E278FA32BF0CA200034097A /* UIFontExtensions.swift */,
@@ -157,7 +143,6 @@
 		4E278F832BEFAD0A0034097A /* Literal */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05D2BF203CD00D94857 /* .gitkeep */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -165,7 +150,6 @@
 		4E278F842BEFAD110034097A /* String */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05C2BF203CB00D94857 /* .gitkeep */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -216,7 +200,6 @@
 		4E278F8A2BEFAD490034097A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05B2BF203AC00D94857 /* .gitkeep */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -234,7 +217,6 @@
 		4E278F8C2BEFAD690034097A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB05A2BF203A700D94857 /* .gitkeep */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -242,7 +224,6 @@
 		4E278F8D2BEFAD6D0034097A /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB0592BF203A500D94857 /* .gitkeep */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -250,7 +231,6 @@
 		4E278F8E2BEFAD780034097A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB0582BF203A200D94857 /* .gitkeep */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -274,7 +254,6 @@
 		4E278F912BEFAD8A0034097A /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				4E7BB0562BF202CC00D94857 /* .gitkeep */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -296,9 +275,9 @@
 			);
 			name = YeogiEottae;
 			packageProductDependencies = (
-				4E278FAF2BF0DA4D0034097A /* SnapKit */,
 				0B719C472BF20B3500DF1D92 /* Moya */,
 				0B719C4A2BF20B5400DF1D92 /* Kingfisher */,
+				0B719C4D2BF20BD700DF1D92 /* SnapKit */,
 			);
 			productName = YeogiEottae;
 			productReference = 0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */;
@@ -329,9 +308,9 @@
 			);
 			mainGroup = 0B4AA6C62BEB9E6A00BCEA76;
 			packageReferences = (
-				4E278FAE2BF0DA4D0034097A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */,
 				0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 0B4AA6D02BEB9E6A00BCEA76 /* Products */;
 			projectDirPath = "";
@@ -350,12 +329,10 @@
 				4E278FB52BF0EF520034097A /* Pretendard-Medium.otf in Resources */,
 				0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */,
 				4E278FB22BF0EF520034097A /* Pretendard-Light.otf in Resources */,
-				4E7BB0572BF202CC00D94857 /* .gitkeep in Resources */,
 				4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */,
 				4E278FB42BF0EF520034097A /* Pretendard-ExtraBold.otf in Resources */,
 				4E278FB32BF0EF520034097A /* Pretendard-ExtraLight.otf in Resources */,
 				4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */,
-				0B719C452BF20ABB00DF1D92 /* .gitkeep in Resources */,
 				4E278FB62BF0EF520034097A /* Pretendard-Regular.otf in Resources */,
 				4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */,
 				4E278FB12BF0EF520034097A /* Pretendard-Bold.otf in Resources */,
@@ -373,7 +350,6 @@
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFontExtensions.swift in Sources */,
-				4E278F9A2BEFB4850034097A /* UITabBarExtension.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* StringExtensions.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
 				4E278F9C2BEFB5B40034097A /* UIColorExtensions.swift in Sources */,
@@ -609,9 +585,9 @@
 				minimumVersion = 7.11.0;
 			};
 		};
-		4E278FAE2BF0DA4D0034097A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.7.1;
@@ -630,9 +606,9 @@
 			package = 0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		4E278FAF2BF0DA4D0034097A /* SnapKit */ = {
+		0B719C4D2BF20BD700DF1D92 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4E278FAE2BF0DA4D0034097A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
