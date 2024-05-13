@@ -13,6 +13,6 @@ enum StringLiteral {
         static var searchTitle = "검색"
         static var nearByTitle = "주변"
         static var likeTitle = "찜"
-        static var infoTitle = "내 정보"
+        static var myInfoTitle = "내 정보"
     }
 }
