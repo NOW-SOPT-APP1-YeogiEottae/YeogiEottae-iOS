@@ -75,7 +75,7 @@
 
 ### Message
 
-커밋 메시지 : `[종류] #이슈 - 작업 이름` - 예시 `feat/#13 - Main UI 구현`
+커밋 메시지 : `[종류/#이슈번호]작업 이름` - 예시 `[Feat/#1] 메인 UI 구현`
 
 Conflict 해결 시 : `[Conflict] #이슈 - Conflict 해결`
 
