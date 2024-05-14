@@ -13,7 +13,16 @@ extension UITabBarController {
         let tabBarCon = UITabBarController()
         let searchListNaviCon = UINavigationController(rootViewController: SearchListViewController())
 
-        tabBarCon.setViewControllers([UIViewController(), searchListNaviCon, UIViewController(), UIViewController(), UIViewController()], animated: false)
+        tabBarCon.setViewControllers(
+            [
+                UIViewController(),
+                searchListNaviCon,
+                UIViewController(),
+                UIViewController(),
+                UIViewController()
+            ],
+            animated: false
+        )
         
         tabBarCon.tabBar.items?[0].image = UIImage(named: "home")
         tabBarCon.tabBar.items?[0].title = StringLiteral.TabBar.homeTitle
