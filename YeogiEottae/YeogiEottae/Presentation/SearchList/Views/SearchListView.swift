@@ -77,18 +77,17 @@ final class SearchListView: UIView {
         let transformer = UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
             outgoing.foregroundColor = UIColor.grayColor(brightness: .gray900)
-            outgoing.font = UIFont.projectFont(name: .h6
-            )
+            outgoing.font = UIFont.projectFont(name: .h6)
             return outgoing
         }
         
         let configuration: UIButton.Configuration = {
             var configuration = UIButton.Configuration.plain()
             configuration.imagePlacement = .leading
-            configuration.imagePadding = 5
+            configuration.imagePadding = 2
             configuration.titleTextAttributesTransformer = transformer
             configuration.image = UIImage(named: "filter")?.withTintColor(UIColor.grayColor(brightness: .gray900))
-            configuration.contentInsets.leading = 10
+            configuration.contentInsets.leading = 6
             configuration.contentInsets.trailing = 10
             return configuration
         }()
