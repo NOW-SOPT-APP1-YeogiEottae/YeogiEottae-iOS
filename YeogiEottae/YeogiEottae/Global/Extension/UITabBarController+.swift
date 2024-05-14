@@ -19,7 +19,7 @@ extension UITabBarController {
         tabBarCon.tabBar.items?[0].title = StringLiteral.TabBar.homeTitle
         tabBarCon.tabBar.items?[1].image = UIImage(named: "search")
         tabBarCon.tabBar.items?[1].title = StringLiteral.TabBar.searchTitle
-        tabBarCon.tabBar.items?[2].image = UIImage(named: "position")
+        tabBarCon.tabBar.items?[2].image = UIImage(named: "tabBarPosition")
         tabBarCon.tabBar.items?[2].title = StringLiteral.TabBar.nearByTitle
         tabBarCon.tabBar.items?[3].image = UIImage(named: "like")
         tabBarCon.tabBar.items?[3].title = StringLiteral.TabBar.likeTitle
