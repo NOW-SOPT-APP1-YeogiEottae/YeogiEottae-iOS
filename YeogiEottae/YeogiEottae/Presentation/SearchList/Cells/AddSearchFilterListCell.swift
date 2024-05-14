@@ -56,7 +56,6 @@ class AddSearchFilterListCell: UICollectionViewCell {
         self.plusImageButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
             make.width.equalTo(50)
-            //make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
     }
