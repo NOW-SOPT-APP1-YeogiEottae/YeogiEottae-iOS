@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum searchFilterListCollectionViewSection: Int {
+    case list
+    case add
+}
+
 class SearchListViewController: UIViewController {
 
     let searchFilters: [SearchFilter] = [
@@ -50,9 +55,9 @@ extension SearchListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0:
+        case searchFilterListCollectionViewSection.list.rawValue:
             return self.searchFilters.count
-        case 1:
+        case searchFilterListCollectionViewSection.add.rawValue:
             return 1
         default:
             fatalError("Invalid Section accessed")

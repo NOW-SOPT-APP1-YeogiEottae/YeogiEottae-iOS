@@ -10,9 +10,9 @@ import SnapKit
 
 final class AccomodationKindSegmentController: UIScrollView {
     
-    let allLabel: UILabel = {
+    let allKindLabel: UILabel = {
         let label = UILabel()
-        label.text = "전체"
+        label.text = StringLiteral.AccomodationKindSegmentName.allKind
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -20,7 +20,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let motelLabel: UILabel = {
         let label = UILabel()
-        label.text = "모텔"
+        label.text = StringLiteral.AccomodationKindSegmentName.motel
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -28,7 +28,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let hotelResortLabel: UILabel = {
         let label = UILabel()
-        label.text = "호텔•리조트"
+        label.text = StringLiteral.AccomodationKindSegmentName.hotelResort
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -36,7 +36,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let pensionLabel: UILabel = {
         let label = UILabel()
-        label.text = "펜션"
+        label.text = StringLiteral.AccomodationKindSegmentName.pension
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -44,7 +44,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let homeVillaLabel: UILabel = {
         let label = UILabel()
-        label.text = "홈&빌라"
+        label.text = StringLiteral.AccomodationKindSegmentName.homeVilla
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -52,7 +52,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let campingLabel: UILabel = {
         let label = UILabel()
-        label.text = "캠핑"
+        label.text = StringLiteral.AccomodationKindSegmentName.camping
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -60,7 +60,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let guestHouseHanokLabel: UILabel = {
         let label = UILabel()
-        label.text = "게하•한옥"
+        label.text = StringLiteral.AccomodationKindSegmentName.guestHouseHanok
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -94,8 +94,8 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     
     private func configureViewHierarchy() {
-        [
-            self.allLabel,
+        self.addSubviews(
+            self.allKindLabel,
             self.motelLabel,
             self.hotelResortLabel,
             self.pensionLabel,
@@ -103,13 +103,11 @@ final class AccomodationKindSegmentController: UIScrollView {
             self.campingLabel,
             self.guestHouseHanokLabel,
             self.underBar
-        ].forEach { view in
-            self.addSubview(view)
-        }
+        )
     }
     
     private func setConstraints() {
-        self.allLabel.snp.makeConstraints { make in
+        self.allKindLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(8)
             make.bottom.equalToSuperview().inset(13)
             make.leading.equalToSuperview().inset(24)
@@ -119,7 +117,7 @@ final class AccomodationKindSegmentController: UIScrollView {
         self.motelLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(8)
             make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.allLabel.snp.trailing).offset(24)
+            make.leading.equalTo(self.allKindLabel.snp.trailing).offset(24)
             make.height.equalTo(19)
         }
         
