@@ -34,7 +34,7 @@ class SearchListViewController: UIViewController {
 
     let rootView: SearchListView = SearchListView()
     let vcArray = [
-        OrangeViewController(),
+        SearchResultViewController(),
         GreenViewController(),
         BlueViewController(),
         OrangeViewController(),

@@ -7,14 +7,16 @@
 
 import UIKit
 
-protocol TableViewDelegate: UITableViewDataSource, UITableViewDelegate { }
+typealias TableViewDelegate = UITableViewDataSource & UITableViewDelegate
 
 final class SearchResultView: UIView {
     
     let tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
         tableView.register(SearchResultHeaderView.self, forHeaderFooterViewReuseIdentifier: SearchResultHeaderView.reuseIdentifier)
         tableView.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.reuseIdentifier)
+        tableView.backgroundColor = .white
+        tableView.sectionHeaderHeight = 44
         return tableView
     }()
     
@@ -30,11 +32,13 @@ final class SearchResultView: UIView {
     }
     
     private func configureViewHierarchy() {
-        
+        self.addSubview(self.tableView)
     }
     
     private func setConstraints() {
-        
+        self.tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     func setDelegates(to viewController: TableViewDelegate) {
