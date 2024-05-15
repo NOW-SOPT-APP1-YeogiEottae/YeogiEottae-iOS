@@ -34,6 +34,9 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
+		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
+		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
+		4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */; };
 		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
 		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */; };
@@ -42,6 +45,11 @@
 		4E7021472BF2514B00D480AE /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021462BF2514B00D480AE /* UITabBarController+.swift */; };
 		4E7021492BF3A94700D480AE /* SearchSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021482BF3A94700D480AE /* SearchSegmentCell.swift */; };
 		4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70214C2BF3B00300D480AE /* SearchSegmentCollectionView.swift */; };
+		4EE7D0CF2BF48E3C002BDF8E /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0CE2BF48E3C002BDF8E /* SearchResultView.swift */; };
+		4EE7D0D12BF49073002BDF8E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D02BF49073002BDF8E /* SearchResultViewController.swift */; };
+		4EE7D0D32BF490A5002BDF8E /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */; };
+		4EE7D0D52BF4912B002BDF8E /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */; };
+		4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D62BF49675002BDF8E /* HotelModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +79,9 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		4E4D0AD82BF48B1400191932 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
+		4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
 		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterModel.swift; sourceTree = "<group>"; };
@@ -79,6 +90,11 @@
 		4E7021462BF2514B00D480AE /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		4E7021482BF3A94700D480AE /* SearchSegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSegmentCell.swift; sourceTree = "<group>"; };
 		4E70214C2BF3B00300D480AE /* SearchSegmentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSegmentCollectionView.swift; sourceTree = "<group>"; };
+		4EE7D0CE2BF48E3C002BDF8E /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		4EE7D0D02BF49073002BDF8E /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
+		4EE7D0D62BF49675002BDF8E /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,9 +313,22 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
+		4E4D0AD52BF48AF200191932 /* VCForPageVC */ = {
+			isa = PBXGroup;
+			children = (
+				4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */,
+				4E4D0AD82BF48B1400191932 /* BlueViewController.swift */,
+				4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */,
+				4EE7D0D02BF49073002BDF8E /* SearchResultViewController.swift */,
+				4EE7D0CE2BF48E3C002BDF8E /* SearchResultView.swift */,
+			);
+			path = VCForPageVC;
+			sourceTree = "<group>";
+		};
 		4E7021352BF2276800D480AE /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
+				4E4D0AD52BF48AF200191932 /* VCForPageVC */,
 				4E70213B2BF22ADA00D480AE /* Cells */,
 				4E70213A2BF22AD700D480AE /* Models */,
 				4E7021392BF22AD100D480AE /* ViewControllers */,
@@ -329,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */,
+				4EE7D0D62BF49675002BDF8E /* HotelModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,6 +369,8 @@
 				4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */,
 				4E7021442BF24C1000D480AE /* AddSearchFilterListCell.swift */,
 				4E7021482BF3A94700D480AE /* SearchSegmentCell.swift */,
+				4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */,
+				4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -434,11 +466,15 @@
 			files = (
 				4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
+				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
 				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */,
 				4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
+				4EE7D0D32BF490A5002BDF8E /* SearchResultCell.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
+				4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
@@ -447,11 +483,15 @@
 				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
 				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
+				4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
 				4E7021492BF3A94700D480AE /* SearchSegmentCell.swift in Sources */,
+				4EE7D0CF2BF48E3C002BDF8E /* SearchResultView.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
 				4E7021472BF2514B00D480AE /* UITabBarController+.swift in Sources */,
+				4EE7D0D52BF4912B002BDF8E /* SearchResultHeaderView.swift in Sources */,
 				4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */,
+				4EE7D0D12BF49073002BDF8E /* SearchResultViewController.swift in Sources */,
 				0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

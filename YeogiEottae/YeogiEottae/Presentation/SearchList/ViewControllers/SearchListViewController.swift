@@ -33,10 +33,22 @@ class SearchListViewController: UIViewController {
     ]
 
     let rootView: SearchListView = SearchListView()
+    let vcArray = [
+        OrangeViewController(),
+        GreenViewController(),
+        BlueViewController(),
+        OrangeViewController(),
+        GreenViewController(),
+        BlueViewController(),
+        OrangeViewController()
+    ]
+    let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
     //lazy var customSegmentController: AccomodationKindSegmentController = self.rootView.customSegmentController
     lazy var segmentCollectoinView = self.rootView.segmentCollectionView
     lazy var searchFilterListCollectionView = self.rootView.searchFilterListCollectionView
+    
+    lazy var pageViewControllerTopConstraint = self.pageViewController.view.topAnchor.constraint(equalTo: self.rootView.filterView.bottomAnchor)
     
     override func loadView() {
         self.view = self.rootView
@@ -46,12 +58,30 @@ class SearchListViewController: UIViewController {
         super.viewDidLoad()
 
         self.setNaviBar()
+        self.setPageVC()
+        self.configureViewHierarchy()
+        self.setConstraints()
         self.setDelegates()
     }
 
     private func setNaviBar() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "arrow_back"))
-        //self.title = "SearchListView"
+    }
+    
+    private func setPageVC() {
+        self.pageViewController.setViewControllers([self.vcArray[0]], direction: .forward, animated: false)
+    }
+    
+    private func configureViewHierarchy() {
+        self.view.addSubview(self.pageViewController.view)
+    }
+    
+    private func setConstraints() {
+        self.pageViewControllerTopConstraint.isActive = true
+        self.pageViewController.view.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
 
     private func setDelegates() {
@@ -160,6 +190,16 @@ extension SearchListViewController: UICollectionViewDelegate {
             self.segmentCollectoinView.select(at: indexPath.item)
             self.segmentCollectoinView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
+            var isForward: UIPageViewController.NavigationDirection {
+                let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
+                if currentIndex <= indexPath.item {
+                    return .forward
+                } else {
+                    return .reverse
+                }
+            }
+            self.pageViewController.setViewControllers([self.vcArray[indexPath.item]], direction: isForward, animated: true)
+            
         case self.searchFilterListCollectionView:
             return
             
@@ -176,4 +216,48 @@ extension SearchListViewController: addListCellProtocol {
         print(#function)
     }
 
+}
+
+
+extension SearchListViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = self.vcArray.firstIndex(of: viewController) else { return nil }
+        let previousIndex = index - 1
+        if previousIndex < 0 { return nil }
+        return self.vcArray[previousIndex]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = self.vcArray.firstIndex(of: viewController) else { return nil }
+        let nextIndex = index + 1
+        if nextIndex >= self.vcArray.count { return nil }
+        return self.vcArray[nextIndex]
+    }
+    
+}
+
+extension SearchListViewController: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        print(#function)
+        let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
+        let toIndex = self.vcArray.firstIndex(of: pendingViewControllers[0])!
+        print("toIndex:", toIndex)
+        //self.selectSegmentButton(index: index)
+        if toIndex < currentIndex {
+            self.segmentCollectoinView.select(at: toIndex)
+        } else {
+            self.segmentCollectoinView.select(at: currentIndex)
+        }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        print(#function)
+        let index = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
+        print(index)
+        //self.selectSegmentButton(index: index)
+        self.segmentCollectoinView.select(at: index)
+    }
+    
 }
