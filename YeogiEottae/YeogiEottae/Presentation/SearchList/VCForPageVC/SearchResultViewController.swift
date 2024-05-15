@@ -13,7 +13,7 @@ class SearchResultViewController: UIViewController {
     let hotelList: [Hotel] = [
         
         Hotel(name: "그랜드 인터컨티넨탈 파르나스", rate: 9.4, starRating: 5, price: 90000),
-        Hotel(name: "서울 신라 호첼", rate: 9.8, starRating: 5, price: 90000),
+        Hotel(name: "서울 신라 호텔", rate: 9.8, starRating: 5, price: 90000),
         Hotel(name: "글래드 여의도", rate: 9.4, starRating: 4, price: 90000),
         Hotel(name: "나인트리 프리미어 로카우스 호텔 서울 용산", rate: 9.4, starRating: 5, price: 90000),
         Hotel(name: "앰배서더 서울 풀만 호텔", rate: 9.2, starRating: 5, price: 90000),
