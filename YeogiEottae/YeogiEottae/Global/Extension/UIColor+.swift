@@ -43,7 +43,8 @@ enum GrayColor: String, ProjectColor {
 }
 
 enum SystemColor: String, ProjectColor {
-    case starDark = "#FFAD0A"
+    case starLight = "#FFAD0A"
+    case starDark = "#FFAC09"
     case caution = "#CA0101"
 }
 
