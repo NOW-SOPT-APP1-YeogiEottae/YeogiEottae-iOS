@@ -69,7 +69,27 @@ final class SearchListView: UIView {
         return button
     }()
     
-    let customSegmentController = AccomodationKindSegmentController()
+    let segmentCollectionView: SearchSegmentCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 24
+        flowLayout.sectionInset.top = 0
+        flowLayout.sectionInset.left = 24
+        flowLayout.sectionInset.right = 24
+        flowLayout.sectionInset.bottom = 0
+        flowLayout.estimatedItemSize = CGSize(width: 30, height: 40)
+        
+        let collectionView = SearchSegmentCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.register(SearchSegmentCell.self, forCellWithReuseIdentifier: SearchSegmentCell.reuseIdentifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    let seperator: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        return view
+    }()
     
     let filterView = UIView()
     
@@ -107,10 +127,9 @@ final class SearchListView: UIView {
     let searchFilterListCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumInteritemSpacing = 12
+        //flowLayout.minimumInteritemSpacing = 12
         flowLayout.minimumLineSpacing = 12
         flowLayout.estimatedItemSize = CGSize(width: 30, height: 30)
-        //flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.contentInset.left = 14
@@ -141,9 +160,9 @@ final class SearchListView: UIView {
     }
     
     private func configureViewHierarchy() {
-        [self.dateButton, self.headCountButton].forEach { view in self.addSubview(view) }
-        self.addSubview(self.customSegmentController)
-        [self.filterButton, self.searchFilterListCollectionView, self.filterViewUnderBar].forEach { view in self.filterView.addSubview(view) }
+        self.addSubviews(self.dateButton, self.headCountButton)
+        self.addSubviews(self.segmentCollectionView, self.seperator)
+        self.filterView.addSubviews(self.filterButton, self.searchFilterListCollectionView, self.filterViewUnderBar)
         self.addSubview(self.filterView)
     }
     
@@ -160,14 +179,20 @@ final class SearchListView: UIView {
             make.height.equalTo(self.dateButton.snp.height)
         }
         
-        self.customSegmentController.snp.makeConstraints { make in
+        self.segmentCollectionView.snp.makeConstraints { make in
             make.top.equalTo(self.dateButton.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(40)
+            make.height.equalTo(39)
+        }
+        
+        self.seperator.snp.makeConstraints { make in
+            make.top.equalTo(self.segmentCollectionView.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(1)
         }
         
         self.filterView.snp.makeConstraints { make in
-            make.top.equalTo(self.customSegmentController.snp.bottom).offset(8)
+            make.top.equalTo(self.seperator.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(38)
         }

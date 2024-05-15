@@ -13,7 +13,17 @@ enum searchFilterListCollectionViewSection: Int {
 }
 
 class SearchListViewController: UIViewController {
-
+    
+    let segments = [
+        StringLiteral.SearchSegmentName.allKind,
+        StringLiteral.SearchSegmentName.motel,
+        StringLiteral.SearchSegmentName.hotelResort,
+        StringLiteral.SearchSegmentName.pension,
+        StringLiteral.SearchSegmentName.homeVilla,
+        StringLiteral.SearchSegmentName.camping,
+        StringLiteral.SearchSegmentName.guestHouseHanok
+    ]
+    
     let searchFilters: [SearchFilter] = [
         SearchFilter.couponDiscount,
         SearchFilter.onSale,
@@ -22,8 +32,12 @@ class SearchListViewController: UIViewController {
         SearchFilter.breakfastFree
     ]
 
-    let rootView = SearchListView()
-
+    let rootView: SearchListView = SearchListView()
+    
+    //lazy var customSegmentController: AccomodationKindSegmentController = self.rootView.customSegmentController
+    lazy var segmentCollectoinView = self.rootView.segmentCollectionView
+    lazy var searchFilterListCollectionView = self.rootView.searchFilterListCollectionView
+    
     override func loadView() {
         self.view = self.rootView
     }
@@ -33,6 +47,7 @@ class SearchListViewController: UIViewController {
 
         self.setNaviBar()
         self.setDelegates()
+        self.setButtonsAction()
     }
 
     private func setNaviBar() {
@@ -41,8 +56,44 @@ class SearchListViewController: UIViewController {
     }
 
     private func setDelegates() {
+        self.rootView.segmentCollectionView.dataSource = self
+        self.rootView.segmentCollectionView.delegate = self
+        
         self.rootView.searchFilterListCollectionView.dataSource = self
         self.rootView.searchFilterListCollectionView.delegate = self
+    }
+    
+    private func setButtonsAction() {
+//        self.customSegmentController.buttonsArray.forEach { button in
+//            button.addTarget(self, action: #selector(segmentButtonDidTapped(sender:)), for: .touchUpInside)
+//        }
+    }
+    
+    @objc private func segmentButtonDidTapped(sender: UIButton) {
+        //var isForward: UIPageViewController.NavigationDirection {
+        //
+        //}
+        
+        //switch sender.tag {
+        //case 0:
+        //
+        //case 1:
+        //
+        //case 2:
+        //
+        //case 3:
+        //
+        //case 4:
+        //
+        //case 5:
+        //
+        //case 6:
+        //
+        //default:
+        //    return
+        //}
+        
+//        self.customSegmentController.select(at: sender.tag)
     }
 }
 
@@ -50,52 +101,105 @@ class SearchListViewController: UIViewController {
 extension SearchListViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        
+        switch collectionView {
+        case self.segmentCollectoinView:
+            return 1
+        case self.searchFilterListCollectionView:
+            return 2
+        default:
+            return 0
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case searchFilterListCollectionViewSection.list.rawValue:
-            return self.searchFilters.count
-        case searchFilterListCollectionViewSection.add.rawValue:
-            return 1
+        
+        
+        switch collectionView {
+        case self.segmentCollectoinView:
+            return 7
+            
+        case self.searchFilterListCollectionView:
+            
+            switch section {
+            case searchFilterListCollectionViewSection.list.rawValue:
+                return self.searchFilters.count
+            case searchFilterListCollectionViewSection.add.rawValue:
+                return 1
+            default:
+                fatalError("Invalid Section accessed")
+            }
+            
         default:
-            fatalError("Invalid Section accessed")
+            return 0
         }
+        
+        
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        switch indexPath.section {
-        case 0:
-            guard let searchFilterListCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: SearchFilterListCell.reuseIdentifier,
+        
+        switch collectionView {
+        case self.segmentCollectoinView:
+            guard let searchSegmentCell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: SearchSegmentCell.reuseIdentifier,
                 for: indexPath
-            ) as? SearchFilterListCell else { fatalError() }
+            ) as? SearchSegmentCell else { fatalError() }
+            
+            searchSegmentCell.segmentLabel.text = self.segments[indexPath.item]
+            return searchSegmentCell
+            
+        case self.searchFilterListCollectionView:
+            
+            switch indexPath.section {
+            case 0:
+                guard let searchFilterListCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SearchFilterListCell.reuseIdentifier,
+                    for: indexPath
+                ) as? SearchFilterListCell else { fatalError() }
 
-            searchFilterListCell.configureData(with: self.searchFilters[indexPath.item])
-            return searchFilterListCell
+                searchFilterListCell.configureData(with: self.searchFilters[indexPath.item])
+                return searchFilterListCell
 
-        case 1:
-            guard let addSearchFilterListCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: AddSearchFilterListCell.reuseIdentifier,
-                for: indexPath
-            ) as? AddSearchFilterListCell else { fatalError()}
+            case 1:
+                guard let addSearchFilterListCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: AddSearchFilterListCell.reuseIdentifier,
+                    for: indexPath
+                ) as? AddSearchFilterListCell else { fatalError()}
 
-            addSearchFilterListCell.delegate = self
-            return addSearchFilterListCell
+                addSearchFilterListCell.delegate = self
+                return addSearchFilterListCell
 
+            default:
+                fatalError("Invalid Section accessed")
+            }
+            
         default:
-            fatalError("Invalid Section accessed")
+            fatalError()
         }
-
     }
-
+    
 }
 
 
 extension SearchListViewController: UICollectionViewDelegate {
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch collectionView {
+        case self.segmentCollectoinView:
+            self.segmentCollectoinView.select(at: indexPath.item)
+            self.segmentCollectoinView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            
+        case self.searchFilterListCollectionView:
+            return
+            
+        default:
+            return
+        }
+    }
+    
 }
 
 extension SearchListViewController: addListCellProtocol {
