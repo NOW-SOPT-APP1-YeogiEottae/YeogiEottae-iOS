@@ -44,7 +44,7 @@ class SearchListViewController: UIViewController {
     ]
     let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
-    //lazy var customSegmentController: AccomodationKindSegmentController = self.rootView.customSegmentController
+    //lazy var customSegmentController: AccommodationKindSegmentController = self.rootView.customSegmentController
     lazy var segmentCollectoinView = self.rootView.segmentCollectionView
     lazy var searchFilterListCollectionView = self.rootView.searchFilterListCollectionView
     

@@ -17,6 +17,8 @@ final class SearchResultView: UIView {
         tableView.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.reuseIdentifier)
         tableView.backgroundColor = .white
         tableView.sectionHeaderHeight = 44
+        tableView.separatorStyle = .none
+        tableView.scrollsToTop = true
         return tableView
     }()
     

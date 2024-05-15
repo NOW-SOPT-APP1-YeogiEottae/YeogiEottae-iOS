@@ -16,7 +16,7 @@ enum StringLiteral {
         static var myInfoTitle = "내 정보"
     }
     
-    enum AccomodationKindSegmentName {
+    enum AccommodationKindSegmentName {
         static var allKind = "전체"
         static var motel = "모텔"
         static var hotelResort = "호텔•리조트"

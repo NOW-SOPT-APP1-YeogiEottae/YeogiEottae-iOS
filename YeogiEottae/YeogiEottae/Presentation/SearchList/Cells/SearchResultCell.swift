@@ -22,7 +22,7 @@ class SearchResultCell: UITableViewCell {
         return imageView
     }()
     
-    let accomodationKindLabel: UILabel = {
+    let accommodationKindLabel: UILabel = {
         let label = UILabel()
         label.text = "호텔"
         label.font = UIFont.projectFont(name: .l7)
@@ -41,7 +41,7 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let transportationAccessibilityLabel: UILabel = {
+    var transportationAccessibilityLabel: UILabel = {
         let label = UILabel()
         label.text = "건대입구역 도보 3분"
         label.font = UIFont.projectFont(name: .l2)
@@ -176,10 +176,10 @@ class SearchResultCell: UITableViewCell {
         self.ratingContainerView.addSubviews(self.starImage, self.ratingLabel)
         
         self.addSubviews(
-            self.hotelImageView,
+            self.accommodationImageView,
             
-            self.accomodationKindLabel,
-            self.hotelNameLabel,
+            self.accommodationKindLabel,
+            self.nameLabel,
             self.transportationAccessibilityLabel,
             self.ratingContainerView,
             self.ratingCountLabel,
