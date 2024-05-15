@@ -47,7 +47,6 @@ class SearchListViewController: UIViewController {
 
         self.setNaviBar()
         self.setDelegates()
-        self.setButtonsAction()
     }
 
     private func setNaviBar() {
@@ -61,40 +60,11 @@ class SearchListViewController: UIViewController {
         
         self.rootView.searchFilterListCollectionView.dataSource = self
         self.rootView.searchFilterListCollectionView.delegate = self
+        
+        self.pageViewController.dataSource = self
+        self.pageViewController.delegate = self
     }
     
-    private func setButtonsAction() {
-//        self.customSegmentController.buttonsArray.forEach { button in
-//            button.addTarget(self, action: #selector(segmentButtonDidTapped(sender:)), for: .touchUpInside)
-//        }
-    }
-    
-    @objc private func segmentButtonDidTapped(sender: UIButton) {
-        //var isForward: UIPageViewController.NavigationDirection {
-        //
-        //}
-        
-        //switch sender.tag {
-        //case 0:
-        //
-        //case 1:
-        //
-        //case 2:
-        //
-        //case 3:
-        //
-        //case 4:
-        //
-        //case 5:
-        //
-        //case 6:
-        //
-        //default:
-        //    return
-        //}
-        
-//        self.customSegmentController.select(at: sender.tag)
-    }
 }
 
 
@@ -133,8 +103,6 @@ extension SearchListViewController: UICollectionViewDataSource {
         default:
             return 0
         }
-        
-        
         
     }
 
@@ -186,7 +154,7 @@ extension SearchListViewController: UICollectionViewDataSource {
 extension SearchListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print(#function)
         switch collectionView {
         case self.segmentCollectoinView:
             self.segmentCollectoinView.select(at: indexPath.item)

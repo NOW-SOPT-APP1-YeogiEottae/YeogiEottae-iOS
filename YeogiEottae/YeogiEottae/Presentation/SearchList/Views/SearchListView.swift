@@ -217,6 +217,4 @@ final class SearchListView: UIView {
         }
     }
     
-    
-    
 }

@@ -58,16 +58,7 @@ class SearchSegmentCollectionView: UICollectionView {
     }
     
     func select(at selectedIndex: Int) {
-        self.updateConstraintsIfNeeded()
-        self.layoutIfNeeded()
-        
-        print(#function)
-        print("contentSize:",self.contentSize)
-        print("underBarFrame:", self.underbar.frame)
-        print("")
-        
         self.currentIndex = selectedIndex
-        
         // 언더바 위치 설정하는 애니메이션 설정
         let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
         animator.addAnimations {
@@ -80,7 +71,6 @@ class SearchSegmentCollectionView: UICollectionView {
         guard let selectedCell = self.cellForItem(at: IndexPath(item: index, section: 0)) as? SearchSegmentCell else { return }
         let label = selectedCell.segmentLabel
         let labelFrame = selectedCell.convert(label.frame, to: self)
-        print(labelFrame)
         self.underbarLeadingConstraint.constant = labelFrame.origin.x
         self.underbarTrailingConstraint.constant = labelFrame.origin.x + label.bounds.width
         self.layoutIfNeeded()

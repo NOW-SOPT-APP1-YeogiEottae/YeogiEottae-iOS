@@ -53,12 +53,6 @@ class SearchSegmentCell: UICollectionViewCell {
             make.bottom.equalToSuperview().inset(12)
             make.height.equalTo(19)
         }
-        
-        //self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        //self.contentView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
-    
-    
-    
     
 }
