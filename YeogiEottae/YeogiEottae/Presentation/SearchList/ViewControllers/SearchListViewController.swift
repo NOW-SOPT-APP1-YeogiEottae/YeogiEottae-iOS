@@ -33,14 +33,14 @@ class SearchListViewController: UIViewController {
     ]
 
     let rootView: SearchListView = SearchListView()
-    let vcArray = [
+    let vcArray: [UIViewController] = [
         SearchResultViewController(),
-        GreenViewController(),
-        BlueViewController(),
-        OrangeViewController(),
-        GreenViewController(),
-        BlueViewController(),
-        OrangeViewController()
+        SearchResultViewController(),
+        SearchResultViewController(),
+        SearchResultViewController(),
+        SearchResultViewController(),
+        SearchResultViewController(),
+        SearchResultViewController()
     ]
     let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
@@ -244,7 +244,6 @@ extension SearchListViewController: UICollectionViewDelegate {
         switch collectionView {
         case self.segmentCollectoinView:
             self.segmentCollectoinView.select(at: indexPath.item)
-            self.segmentCollectoinView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
             var isForward: UIPageViewController.NavigationDirection {
                 let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!

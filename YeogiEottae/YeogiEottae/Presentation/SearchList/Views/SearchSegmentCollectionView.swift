@@ -59,6 +59,7 @@ class SearchSegmentCollectionView: UICollectionView {
     
     func select(at selectedIndex: Int) {
         self.currentIndex = selectedIndex
+        self.selectItem(at: IndexPath(item: selectedIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
         // 언더바 위치 설정하는 애니메이션 설정
         let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
         animator.addAnimations {
