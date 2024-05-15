@@ -91,6 +91,9 @@ class SearchResultCell: UITableViewCell {
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let button = UIButton(configuration: configuration)
+        button.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -106,7 +109,10 @@ class SearchResultCell: UITableViewCell {
     
     var discountPriceLabel: UILabel = {
         let label = UILabel()
-        label.text = "30000"
+        label.attributedText = NSAttributedString(
+            string: "30000",
+            attributes: [NSAttributedString.Key.strikethroughStyle: 1]
+        )
         label.font = UIFont.projectFont(name: .l5)
         label.textAlignment = .left
         label.numberOfLines = 1
