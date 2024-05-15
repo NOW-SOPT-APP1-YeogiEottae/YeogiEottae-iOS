@@ -65,7 +65,63 @@ class SearchListViewController: UIViewController {
     }
 
     private func setNaviBar() {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "arrow_back"))
+        
+        let arowBackButton: UIButton = {
+            var configuration = UIButton.Configuration.plain()
+            configuration.image = UIImage(named: "arrowBack")
+            configuration.baseForegroundColor = UIColor.init(hexCode: "#1C1B1F")
+            
+            let button = UIButton(configuration: configuration)
+            return button
+        }()
+        
+        let searchAgainButton: UIButton = {
+            let transformer = UIConfigurationTextAttributesTransformer { incoming in
+                var outgoing = incoming
+                outgoing.font = UIFont.projectFont(name: .h1)
+                outgoing.foregroundColor = UIColor.grayColor(brightness: .gray950)
+                return outgoing
+            }
+            
+            var configuration = UIButton.Configuration.plain()
+            configuration.image = UIImage(named: "cancel")
+            configuration.imagePadding = 4
+            configuration.imagePlacement = .trailing
+            configuration.titleTextAttributesTransformer = transformer
+            configuration.contentInsets = NSDirectionalEdgeInsets.zero
+            
+            let button = UIButton(configuration: configuration)
+            button.setTitle("서울", for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            return button
+        }()
+        
+        let stackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [arowBackButton, searchAgainButton])
+            stackView.axis = .horizontal
+            stackView.spacing = 0
+            stackView.distribution = .fillProportionally
+            return stackView
+        }()
+        
+        let customBarButtonItem = UIBarButtonItem(customView: stackView)
+        
+        let showMapButton: UIButton = {
+            let button = UIButton()
+            button.setTitle("지도보기", for: .normal)
+            button.titleLabel?.font = UIFont.projectFont(name: .b3)
+            button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
+            return button
+        }()
+        
+        let showMapBarButtonItem = UIBarButtonItem(customView: showMapButton)
+//        let showMapBarButtonItem = UIBarButtonItem(title: "지도보기")
+//        showMapBarButtonItem.tintColor = UIColor.grayColor(brightness: .gray800)
+        //font b3
+        
+        self.navigationItem.leftBarButtonItem = customBarButtonItem
+        self.navigationItem.rightBarButtonItem = showMapBarButtonItem
+        
     }
     
     private func setPageVC() {
