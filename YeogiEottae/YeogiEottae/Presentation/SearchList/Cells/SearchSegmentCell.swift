@@ -28,6 +28,7 @@ class SearchSegmentCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
