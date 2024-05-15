@@ -41,25 +41,24 @@ extension SearchResultViewController: UITableViewDataSource {
         return self.hotelList.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        print(#function)
-        guard let searchResultHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SearchResultHeaderView.reuseIdentifier) as? SearchResultHeaderView else { fatalError() }
-        
-        return searchResultHeaderView
-    }
-    
-    
-}
-
-
-extension SearchResultViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(#function)
         guard let searchResultCell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reuseIdentifier, for: indexPath) as? SearchResultCell else { fatalError() }
         
         searchResultCell.configureData(with: self.hotelList[indexPath.item])
         return searchResultCell
+    }
+    
+}
+
+
+extension SearchResultViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        print(#function)
+        guard let searchResultHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SearchResultHeaderView.reuseIdentifier) as? SearchResultHeaderView else { fatalError() }
+        
+        return searchResultHeaderView
     }
     
 }

@@ -13,7 +13,7 @@ class SearchResultCell: UITableViewCell {
         return String(describing: self)
     }
     
-    let hotelImageView: UIImageView = {
+    let accommodationImageView: UIImageView = {
         let imageView = UIImageView(image: nil)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -32,7 +32,7 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let hotelNameLabel: UILabel = {
+    var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.projectFont(name: .h4)
         label.textAlignment = .left
@@ -43,6 +43,7 @@ class SearchResultCell: UITableViewCell {
     
     let transportationAccessibilityLabel: UILabel = {
         let label = UILabel()
+        label.text = "건대입구역 도보 3분"
         label.font = UIFont.projectFont(name: .l2)
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -50,7 +51,7 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let ratingContainerView: UIView = {
+    var ratingContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.systemColor(brightness: .starLight)
         view.clipsToBounds = true
@@ -58,14 +59,15 @@ class SearchResultCell: UITableViewCell {
         return view
     }()
     
-    let starImage: UIImageView = {
+    var starImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "starRate"))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let ratingLabel: UILabel = {
+    var ratingLabel: UILabel = {
         let label = UILabel()
+        label.text = "10"
         label.font = UIFont.projectFont(name: .l4)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -73,8 +75,9 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let ratingCountLabel: UILabel = {
+    var ratingCountLabel: UILabel = {
         let label = UILabel()
+        label.text = "3,333개 평가"
         label.font = UIFont.projectFont(name: .b6)
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -82,7 +85,7 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let heartButton: UIButton = {
+    var heartButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: "like20")
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
@@ -91,8 +94,9 @@ class SearchResultCell: UITableViewCell {
         return button
     }()
     
-    let discountRateLabel: UILabel = {
+    var discountRateLabel: UILabel = {
         let label = UILabel()
+        label.text = "10%"
         label.font = UIFont.projectFont(name: .b7)
         label.textAlignment = .right
         label.numberOfLines = 1
@@ -100,8 +104,9 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let discountPriceLabel: UILabel = {
+    var discountPriceLabel: UILabel = {
         let label = UILabel()
+        label.text = "30000"
         label.font = UIFont.projectFont(name: .l5)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -109,8 +114,9 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let isCouponAppliedLabel: UILabel = {
+    var isCouponAppliedLabel: UILabel = {
         let label = UILabel()
+        label.text = "쿠폰적용시"
         label.font = UIFont.projectFont(name: .b7)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -118,8 +124,9 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let discountedPriceLabel: UILabel = {
+    var discountedPriceLabel: UILabel = {
         let label = UILabel()
+        label.text = "90000"
         label.font = UIFont.projectFont(name: .h3)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -127,8 +134,9 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let discountedPriceCurrencyLabel: UILabel = {
+    var discountedPriceCurrencyLabel: UILabel = {
         let label = UILabel()
+        label.text = "원"
         label.font = UIFont.projectFont(name: .h4)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -136,8 +144,9 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
-    let subTextLabel: UILabel = {
+    var subTextLabel: UILabel = {
         let label = UILabel()
+        label.text = "sub text"
         label.font = UIFont.projectFont(name: .b7)
         label.textAlignment = .right
         label.numberOfLines = 1
@@ -149,12 +158,17 @@ class SearchResultCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.setUI()
         self.configureViewHierarchy()
         self.setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setUI() {
+        self.selectionStyle = .none
     }
     
     private func configureViewHierarchy() {
@@ -184,6 +198,94 @@ class SearchResultCell: UITableViewCell {
     
     private func setConstraints() {
         
+        self.accommodationImageView.snp.makeConstraints { make in
+            make.verticalEdges.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(19)
+            make.width.equalTo(120)
+            make.height.equalTo(180)
+        }
+        
+        self.accommodationKindLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.accommodationImageView.snp.top)
+            make.leading.equalTo(self.accommodationImageView.snp.trailing).offset(10)
+        }
+        
+        self.nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.accommodationKindLabel.snp.bottom).offset(2)
+            make.leading.equalTo(self.accommodationKindLabel.snp.leading)
+            make.trailing.equalTo(self.accommodationKindLabel.snp.trailing)
+        }
+        
+        self.transportationAccessibilityLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.nameLabel.snp.bottom).offset(2)
+            make.leading.equalTo(self.accommodationKindLabel.snp.leading)
+            make.trailing.equalTo(self.accommodationKindLabel.snp.trailing)
+        }
+        
+        self.ratingContainerView.snp.makeConstraints { make in
+            make.top.equalTo(self.transportationAccessibilityLabel.snp.bottom).offset(8)
+            make.leading.equalTo(self.accommodationKindLabel.snp.leading)
+        }
+        
+        self.starImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(4)
+            make.leading.equalToSuperview().inset(2)
+            make.bottom.equalToSuperview().inset(3)
+        }
+        
+        self.ratingLabel.snp.makeConstraints { make in
+            make.leading.equalTo(self.starImage.snp.trailing)
+            make.top.equalToSuperview().inset(4.5)
+            make.trailing.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview().inset(3.5)
+        }
+        
+        self.ratingCountLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(self.ratingContainerView)
+            make.leading.equalTo(self.ratingContainerView.snp.trailing).offset(5)
+        }
+        
+        self.heartButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(27)
+            make.leading.greaterThanOrEqualTo(self.accommodationKindLabel.snp.trailing)
+            make.trailing.equalToSuperview().inset(26)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
+        
+        self.discountRateLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(self.discountPriceLabel)
+            make.trailing.equalTo(self.discountPriceLabel.snp.leading).offset(-2)
+            make.height.equalTo(13)
+        }
+        
+        self.discountPriceLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(19)
+            make.bottom.equalTo(self.discountedPriceCurrencyLabel.snp.top).offset(-2)
+            make.height.equalTo(15)
+        }
+        
+        self.isCouponAppliedLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(self.discountedPriceLabel)
+            make.trailing.equalTo(self.discountedPriceLabel.snp.leading).offset(-4)
+        }
+        
+        self.discountedPriceLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(self.discountedPriceCurrencyLabel)
+            make.trailing.equalTo(self.discountedPriceCurrencyLabel.snp.leading)
+        }
+        
+        self.discountedPriceCurrencyLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(self.discountPriceLabel)
+            make.bottom.equalTo(self.subTextLabel.snp.top).offset(-3)
+            make.height.equalTo(18)
+        }
+        
+        self.subTextLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(self.discountPriceLabel)
+            make.bottom.equalToSuperview().inset(20)
+            make.height.equalTo(13)
+        }
         
         
         
@@ -191,7 +293,9 @@ class SearchResultCell: UITableViewCell {
         
     
     func configureData(with data: Hotel) {
-        
+        self.nameLabel.text = data.name
+        self.discountedPriceLabel.text = "\(data.price)"
+        self.ratingLabel.text = "\(data.rate)"
     }
     
 }
