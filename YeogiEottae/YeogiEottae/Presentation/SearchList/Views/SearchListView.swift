@@ -81,6 +81,7 @@ final class SearchListView: UIView {
         
         let collectionView = SearchSegmentCollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.register(SearchSegmentCell.self, forCellWithReuseIdentifier: SearchSegmentCell.reuseIdentifier)
+        collectionView.scrollsToTop = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -138,6 +139,7 @@ final class SearchListView: UIView {
         collectionView.register(AddSearchFilterListCell.self, forCellWithReuseIdentifier: AddSearchFilterListCell.reuseIdentifier)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.allowsMultipleSelection = true
+        collectionView.scrollsToTop = false
         return collectionView
     }()
     
