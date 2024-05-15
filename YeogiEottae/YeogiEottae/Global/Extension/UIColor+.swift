@@ -10,11 +10,11 @@ import UIKit
 protocol ProjectColor: RawRepresentable where RawValue == String { }
 
 enum BrandColor: String, ProjectColor {
-    case BrandDark = "#E14040"
-    case Brand = "#F45858"
-    case BrandLight = "#FF6A6A"
-    case BrandLighter = "#F98383"
-    case BrandLightest = "#FFEDED"
+    case brandDark = "#E14040"
+    case brand = "#F45858"
+    case brandLight = "#FF6A6A"
+    case brandLighter = "#F98383"
+    case brandLightest = "#FFEDED"
 }
 
 enum SecondaryColor: String, ProjectColor {
