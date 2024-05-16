@@ -44,7 +44,6 @@ class SearchListViewController: UIViewController {
     ]
     let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
-    //lazy var customSegmentController: AccommodationKindSegmentController = self.rootView.customSegmentController
     lazy var segmentCollectoinView = self.rootView.segmentCollectionView
     lazy var searchFilterListCollectionView = self.rootView.searchFilterListCollectionView
     
@@ -52,80 +51,152 @@ class SearchListViewController: UIViewController {
     
     var isTableViewScrollToTopEnable: Bool = true
     
+    
+    //MARK: UINavigationBar UIComponents
+    
+    let arowBackButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: "arrowBack")
+        configuration.baseForegroundColor = UIColor.init(hexCode: "#1C1B1F")
+        
+        let button = UIButton(configuration: configuration)
+        
+        return button
+    }()
+    
+    let searchAgainButton: UIButton = {
+        let transformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont.projectFont(name: .h1)
+            outgoing.foregroundColor = UIColor.grayColor(brightness: .gray950)
+            return outgoing
+        }
+        
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: "cancel")
+        configuration.imagePadding = 4
+        configuration.imagePlacement = .trailing
+        configuration.titleTextAttributesTransformer = transformer
+        configuration.contentInsets = NSDirectionalEdgeInsets.zero
+        
+        let button = UIButton(configuration: configuration)
+        button.setTitle("서울", for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [self.arowBackButton, self.searchAgainButton])
+        stackView.axis = .horizontal
+        stackView.spacing = 0
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
+    lazy var customBarButtonItem = UIBarButtonItem(customView: stackView)
+    
+    let showMapButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("지도보기", for: .normal)
+        button.titleLabel?.font = UIFont.projectFont(name: .b3)
+        button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
+        return button
+    }()
+    
+    lazy var showMapBarButtonItem = UIBarButtonItem(customView: showMapButton)
+    
+    let shrinkedNavigationItemTitleView = UIView()
+    
+    let shrinkedNavigationBarSearchPlaceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "서울"
+        label.font = UIFont.projectFont(name: .b5)
+        label.textColor = UIColor.grayColor(brightness: .gray950)
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    let shrinkedNavigationBarSearchRangeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "5.16 목 - 5.17 금, 2명"
+        label.font = UIFont.projectFont(name: .l6)
+        label.textColor = UIColor.grayColor(brightness: .gray800)
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    /*
+     NavigationBar UI Components 끝
+     */
+    
+    let stickyViewBottomShadow: UIView = {
+        let view = UIView()
+        view.setGradient(firstColor: UIColor.grayColor(brightness: .gray400), secondColor: UIColor.grayColor(brightness: .gray200), axis: .vertical)
+        view.isHidden = true
+        return view
+    }()
+    
     override func loadView() {
         self.view = self.rootView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setNaviBar()
+        
         self.setPageVC()
         self.configureViewHierarchy()
         self.setConstraints()
+        self.setInitialNavigationBar()
         self.setDelegates()
     }
-
-    private func setNaviBar() {
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        let arowBackButton: UIButton = {
-            var configuration = UIButton.Configuration.plain()
-            configuration.image = UIImage(named: "arrowBack")
-            configuration.baseForegroundColor = UIColor.init(hexCode: "#1C1B1F")
-            
-            let button = UIButton(configuration: configuration)
-            
-            button.addTarget(self, action: #selector(arrowBackButtonDidTapped), for: .touchUpInside)
-            return button
-        }()
-        
-        let searchAgainButton: UIButton = {
-            let transformer = UIConfigurationTextAttributesTransformer { incoming in
-                var outgoing = incoming
-                outgoing.font = UIFont.projectFont(name: .h1)
-                outgoing.foregroundColor = UIColor.grayColor(brightness: .gray950)
-                return outgoing
-            }
-            
-            var configuration = UIButton.Configuration.plain()
-            configuration.image = UIImage(named: "cancel")
-            configuration.imagePadding = 4
-            configuration.imagePlacement = .trailing
-            configuration.titleTextAttributesTransformer = transformer
-            configuration.contentInsets = NSDirectionalEdgeInsets.zero
-            
-            let button = UIButton(configuration: configuration)
-            button.setTitle("서울", for: .normal)
-            button.imageView?.contentMode = .scaleAspectFit
-            return button
-        }()
-        
-        let stackView: UIStackView = {
-            let stackView = UIStackView(arrangedSubviews: [arowBackButton, searchAgainButton])
-            stackView.axis = .horizontal
-            stackView.spacing = 0
-            stackView.distribution = .fillProportionally
-            return stackView
-        }()
-        
-        let customBarButtonItem = UIBarButtonItem(customView: stackView)
-        
-        let showMapButton: UIButton = {
-            let button = UIButton()
-            button.setTitle("지도보기", for: .normal)
-            button.titleLabel?.font = UIFont.projectFont(name: .b3)
-            button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
-            return button
-        }()
-        
-        let showMapBarButtonItem = UIBarButtonItem(customView: showMapButton)
-//        let showMapBarButtonItem = UIBarButtonItem(title: "지도보기")
-//        showMapBarButtonItem.tintColor = UIColor.grayColor(brightness: .gray800)
-        //font b3
-        
+        self.stickyViewBottomShadow.setGradient(
+            firstColor: UIColor.grayColor(brightness: .gray500).withAlphaComponent(0.1),
+            secondColor: UIColor.grayColor(brightness: .gray500).withAlphaComponent(0),
+            axis: .vertical
+        )
+    }
+    
+    private func setInitialNavigationBar() {
         self.navigationItem.leftBarButtonItem = customBarButtonItem
+        self.shrinkedNavigationItemTitleView.isHidden = true
+        self.navigationItem.titleView = self.shrinkedNavigationItemTitleView
         self.navigationItem.rightBarButtonItem = showMapBarButtonItem
-        
+    }
+
+    private func setNavigationBarWhenSegmentExpanded() {
+        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
+        animator.addAnimations {
+            self.shrinkedNavigationItemTitleView.isHidden = true
+            self.searchAgainButton.alpha = 1
+        }
+        animator.startAnimation()
+    }
+    
+    private func setNavigationBarWhenSegmentShrinked() {
+        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
+        animator.addAnimations {
+            self.shrinkedNavigationItemTitleView.isHidden = false
+            self.searchAgainButton.alpha = 0
+        }
+        animator.startAnimation()
+    }
+    
+    func expand() {
+        self.rootView.expandSegmentController()
+        self.setNavigationBarWhenSegmentExpanded()
+        self.stickyViewBottomShadow.isHidden = true
+    }
+    
+    func shrink() {
+        self.rootView.shrinkSegmentController()
+        self.setNavigationBarWhenSegmentShrinked()
+        self.stickyViewBottomShadow.isHidden = false
     }
     
     private func setPageVC() {
@@ -133,14 +204,42 @@ class SearchListViewController: UIViewController {
     }
     
     private func configureViewHierarchy() {
-        self.view.addSubview(self.pageViewController.view)
+        self.view.addSubviews(self.pageViewController.view, self.stickyViewBottomShadow) //view 추가 순서 주의!
+        self.shrinkedNavigationItemTitleView.addSubview(self.shrinkedNavigationBarSearchPlaceLabel)
+        self.shrinkedNavigationItemTitleView.addSubview(self.shrinkedNavigationBarSearchRangeLabel)
     }
     
     private func setConstraints() {
+        self.shrinkedNavigationItemTitleView.snp.makeConstraints { make in
+            if let navigationBarHeight = self.navigationController?.navigationBar.bounds.height {
+                make.height.equalTo(navigationBarHeight)
+            }
+        }
+        
+        self.shrinkedNavigationBarSearchPlaceLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(5)
+            make.leading.greaterThanOrEqualToSuperview()
+            make.trailing.lessThanOrEqualToSuperview()
+            make.centerX.equalToSuperview()
+        }
+        
+        self.shrinkedNavigationBarSearchRangeLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.shrinkedNavigationBarSearchPlaceLabel.snp.bottom)
+            make.leading.greaterThanOrEqualToSuperview()
+            make.trailing.lessThanOrEqualToSuperview()
+            make.centerX.equalToSuperview()
+        }
+        
         self.pageViewControllerTopConstraint.isActive = true
         self.pageViewController.view.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        self.stickyViewBottomShadow.snp.makeConstraints { make in
+            make.top.equalTo(self.rootView.filterView.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(3)
         }
     }
 
@@ -161,14 +260,6 @@ class SearchListViewController: UIViewController {
         }
     }
     
-    @objc private func arrowBackButtonDidTapped() {
-        switch rootView.isNaviBarShrinked {
-        case true:
-            self.rootView.expandSegmentController()
-        case false:
-            self.rootView.shrinkSegmentController()
-        }
-    }
 }
 
 //MARK: UICollectionDataSource
@@ -290,25 +381,25 @@ extension SearchListViewController: UITableViewDelegate {
         let velocity = scrollView.panGestureRecognizer.velocity(in: scrollView)
         
         if velocity.y < -0 && scrollView.contentOffset.y >= 50 {
-            self.rootView.shrinkSegmentController()
+            self.shrink()
         } else if velocity.y > 500 || scrollView.contentOffset.y <= 0 {
-            self.rootView.expandSegmentController()
+            self.expand()
         }
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         guard scrollView is UITableView else { return }
         if velocity.y > 0 {
-            self.rootView.shrinkSegmentController()
+            self.shrink()
         } else if velocity.y < 0 {
-            self.rootView.expandSegmentController()
+            self.expand()
         }
     }
     
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         print(#function)
         guard self.isTableViewScrollToTopEnable else { return false }
-        self.rootView.expandSegmentController()
+        self.expand()
         return true
     }
     
@@ -337,9 +428,6 @@ extension SearchListViewController: UIPageViewControllerDataSource {
         guard let index = self.vcArray.firstIndex(of: viewController) else { return nil }
         let previousIndex = index - 1
         if previousIndex < 0 { return nil }
-//        if let searchResultViewController = self.vcArray[previousIndex] as? SearchResultViewController {
-//            searchResultViewController.rootView.setTableViewDelegateDelegate(to: self)
-//        }
         return self.vcArray[previousIndex]
     }
     
@@ -357,11 +445,9 @@ extension SearchListViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         self.isTableViewScrollToTopEnable = false
-        self.rootView.expandSegmentController()
+        self.expand()
         let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
         let toIndex = self.vcArray.firstIndex(of: pendingViewControllers[0])!
-        print("toIndex:", toIndex)
-        //self.selectSegmentButton(index: index)
         if toIndex < currentIndex {
             self.segmentCollectoinView.select(at: toIndex)
         } else {
@@ -372,8 +458,6 @@ extension SearchListViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         self.isTableViewScrollToTopEnable = true
         let index = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
-        print(index)
-        //self.selectSegmentButton(index: index)
         self.segmentCollectoinView.select(at: index)
     }
     

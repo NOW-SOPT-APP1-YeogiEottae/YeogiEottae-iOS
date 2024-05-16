@@ -161,7 +161,6 @@ final class SearchListView: UIView {
     let searchFilterListCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        //flowLayout.minimumInteritemSpacing = 12
         flowLayout.minimumLineSpacing = 12
         flowLayout.estimatedItemSize = CGSize(width: 30, height: 30)
         
@@ -274,12 +273,10 @@ final class SearchListView: UIView {
             make.height.equalTo(self.filterButton)
         }
         
-        //self.searchFilterListCollectionViewWidthConstraint.isActive = true
         self.searchFilterLeadingConstraintToSetOrderButton.isActive = true
         self.searchFilterLeadingConstraintToTrailing.isActive = false
         self.searchFilterListCollectionView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            //make.leading.equalTo(self.filterButton.snp.trailing)
             make.trailing.equalToSuperview()
             make.height.equalTo(30)
         }
@@ -287,7 +284,6 @@ final class SearchListView: UIView {
         self.filterViewSeperatorHeightConstraint.isActive = true
         self.filterViewSeperator.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalToSuperview()
-            make.height.equalTo(1)
         }
     }
     
@@ -313,7 +309,6 @@ final class SearchListView: UIView {
             self.setOrderButtonInFilterViewWidthConstraint.isActive = false
             self.setOrderButtonInFilterView.alpha = 1
             
-            //self.searchFilterListCollectionViewWidthConstraint.constant = 0
             self.searchFilterLeadingConstraintToSetOrderButton.isActive = false
             self.searchFilterLeadingConstraintToTrailing.isActive = true
             
@@ -347,7 +342,6 @@ final class SearchListView: UIView {
             self.setOrderButtonInFilterViewWidthConstraint.isActive = true
             self.setOrderButtonInFilterView.alpha = 0
             
-            //self.searchFilterListCollectionViewWidthConstraint.constant = 300
             self.searchFilterLeadingConstraintToSetOrderButton.isActive = true
             self.searchFilterLeadingConstraintToTrailing.isActive = false
             
