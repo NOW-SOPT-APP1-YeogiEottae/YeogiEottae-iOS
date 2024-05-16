@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol addListCellProtocol: AnyObject {
+protocol AddListCellProtocol: AnyObject {
     
     func buttonDidTapped()
     
@@ -33,7 +33,7 @@ class AddSearchFilterListCell: UICollectionViewCell {
         return button
     }()
     
-    weak var delegate: addListCellProtocol?
+    weak var delegate: AddListCellProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

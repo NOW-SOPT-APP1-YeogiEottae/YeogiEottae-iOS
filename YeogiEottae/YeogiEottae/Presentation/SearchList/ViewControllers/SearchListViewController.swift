@@ -258,7 +258,6 @@ extension SearchListViewController: UICollectionViewDataSource {
 extension SearchListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
         switch collectionView {
         case self.segmentCollectoinView:
             self.segmentCollectoinView.select(at: indexPath.item)
