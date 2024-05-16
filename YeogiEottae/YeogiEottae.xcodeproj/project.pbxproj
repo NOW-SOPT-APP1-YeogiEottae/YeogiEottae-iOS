@@ -34,6 +34,13 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
+		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
+		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
+		4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */; };
+		4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */; };
+		4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */; };
+		4E7021452BF24C1000D480AE /* AddSearchFilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021442BF24C1000D480AE /* AddSearchFilterListCell.swift */; };
+		4E7021472BF2514B00D480AE /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021462BF2514B00D480AE /* UITabBarController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +70,13 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
+		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
+		4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterModel.swift; sourceTree = "<group>"; };
+		4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterListCell.swift; sourceTree = "<group>"; };
+		4E7021442BF24C1000D480AE /* AddSearchFilterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchFilterListCell.swift; sourceTree = "<group>"; };
+		4E7021462BF2514B00D480AE /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +161,7 @@
 				0B719C552BF21C6400DF1D92 /* UITextField+.swift */,
 				0B719C572BF21C7600DF1D92 /* UIView+.swift */,
 				0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */,
+				4E7021462BF2514B00D480AE /* UITabBarController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -259,6 +274,7 @@
 		4E278F8F2BEFAD830034097A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4E7021352BF2276800D480AE /* SearchList */,
 				4E278F902BEFAD870034097A /* Common */,
 			);
 			path = Presentation;
@@ -277,6 +293,51 @@
 			children = (
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		4E7021352BF2276800D480AE /* SearchList */ = {
+			isa = PBXGroup;
+			children = (
+				4E70213B2BF22ADA00D480AE /* Cells */,
+				4E70213A2BF22AD700D480AE /* Models */,
+				4E7021392BF22AD100D480AE /* ViewControllers */,
+				4E7021382BF22ACC00D480AE /* Views */,
+			);
+			path = SearchList;
+			sourceTree = "<group>";
+		};
+		4E7021382BF22ACC00D480AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E70213C2BF22B0E00D480AE /* SearchListView.swift */,
+				4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4E7021392BF22AD100D480AE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E7021362BF2286F00D480AE /* SearchListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4E70213A2BF22AD700D480AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4E70213B2BF22ADA00D480AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */,
+				4E7021442BF24C1000D480AE /* AddSearchFilterListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,17 +429,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */,
+				4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
+				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
+				4E7021452BF24C1000D480AE /* AddSearchFilterListCell.swift in Sources */,
+				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
+				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
+				4E7021472BF2514B00D480AE /* UITabBarController+.swift in Sources */,
 				4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */,
 				0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */,
 			);
@@ -524,7 +592,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 548W892M42;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeogiEottae/Global/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -552,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 548W892M42;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeogiEottae/Global/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

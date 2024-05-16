@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "star_rate.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
