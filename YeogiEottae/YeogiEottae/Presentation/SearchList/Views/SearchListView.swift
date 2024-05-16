@@ -10,6 +10,8 @@ import SnapKit
 
 final class SearchListView: UIView {
     
+    private (set) var isNaviBarShrinked: Bool = false
+    
     let dateButton: UIButton = {
         // 아래 UIConfigurationTextAttributesTransformer 이라는 타입은 생성자의 매개변수로 클로저를 받는다...특이한 친구일세..
         let transformer = UIConfigurationTextAttributesTransformer.init { incoming in
@@ -143,11 +145,18 @@ final class SearchListView: UIView {
         return collectionView
     }()
     
-    let filterViewUnderBar: UIView = {
+    let filterViewSeperator: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.grayColor(brightness: .gray200)
         return view
     }()
+    
+    lazy var dateButtonTopConstraint = self.dateButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8)
+    lazy var dateButtonHeightConstraint = self.dateButton.heightAnchor.constraint(equalToConstant: 38)
+    lazy var segmentCollectionViewTopContraint = self.segmentCollectionView.topAnchor.constraint(equalTo: self.dateButton.bottomAnchor, constant: 16)
+    lazy var segmentCollectionViewHeightConstraint = self.segmentCollectionView.heightAnchor.constraint(equalToConstant: 39)
+    lazy var seperatorHeightConstraint = self.seperator.heightAnchor.constraint(equalToConstant: 1)
+    lazy var filterViewSeperatorHeightConstraint = self.filterViewSeperator.heightAnchor.constraint(equalToConstant: 1)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -164,15 +173,16 @@ final class SearchListView: UIView {
     private func configureViewHierarchy() {
         self.addSubviews(self.dateButton, self.headCountButton)
         self.addSubviews(self.segmentCollectionView, self.seperator)
-        self.filterView.addSubviews(self.filterButton, self.searchFilterListCollectionView, self.filterViewUnderBar)
+        self.filterView.addSubviews(self.filterButton, self.searchFilterListCollectionView, self.filterViewSeperator)
         self.addSubview(self.filterView)
     }
     
     private func setConstraints() {
+        
+        self.dateButtonTopConstraint.isActive = true
+        self.dateButtonHeightConstraint.isActive = true
         self.dateButton.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(8)
             make.leading.equalToSuperview().offset(19)
-            make.height.equalTo(38)
         }
         
         self.headCountButton.snp.makeConstraints { make in
@@ -181,16 +191,16 @@ final class SearchListView: UIView {
             make.height.equalTo(self.dateButton.snp.height)
         }
         
+        self.segmentCollectionViewTopContraint.isActive = true
+        self.segmentCollectionViewHeightConstraint.isActive = true
         self.segmentCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.dateButton.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(39)
         }
         
+        self.seperatorHeightConstraint.isActive = true
         self.seperator.snp.makeConstraints { make in
             make.top.equalTo(self.segmentCollectionView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(1)
         }
         
         self.filterView.snp.makeConstraints { make in
@@ -213,10 +223,53 @@ final class SearchListView: UIView {
             make.height.equalTo(30)
         }
         
-        self.filterViewUnderBar.snp.makeConstraints { make in
+        self.filterViewSeperatorHeightConstraint.isActive = true
+        self.filterViewSeperator.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalToSuperview()
             make.height.equalTo(1)
         }
     }
+    
+    func shrinkNaviBar() {
+        guard !self.isNaviBarShrinked else { return }
+        self.segmentCollectionView.underbar.isHidden = true
+        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
+        animator.addAnimations {
+            self.dateButtonTopConstraint.constant = 4
+            self.dateButtonHeightConstraint.constant = 0
+            self.segmentCollectionViewTopContraint.constant = 0
+            self.segmentCollectionViewHeightConstraint.constant = 0
+            self.seperatorHeightConstraint.constant = 0
+            self.filterViewSeperatorHeightConstraint.constant = 0
+            self.layoutIfNeeded()
+        }
+        animator.addCompletion { _ in
+            self.isNaviBarShrinked = true
+        }
+        animator.startAnimation()
+        
+    }
+    
+    
+    func expandNaviBar() {
+        guard self.isNaviBarShrinked else { return }
+        self.segmentCollectionView.underbar.isHidden = false
+        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
+        animator.addAnimations {
+            self.dateButtonTopConstraint.constant = 8
+            self.dateButtonHeightConstraint.constant = 38
+            self.segmentCollectionViewTopContraint.constant = 16
+            self.segmentCollectionViewHeightConstraint.constant = 39
+            self.seperatorHeightConstraint.constant = 1
+            self.filterViewSeperatorHeightConstraint.constant = 1
+            self.layoutIfNeeded()
+        }
+        animator.addCompletion { _ in
+            self.isNaviBarShrinked = false
+        }
+        animator.startAnimation()
+        
+    }
+    
     
 }

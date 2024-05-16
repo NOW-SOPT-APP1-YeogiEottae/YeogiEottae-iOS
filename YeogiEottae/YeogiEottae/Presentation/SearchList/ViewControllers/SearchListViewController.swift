@@ -72,6 +72,8 @@ class SearchListViewController: UIViewController {
             configuration.baseForegroundColor = UIColor.init(hexCode: "#1C1B1F")
             
             let button = UIButton(configuration: configuration)
+            
+            button.addTarget(self, action: #selector(arrowBackButtonDidTapped), for: .touchUpInside)
             return button
         }()
         
@@ -151,6 +153,14 @@ class SearchListViewController: UIViewController {
         self.pageViewController.delegate = self
     }
     
+    @objc private func arrowBackButtonDidTapped() {
+        switch rootView.isNaviBarShrinked {
+        case true:
+            self.rootView.expandNaviBar()
+        case false:
+            self.rootView.shrinkNaviBar()
+        }
+    }
 }
 
 
