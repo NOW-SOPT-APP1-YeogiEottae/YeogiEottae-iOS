@@ -127,6 +127,37 @@ final class SearchListView: UIView {
         return button
     }()
     
+    let setOrderButtonInFilterView: UIButton = {
+        let transformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.foregroundColor = UIColor.grayColor(brightness: .gray900)
+            outgoing.font = UIFont.projectFont(name: .h6)
+            return outgoing
+        }
+        
+        let configuration: UIButton.Configuration = {
+            var configuration = UIButton.Configuration.plain()
+            configuration.imagePlacement = .leading
+            configuration.imagePadding = 2
+            configuration.titleTextAttributesTransformer = transformer
+            configuration.image = UIImage(named: "filter")?.withTintColor(UIColor.grayColor(brightness: .gray900))
+            configuration.contentInsets.leading = 6
+            configuration.contentInsets.trailing = 10
+            return configuration
+        }()
+        
+        let button = UIButton(configuration: configuration)
+        button.setTitle("정렬", for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 4
+        button.layer.borderColor = UIColor.grayColor(brightness: .gray900).cgColor
+        button.layer.borderWidth = 1
+        
+        return button
+    }()
+    
     let searchFilterListCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -153,10 +184,28 @@ final class SearchListView: UIView {
     
     lazy var dateButtonTopConstraint = self.dateButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8)
     lazy var dateButtonHeightConstraint = self.dateButton.heightAnchor.constraint(equalToConstant: 38)
+    
     lazy var segmentCollectionViewTopContraint = self.segmentCollectionView.topAnchor.constraint(equalTo: self.dateButton.bottomAnchor, constant: 16)
     lazy var segmentCollectionViewHeightConstraint = self.segmentCollectionView.heightAnchor.constraint(equalToConstant: 39)
     lazy var seperatorHeightConstraint = self.seperator.heightAnchor.constraint(equalToConstant: 1)
+    
+    lazy var filterButtonWidthConstraint = self.filterButton.widthAnchor.constraint(equalToConstant: 61)
+    
+    lazy var setOrderButtonInFilterViewLeadingConstraint = self.setOrderButtonInFilterView.leadingAnchor.constraint(equalTo: self.filterButton.trailingAnchor)
+    lazy var setOrderButtonInFilterViewTrailingConstraint = self.setOrderButtonInFilterView.trailingAnchor.constraint(equalTo: self.searchFilterListCollectionView.leadingAnchor)
+    lazy var setOrderButtonInFilterViewWidthConstraint = self.setOrderButtonInFilterView.widthAnchor.constraint(equalToConstant: 0)
+    
+    lazy var searchFilterListCollectionViewWidthConstraint = self.searchFilterListCollectionView.widthAnchor.constraint(equalToConstant: 300)
+    lazy var searchFilterLeadingConstraintToSetOrderButton = self.searchFilterListCollectionView.leadingAnchor.constraint(equalTo: self.setOrderButtonInFilterView.trailingAnchor)
+    lazy var searchFilterLeadingConstraintToTrailing = self.searchFilterListCollectionView.leadingAnchor.constraint(equalTo: self.searchFilterListCollectionView.trailingAnchor)
+    
     lazy var filterViewSeperatorHeightConstraint = self.filterViewSeperator.heightAnchor.constraint(equalToConstant: 1)
+    
+    var screenSize: CGSize? {
+        guard let screen = self.window?.windowScene?.screen else { return nil }
+        return screen.bounds.size
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -173,7 +222,7 @@ final class SearchListView: UIView {
     private func configureViewHierarchy() {
         self.addSubviews(self.dateButton, self.headCountButton)
         self.addSubviews(self.segmentCollectionView, self.seperator)
-        self.filterView.addSubviews(self.filterButton, self.searchFilterListCollectionView, self.filterViewSeperator)
+        self.filterView.addSubviews(self.filterButton, self.setOrderButtonInFilterView, self.searchFilterListCollectionView, self.filterViewSeperator)
         self.addSubview(self.filterView)
     }
     
@@ -209,16 +258,28 @@ final class SearchListView: UIView {
             make.height.equalTo(38)
         }
         
+        self.filterButtonWidthConstraint.isActive = true
         self.filterButton.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().inset(24)
-            make.width.equalTo(61)
+            //make.width.equalTo(61)
             make.height.equalTo(31)
         }
         
+        self.setOrderButtonInFilterViewLeadingConstraint.isActive = true
+        self.setOrderButtonInFilterViewTrailingConstraint.isActive = true
+        self.setOrderButtonInFilterViewWidthConstraint.isActive = true
+        self.setOrderButtonInFilterView.snp.makeConstraints { make in
+            make.top.equalTo(self.filterButton)
+            make.height.equalTo(self.filterButton)
+        }
+        
+        //self.searchFilterListCollectionViewWidthConstraint.isActive = true
+        self.searchFilterLeadingConstraintToSetOrderButton.isActive = true
+        self.searchFilterLeadingConstraintToTrailing.isActive = false
         self.searchFilterListCollectionView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.leading.equalTo(self.filterButton.snp.trailing)
+            //make.leading.equalTo(self.filterButton.snp.trailing)
             make.trailing.equalToSuperview()
             make.height.equalTo(30)
         }
@@ -234,12 +295,28 @@ final class SearchListView: UIView {
         guard !self.isNaviBarShrinked else { return }
         self.segmentCollectionView.underbar.isHidden = true
         let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
-        animator.addAnimations {
+        animator.addAnimations { [weak self] in
+            guard let self else { return }
             self.dateButtonTopConstraint.constant = 4
             self.dateButtonHeightConstraint.constant = 0
+            
             self.segmentCollectionViewTopContraint.constant = 0
-            self.segmentCollectionViewHeightConstraint.constant = 0
+            self.segmentCollectionViewHeightConstraint.constant = 1
             self.seperatorHeightConstraint.constant = 0
+            
+            if let screenSize = self.screenSize {
+                self.filterButtonWidthConstraint.constant = (screenSize.width - (24 + 24 + 12)) / 2
+            }
+            
+            self.setOrderButtonInFilterViewLeadingConstraint.constant = 12
+            self.setOrderButtonInFilterViewTrailingConstraint.constant = -24
+            self.setOrderButtonInFilterViewWidthConstraint.isActive = false
+            self.setOrderButtonInFilterView.alpha = 1
+            
+            //self.searchFilterListCollectionViewWidthConstraint.constant = 0
+            self.searchFilterLeadingConstraintToSetOrderButton.isActive = false
+            self.searchFilterLeadingConstraintToTrailing.isActive = true
+            
             self.filterViewSeperatorHeightConstraint.constant = 0
             self.layoutIfNeeded()
         }
@@ -258,9 +335,22 @@ final class SearchListView: UIView {
         animator.addAnimations {
             self.dateButtonTopConstraint.constant = 8
             self.dateButtonHeightConstraint.constant = 38
+            
             self.segmentCollectionViewTopContraint.constant = 16
             self.segmentCollectionViewHeightConstraint.constant = 39
             self.seperatorHeightConstraint.constant = 1
+            
+            self.filterButtonWidthConstraint.constant = 61
+            
+            self.setOrderButtonInFilterViewLeadingConstraint.constant = 0
+            self.setOrderButtonInFilterViewTrailingConstraint.constant = 0
+            self.setOrderButtonInFilterViewWidthConstraint.isActive = true
+            self.setOrderButtonInFilterView.alpha = 0
+            
+            //self.searchFilterListCollectionViewWidthConstraint.constant = 300
+            self.searchFilterLeadingConstraintToSetOrderButton.isActive = true
+            self.searchFilterLeadingConstraintToTrailing.isActive = false
+            
             self.filterViewSeperatorHeightConstraint.constant = 1
             self.layoutIfNeeded()
         }

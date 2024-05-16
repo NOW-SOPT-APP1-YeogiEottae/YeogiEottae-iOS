@@ -30,8 +30,8 @@ class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.rootView.setTableViewDataSourceDelegate(to: self)
-        self.rootView.setDelegates(to: self)
+        self.rootView.setTableViewDataSourceDelegate(to: self)
+        //self.rootView.setDelegates(to: self)
     }
     
 }
@@ -47,18 +47,6 @@ extension SearchResultViewController: UITableViewDataSource {
         
         searchResultCell.configureData(with: self.hotelList[indexPath.item])
         return searchResultCell
-    }
-    
-}
-
-
-extension SearchResultViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        print(#function)
-        guard let searchResultHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SearchResultHeaderView.reuseIdentifier) as? SearchResultHeaderView else { fatalError() }
-        
-        return searchResultHeaderView
     }
     
 }

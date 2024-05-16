@@ -50,6 +50,8 @@ class SearchListViewController: UIViewController {
     
     lazy var pageViewControllerTopConstraint = self.pageViewController.view.topAnchor.constraint(equalTo: self.rootView.filterView.bottomAnchor)
     
+    var isTableViewScrollToTopEnable: Bool = true
+    
     override func loadView() {
         self.view = self.rootView
     }
@@ -151,6 +153,12 @@ class SearchListViewController: UIViewController {
         
         self.pageViewController.dataSource = self
         self.pageViewController.delegate = self
+        
+        self.vcArray.forEach { viewController in
+            if let searchListViewController = viewController as? SearchResultViewController {
+                searchListViewController.rootView.setTableViewDelegateDelegate(to: self)
+            }
+        }
     }
     
     @objc private func arrowBackButtonDidTapped() {
@@ -163,7 +171,7 @@ class SearchListViewController: UIViewController {
     }
 }
 
-
+//MARK: UICollectionDataSource
 extension SearchListViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -246,7 +254,7 @@ extension SearchListViewController: UICollectionViewDataSource {
     
 }
 
-
+//MARK: UICollectionViewDelegate
 extension SearchListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -275,7 +283,47 @@ extension SearchListViewController: UICollectionViewDelegate {
     
 }
 
-extension SearchListViewController: addListCellProtocol {
+//MARK: UITableViewDelegate
+extension SearchListViewController: UITableViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView is UITableView else { return }
+        let velocity = scrollView.panGestureRecognizer.velocity(in: scrollView)
+        
+        if velocity.y < -0 && scrollView.contentOffset.y >= 50 {
+            self.rootView.shrinkNaviBar()
+        } else if velocity.y > 500 || scrollView.contentOffset.y <= 0 {
+            self.rootView.expandNaviBar()
+        }
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        guard scrollView is UITableView else { return }
+        if velocity.y > 0 {
+            self.rootView.shrinkNaviBar()
+        } else if velocity.y < 0 {
+            self.rootView.expandNaviBar()
+        }
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        print(#function)
+        guard self.isTableViewScrollToTopEnable else { return false }
+        self.rootView.expandNaviBar()
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        print(#function)
+        guard let searchResultHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SearchResultHeaderView.reuseIdentifier) as? SearchResultHeaderView else { fatalError() }
+        
+        return searchResultHeaderView
+    }
+    
+}
+
+//MARK: AddListCellProtocol
+extension SearchListViewController: AddListCellProtocol {
 
     func buttonDidTapped() {
         print(#function)
@@ -283,13 +331,16 @@ extension SearchListViewController: addListCellProtocol {
 
 }
 
-
+//MARK: UIPageViewControllerDataSource
 extension SearchListViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = self.vcArray.firstIndex(of: viewController) else { return nil }
         let previousIndex = index - 1
         if previousIndex < 0 { return nil }
+//        if let searchResultViewController = self.vcArray[previousIndex] as? SearchResultViewController {
+//            searchResultViewController.rootView.setTableViewDelegateDelegate(to: self)
+//        }
         return self.vcArray[previousIndex]
     }
     
@@ -302,10 +353,12 @@ extension SearchListViewController: UIPageViewControllerDataSource {
     
 }
 
+//MARK: UIPageViewControllerDelegate
 extension SearchListViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        print(#function)
+        self.isTableViewScrollToTopEnable = false
+        self.rootView.expandNaviBar()
         let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
         let toIndex = self.vcArray.firstIndex(of: pendingViewControllers[0])!
         print("toIndex:", toIndex)
@@ -318,7 +371,7 @@ extension SearchListViewController: UIPageViewControllerDelegate {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        print(#function)
+        self.isTableViewScrollToTopEnable = true
         let index = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
         print(index)
         //self.selectSegmentButton(index: index)

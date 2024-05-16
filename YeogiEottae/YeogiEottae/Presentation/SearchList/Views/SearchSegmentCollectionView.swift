@@ -38,7 +38,7 @@ class SearchSegmentCollectionView: UICollectionView {
     
     private func setUI() {
         self.backgroundColor = .clear
-        self.clipsToBounds = false
+        self.clipsToBounds = true
         
         self.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.showsVerticalScrollIndicator = false
