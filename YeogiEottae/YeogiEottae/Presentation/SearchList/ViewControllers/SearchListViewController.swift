@@ -28,8 +28,8 @@ class SearchListViewController: UIViewController {
         SearchFilter.couponDiscount,
         SearchFilter.onSale,
         SearchFilter.dayUse,
-        SearchFilter.poolVilla,
-        SearchFilter.breakfastFree
+        SearchFilter.breakfastFree,
+        SearchFilter.poolVilla
     ]
 
     let rootView: SearchListView = SearchListView()
