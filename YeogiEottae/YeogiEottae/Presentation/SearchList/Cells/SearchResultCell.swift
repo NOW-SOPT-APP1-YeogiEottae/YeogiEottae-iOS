@@ -160,6 +160,11 @@ class SearchResultCell: UITableViewCell {
         return label
     }()
     
+    let seperator: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        return view
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -197,7 +202,9 @@ class SearchResultCell: UITableViewCell {
             self.isCouponAppliedLabel,
             self.discountedPriceLabel,
             self.discountedPriceCurrencyLabel,
-            self.subTextLabel
+            self.subTextLabel,
+            
+            self.seperator
         )
         
     }
@@ -293,7 +300,10 @@ class SearchResultCell: UITableViewCell {
             make.height.equalTo(13)
         }
         
-        
+        self.seperator.snp.makeConstraints { make in
+            make.horizontalEdges.bottom.equalToSuperview()
+            make.height.equalTo(1)
+        }
         
     }
         
