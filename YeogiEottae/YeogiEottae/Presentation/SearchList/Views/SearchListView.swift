@@ -291,7 +291,7 @@ final class SearchListView: UIView {
         }
     }
     
-    func shrinkNaviBar() {
+    func shrinkSegmentController() {
         guard !self.isNaviBarShrinked else { return }
         self.segmentCollectionView.underbar.isHidden = true
         let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
@@ -328,7 +328,7 @@ final class SearchListView: UIView {
     }
     
     
-    func expandNaviBar() {
+    func expandSegmentController() {
         guard self.isNaviBarShrinked else { return }
         self.segmentCollectionView.underbar.isHidden = false
         let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)

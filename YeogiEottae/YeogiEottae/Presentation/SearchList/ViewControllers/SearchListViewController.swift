@@ -164,9 +164,9 @@ class SearchListViewController: UIViewController {
     @objc private func arrowBackButtonDidTapped() {
         switch rootView.isNaviBarShrinked {
         case true:
-            self.rootView.expandNaviBar()
+            self.rootView.expandSegmentController()
         case false:
-            self.rootView.shrinkNaviBar()
+            self.rootView.shrinkSegmentController()
         }
     }
 }
@@ -290,25 +290,25 @@ extension SearchListViewController: UITableViewDelegate {
         let velocity = scrollView.panGestureRecognizer.velocity(in: scrollView)
         
         if velocity.y < -0 && scrollView.contentOffset.y >= 50 {
-            self.rootView.shrinkNaviBar()
+            self.rootView.shrinkSegmentController()
         } else if velocity.y > 500 || scrollView.contentOffset.y <= 0 {
-            self.rootView.expandNaviBar()
+            self.rootView.expandSegmentController()
         }
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         guard scrollView is UITableView else { return }
         if velocity.y > 0 {
-            self.rootView.shrinkNaviBar()
+            self.rootView.shrinkSegmentController()
         } else if velocity.y < 0 {
-            self.rootView.expandNaviBar()
+            self.rootView.expandSegmentController()
         }
     }
     
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         print(#function)
         guard self.isTableViewScrollToTopEnable else { return false }
-        self.rootView.expandNaviBar()
+        self.rootView.expandSegmentController()
         return true
     }
     
@@ -357,7 +357,7 @@ extension SearchListViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         self.isTableViewScrollToTopEnable = false
-        self.rootView.expandNaviBar()
+        self.rootView.expandSegmentController()
         let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
         let toIndex = self.vcArray.firstIndex(of: pendingViewControllers[0])!
         print("toIndex:", toIndex)
