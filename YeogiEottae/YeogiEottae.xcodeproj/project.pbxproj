@@ -45,8 +45,6 @@
 		4E7021472BF2514B00D480AE /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021462BF2514B00D480AE /* UITabBarController+.swift */; };
 		4E7021492BF3A94700D480AE /* SearchSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021482BF3A94700D480AE /* SearchSegmentCell.swift */; };
 		4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70214C2BF3B00300D480AE /* SearchSegmentCollectionView.swift */; };
-		4EAC0B2B2BF4E7C10069731D /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EAC0B2A2BF4E6730069731D /* PretendardVariable.ttf */; };
-		4EAC0B2E2BF584180069731D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EAC0B2D2BF584180069731D /* Info.plist */; };
 		4EE7D0CF2BF48E3C002BDF8E /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0CE2BF48E3C002BDF8E /* SearchResultView.swift */; };
 		4EE7D0D12BF49073002BDF8E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D02BF49073002BDF8E /* SearchResultViewController.swift */; };
 		4EE7D0D32BF490A5002BDF8E /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */; };
@@ -91,7 +89,6 @@
 		4E7021462BF2514B00D480AE /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		4E7021482BF3A94700D480AE /* SearchSegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSegmentCell.swift; sourceTree = "<group>"; };
 		4E70214C2BF3B00300D480AE /* SearchSegmentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSegmentCollectionView.swift; sourceTree = "<group>"; };
-		4EAC0B2A2BF4E6730069731D /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		4EAC0B2D2BF584180069731D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EE7D0CE2BF48E3C002BDF8E /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		4EE7D0D02BF49073002BDF8E /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -233,7 +230,6 @@
 				4E278FAA2BF0D5F30034097A /* Pretendard-Regular.otf */,
 				4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */,
 				4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */,
-				4EAC0B2A2BF4E6730069731D /* PretendardVariable.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -452,14 +448,12 @@
 				4E278FB22BF0EF520034097A /* Pretendard-Light.otf in Resources */,
 				4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */,
 				4E278FB42BF0EF520034097A /* Pretendard-ExtraBold.otf in Resources */,
-				4EAC0B2B2BF4E7C10069731D /* PretendardVariable.ttf in Resources */,
 				4E278FB32BF0EF520034097A /* Pretendard-ExtraLight.otf in Resources */,
 				4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */,
 				4E278FB62BF0EF520034097A /* Pretendard-Regular.otf in Resources */,
 				4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */,
 				4E278FB12BF0EF520034097A /* Pretendard-Bold.otf in Resources */,
 				0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */,
-				4EAC0B2E2BF584180069731D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
