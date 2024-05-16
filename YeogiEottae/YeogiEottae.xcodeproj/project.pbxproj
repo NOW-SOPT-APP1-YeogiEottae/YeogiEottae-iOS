@@ -22,6 +22,16 @@
 		0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C572BF21C7600DF1D92 /* UIView+.swift */; };
 		0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */; };
 		0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
+		0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */; };
+		0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F20A2BF3B26F00A6F840 /* CompareData.swift */; };
+		0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */; };
+		0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2192BF618DC00A6F840 /* CompareNavigationBarView.swift */; };
+		0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F21B2BF6191B00A6F840 /* CompareCalendarView.swift */; };
+		0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F21D2BF6195100A6F840 /* CompareEditView.swift */; };
+		0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F21F2BF619CE00A6F840 /* CompareRoomRootView.swift */; };
+		0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */; };
+		0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2232BF61D5D00A6F840 /* NSObject+.swift */; };
+		0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */; };
 		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
 		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
 		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
@@ -58,6 +68,16 @@
 		0B719C572BF21C7600DF1D92 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		0B719C5B2BF21D9100DF1D92 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareRoomViewController.swift; sourceTree = "<group>"; };
+		0B96F20A2BF3B26F00A6F840 /* CompareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareData.swift; sourceTree = "<group>"; };
+		0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareTableViewCell.swift; sourceTree = "<group>"; };
+		0B96F2192BF618DC00A6F840 /* CompareNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareNavigationBarView.swift; sourceTree = "<group>"; };
+		0B96F21B2BF6191B00A6F840 /* CompareCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCalendarView.swift; sourceTree = "<group>"; };
+		0B96F21D2BF6195100A6F840 /* CompareEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareEditView.swift; sourceTree = "<group>"; };
+		0B96F21F2BF619CE00A6F840 /* CompareRoomRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareRoomRootView.swift; sourceTree = "<group>"; };
+		0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFilterView.swift; sourceTree = "<group>"; };
+		0B96F2232BF61D5D00A6F840 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -128,6 +148,54 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		0B96F2002BF32C6900A6F840 /* CompareRoom */ = {
+			isa = PBXGroup;
+			children = (
+				0B96F20C2BF3B29C00A6F840 /* Views */,
+				0B96F2092BF3B26400A6F840 /* Models */,
+				0B96F2042BF3B22C00A6F840 /* Cells */,
+				0B96F2012BF32C8D00A6F840 /* ViewControllers */,
+			);
+			path = CompareRoom;
+			sourceTree = "<group>";
+		};
+		0B96F2012BF32C8D00A6F840 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0B96F2042BF3B22C00A6F840 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */,
+				0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0B96F2092BF3B26400A6F840 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B96F20A2BF3B26F00A6F840 /* CompareData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0B96F20C2BF3B29C00A6F840 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B96F2192BF618DC00A6F840 /* CompareNavigationBarView.swift */,
+				0B96F21B2BF6191B00A6F840 /* CompareCalendarView.swift */,
+				0B96F21D2BF6195100A6F840 /* CompareEditView.swift */,
+				0B96F21F2BF619CE00A6F840 /* CompareRoomRootView.swift */,
+				0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4E278F7F2BEFACE60034097A /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +230,7 @@
 				0B719C572BF21C7600DF1D92 /* UIView+.swift */,
 				0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */,
 				4E7021462BF2514B00D480AE /* UITabBarController+.swift */,
+				0B96F2232BF61D5D00A6F840 /* NSObject+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,6 +352,7 @@
 		4E278F902BEFAD870034097A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0B96F2002BF32C6900A6F840 /* CompareRoom */,
 				4E278F912BEFAD8A0034097A /* UIComponents */,
 			);
 			path = Common;
@@ -431,18 +501,28 @@
 			files = (
 				4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */,
 				4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */,
+				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
+				0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */,
 				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
+				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
+				0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */,
+				0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
+				0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
 				4E7021452BF24C1000D480AE /* AddSearchFilterListCell.swift in Sources */,
+				0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */,
 				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
+				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
+				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
 				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
