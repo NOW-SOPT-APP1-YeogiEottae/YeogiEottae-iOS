@@ -7,6 +7,7 @@
 import UIKit
 import SnapKit
 
+
 protocol CompareTableViewCellDelegate: AnyObject {
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView)
 }
@@ -61,6 +62,7 @@ final class CompareRoomViewController: UIViewController {
     }
 }
 
+
 extension CompareRoomViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataModel.count + 1
@@ -104,7 +106,6 @@ extension CompareRoomViewController: UIScrollViewDelegate {
         }
     }
 }
-
 
 extension CompareRoomViewController: CompareTableViewCellDelegate {
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView) {

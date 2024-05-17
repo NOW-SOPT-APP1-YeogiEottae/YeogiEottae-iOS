@@ -16,7 +16,7 @@ struct RoomData: Codable {
     let reviewRate: Double
     let reviewCount: Int
     let imageUrl: String
-
+    
     enum CodingKeys: String, CodingKey {
         case roomId
         case hotelName

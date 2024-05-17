@@ -37,7 +37,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         button.semanticContentAttribute = .forceRightToLeft
         return button
     }()
-
+    
     private let highPriceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(StringLiteral.CompareFilter.highRate, for: .normal)
@@ -61,7 +61,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         button.semanticContentAttribute = .forceRightToLeft
         return button
     }()
-
+    
     private let facilityLabel: UILabel = {
         let label = UILabel()
         label.text = StringLiteral.CompareFilter.facility
@@ -117,7 +117,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(29)
         }
-
+        
         lowPriceButton.snp.makeConstraints {
             $0.leading.equalTo(scrollView.contentLayoutGuide).offset(12)
             $0.width.equalTo(88)

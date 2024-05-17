@@ -29,10 +29,13 @@ final class CompareTableViewCell: UITableViewCell {
     
     private let roomImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = .gift
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 6
+        
         return imageView
     }()
+    
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView()
@@ -63,7 +66,7 @@ final class CompareTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         configureCell()
         setHierarchy()
         setConstraints()
@@ -141,7 +144,7 @@ final class CompareTableViewCell: UITableViewCell {
     func bindData(data: RoomData) {
         hotelNameLabel.text = data.hotelName
         roomNameLabel.text = data.roomName
-        roomImageView.image = UIImage(named: data.imageUrl)
+        roomImageView.image = .imgBlack
         infoView.priceLabel.text = data.price.formattedWithSeparator + "원"
         let discountPrice = data.price / 10
         infoView.discountPriceLabel.text = discountPrice.formattedWithSeparator

@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 
-class CompareCalendarView: UIView {
+
+final class CompareCalendarView: UIView {
     
     private let dateButton: UIButton = {
         let button = UIButton(type: .system)
@@ -59,9 +60,12 @@ class CompareCalendarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .white
         setHierarchy()
         setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setHierarchy() {
@@ -111,9 +115,5 @@ class CompareCalendarView: UIView {
             $0.leading.equalTo(headCountImageView.snp.trailing).offset(2)
             $0.centerY.equalTo(headCountButton)
         }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 final class CompareNavigationBarView: UIView {
     
     private let titleLabel: UILabel = {

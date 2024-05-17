@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 final class CompareRoomRootView: UIView {
     
     let tableView = UITableView()

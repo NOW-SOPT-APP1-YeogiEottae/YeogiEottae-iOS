@@ -12,7 +12,7 @@ import SnapKit
 final class AddButtonCell: UITableViewCell {
     
     var addButtonAction: (() -> Void)?
-
+    
     private let addButton: UIButton = {
         let button = UIButton()
         button.setImage(.plus, for: .normal)
@@ -42,7 +42,7 @@ final class AddButtonCell: UITableViewCell {
             $0.width.equalTo(137)
         }
     }
-
+    
     private func configureButton() {
         selectionStyle = .none
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
