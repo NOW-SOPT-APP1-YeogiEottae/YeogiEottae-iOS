@@ -142,6 +142,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.width.equalTo(152)
             $0.centerY.equalToSuperview()
         }
+
     }
 }
 

@@ -62,7 +62,21 @@ final class CompareRoomViewController: UIViewController {
     }
     
     @objc private func addButtonTapped() {
-        //탭 했을 때 동작 추후 구현
+        let viewController = AddCompareViewController()
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            if let sheet = viewController.sheetPresentationController {
+                sheet.prefersGrabberVisible = true
+                if #available(iOS 16.0, *) {
+                    sheet.detents = [.custom(resolver: { context in
+                        return 665
+                    })]
+                } else {
+                    sheet.detents = [.large()]
+                }
+            }
+        }
+        viewController.modalPresentationStyle = .formSheet
+        self.present(viewController, animated: true)
     }
     
     @objc private func radioButtonTapped() {
@@ -83,7 +97,7 @@ extension CompareRoomViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.addButtonAction = { [weak self] in
-                self?.addButtonTapped()
+                    self?.addButtonTapped()
             }
             return cell
         } else {
