@@ -53,10 +53,10 @@ class AddSearchFilterListCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
-        self.plusImageButton.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.width.equalTo(50)
-            make.centerY.equalToSuperview()
+        self.plusImageButton.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview()
+            $0.width.equalTo(50)
+            $0.centerY.equalToSuperview()
         }
     }
     

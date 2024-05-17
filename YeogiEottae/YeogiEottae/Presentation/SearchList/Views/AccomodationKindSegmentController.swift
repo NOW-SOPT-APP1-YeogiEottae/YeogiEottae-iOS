@@ -107,59 +107,58 @@ final class AccomodationKindSegmentController: UIScrollView {
     }
     
     private func setConstraints() {
-        self.allKindLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalToSuperview().inset(24)
-            make.height.equalTo(19)
+        self.allKindLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalToSuperview().inset(24)
+            $0.height.equalTo(19)
         }
         
-        self.motelLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.allKindLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.motelLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.allKindLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.hotelResortLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.motelLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.hotelResortLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.motelLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.pensionLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.hotelResortLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.pensionLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.hotelResortLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.homeVillaLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.pensionLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.homeVillaLabel.snp.makeConstraints {             $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.pensionLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.campingLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.homeVillaLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.campingLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.homeVillaLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.guestHouseHanokLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.campingLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
-            make.trailing.equalToSuperview().inset(24)
+        self.guestHouseHanokLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.campingLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
+            $0.trailing.equalToSuperview().inset(24)
         }
         
-        self.underBar.snp.makeConstraints { make in
-            make.horizontalEdges.bottom.equalToSuperview()
-            make.height.equalTo(1)
+        self.underBar.snp.makeConstraints {
+            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.height.equalTo(1)
         }
         
         
