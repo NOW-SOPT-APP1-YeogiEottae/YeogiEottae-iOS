@@ -25,7 +25,7 @@ final class CompareRoomViewController: UIViewController {
     private var selectedIndexPath: IndexPath?
     
     private let rootView = CompareRoomRootView()
-    private let dataModel = RoomData.dummyData()
+    private let dataModel = CompareRoomData.dummyData()
     
     override func loadView() {
         self.view = rootView
@@ -63,7 +63,7 @@ final class CompareRoomViewController: UIViewController {
     
     @objc private func addButtonTapped() {
         let viewController = AddCompareViewController()
-        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+        if viewController.presentationController is UISheetPresentationController {
             if let sheet = viewController.sheetPresentationController {
                 sheet.prefersGrabberVisible = true
                 if #available(iOS 16.0, *) {

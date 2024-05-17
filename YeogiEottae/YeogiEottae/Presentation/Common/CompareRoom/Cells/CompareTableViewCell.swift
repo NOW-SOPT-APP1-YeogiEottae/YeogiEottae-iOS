@@ -147,7 +147,7 @@ final class CompareTableViewCell: UITableViewCell {
         scrollView.delegate = self
     }
     
-    func bindData(data: RoomData) {
+    func bindData(data: CompareRoomData) {
         hotelNameLabel.text = data.hotelName
         roomNameLabel.text = data.roomName
         roomImageView.image = .imgBlack
