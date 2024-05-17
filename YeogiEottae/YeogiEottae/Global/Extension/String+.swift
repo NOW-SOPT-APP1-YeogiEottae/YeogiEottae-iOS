@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     
@@ -15,6 +16,12 @@ extension String {
         //let result = regex.numberOfMatches(in: self, range: range)
         let result = regex.rangeOfFirstMatch(in: self, range: range).length
         return result == 6 ? true : false
+    }
+    
+    func strikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
     }
     
 }
