@@ -119,21 +119,21 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         }
         
         lowPriceButton.snp.makeConstraints {
-            $0.leading.equalTo(scrollView.contentLayoutGuide).offset(12)
+            $0.leading.equalToSuperview().offset(12)
             $0.width.equalTo(88)
-            $0.height.equalTo(48)
+            $0.verticalEdges.equalToSuperview()
         }
         
         highPriceButton.snp.makeConstraints {
             $0.leading.equalTo(lowPriceButton.snp.trailing).offset(40)
             $0.width.equalTo(88)
-            $0.height.equalTo(48)
+            $0.verticalEdges.equalToSuperview()
         }
         
         highDiscountButton.snp.makeConstraints {
             $0.leading.equalTo(highPriceButton.snp.trailing).offset(40)
             $0.width.equalTo(88)
-            $0.height.equalTo(48)
+            $0.verticalEdges.equalToSuperview()
         }
         
         facilityLabel.snp.makeConstraints {
@@ -142,7 +142,12 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.width.equalTo(152)
             $0.centerY.equalToSuperview()
         }
-
+        
+        scrollView.contentLayoutGuide.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.height.equalToSuperview()
+            $0.width.equalTo(586) // Calculate total content width
+        }
     }
 }
 
