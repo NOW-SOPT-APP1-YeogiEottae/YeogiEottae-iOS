@@ -96,9 +96,9 @@ final class CompareTableViewCell: UITableViewCell {
     }
     
     private func setConstraints() {
-        stickyView.snp.makeConstraints { make in
-            make.leading.top.bottom.equalToSuperview()
-            make.width.equalTo(137)
+        stickyView.snp.makeConstraints { 
+            $0.leading.top.bottom.equalToSuperview()
+            $0.width.equalTo(137)
         }
         
         radioButton.snp.makeConstraints {
@@ -130,9 +130,9 @@ final class CompareTableViewCell: UITableViewCell {
             $0.centerY.equalTo(hotelNameLabel)
         }
         
-        scrollView.snp.makeConstraints { make in
-            make.trailing.top.bottom.equalToSuperview()
-            make.leading.equalTo(stickyView.snp.trailing)
+        scrollView.snp.makeConstraints {
+            $0.trailing.top.bottom.equalToSuperview()
+            $0.leading.equalTo(stickyView.snp.trailing)
         }
         
         infoView.snp.makeConstraints {

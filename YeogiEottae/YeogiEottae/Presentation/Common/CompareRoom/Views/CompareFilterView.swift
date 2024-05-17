@@ -103,14 +103,14 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
     }
     
     private func setConstraints() {
-        stickyView.snp.makeConstraints { make in
-            make.leading.top.bottom.equalToSuperview()
-            make.width.equalTo(137)
+        stickyView.snp.makeConstraints {
+            $0.leading.top.bottom.equalToSuperview()
+            $0.width.equalTo(137)
         }
         
-        scrollView.snp.makeConstraints { make in
-            make.trailing.top.bottom.equalToSuperview()
-            make.leading.equalTo(stickyView.snp.trailing)
+        scrollView.snp.makeConstraints {
+            $0.trailing.top.bottom.equalToSuperview()
+            $0.leading.equalTo(stickyView.snp.trailing)
         }
         
         roomHotelLabel.snp.makeConstraints {
@@ -136,11 +136,11 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.height.equalTo(48)
         }
         
-        facilityLabel.snp.makeConstraints { make in
-            make.leading.equalTo(highDiscountButton.snp.trailing).offset(40)
-            make.trailing.equalTo(scrollView.contentLayoutGuide).inset(38)
-            make.width.equalTo(152)
-            make.centerY.equalToSuperview()
+        facilityLabel.snp.makeConstraints {
+            $0.leading.equalTo(highDiscountButton.snp.trailing).offset(40)
+            $0.trailing.equalTo(scrollView.contentLayoutGuide).inset(38)
+            $0.width.equalTo(152)
+            $0.centerY.equalToSuperview()
         }
     }
 }
