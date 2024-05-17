@@ -31,7 +31,6 @@ final class SearchListView: UIView {
         }()
         
         let button = UIButton(configuration: configuration)
-        button.setTitle("5.12 일 - 5.13 월", for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         
         button.clipsToBounds = true
@@ -60,7 +59,6 @@ final class SearchListView: UIView {
         }()
         
         let button = UIButton(configuration: configuration)
-        button.setTitle("2명", for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         
         button.clipsToBounds = true

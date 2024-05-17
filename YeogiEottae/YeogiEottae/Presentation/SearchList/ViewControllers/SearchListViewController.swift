@@ -42,6 +42,28 @@ class SearchListViewController: UIViewController {
         SearchResultViewController(),
         SearchResultViewController()
     ]
+    
+    var searchKeyword: String = "서울"
+    var checkInDateInString: String = {
+        guard let date = Calendar(identifier: .gregorian).date(
+            from: DateComponents(year: 2024, month: 5, day: 12, weekday: 0)
+        ) else { return "" }
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "M.dd E"
+        return formatter.string(from: date)
+    }()
+    var checkOutDateInString: String = {
+        guard let date = Calendar(identifier: .gregorian).date(
+            from: DateComponents(year: 2024, month: 5, day: 13, weekday: 1)
+        ) else { return "" }
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "M.dd E"
+        return formatter.string(from: date)
+    }()
+    var headCount: Int = 2
+    
     let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
     lazy var segmentCollectoinView = self.rootView.segmentCollectionView
@@ -80,7 +102,6 @@ class SearchListViewController: UIViewController {
         configuration.contentInsets = NSDirectionalEdgeInsets.zero
         
         let button = UIButton(configuration: configuration)
-        button.setTitle("서울", for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
@@ -109,7 +130,6 @@ class SearchListViewController: UIViewController {
     
     let shrinkedNavigationBarSearchPlaceLabel: UILabel = {
         let label = UILabel()
-        label.text = "서울"
         label.font = UIFont.projectFont(name: .b5)
         label.textColor = UIColor.grayColor(brightness: .gray950)
         label.textAlignment = .center
@@ -119,7 +139,6 @@ class SearchListViewController: UIViewController {
     
     let shrinkedNavigationBarSearchRangeLabel: UILabel = {
         let label = UILabel()
-        label.text = "5.16 목 - 5.17 금, 2명"
         label.font = UIFont.projectFont(name: .l6)
         label.textColor = UIColor.grayColor(brightness: .gray800)
         label.textAlignment = .center
@@ -149,6 +168,7 @@ class SearchListViewController: UIViewController {
         self.configureViewHierarchy()
         self.setConstraints()
         self.setInitialNavigationBar()
+        self.updateSearchCondition()
         self.setDelegates()
     }
     
@@ -241,6 +261,16 @@ class SearchListViewController: UIViewController {
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(3)
         }
+    }
+    
+    private func updateSearchCondition() {
+        self.searchAgainButton.setTitle(self.searchKeyword, for: .normal)
+        self.shrinkedNavigationBarSearchPlaceLabel.text = self.searchKeyword
+        self.shrinkedNavigationBarSearchRangeLabel.text = 
+        "\(self.checkInDateInString) - \(self.checkOutDateInString), \(self.headCount)명"
+        
+        self.rootView.dateButton.setTitle("\(self.checkInDateInString) - \(self.checkOutDateInString)", for: .normal)
+        self.rootView.headCountButton.setTitle("\(self.headCount)명", for: .normal)
     }
 
     private func setDelegates() {
