@@ -125,7 +125,7 @@ extension CompareRoomViewController: UIScrollViewDelegate {
 extension CompareRoomViewController: CompareTableViewCellDelegate {
     func compareTableViewCellDidTapRadioButton(_ cell: CompareTableViewCell) {
         if selectedIndexPath == nil {
-//            presentButton()
+            rootView.showReservationButton()
         }
         if let indexPath = rootView.tableView.indexPath(for: cell) {
             selectedIndexPath = indexPath

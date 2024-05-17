@@ -17,7 +17,6 @@ final class CompareButton: UIButton {
     }
 
     var compareButtonType: CompareButtonType = .reservation
-    var addAmount: Int = 0
 
     private let buttonTitleLabel: UILabel = {
         let label = UILabel()
@@ -33,20 +32,19 @@ final class CompareButton: UIButton {
         return view
     }()
     
-    private let countLabel : UIView = {
+    private let countLabel : UILabel = {
         let label = UILabel()
         label.textColor = .secondaryColor(brightness: .secondary600)
-        label.text = "5"
         label.font = UIFont.projectFont(name: .h5)
         return label
     }()
 
     init(type: CompareButtonType, addAmount: Int = 0) {
         super.init(frame: .zero)
-        self.compareButtonType = type
-        self.addAmount = addAmount
-
-        configureButton()
+        
+        configureButton(addAmount: addAmount, type: type)
+        setHierarchy()
+        setConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -65,7 +63,6 @@ final class CompareButton: UIButton {
     }
 
     private func setConstraints() {
-        
         buttonTitleLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
@@ -83,13 +80,17 @@ final class CompareButton: UIButton {
         }
     }
 
-    private func configureButton() {
+    private func configureButton(addAmount: Int, type: CompareButtonType) {
+        self.compareButtonType = type
         self.backgroundColor = .secondaryColor(brightness: .secondary600)
+        self.makeCornerRound(radius: 10)
+        
         switch compareButtonType {
         case .reservation:
             buttonTitleLabel.text = "예약하기"
         case .add:
             buttonTitleLabel.text = "추가하기"
+            countLabel.text = "\(addAmount)"
         }
     }
 }

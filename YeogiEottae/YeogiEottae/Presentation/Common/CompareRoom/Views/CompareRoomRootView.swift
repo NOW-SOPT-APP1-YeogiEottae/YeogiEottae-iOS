@@ -44,7 +44,6 @@ final class CompareRoomRootView: UIView {
     }
     
     private func setConstraints() {
-        
         navigationHeader.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(48)
@@ -75,7 +74,16 @@ final class CompareRoomRootView: UIView {
             $0.width.equalTo(337)
             $0.height.equalTo(50)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(36)
+            $0.bottom.equalToSuperview().inset(-50)
+        }
+    }
+    
+    func showReservationButton() {
+        UIView.animate(withDuration: 0.2) {
+            self.reservationButton.snp.updateConstraints {
+                $0.bottom.equalToSuperview().inset(36) 
+            }
+            self.layoutIfNeeded()
         }
     }
 }
