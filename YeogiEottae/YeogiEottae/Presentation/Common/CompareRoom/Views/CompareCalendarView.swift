@@ -10,7 +10,7 @@ import SnapKit
 
 class CompareCalendarView: UIView {
     
-    let dateButton: UIButton = {
+    private let dateButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .grayColor(brightness: .gray200)
         button.clipsToBounds = true
@@ -18,22 +18,22 @@ class CompareCalendarView: UIView {
         return button
     }()
     
-    let dateImageView: UIImageView = {
+    private let dateImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = .calendar
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let dateLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "5.12 일 - 5.13 월"
+        label.text = StringLiteral.CompareRoom.calander
         label.textColor = .black
         label.font = UIFont.projectFont(name: .h6)
         return label
     }()
     
-    let headCountButton: UIButton = {
+    private let headCountButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .grayColor(brightness: .gray200)
         button.clipsToBounds = true
@@ -41,16 +41,16 @@ class CompareCalendarView: UIView {
         return button
     }()
     
-    let headCountImageView: UIImageView = {
+    private let headCountImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = .person
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let headCountLabel: UILabel = {
+    private let headCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "2명"
+        label.text = StringLiteral.CompareRoom.person
         label.textColor = .black
         label.font = UIFont.projectFont(name: .h6)
         return label

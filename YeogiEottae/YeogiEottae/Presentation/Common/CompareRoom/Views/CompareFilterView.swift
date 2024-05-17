@@ -8,14 +8,12 @@
 import UIKit
 import SnapKit
 
-import UIKit
-import SnapKit
 
-class CompareFilterView: UIView, UIScrollViewDelegate {
+final class CompareFilterView: UIView, UIScrollViewDelegate {
     
-    weak var delegate: CompareTopViewCellDelegate?
+    weak var delegate: CompareFilterViewCellDelegate?
     
-    let stickyView: UIView = {
+    private let stickyView: UIView = {
         let view = UIView()
         view.makeBorder(width: 1, color: .grayColor(brightness: .gray200))
         return view
@@ -28,57 +26,54 @@ class CompareFilterView: UIView, UIScrollViewDelegate {
         return scrollView
     }()
     
-    let lowPriceButton: UIButton = {
+    private let lowPriceButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("낮은 가격 순", for: .normal)
+        button.setTitle(StringLiteral.CompareFilter.lowPrice, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b6)
         button.setImage(UIImage.expandMore, for: .normal)
         button.tintColor = UIColor.grayColor(brightness: .gray800)
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: -4)
         button.semanticContentAttribute = .forceRightToLeft
         return button
     }()
 
-    let highPriceButton: UIButton = {
+    private let highPriceButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("높은 평점 순", for: .normal)
+        button.setTitle(StringLiteral.CompareFilter.highRate, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b6)
         button.setImage(UIImage.expandMore, for: .normal)
         button.tintColor = UIColor.grayColor(brightness: .gray800)
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: -4)
         button.semanticContentAttribute = .forceRightToLeft
         return button
     }()
     
-    let highDiscountButton: UIButton = {
+    private let highDiscountButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("높은 할인 순", for: .normal)
+        button.setTitle(StringLiteral.CompareFilter.highDiscount, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b6)
         button.setImage(UIImage.expandMore, for: .normal)
         button.tintColor = UIColor.grayColor(brightness: .gray800)
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: -4)
         button.semanticContentAttribute = .forceRightToLeft
         return button
     }()
 
-    let facilityLabel: UILabel = {
+    private let facilityLabel: UILabel = {
         let label = UILabel()
-        label.text = "부대 시설"
+        label.text = StringLiteral.CompareFilter.facility
         label.font = UIFont.projectFont(name: .b6)
         label.textColor = UIColor.grayColor(brightness: .gray800)
         label.textAlignment = .right
         return label
     }()
     
-    let roomHotelLabel: UILabel = {
+    private let roomHotelLabel: UILabel = {
         let label = UILabel()
-        label.text = "객실 및 호텔"
+        label.text = StringLiteral.CompareFilter.roomHotel
         label.font = UIFont.projectFont(name: .b6)
         label.textColor = UIColor.grayColor(brightness: .gray800)
         return label
@@ -98,7 +93,7 @@ class CompareFilterView: UIView, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.compareTopViewCellDidScroll(self, scrollView: scrollView)
+        delegate?.compareFilterViewCellDidScroll(self, scrollView: scrollView)
     }
     
     private func setHierarchy() {

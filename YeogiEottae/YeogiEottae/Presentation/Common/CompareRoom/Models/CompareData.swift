@@ -1,13 +1,13 @@
 //
-//  TestData.swift
-//  Tving-Clone
+//  CompareData.swift
+//  YeogiEottae
 //
 //  Created by Seonwoo Kim on 5/15/24.
 //
 
 import UIKit
 
-// MARK: - RoomData
+
 struct RoomData: Codable {
     let roomId: Int
     let hotelName: String

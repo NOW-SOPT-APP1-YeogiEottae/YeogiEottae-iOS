@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class CompareNavigationBarView: UIView {
+final class CompareNavigationBarView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "객실 비교하기"
+        label.text = StringLiteral.CompareRoom.navigationTitle
         label.textColor = .black
         label.font = UIFont.projectFont(name: .h3)
         return label
@@ -30,16 +30,16 @@ class CompareNavigationBarView: UIView {
         setHierarchy()
         setConstraints()
     }
-        
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setHierarchy() {
+    private func setHierarchy() {
         self.addSubviews(titleLabel,arrowImage)
     }
-
-    func setConstraints() {
+    
+    private func setConstraints() {
         arrowImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(20)

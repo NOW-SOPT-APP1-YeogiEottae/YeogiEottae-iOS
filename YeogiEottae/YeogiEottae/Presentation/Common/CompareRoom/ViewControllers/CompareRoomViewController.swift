@@ -1,4 +1,8 @@
-// ViewController
+//
+//  CompareRoomViewController.swift
+//  YeogiEottae
+//
+//  Created by Seonwoo Kim on 5/16/24.
 
 import UIKit
 import SnapKit
@@ -7,8 +11,8 @@ protocol CompareTableViewCellDelegate: AnyObject {
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView)
 }
 
-protocol CompareTopViewCellDelegate: AnyObject {
-    func compareTopViewCellDidScroll(_ cell: CompareFilterView, scrollView: UIScrollView)
+protocol CompareFilterViewCellDelegate: AnyObject {
+    func compareFilterViewCellDidScroll(_ cell: CompareFilterView, scrollView: UIScrollView)
 }
 
 final class CompareRoomViewController: UIViewController {
@@ -25,37 +29,35 @@ final class CompareRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        rootView.filterView.delegate = self
+        
+        setRegister()
+        setDelegate()
     }
     
-    private func setupTableView() {
-        rootView.tableView.dataSource = self
-        rootView.tableView.delegate = self
+    private func setRegister() {
         rootView.tableView.register(CompareTableViewCell.self, forCellReuseIdentifier: CompareTableViewCell.className)
         rootView.tableView.register(AddButtonCell.self, forCellReuseIdentifier: AddButtonCell.className)
     }
     
-    private func syncScrollViews(except excludedCell: CompareTableViewCell) {
+    private func setDelegate() {
+        rootView.filterView.delegate = self
+        rootView.tableView.dataSource = self
+        rootView.tableView.delegate = self
+    }
+    
+    private func syncScrollViews(except excludedScrollView: UIScrollView) {
         for cell in rootView.tableView.visibleCells {
-            if let compareCell = cell as? CompareTableViewCell, compareCell != excludedCell {
+            if let compareCell = cell as? CompareTableViewCell, compareCell.scrollView != excludedScrollView {
                 compareCell.scrollView.contentOffset.x = scrollViewOffsetX
             }
         }
-        
-        rootView.filterView.scrollView.contentOffset.x = scrollViewOffsetX
-    }
-    
-    private func syncTopScrollViews(except excludedCell: CompareFilterView) {
-        for cell in rootView.tableView.visibleCells {
-            if let compareCell = cell as? CompareTableViewCell, compareCell != excludedCell {
-                compareCell.scrollView.contentOffset.x = scrollViewOffsetX
-            }
+        if rootView.filterView.scrollView != excludedScrollView {
+            rootView.filterView.scrollView.contentOffset.x = scrollViewOffsetX
         }
     }
     
     @objc private func addButtonTapped() {
-        print("Add button tapped")
+        //탭 했을 때 동작 추후 구현
     }
 }
 
@@ -73,7 +75,7 @@ extension CompareRoomViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: CompareTableViewCell.className, for: indexPath) as! CompareTableViewCell
-            cell.dataBind(data: dataModel[indexPath.row])
+            cell.bindData(data: dataModel[indexPath.row])
             cell.delegate = self
             cell.scrollView.contentOffset.x = scrollViewOffsetX
             return cell
@@ -103,18 +105,17 @@ extension CompareRoomViewController: UIScrollViewDelegate {
     }
 }
 
+
 extension CompareRoomViewController: CompareTableViewCellDelegate {
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView) {
         scrollViewOffsetX = scrollView.contentOffset.x
-        syncScrollViews(except: cell)
+        syncScrollViews(except: scrollView)
     }
 }
 
-extension CompareRoomViewController: CompareTopViewCellDelegate {
-    func compareTopViewCellDidScroll(_ cell: CompareFilterView, scrollView: UIScrollView) {
+extension CompareRoomViewController: CompareFilterViewCellDelegate {
+    func compareFilterViewCellDidScroll(_ cell: CompareFilterView, scrollView: UIScrollView) {
         scrollViewOffsetX = scrollView.contentOffset.x
-        syncTopScrollViews(except: cell)
+        syncScrollViews(except: scrollView)
     }
 }
-
-

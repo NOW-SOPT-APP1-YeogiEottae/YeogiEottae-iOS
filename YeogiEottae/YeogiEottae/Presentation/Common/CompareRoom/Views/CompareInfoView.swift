@@ -1,49 +1,54 @@
+//
+//  CompareInfoView.swift
+//  YeogiEottae
+//
+//  Created by Seonwoo Kim on 5/16/24.
+//
+
 import UIKit
 import SnapKit
 
-class CompareInfoView: UIView {
+
+final class CompareInfoView: UIView {
     
     private let discountPercentLabel: UILabel = {
         let label = UILabel()
-        label.text = "10%"
+        label.text = StringLiteral.CompareRoom.discountPercent
         label.font = UIFont.projectFont(name: .b7)
         label.textColor = .brandColor(brightness: .Brand)
         return label
     }()
     
-    private let priceLabel: UILabel = {
+    let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "400,000원"
         label.font = UIFont.projectFont(name: .b1)
         label.textColor = .grayColor(brightness: .gray900)
         return label
     }()
     
-    private let discountPriceLabel: UILabel = {
+    let discountPriceLabel: UILabel = {
         let label = UILabel()
-        label.text = "30,000"
         label.font = UIFont.projectFont(name: .l5)
         label.textColor = .grayColor(brightness: .gray700)
+        label.attributedText = label.text?.strikeThrough()
         return label
     }()
     
     private let starImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .starRate
+        imageView.image = .starRateBig
         return imageView
     }()
     
-    private let ratingLabel: UILabel = {
+    let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "9.1"
         label.font = UIFont.projectFont(name: .b1)
         label.textColor = .grayColor(brightness: .gray900)
         return label
     }()
     
-    private let reviewAmountLabel: UILabel = {
+    let reviewAmountLabel: UILabel = {
         let label = UILabel()
-        label.text = "(1,466)"
         label.font = UIFont.projectFont(name: .b4)
         label.textColor = .grayColor(brightness: .gray850)
         return label
@@ -51,7 +56,7 @@ class CompareInfoView: UIView {
     
     private let firstComeLabel: UILabel = {
         let label = UILabel()
-        label.text = "선착순"
+        label.text = StringLiteral.CompareRoom.firstCome
         label.font = UIFont.projectFont(name: .l4)
         label.textColor = .grayColor(brightness: .gray800)
         return label
@@ -59,7 +64,7 @@ class CompareInfoView: UIView {
     
     private let discountAmountLabel: UILabel = {
         let label = UILabel()
-        label.text = "-5000원"
+        label.text = StringLiteral.CompareRoom.discountAmout
         label.font = UIFont.projectFont(name: .b1)
         label.textColor = .grayColor(brightness: .gray900)
         return label
@@ -67,7 +72,7 @@ class CompareInfoView: UIView {
     
     private let facilityLabel: UILabel = {
         let label = UILabel()
-        label.setTextWithLineHeight(text: "자쿠지 무료 이용\n수영장\n조식 제공", lineHeight: 20)
+        label.setTextWithLineHeight(text: StringLiteral.CompareRoom.facility, lineHeight: 20)
         label.numberOfLines = 3
         label.textAlignment = .right
         label.font = UIFont.projectFont(name: .l4)
@@ -77,7 +82,7 @@ class CompareInfoView: UIView {
     
     private let moreLabel: UILabel = {
         let label = UILabel()
-        label.text = "더보기"
+        label.text = StringLiteral.CompareRoom.more
         label.font = UIFont.projectFont(name: .l6)
         label.textColor = .secondaryColor(brightness: .secondary600)
         return label

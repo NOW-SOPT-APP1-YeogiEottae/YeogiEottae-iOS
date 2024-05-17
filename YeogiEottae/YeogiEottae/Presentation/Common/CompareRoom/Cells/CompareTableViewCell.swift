@@ -8,43 +8,47 @@
 import UIKit
 import SnapKit
 
-class CompareTableViewCell: UITableViewCell, UIScrollViewDelegate {
+
+final class CompareTableViewCell: UITableViewCell {
+    
     weak var delegate: CompareTableViewCellDelegate?
     
-    let infoView = CompareInfoView()
-    let stickyView: UIView = {
+    private let infoView = CompareInfoView()
+    
+    private let stickyView: UIView = {
         let view = UIView()
+        view.makeBorder(width: 1, color: .grayColor(brightness: .gray200))
         return view
     }()
     
-    let radioButton: UIButton = {
+    private let radioButton: UIButton = {
         let button = UIButton()
         button.setImage(.checkmark, for: .normal)
         return button
     }()
     
-    let roomImageView: UIImageView = {
+    private let roomImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = .gift
         return imageView
     }()
     
-    let arrowImageView: UIImageView = {
+    private let arrowImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = .arrowRight
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let roomNameLabel: UILabel = {
+    private let roomNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.projectFont(name: .b3)
         label.textColor = .grayColor(brightness: .gray900)
         return label
     }()
     
-    let hotelNameLabel: UILabel = {
+    private let hotelNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.projectFont(name: .l4)
         label.textColor = .grayColor(brightness: .gray600)
@@ -60,7 +64,7 @@ class CompareTableViewCell: UITableViewCell, UIScrollViewDelegate {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        scrollView.delegate = self
+        configureCell()
         setHierarchy()
         setConstraints()
     }
@@ -127,53 +131,29 @@ class CompareTableViewCell: UITableViewCell, UIScrollViewDelegate {
             $0.height.equalTo(scrollView.frameLayoutGuide)
             $0.width.equalTo(586)
         }
-
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.compareTableViewCellDidScroll(self, scrollView: scrollView)
+    private func configureCell() {
+        selectionStyle = .none
+        scrollView.delegate = self
     }
     
-    func dataBind(data: RoomData) {
-        roomNameLabel.text = data.roomName
+    func bindData(data: RoomData) {
         hotelNameLabel.text = data.hotelName
+        roomNameLabel.text = data.roomName
         roomImageView.image = UIImage(named: data.imageUrl)
+        infoView.priceLabel.text = data.price.formattedWithSeparator + "원"
+        let discountPrice = data.price / 10
+        infoView.discountPriceLabel.text = discountPrice.formattedWithSeparator
+        infoView.discountPriceLabel.attributedText = discountPrice.formattedWithSeparator.strikeThrough()
+        infoView.reviewAmountLabel.text = "(\(data.reviewCount.formattedWithSeparator))"
+        infoView.ratingLabel.text = "\(data.reviewRate)"
     }
 }
 
 
-//func configure(with data: RoomData) {
-//    roomNameLabel.text = data.roomName
-//    hotelNameLabel.text = data.hotelName
-//    roomImageView.image = UIImage(named: data.imageUrl)
-//    
-//    scrollView.subviews.forEach { $0.removeFromSuperview() }
-//    
-//    let stackView = UIStackView()
-//    stackView.axis = .horizontal
-//    stackView.distribution = .fillEqually
-//    stackView.spacing = 40
-//    scrollView.addSubview(stackView)
-//    
-//    let priceLabel = createLabel(with: "Price: \(data.price)")
-//    let reviewRateLabel = createLabel(with: "Rate: \(data.reviewRate)")
-//    let reviewCountLabel = createLabel(with: "Reviews: \(data.reviewCount)")
-//    
-//    [priceLabel, reviewRateLabel, reviewCountLabel].forEach { stackView.addArrangedSubview($0) }
-//    
-//    stackView.snp.makeConstraints { make in
-//        make.edges.equalToSuperview()
-//        make.height.equalTo(135)
-//    }
-//}
-//
-//private func createLabel(with text: String) -> UILabel {
-//    let label = UILabel()
-//    label.text = text
-//    label.textAlignment = .center
-//    label.font = UIFont.systemFont(ofSize: 12)
-//    label.snp.makeConstraints { make in
-//        make.width.equalTo(88)
-//    }
-//    return label
-//}
+extension CompareTableViewCell: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.compareTableViewCellDidScroll(self, scrollView: scrollView)
+    }
+}

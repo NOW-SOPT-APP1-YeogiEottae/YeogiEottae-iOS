@@ -8,32 +8,43 @@
 import UIKit
 import SnapKit
 
+
 final class AddButtonCell: UITableViewCell {
+    
+    var addButtonAction: (() -> Void)?
 
     private let addButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("+", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        let button = UIButton()
+        button.setImage(.plus, for: .normal)
         return button
     }()
     
-    var addButtonAction: (() -> Void)?
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
+        
+        setHierarchy()
+        setConstraints()
+        configureButton()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView() {
-        selectionStyle = .none
+    private func setHierarchy() {
         contentView.addSubview(addButton)
-        addButton.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
+    }
+    
+    private func setConstraints() {
+        addButton.snp.makeConstraints {
+            $0.top.leading.equalToSuperview()
+            $0.height.equalTo(90)
+            $0.width.equalTo(137)
         }
+    }
+
+    private func configureButton() {
+        selectionStyle = .none
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
     }
     

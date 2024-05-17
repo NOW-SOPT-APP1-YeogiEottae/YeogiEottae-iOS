@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 
-class CompareEditView : UIView {
+final class CompareEditView : UIView {
     
     private let editLabel: UILabel =  {
         let label = UILabel()
-        label.text = "수정하기"
+        label.text = StringLiteral.CompareRoom.edit
         label.textColor = .grayColor(brightness: .gray800)
         label.font = UIFont.projectFont(name: .b3)
         return label

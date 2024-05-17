@@ -8,30 +8,37 @@
 import UIKit
 import SnapKit
 
-class CompareRoomRootView: UIView {
+final class CompareRoomRootView: UIView {
+    
     let tableView = UITableView()
-    let navigationHeader = CompareNavigationBarView()
-    let sectionHeader = CompareCalendarView()
-    let repairView = CompareEditView()
+    private let navigationHeader = CompareNavigationBarView()
+    private let sectionHeader = CompareCalendarView()
+    private let repairView = CompareEditView()
     let filterView = CompareFilterView()
     
     var sectionHeaderHeightConstraint: Constraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
+        
+        setHierarchy()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    private func setHierarchy() {
         self.addSubview(sectionHeader)
-        sectionHeader.addSubview(navigationHeader)
-        sectionHeader.addSubview(repairView)
         self.addSubview(filterView)
         self.addSubview(tableView)
+        
+        sectionHeader.addSubview(navigationHeader)
+        sectionHeader.addSubview(repairView)
+    }
+    
+    private func setConstraints() {
         
         navigationHeader.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
