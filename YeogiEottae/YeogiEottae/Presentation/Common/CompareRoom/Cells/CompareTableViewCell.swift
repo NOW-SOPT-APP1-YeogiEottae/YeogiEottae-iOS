@@ -13,6 +13,12 @@ final class CompareTableViewCell: UITableViewCell {
     
     weak var delegate: CompareTableViewCellDelegate?
     
+    var isRadioSelected = false {
+        didSet {
+            updateRadioButtonImage()
+        }
+    }
+    
     private let infoView = CompareInfoView()
     
     private let stickyView: UIView = {
@@ -23,7 +29,7 @@ final class CompareTableViewCell: UITableViewCell {
     
     private let radioButton: UIButton = {
         let button = UIButton()
-        button.setImage(.checkmark, for: .normal)
+        button.setImage(.radioUnchecked, for: .normal)
         return button
     }()
     
@@ -35,7 +41,6 @@ final class CompareTableViewCell: UITableViewCell {
         
         return imageView
     }()
-    
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView()
@@ -70,6 +75,7 @@ final class CompareTableViewCell: UITableViewCell {
         configureCell()
         setHierarchy()
         setConstraints()
+        configureButton()
     }
     
     required init?(coder: NSCoder) {
@@ -151,6 +157,18 @@ final class CompareTableViewCell: UITableViewCell {
         infoView.discountPriceLabel.attributedText = discountPrice.formattedWithSeparator.strikeThrough()
         infoView.reviewAmountLabel.text = "(\(data.reviewCount.formattedWithSeparator))"
         infoView.ratingLabel.text = "\(data.reviewRate)"
+    }
+    
+    private func configureButton() {
+        radioButton.addTarget(self, action: #selector(radioButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func radioButtonTapped() {
+        delegate?.compareTableViewCellDidTapRadioButton(self)
+    }
+    
+    private func updateRadioButtonImage() {
+        radioButton.setImage(isRadioSelected ? .radioChecked : .radioUnchecked, for: .normal)
     }
 }
 

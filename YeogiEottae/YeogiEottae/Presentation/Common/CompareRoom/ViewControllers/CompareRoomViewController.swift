@@ -10,6 +10,7 @@ import SnapKit
 
 protocol CompareTableViewCellDelegate: AnyObject {
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView)
+    func compareTableViewCellDidTapRadioButton(_ cell: CompareTableViewCell)
 }
 
 protocol CompareFilterViewCellDelegate: AnyObject {
@@ -20,6 +21,8 @@ final class CompareRoomViewController: UIViewController {
     
     private var scrollViewOffsetX: CGFloat = 0
     private var isHeaderHidden = false
+    private var isSelected = false
+    private var selectedIndexPath: IndexPath?
     
     private let rootView = CompareRoomRootView()
     private let dataModel = RoomData.dummyData()
@@ -61,6 +64,10 @@ final class CompareRoomViewController: UIViewController {
     @objc private func addButtonTapped() {
         //탭 했을 때 동작 추후 구현
     }
+    
+    @objc private func radioButtonTapped() {
+        print("radio")
+    }
 }
 
 
@@ -87,6 +94,7 @@ extension CompareRoomViewController: UITableViewDataSource {
             cell.bindData(data: dataModel[indexPath.row])
             cell.delegate = self
             cell.scrollView.contentOffset.x = scrollViewOffsetX
+            cell.isRadioSelected = (indexPath == selectedIndexPath)
             return cell
         }
     }
@@ -115,6 +123,12 @@ extension CompareRoomViewController: UIScrollViewDelegate {
 }
 
 extension CompareRoomViewController: CompareTableViewCellDelegate {
+    func compareTableViewCellDidTapRadioButton(_ cell: CompareTableViewCell) {
+        if let indexPath = rootView.tableView.indexPath(for: cell) {
+            selectedIndexPath = indexPath
+            rootView.tableView.reloadData()
+        }
+    }
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView) {
         scrollViewOffsetX = scrollView.contentOffset.x
         syncScrollViews(excludedScrollView: scrollView)
