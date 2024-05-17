@@ -147,7 +147,7 @@ final class SearchListView: UIView {
         }()
         
         let button = UIButton(configuration: configuration)
-        button.setTitle("정렬", for: .normal)
+        button.setTitle(StringLiteral.SearchListView.SortButtonTitle, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         
         button.clipsToBounds = true

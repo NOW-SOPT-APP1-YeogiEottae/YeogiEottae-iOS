@@ -15,7 +15,7 @@ class SearchResultHeaderView: UITableViewHeaderFooterView {
     
     let orderCriteriaLabel: UILabel = {
         let label = UILabel()
-        label.text = "여기어때 추천순"
+        label.text = StringLiteral.CurrentFilterCriteria.YeogiEottaeRecommended
         label.textAlignment = .left
         label.font = UIFont.pretendardFont(ofSize: 12, weight: .medium)
         return label
@@ -37,7 +37,7 @@ class SearchResultHeaderView: UITableViewHeaderFooterView {
         configuration.baseForegroundColor = UIColor.grayColor(brightness: .gray900)
         
         let button = UIButton(configuration: configuration)
-        button.setTitle("정렬", for: .normal)
+        button.setTitle(StringLiteral.SearchListView.SortButtonTitle, for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .l4)
         return button
     }()
