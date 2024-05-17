@@ -10,6 +10,7 @@
 		0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */; };
 		0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */; };
 		0B3C2AC02BF720A000878745 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2ABF2BF720A000878745 /* Int+.swift */; };
+		0B3C2AC22BF74B0E00878745 /* CompareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC12BF74B0E00878745 /* CompareButton.swift */; };
 		0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */; };
 		0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */; };
 		0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareInfoView.swift; sourceTree = "<group>"; };
 		0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		0B3C2ABF2BF720A000878745 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		0B3C2AC12BF74B0E00878745 /* CompareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButton.swift; sourceTree = "<group>"; };
 		0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YeogiEottae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				0B96F21F2BF619CE00A6F840 /* CompareRoomRootView.swift */,
 				0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */,
 				0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */,
+				0B3C2AC12BF74B0E00878745 /* CompareButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */,
 				0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */,
+				0B3C2AC22BF74B0E00878745 /* CompareButton.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
 				0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */,

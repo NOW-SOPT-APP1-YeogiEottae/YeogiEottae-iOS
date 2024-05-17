@@ -11,13 +11,14 @@ import SnapKit
 
 final class CompareRoomRootView: UIView {
     
+    var sectionHeaderHeightConstraint: Constraint?
+    
     let tableView = UITableView()
     private let navigationHeader = CompareNavigationBarView()
     private let sectionHeader = CompareCalendarView()
     private let repairView = CompareEditView()
     let filterView = CompareFilterView()
-    
-    var sectionHeaderHeightConstraint: Constraint?
+    private let reservationButton = CompareButton(type: .reservation)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,9 +32,12 @@ final class CompareRoomRootView: UIView {
     }
     
     private func setHierarchy() {
-        self.addSubview(sectionHeader)
-        self.addSubview(filterView)
-        self.addSubview(tableView)
+        self.addSubviews(
+            sectionHeader,
+            filterView,
+            tableView,
+            reservationButton
+        )
         
         sectionHeader.addSubview(navigationHeader)
         sectionHeader.addSubview(repairView)
@@ -65,6 +69,13 @@ final class CompareRoomRootView: UIView {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(filterView.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        reservationButton.snp.makeConstraints {
+            $0.width.equalTo(337)
+            $0.height.equalTo(50)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(36)
         }
     }
 }
