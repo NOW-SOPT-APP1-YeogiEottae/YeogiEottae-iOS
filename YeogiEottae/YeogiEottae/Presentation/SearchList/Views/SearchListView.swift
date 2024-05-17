@@ -288,7 +288,7 @@ final class SearchListView: UIView {
     func shrinkSegmentController() {
         guard !self.isNaviBarShrinked else { return }
         self.segmentCollectionView.underbar.isHidden = true
-        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
+        let animator = UIViewPropertyAnimator(duration: 0.4, dampingRatio: 1)
         animator.addAnimations { [weak self] in
             guard let self else { return }
             self.dateButtonTopConstraint.constant = 4
@@ -324,7 +324,7 @@ final class SearchListView: UIView {
     func expandSegmentController() {
         guard self.isNaviBarShrinked else { return }
         self.segmentCollectionView.underbar.isHidden = false
-        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
+        let animator = UIViewPropertyAnimator(duration: 0.4, dampingRatio: 1)
         animator.addAnimations {
             self.dateButtonTopConstraint.constant = 8
             self.dateButtonHeightConstraint.constant = 38
