@@ -97,7 +97,7 @@ class SearchListViewController: UIViewController {
     
     let showMapButton: UIButton = {
         let button = UIButton()
-        button.setTitle("지도보기", for: .normal)
+        button.setTitle(StringLiteral.SearchListView.showMapButtonTitle, for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b3)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
         return button
