@@ -46,9 +46,10 @@ final class CompareRoomViewController: UIViewController {
         rootView.tableView.delegate = self
     }
     
-    private func syncScrollViews(except excludedScrollView: UIScrollView) {
+    private func syncScrollViews(excludedScrollView: UIScrollView) {
         for cell in rootView.tableView.visibleCells {
-            if let compareCell = cell as? CompareTableViewCell, compareCell.scrollView != excludedScrollView {
+            if let compareCell = cell as? CompareTableViewCell, 
+                compareCell.scrollView != excludedScrollView {
                 compareCell.scrollView.contentOffset.x = scrollViewOffsetX
             }
         }
@@ -70,13 +71,19 @@ extension CompareRoomViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == dataModel.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: AddButtonCell.className, for: indexPath) as! AddButtonCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddButtonCell.className, for: indexPath)
+                    as? AddButtonCell else {
+                return UITableViewCell()
+            }
             cell.addButtonAction = { [weak self] in
                 self?.addButtonTapped()
             }
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CompareTableViewCell.className, for: indexPath) as! CompareTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CompareTableViewCell.className, for: indexPath)
+                    as? CompareTableViewCell else {
+                return UITableViewCell()
+            }
             cell.bindData(data: dataModel[indexPath.row])
             cell.delegate = self
             cell.scrollView.contentOffset.x = scrollViewOffsetX
@@ -110,13 +117,13 @@ extension CompareRoomViewController: UIScrollViewDelegate {
 extension CompareRoomViewController: CompareTableViewCellDelegate {
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView) {
         scrollViewOffsetX = scrollView.contentOffset.x
-        syncScrollViews(except: scrollView)
+        syncScrollViews(excludedScrollView: scrollView)
     }
 }
 
 extension CompareRoomViewController: CompareFilterViewCellDelegate {
     func compareFilterViewCellDidScroll(_ cell: CompareFilterView, scrollView: UIScrollView) {
         scrollViewOffsetX = scrollView.contentOffset.x
-        syncScrollViews(except: scrollView)
+        syncScrollViews(excludedScrollView: scrollView)
     }
 }
