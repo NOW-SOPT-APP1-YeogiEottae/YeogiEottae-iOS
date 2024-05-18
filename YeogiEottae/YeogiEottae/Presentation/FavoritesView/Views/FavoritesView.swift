@@ -150,8 +150,8 @@ final class FavoritesView: UIView {
         )
         
         self.addSubviews(
-            self.fixedHeaderView,
-            self.favoritesCollectionView
+            self.fixedHeaderView
+            //self.favoritesCollectionView
         )
     }
     
@@ -183,10 +183,10 @@ final class FavoritesView: UIView {
             make.height.equalTo(self.favoritesDayButton)
         }
         
-        self.favoritesCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.fixedHeaderView.snp.bottom)
-            make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
-        }
+        //self.favoritesCollectionView.snp.makeConstraints { make in
+        //    make.top.equalTo(self.fixedHeaderView.snp.bottom)
+        //    make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
+        //}
     }
     
     

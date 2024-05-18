@@ -52,6 +52,7 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
+		4E47FDBA2BF91C2300A21B08 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */; };
 		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
 		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
 		4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */; };
@@ -115,6 +116,7 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD82BF48B1400191932 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */,
+				4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */,
 				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
+				4E47FDBA2BF91C2300A21B08 /* FavoritesCollectionViewController.swift in Sources */,
 				4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */,
 				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
 				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
