@@ -41,6 +41,7 @@ class SearchFilterListCell: UICollectionViewCell {
         label.font = UIFont.pretendardFont(ofSize: 13, weight: .regular)
         label.textAlignment = .center
         label.textColor = UIColor.grayColor(brightness: .gray800)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

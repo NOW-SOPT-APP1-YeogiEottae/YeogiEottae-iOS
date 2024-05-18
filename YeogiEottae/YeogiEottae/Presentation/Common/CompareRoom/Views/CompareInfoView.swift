@@ -15,7 +15,7 @@ final class CompareInfoView: UIView {
         let label = UILabel()
         label.text = StringLiteral.CompareRoom.discountPercent
         label.font = UIFont.projectFont(name: .b7)
-        label.textColor = .brandColor(brightness: .Brand)
+        label.textColor = .brandColor(brightness: .brand)
         return label
     }()
     
