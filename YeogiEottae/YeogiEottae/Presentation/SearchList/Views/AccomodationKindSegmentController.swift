@@ -12,7 +12,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let allKindLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.allKind
+        label.text = StringLiteral.AccommodationKindSegmentName.allKind
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -20,7 +20,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let motelLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.motel
+        label.text = StringLiteral.AccommodationKindSegmentName.motel
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -28,7 +28,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let hotelResortLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.hotelResort
+        label.text = StringLiteral.AccommodationKindSegmentName.hotelResort
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -36,7 +36,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let pensionLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.pension
+        label.text = StringLiteral.AccommodationKindSegmentName.pension
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -44,7 +44,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let homeVillaLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.homeVilla
+        label.text = StringLiteral.AccommodationKindSegmentName.homeVilla
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -52,7 +52,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let campingLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.camping
+        label.text = StringLiteral.AccommodationKindSegmentName.camping
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -60,7 +60,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let guestHouseHanokLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.guestHouseHanok
+        label.text = StringLiteral.AccommodationKindSegmentName.guestHouseHanok
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -107,59 +107,58 @@ final class AccomodationKindSegmentController: UIScrollView {
     }
     
     private func setConstraints() {
-        self.allKindLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalToSuperview().inset(24)
-            make.height.equalTo(19)
+        self.allKindLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalToSuperview().inset(24)
+            $0.height.equalTo(19)
         }
         
-        self.motelLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.allKindLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.motelLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.allKindLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.hotelResortLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.motelLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.hotelResortLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.motelLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.pensionLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.hotelResortLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.pensionLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.hotelResortLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.homeVillaLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.pensionLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.homeVillaLabel.snp.makeConstraints {             $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.pensionLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.campingLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.homeVillaLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
+        self.campingLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.homeVillaLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
         }
         
-        self.guestHouseHanokLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(13)
-            make.leading.equalTo(self.campingLabel.snp.trailing).offset(24)
-            make.height.equalTo(19)
-            make.trailing.equalToSuperview().inset(24)
+        self.guestHouseHanokLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.bottom.equalToSuperview().inset(13)
+            $0.leading.equalTo(self.campingLabel.snp.trailing).offset(24)
+            $0.height.equalTo(19)
+            $0.trailing.equalToSuperview().inset(24)
         }
         
-        self.underBar.snp.makeConstraints { make in
-            make.horizontalEdges.bottom.equalToSuperview()
-            make.height.equalTo(1)
+        self.underBar.snp.makeConstraints {
+            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.height.equalTo(1)
         }
         
         

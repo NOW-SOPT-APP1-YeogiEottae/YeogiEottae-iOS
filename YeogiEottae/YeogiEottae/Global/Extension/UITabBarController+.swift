@@ -15,7 +15,7 @@ extension UITabBarController {
 
         tabBarController.setViewControllers(
             [
-                UIViewController(),
+                UINavigationController(rootViewController: CompareRoomViewController()),
                 searchListNaviCon,
                 UIViewController(),
                 UIViewController(),
@@ -35,7 +35,7 @@ extension UITabBarController {
         tabBarController.tabBar.items?[4].image = UIImage(named: "my")
         tabBarController.tabBar.items?[4].title = StringLiteral.TabBar.myInfoTitle
         
-        tabBarController.tabBar.tintColor = UIColor.brandColor(brightness: .Brand)
+        tabBarController.tabBar.tintColor = UIColor.brandColor(brightness: .brand)
         tabBarController.selectedIndex = 1
         return tabBarController
     }

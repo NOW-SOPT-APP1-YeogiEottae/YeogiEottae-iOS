@@ -41,6 +41,7 @@ class SearchFilterListCell: UICollectionViewCell {
         label.font = UIFont.pretendardFont(ofSize: 13, weight: .regular)
         label.textAlignment = .center
         label.textColor = UIColor.grayColor(brightness: .gray800)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -67,15 +68,15 @@ class SearchFilterListCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
-        self.labelBackgroundView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(2)
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview().inset(2)
+        self.labelBackgroundView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(2)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(2)
         }
         
-        self.filterNameLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(2)
-            make.centerY.equalToSuperview()
+        self.filterNameLabel.snp.makeConstraints { 
+            $0.horizontalEdges.equalToSuperview().inset(2)
+            $0.centerY.equalToSuperview()
         }
     }
     

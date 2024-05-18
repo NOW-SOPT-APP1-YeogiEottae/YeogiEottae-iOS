@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol addListCellProtocol: AnyObject {
+protocol AddListCellProtocol: AnyObject {
     
     func buttonDidTapped()
     
@@ -33,7 +33,7 @@ class AddSearchFilterListCell: UICollectionViewCell {
         return button
     }()
     
-    weak var delegate: addListCellProtocol?
+    weak var delegate: AddListCellProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,10 +53,10 @@ class AddSearchFilterListCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
-        self.plusImageButton.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.width.equalTo(50)
-            make.centerY.equalToSuperview()
+        self.plusImageButton.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview()
+            $0.width.equalTo(50)
+            $0.centerY.equalToSuperview()
         }
     }
     

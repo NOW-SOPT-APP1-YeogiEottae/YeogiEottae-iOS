@@ -125,8 +125,8 @@ extension UIFont {
     static func projectFont(name: projectFontName) -> UIFont {
         switch name {
 
-        case .h1: return UIFont.pretendardFont(ofSize: 23, weight: 750)
-        case .h2: return UIFont.pretendardFont(ofSize: 20, weight: 750)
+        case .h1: return UIFont.pretendardFont(ofSize: 23, weight: 800)
+        case .h2: return UIFont.pretendardFont(ofSize: 20, weight: 800)
         case .h3: return UIFont.pretendardFont(ofSize: 17, weight: 700)
         case .h4: return UIFont.pretendardFont(ofSize: 15, weight: 700)
         case .h5: return UIFont.pretendardFont(ofSize: 14, weight: 700)
