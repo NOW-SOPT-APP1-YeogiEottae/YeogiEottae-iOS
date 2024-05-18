@@ -19,7 +19,7 @@ final class AddCompareRootView: UIView {
         label.font = UIFont.projectFont(name: .h3)
         return label
     }()
-    private let addButton = CompareButton(type: .reservation)
+    lazy var addButton = CompareButton(type: .add, addAmount: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

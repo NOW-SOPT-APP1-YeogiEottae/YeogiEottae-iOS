@@ -18,7 +18,7 @@ final class CompareRoomRootView: UIView {
     private let sectionHeader = CompareCalendarView()
     private let repairView = CompareEditView()
     let filterView = CompareFilterView()
-    private let reservationButton = CompareButton(type: .reservation)
+    private let reservationButton = CompareButton(type: .reservation, addAmount: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -35,12 +35,12 @@ extension CompareRoomData {
 extension CompareRoomData {
     static func dummyData() -> [CompareRoomData] {
         return [
-            CompareRoomData(roomId: 1, hotelName: "그랜드 인터컨티넨탈", roomName: "클래식 킹", price: 464640, reviewRate: 9.4, reviewCount: 2183, imageUrl: "advertise"),
-            CompareRoomData(roomId: 3, hotelName: "서울 신라 호텔", roomName: "디럭스 트윈", price: 497000, reviewRate: 9.8, reviewCount: 1183, imageUrl: "advertise"),
-            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "advertise"),
-            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "advertise"),
-            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "advertise"),
-            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "advertise")
+            CompareRoomData(roomId: 1, hotelName: "그랜드 인터컨티넨탈", roomName: "클래식 킹", price: 464640, reviewRate: 9.4, reviewCount: 2183, imageUrl: "https://bit.ly/4bF6NHO"),
+            CompareRoomData(roomId: 3, hotelName: "서울 신라 호텔", roomName: "디럭스 트윈", price: 497000, reviewRate: 9.8, reviewCount: 1183, imageUrl: "https://bit.ly/4bF6NHO"),
+            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "https://bit.ly/4bF6NHO"),
+            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "https://bit.ly/4bF6NHO"),
+            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "https://bit.ly/4bF6NHO"),
+            CompareRoomData(roomId: 2, hotelName: "그랜드 인터컨티넨탈", roomName: "주니어 스위트 킹", price: 608679, reviewRate: 9.4, reviewCount: 2183, imageUrl: "https://bit.ly/4bF6NHO")
         ]
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+import Kingfisher
 
 final class CompareTableViewCell: UITableViewCell {
     
@@ -150,7 +150,8 @@ final class CompareTableViewCell: UITableViewCell {
     func bindData(data: CompareRoomData) {
         hotelNameLabel.text = data.hotelName
         roomNameLabel.text = data.roomName
-        roomImageView.image = .imgBlack
+        let url = URL(string: data.imageUrl)
+        roomImageView.kf.setImage(with: url)
         infoView.priceLabel.text = data.price.formattedWithSeparator + "원"
         let discountPrice = data.price / 10
         infoView.discountPriceLabel.text = discountPrice.formattedWithSeparator

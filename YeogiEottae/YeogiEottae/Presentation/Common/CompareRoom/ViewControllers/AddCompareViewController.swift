@@ -9,12 +9,15 @@ import UIKit
 import SnapKit
 
 
+protocol AddTableViewCellDelegate: AnyObject {
+    func addTableViewCellDidTapButton(_ cell: AddCompareTableViewCell)
+}
+
 final class AddCompareViewController: UIViewController {
     
-    private var isSelected = false
-    
     private let rootView = AddCompareRootView()
-    private let dataModel = CompareRoomData.dummyData()
+    private let dataModel = AddRoomData.dummyData()
+    private var likeRoomList: [Int] = []
     
     override func loadView() {
         self.view = rootView
@@ -39,7 +42,7 @@ final class AddCompareViewController: UIViewController {
 
 extension AddCompareViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataModel.count + 1
+        return dataModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,13 +50,31 @@ extension AddCompareViewController: UITableViewDataSource {
                 as? AddCompareTableViewCell else {
             return UITableViewCell()
         }
-        
+        cell.delegate = self
+        cell.bindData(data: dataModel[indexPath.row])
         return cell
     }
 }
 
-func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 108
+
+extension AddCompareViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 116
+    }
 }
 
-extension AddCompareViewController: UITableViewDelegate {}
+extension AddCompareViewController : AddTableViewCellDelegate {
+    func addTableViewCellDidTapButton(_ cell: AddCompareTableViewCell) {
+        cell.isCheckSelected.toggle()
+        
+        if cell.isCheckSelected {
+            likeRoomList.append(cell.roomId)
+        } else {
+            if let index = likeRoomList.firstIndex(of: cell.roomId) {
+                likeRoomList.remove(at: index)
+            }
+        }
+        
+        rootView.addButton.likeAmount = likeRoomList.count
+    }
+}

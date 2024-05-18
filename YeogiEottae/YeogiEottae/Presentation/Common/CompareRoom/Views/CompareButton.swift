@@ -16,7 +16,12 @@ final class CompareButton: UIButton {
         case add
     }
 
-    var compareButtonType: CompareButtonType = .reservation
+    private var compareButtonType: CompareButtonType
+    var likeAmount : Int = 0 {
+        didSet {
+            countLabel.text = "\(likeAmount)"
+        }
+    }
 
     private let buttonTitleLabel: UILabel = {
         let label = UILabel()
@@ -32,17 +37,18 @@ final class CompareButton: UIButton {
         return view
     }()
     
-    private let countLabel : UILabel = {
+    let countLabel : UILabel = {
         let label = UILabel()
         label.textColor = .secondaryColor(brightness: .secondary600)
         label.font = UIFont.projectFont(name: .h5)
         return label
     }()
 
-    init(type: CompareButtonType, addAmount: Int = 0) {
+    init(type: CompareButtonType, addAmount: Int) {
+        self.compareButtonType = type
+        self.likeAmount = addAmount
         super.init(frame: .zero)
-        
-        configureButton(addAmount: addAmount, type: type)
+        configureButton(addAmount: addAmount)
         setHierarchy()
         setConstraints()
     }
@@ -80,8 +86,7 @@ final class CompareButton: UIButton {
         }
     }
 
-    private func configureButton(addAmount: Int, type: CompareButtonType) {
-        self.compareButtonType = type
+    private func configureButton(addAmount: Int) {
         self.backgroundColor = .secondaryColor(brightness: .secondary600)
         self.makeCornerRound(radius: 10)
         

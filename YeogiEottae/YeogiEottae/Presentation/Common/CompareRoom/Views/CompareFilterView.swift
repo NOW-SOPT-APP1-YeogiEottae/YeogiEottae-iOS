@@ -144,8 +144,8 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         }
         
         scrollView.contentLayoutGuide.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.height.equalToSuperview()
+            $0.edges.equalTo(scrollView)
+            $0.height.equalTo(scrollView.frameLayoutGuide)
             $0.width.equalTo(586) // Calculate total content width
         }
     }
