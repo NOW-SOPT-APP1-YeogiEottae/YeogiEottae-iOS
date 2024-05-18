@@ -35,6 +35,9 @@
 		0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */; };
 		0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2232BF61D5D00A6F840 /* NSObject+.swift */; };
 		0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */; };
+		4E1FA4F62BF8A8630029ED16 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */; };
+		4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */; };
+		4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */; };
 		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
 		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
 		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
@@ -50,8 +53,6 @@
 		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
 		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
 		4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */; };
-		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
-		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
 		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */; };
@@ -95,6 +96,9 @@
 		0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFilterView.swift; sourceTree = "<group>"; };
 		0B96F2232BF61D5D00A6F840 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSegmentStackView.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -110,8 +114,6 @@
 		4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD82BF48B1400191932 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
-		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
-		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,32 @@
 				0B96F21F2BF619CE00A6F840 /* CompareRoomRootView.swift */,
 				0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */,
 				0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4E1FA4F02BF8A8240029ED16 /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4F22BF8A8420029ED16 /* Views */,
+				4E1FA4F12BF8A83C0029ED16 /* ViewControllers */,
+			);
+			path = FavoritesView;
+			sourceTree = "<group>";
+		};
+		4E1FA4F12BF8A83C0029ED16 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4E1FA4F22BF8A8420029ED16 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */,
+				4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -376,6 +404,7 @@
 		4E278F8F2BEFAD830034097A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4E1FA4F02BF8A8240029ED16 /* FavoritesView */,
 				4E7021352BF2276800D480AE /* SearchList */,
 				4E278F902BEFAD870034097A /* Common */,
 			);
@@ -578,11 +607,14 @@
 				0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */,
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
 				4E7021452BF24C1000D480AE /* AddSearchFilterListCell.swift in Sources */,
+				4E1FA4F62BF8A8630029ED16 /* FavoritesViewController.swift in Sources */,
 				0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */,
 				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
+				4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */,
 				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
 				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
+				4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */,
 				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
 				4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
