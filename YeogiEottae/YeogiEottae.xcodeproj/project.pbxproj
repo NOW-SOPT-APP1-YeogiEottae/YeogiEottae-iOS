@@ -10,10 +10,15 @@
 		0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */; };
 		0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */; };
 		0B3C2AC02BF720A000878745 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2ABF2BF720A000878745 /* Int+.swift */; };
+		0B3C2AC22BF74B0E00878745 /* CompareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC12BF74B0E00878745 /* CompareButton.swift */; };
+		0B3C2AC42BF758A900878745 /* AddCompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC32BF758A900878745 /* AddCompareViewController.swift */; };
+		0B3C2AC62BF7598100878745 /* AddCompareRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */; };
+		0B3C2AC82BF75A7F00878745 /* AddCompareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC72BF75A7F00878745 /* AddCompareTableViewCell.swift */; };
 		0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */; };
 		0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */; };
 		0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */; };
 		0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DE2BEB9E6B00BCEA76 /* Base */; };
+		0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */; };
 		0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */; };
 		0B719C482BF20B3500DF1D92 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C472BF20B3500DF1D92 /* Moya */; };
 		0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4A2BF20B5400DF1D92 /* Kingfisher */; };
@@ -72,11 +77,17 @@
 		0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareInfoView.swift; sourceTree = "<group>"; };
 		0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		0B3C2ABF2BF720A000878745 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		0B3C2AC12BF74B0E00878745 /* CompareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButton.swift; sourceTree = "<group>"; };
+		0B3C2AC32BF758A900878745 /* AddCompareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompareViewController.swift; sourceTree = "<group>"; };
+		0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompareRootView.swift; sourceTree = "<group>"; };
+		0B3C2AC72BF75A7F00878745 /* AddCompareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompareTableViewCell.swift; sourceTree = "<group>"; };
 		0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YeogiEottae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B4AA6DE2BEB9E6B00BCEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B4AA6E02BEB9E6B00BCEA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomData.swift; sourceTree = "<group>"; };
 		0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+.swift"; sourceTree = "<group>"; };
 		0B719C512BF21C3E00DF1D92 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -193,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */,
+				0B3C2AC32BF758A900878745 /* AddCompareViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -202,6 +214,7 @@
 			children = (
 				0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */,
 				0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */,
+				0B3C2AC72BF75A7F00878745 /* AddCompareTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -210,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				0B96F20A2BF3B26F00A6F840 /* CompareData.swift */,
+				0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +237,8 @@
 				0B96F21F2BF619CE00A6F840 /* CompareRoomRootView.swift */,
 				0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */,
 				0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */,
+				0B3C2AC12BF74B0E00878745 /* CompareButton.swift */,
+				0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -550,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B3C2AC82BF75A7F00878745 /* AddCompareTableViewCell.swift in Sources */,
 				4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */,
 				4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */,
 				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
@@ -565,17 +582,21 @@
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */,
 				0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */,
+				0B3C2AC22BF74B0E00878745 /* CompareButton.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				4EE7D0D32BF490A5002BDF8E /* SearchResultCell.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
 				4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */,
 				0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
+				0B3C2AC42BF758A900878745 /* AddCompareViewController.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
 				0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */,
 				0B3C2AC02BF720A000878745 /* Int+.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
+				0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */,
 				0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */,
+				0B3C2AC62BF7598100878745 /* AddCompareRootView.swift in Sources */,
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
 				4E7021452BF24C1000D480AE /* AddSearchFilterListCell.swift in Sources */,
 				0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */,
