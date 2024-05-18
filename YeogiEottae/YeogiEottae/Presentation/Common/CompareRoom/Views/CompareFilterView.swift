@@ -122,6 +122,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.leading.equalToSuperview().offset(12)
             $0.width.equalTo(88)
             $0.verticalEdges.equalToSuperview()
+            $0.height.equalTo(48)
         }
         
         highPriceButton.snp.makeConstraints {
@@ -141,12 +142,6 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.trailing.equalTo(scrollView.contentLayoutGuide).inset(38)
             $0.width.equalTo(152)
             $0.centerY.equalToSuperview()
-        }
-        
-        scrollView.contentLayoutGuide.snp.makeConstraints {
-            $0.edges.equalTo(scrollView)
-            $0.height.equalTo(scrollView.frameLayoutGuide)
-            $0.width.equalTo(586) // Calculate total content width
         }
     }
 }
