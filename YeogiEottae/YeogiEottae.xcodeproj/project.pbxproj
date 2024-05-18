@@ -426,81 +426,77 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		87BEE6A02BF6E49D00579642 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-		4E4D0AD52BF48AF200191932 /* VCForPageVC */ = {
-			isa = PBXGroup;
-			children = (
-				4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */,
-				4E4D0AD82BF48B1400191932 /* BlueViewController.swift */,
-				4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */,
-				4EE7D0D02BF49073002BDF8E /* SearchResultViewController.swift */,
-				4EE7D0CE2BF48E3C002BDF8E /* SearchResultView.swift */,
-			);
-			path = VCForPageVC;
-			sourceTree = "<group>";
-		};
-		4E7021352BF2276800D480AE /* SearchList */ = {
-			isa = PBXGroup;
-			children = (
-				4E4D0AD52BF48AF200191932 /* VCForPageVC */,
-				4E70213B2BF22ADA00D480AE /* Cells */,
-				4E70213A2BF22AD700D480AE /* Models */,
-				4E7021392BF22AD100D480AE /* ViewControllers */,
-				4E7021382BF22ACC00D480AE /* Views */,
-			);
-			path = SearchList;
-			sourceTree = "<group>";
-		};
-		4E7021382BF22ACC00D480AE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4E70213C2BF22B0E00D480AE /* SearchListView.swift */,
-				4E70214C2BF3B00300D480AE /* SearchSegmentCollectionView.swift */,
-				4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		87BEE6A12BF6E4A500579642 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-		4E7021392BF22AD100D480AE /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				4E7021362BF2286F00D480AE /* SearchListViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		4E70213A2BF22AD700D480AE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */,
-				4EE7D0D62BF49675002BDF8E /* HotelModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		87BEE6A22BF6E4AE00579642 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				87BEE6A32BF7A89E00579642 /* ImageTableViewCell.swift */,
-				87BEE6A52BF7A8B800579642 /* DetailTableViewCell.swift */,
-				87BEE6A72BF8303500579642 /* RoomTableViewCell.swift */,
-		4E70213B2BF22ADA00D480AE /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */,
-				4E7021442BF24C1000D480AE /* AddSearchFilterListCell.swift */,
-				4E7021482BF3A94700D480AE /* SearchSegmentCell.swift */,
-				4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */,
-				4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
+87BEE6A02BF6E49D00579642 /* Views */ = {
+    isa = PBXGroup;
+    children = (
+    );
+    path = Views;
+    sourceTree = "<group>";
+};
+
+4E7021352BF2276800D480AE /* SearchList */ = {
+    isa = PBXGroup;
+    children = (
+        4E70213B2BF22ADA00D480AE /* Cells */,
+        4E70213A2BF22AD700D480AE /* Models */,
+        4E7021392BF22AD100D480AE /* ViewControllers */,
+        4E7021382BF22ACC00D480AE /* Views */,
+    );
+    path = SearchList;
+    sourceTree = "<group>";
+};
+
+4E7021382BF22ACC00D480AE /* Views */ = {
+    isa = PBXGroup;
+    children = (
+        4E70213C2BF22B0E00D480AE /* SearchListView.swift */,
+        4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */,
+    );
+    path = Views;
+    sourceTree = "<group>";
+};
+
+4E7021392BF22AD100D480AE /* ViewControllers */ = {
+    isa = PBXGroup;
+    children = (
+        4E7021362BF2286F00D480AE /* SearchListViewController.swift */,
+    );
+    path = ViewControllers;
+    sourceTree = "<group>";
+};
+
+4E70213A2BF22AD700D480AE /* Models */ = {
+    isa = PBXGroup;
+    children = (
+        4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */,
+        4EE7D0D62BF49675002BDF8E /* HotelModel.swift */,
+    );
+    path = Models;
+    sourceTree = "<group>";
+};
+
+4E70213B2BF22ADA00D480AE /* Cells */ = {
+    isa = PBXGroup;
+    children = (
+        4E7021422BF24BDB00D480AE /* SearchFilterListCell.swift */,
+        4E7021442BF24C1000D480AE /* AddSearchFilterListCell.swift */,
+    );
+    path = Cells;
+    sourceTree = "<group>";
+};
+
+87BEE6A22BF6E4AE00579642 /* Cells */ = {
+    isa = PBXGroup;
+    children = (
+        87BEE6A32BF7A89E00579642 /* ImageTableViewCell.swift */,
+        87BEE6A52BF7A8B800579642 /* DetailTableViewCell.swift */,
+        87BEE6A72BF8303500579642 /* RoomTableViewCell.swift */,
+    );
+    path = Cells;
+    sourceTree = "<group>";
+};
+
+
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
