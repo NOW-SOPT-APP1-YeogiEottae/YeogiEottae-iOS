@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  YeogiEottae
 //
-//  Created by Seonwoo Kim on 5/13/24.
+//  Created by Seonwoo Kim on 5/8/24.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         self.window?.backgroundColor = .white
-        self.window?.rootViewController = CompareRoomViewController()
+        self.window?.rootViewController = UITabBarController.getDefault()
         self.window?.makeKeyAndVisible()
     }
 
@@ -54,3 +54,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
 }
+
