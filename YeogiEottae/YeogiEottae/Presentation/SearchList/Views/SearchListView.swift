@@ -148,47 +148,47 @@ final class SearchListView: UIView {
     }
     
     private func setConstraints() {
-        self.dateButton.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(8)
-            make.leading.equalToSuperview().offset(19)
-            make.height.equalTo(38)
+        self.dateButton.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(8)
+            $0.leading.equalToSuperview().offset(19)
+            $0.height.equalTo(38)
         }
         
-        self.headCountButton.snp.makeConstraints { make in
-            make.top.equalTo(self.dateButton.snp.top)
-            make.leading.equalTo(self.dateButton.snp.trailing).offset(8)
-            make.height.equalTo(self.dateButton.snp.height)
+        self.headCountButton.snp.makeConstraints {
+            $0.top.equalTo(self.dateButton.snp.top)
+            $0.leading.equalTo(self.dateButton.snp.trailing).offset(8)
+            $0.height.equalTo(self.dateButton.snp.height)
         }
         
-        self.customSegmentController.snp.makeConstraints { make in
-            make.top.equalTo(self.dateButton.snp.bottom).offset(16)
-            make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(40)
+        self.customSegmentController.snp.makeConstraints {
+            $0.top.equalTo(self.dateButton.snp.bottom).offset(16)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(40)
         }
         
-        self.filterView.snp.makeConstraints { make in
-            make.top.equalTo(self.customSegmentController.snp.bottom).offset(8)
-            make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(38)
+        self.filterView.snp.makeConstraints {
+            $0.top.equalTo(self.customSegmentController.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(38)
         }
         
-        self.filterButton.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview().inset(24)
-            make.width.equalTo(61)
-            make.height.equalTo(31)
+        self.filterButton.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(24)
+            $0.width.equalTo(61)
+            $0.height.equalTo(31)
         }
         
-        self.searchFilterListCollectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalTo(self.filterButton.snp.trailing)
-            make.trailing.equalToSuperview()
-            make.height.equalTo(30)
+        self.searchFilterListCollectionView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(self.filterButton.snp.trailing)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(30)
         }
         
-        self.filterViewUnderBar.snp.makeConstraints { make in
-            make.horizontalEdges.bottom.equalToSuperview()
-            make.height.equalTo(1)
+        self.filterViewUnderBar.snp.makeConstraints {
+            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
     
