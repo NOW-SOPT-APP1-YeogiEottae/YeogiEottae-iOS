@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         self.window?.backgroundColor = .white
-        self.window?.rootViewController = CompareRoomViewController()
+        self.window?.rootViewController = UITabBarController.getDefault()
         self.window?.makeKeyAndVisible()
     }
 
