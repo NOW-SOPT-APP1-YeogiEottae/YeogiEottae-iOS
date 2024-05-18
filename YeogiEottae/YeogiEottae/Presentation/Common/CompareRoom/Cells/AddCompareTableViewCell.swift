@@ -56,7 +56,7 @@ final class AddCompareTableViewCell : UITableViewCell {
     
     private lazy var checkButton : UIButton = {
         let button = UIButton()
-        button.setImage(.uncheckMark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
+        button.setImage(.unCheckMark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
         return button
     }()
     
@@ -145,7 +145,7 @@ final class AddCompareTableViewCell : UITableViewCell {
             checkButton.setImage(.checkmark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
             containerView.makeBorder(width: 1, color: .grayColor(brightness: .gray400))
         } else {
-            checkButton.setImage(.uncheckMark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
+            checkButton.setImage(.unCheckMark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
             containerView.makeBorder(width: 0, color: .grayColor(brightness: .gray400))
         }
     }
