@@ -55,7 +55,7 @@ class ImageTableViewCell: UITableViewCell {
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(hotelImageView.snp.top).offset(20)
+            make.top.equalTo(hotelImageView.snp.bottom).offset(20)
             make.left.right.equalTo(hotelImageView).inset(10)
         }
         
@@ -67,6 +67,7 @@ class ImageTableViewCell: UITableViewCell {
         ratingLabel.snp.makeConstraints { make in
             make.top.equalTo(addressLabel.snp.bottom).offset(5)
             make.left.right.equalTo(hotelImageView).inset(10)
+            make.bottom.equalToSuperview().inset(20) //셀의 bottom 위치 명시
         }
     }
     

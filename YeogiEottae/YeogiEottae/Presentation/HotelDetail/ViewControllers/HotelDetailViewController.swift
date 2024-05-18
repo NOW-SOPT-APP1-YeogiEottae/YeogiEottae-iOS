@@ -52,8 +52,11 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource {
 }
 
 extension HotelDetailViewController {
+    
+    //Section의 갯수 설정
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.allCases.count
+//        return Section.allCases.count
+        return 3
     }
     //셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

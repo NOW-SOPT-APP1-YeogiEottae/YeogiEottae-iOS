@@ -12,9 +12,6 @@
 		0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */; };
 		0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DE2BEB9E6B00BCEA76 /* Base */; };
 		0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */; };
-		0B719C482BF20B3500DF1D92 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C472BF20B3500DF1D92 /* Moya */; };
-		0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4A2BF20B5400DF1D92 /* Kingfisher */; };
-		0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4D2BF20BD700DF1D92 /* SnapKit */; };
 		0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */; };
 		0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C512BF21C3E00DF1D92 /* UIImage+.swift */; };
 		0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C532BF21C4F00DF1D92 /* UIStackView+.swift */; };
@@ -38,6 +35,9 @@
 		87BEE6A42BF7A89E00579642 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6A32BF7A89E00579642 /* ImageTableViewCell.swift */; };
 		87BEE6A62BF7A8B800579642 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6A52BF7A8B800579642 /* DetailTableViewCell.swift */; };
 		87BEE6A82BF8303500579642 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6A72BF8303500579642 /* RoomTableViewCell.swift */; };
+		87BEE6AA2BF876CF00579642 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE6A92BF876CF00579642 /* Moya */; };
+		87BEE6AC2BF876DD00579642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE6AB2BF876DD00579642 /* SnapKit */; };
+		87BEE6AE2BF8771B00579642 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE6AD2BF8771B00579642 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,9 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */,
-				0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */,
-				0B719C482BF20B3500DF1D92 /* Moya in Frameworks */,
+				87BEE6AE2BF8771B00579642 /* Kingfisher in Frameworks */,
+				87BEE6AA2BF876CF00579642 /* Moya in Frameworks */,
+				87BEE6AC2BF876DD00579642 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +348,9 @@
 			);
 			name = YeogiEottae;
 			packageProductDependencies = (
-				0B719C472BF20B3500DF1D92 /* Moya */,
-				0B719C4A2BF20B5400DF1D92 /* Kingfisher */,
-				0B719C4D2BF20BD700DF1D92 /* SnapKit */,
+				87BEE6A92BF876CF00579642 /* Moya */,
+				87BEE6AB2BF876DD00579642 /* SnapKit */,
+				87BEE6AD2BF8771B00579642 /* Kingfisher */,
 			);
 			productName = YeogiEottae;
 			productReference = 0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */;
@@ -680,20 +680,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B719C472BF20B3500DF1D92 /* Moya */ = {
+		87BEE6A92BF876CF00579642 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
-		0B719C4A2BF20B5400DF1D92 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		0B719C4D2BF20BD700DF1D92 /* SnapKit */ = {
+		87BEE6AB2BF876DD00579642 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		87BEE6AD2BF8771B00579642 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
