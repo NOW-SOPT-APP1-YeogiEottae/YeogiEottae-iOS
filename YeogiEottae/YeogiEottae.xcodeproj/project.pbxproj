@@ -38,6 +38,8 @@
 		4E1FA4F62BF8A8630029ED16 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */; };
 		4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */; };
 		4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */; };
+		4E1FA4FF2BF8D6430029ED16 /* FavoritesRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */; };
+		4E1FA5012BF8F4860029ED16 /* FavoritesAccommodationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */; };
 		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
 		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
 		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
@@ -99,6 +101,8 @@
 		4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSegmentStackView.swift; sourceTree = "<group>"; };
+		4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRoomCell.swift; sourceTree = "<group>"; };
+		4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAccommodationCell.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		4E1FA4F02BF8A8240029ED16 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
+				4E1FA4FD2BF8D6240029ED16 /* Cells */,
 				4E1FA4F22BF8A8420029ED16 /* Views */,
 				4E1FA4F12BF8A83C0029ED16 /* ViewControllers */,
 			);
@@ -253,6 +258,15 @@
 				4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4E1FA4FD2BF8D6240029ED16 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */,
+				4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4E278F7F2BEFACE60034097A /* Application */ = {
@@ -596,8 +610,10 @@
 				0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				4EE7D0D32BF490A5002BDF8E /* SearchResultCell.swift in Sources */,
+				4E1FA4FF2BF8D6430029ED16 /* FavoritesRoomCell.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
 				4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */,
+				4E1FA5012BF8F4860029ED16 /* FavoritesAccommodationCell.swift in Sources */,
 				0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
