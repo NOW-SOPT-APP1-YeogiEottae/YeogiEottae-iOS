@@ -335,9 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				4E4D0AD52BF48AF200191932 /* VCForPageVC */,
-		4E7021352BF2276800D480AE /* SearchList */ = {
-			isa = PBXGroup;
-			children = (
 				4E70213B2BF22ADA00D480AE /* Cells */,
 				4E70213A2BF22AD700D480AE /* Models */,
 				4E7021392BF22AD100D480AE /* ViewControllers */,

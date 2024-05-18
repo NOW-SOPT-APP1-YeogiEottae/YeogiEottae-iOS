@@ -12,7 +12,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let allKindLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.allKind
+        label.text = StringLiteral.AccommodationKindSegmentName.allKind
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -20,7 +20,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let motelLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.motel
+        label.text = StringLiteral.AccommodationKindSegmentName.motel
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -28,7 +28,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let hotelResortLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.hotelResort
+        label.text = StringLiteral.AccommodationKindSegmentName.hotelResort
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -36,7 +36,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let pensionLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.pension
+        label.text = StringLiteral.AccommodationKindSegmentName.pension
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -44,7 +44,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let homeVillaLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.homeVilla
+        label.text = StringLiteral.AccommodationKindSegmentName.homeVilla
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -52,7 +52,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let campingLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.camping
+        label.text = StringLiteral.AccommodationKindSegmentName.camping
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
@@ -60,7 +60,7 @@ final class AccomodationKindSegmentController: UIScrollView {
     
     let guestHouseHanokLabel: UILabel = {
         let label = UILabel()
-        label.text = StringLiteral.AccomodationKindSegmentName.guestHouseHanok
+        label.text = StringLiteral.AccommodationKindSegmentName.guestHouseHanok
         label.textColor = .black
         label.font = UIFont.projectFont(name: .b2) //selected 시에는 b1
         return label
