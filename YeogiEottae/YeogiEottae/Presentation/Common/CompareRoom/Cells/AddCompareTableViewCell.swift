@@ -39,7 +39,7 @@ final class AddCompareTableViewCell : UITableViewCell {
         label.font = UIFont.projectFont(name: .l3)
         return label
     }()
-
+    
     private let hotelLabel : UILabel = {
         let label = UILabel()
         label.textColor = .grayColor(brightness: .gray950)
@@ -56,10 +56,10 @@ final class AddCompareTableViewCell : UITableViewCell {
     
     private lazy var checkButton : UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "uncheckMark")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
+        button.setImage(.uncheckMark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
         return button
     }()
-
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -118,7 +118,7 @@ final class AddCompareTableViewCell : UITableViewCell {
             $0.trailing.equalToSuperview().inset(18)
         }
     }
-        
+    
     func bindData(data: AddRoomData) {
         let url = URL(string: data.imageUrl)
         roomImageView.kf.setImage(with: url)
@@ -142,11 +142,11 @@ final class AddCompareTableViewCell : UITableViewCell {
     
     private func updateCheckButtonImage() {
         if isCheckSelected {
-            checkButton.setImage(UIImage(named: "checkMark")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
-            containerView.makeBorder(width: 1, color: .gray)
+            checkButton.setImage(.checkmark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
+            containerView.makeBorder(width: 1, color: .grayColor(brightness: .gray400))
         } else {
-            checkButton.setImage(UIImage(named: "uncheckMark")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
-            containerView.makeBorder(width: 0, color: .gray)
+            checkButton.setImage(.uncheckMark.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
+            containerView.makeBorder(width: 0, color: .grayColor(brightness: .gray400))
         }
     }
 }

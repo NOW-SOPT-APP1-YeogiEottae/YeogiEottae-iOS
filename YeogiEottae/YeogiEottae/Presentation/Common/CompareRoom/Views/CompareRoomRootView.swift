@@ -25,6 +25,7 @@ final class CompareRoomRootView: UIView {
         
         setHierarchy()
         setConstraints()
+        setStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -76,6 +77,11 @@ final class CompareRoomRootView: UIView {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(-50)
         }
+    }
+    
+    private func setStyle() {
+        self.backgroundColor = .white
+        self.tableView.separatorStyle = .none
     }
     
     func showReservationButton() {

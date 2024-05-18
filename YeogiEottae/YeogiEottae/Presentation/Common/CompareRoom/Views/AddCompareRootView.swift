@@ -23,7 +23,8 @@ final class AddCompareRootView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        
+        setStyle()
         setHierarchy()
         setConstraints()
     }
@@ -54,5 +55,10 @@ final class AddCompareRootView: UIView {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(36)
         }
+    }
+    
+    private func setStyle() {
+        self.backgroundColor = .white
+        self.tableView.separatorStyle = .none
     }
 }

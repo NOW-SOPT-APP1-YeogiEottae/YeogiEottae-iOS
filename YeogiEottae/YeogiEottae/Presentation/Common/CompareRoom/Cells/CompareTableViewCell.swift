@@ -144,6 +144,7 @@ final class CompareTableViewCell: UITableViewCell {
     
     private func configureCell() {
         selectionStyle = .none
+        self.makeBorder(width: 0.5, color: .grayColor(brightness: .gray200))
         scrollView.delegate = self
     }
     
