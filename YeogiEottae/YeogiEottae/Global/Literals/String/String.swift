@@ -13,6 +13,16 @@ enum StringLiteral {
         static var searchTitle = "검색"
         static var nearByTitle = "주변"
         static var likeTitle = "찜"
-        static var infoTitle = "내 정보"
+        static var myInfoTitle = "내 정보"
+    }
+    
+    enum AccomodationKindSegmentName {
+        static var allKind = "전체"
+        static var motel = "모텔"
+        static var hotelResort = "호텔•리조트"
+        static var pension = "펜션"
+        static var homeVilla = "홈&빌라"
+        static var camping = "캠핑"
+        static var guestHouseHanok = "게하•한옥"
     }
 }

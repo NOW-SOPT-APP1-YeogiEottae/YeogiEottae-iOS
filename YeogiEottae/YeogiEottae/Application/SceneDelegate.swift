@@ -15,12 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(windowScene: windowScene)
-        
-        let viewController = HotelDetailViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        self.window = UIWindow(windowScene: windowScene)
+        self.window?.rootViewController = UITabBarController.getDefault()
+        self.window?.makeKeyAndVisible()
     }
 }
