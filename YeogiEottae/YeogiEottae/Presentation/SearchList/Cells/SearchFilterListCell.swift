@@ -68,15 +68,15 @@ class SearchFilterListCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
-        self.labelBackgroundView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(2)
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview().inset(2)
+        self.labelBackgroundView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(2)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(2)
         }
         
-        self.filterNameLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(2)
-            make.centerY.equalToSuperview()
+        self.filterNameLabel.snp.makeConstraints { 
+            $0.horizontalEdges.equalToSuperview().inset(2)
+            $0.centerY.equalToSuperview()
         }
     }
     

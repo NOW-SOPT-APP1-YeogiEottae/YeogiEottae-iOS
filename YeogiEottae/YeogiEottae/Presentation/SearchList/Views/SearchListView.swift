@@ -231,10 +231,10 @@ final class SearchListView: UIView {
             make.leading.equalToSuperview().offset(19)
         }
         
-        self.headCountButton.snp.makeConstraints { make in
-            make.top.equalTo(self.dateButton.snp.top)
-            make.leading.equalTo(self.dateButton.snp.trailing).offset(8)
-            make.height.equalTo(self.dateButton.snp.height)
+        self.headCountButton.snp.makeConstraints {
+            $0.top.equalTo(self.dateButton.snp.top)
+            $0.leading.equalTo(self.dateButton.snp.trailing).offset(8)
+            $0.height.equalTo(self.dateButton.snp.height)
         }
         
         self.segmentCollectionViewTopContraint.isActive = true
