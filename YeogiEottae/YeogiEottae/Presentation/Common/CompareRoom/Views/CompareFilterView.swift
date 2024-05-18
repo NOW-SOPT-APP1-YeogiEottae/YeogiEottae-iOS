@@ -26,7 +26,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         return scrollView
     }()
     
-    private let lowPriceButton: UIButton = {
+    private lazy var lowPriceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(StringLiteral.CompareFilter.lowPrice, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
@@ -38,7 +38,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         return button
     }()
     
-    private let highPriceButton: UIButton = {
+    private lazy var highPriceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(StringLiteral.CompareFilter.highRate, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
@@ -50,7 +50,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         return button
     }()
     
-    private let highDiscountButton: UIButton = {
+    private lazy var highDiscountButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(StringLiteral.CompareFilter.highDiscount, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)

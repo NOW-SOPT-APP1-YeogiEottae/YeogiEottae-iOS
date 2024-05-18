@@ -27,7 +27,7 @@ final class CompareTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let radioButton: UIButton = {
+    private lazy var radioButton: UIButton = {
         let button = UIButton()
         button.setImage(.radioUnchecked, for: .normal)
         return button

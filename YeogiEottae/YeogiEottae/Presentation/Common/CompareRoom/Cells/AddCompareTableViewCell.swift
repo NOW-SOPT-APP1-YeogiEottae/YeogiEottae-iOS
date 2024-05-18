@@ -54,7 +54,7 @@ final class AddCompareTableViewCell : UITableViewCell {
         return label
     }()
     
-    private let checkButton : UIButton = {
+    private lazy var checkButton : UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "uncheckMark")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
         return button
