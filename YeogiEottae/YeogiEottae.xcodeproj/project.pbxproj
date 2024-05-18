@@ -34,6 +34,10 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
+		87BEE68B2BF3E56800579642 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE68A2BF3E56800579642 /* HotelDetailViewController.swift */; };
+		87BEE6A42BF7A89E00579642 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6A32BF7A89E00579642 /* ImageTableViewCell.swift */; };
+		87BEE6A62BF7A8B800579642 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6A52BF7A8B800579642 /* DetailTableViewCell.swift */; };
+		87BEE6A82BF8303500579642 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6A72BF8303500579642 /* RoomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,10 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		87BEE68A2BF3E56800579642 /* HotelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailViewController.swift; sourceTree = "<group>"; };
+		87BEE6A32BF7A89E00579642 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		87BEE6A52BF7A8B800579642 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		87BEE6A72BF8303500579642 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +267,7 @@
 		4E278F8F2BEFAD830034097A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				87BEE69D2BF6E47300579642 /* HotelDetail */,
 				4E278F902BEFAD870034097A /* Common */,
 			);
 			path = Presentation;
@@ -277,6 +286,49 @@
 			children = (
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		87BEE69D2BF6E47300579642 /* HotelDetail */ = {
+			isa = PBXGroup;
+			children = (
+				87BEE6A22BF6E4AE00579642 /* Cells */,
+				87BEE6A12BF6E4A500579642 /* Models */,
+				87BEE6A02BF6E49D00579642 /* Views */,
+				87BEE69E2BF6E48400579642 /* ViewControllers */,
+			);
+			path = HotelDetail;
+			sourceTree = "<group>";
+		};
+		87BEE69E2BF6E48400579642 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				87BEE68A2BF3E56800579642 /* HotelDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		87BEE6A02BF6E49D00579642 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		87BEE6A12BF6E4A500579642 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87BEE6A22BF6E4AE00579642 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				87BEE6A32BF7A89E00579642 /* ImageTableViewCell.swift */,
+				87BEE6A52BF7A8B800579642 /* DetailTableViewCell.swift */,
+				87BEE6A72BF8303500579642 /* RoomTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,9 +428,13 @@
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
+				87BEE6A82BF8303500579642 /* RoomTableViewCell.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
+				87BEE6A62BF7A8B800579642 /* DetailTableViewCell.swift in Sources */,
+				87BEE68B2BF3E56800579642 /* HotelDetailViewController.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
+				87BEE6A42BF7A89E00579642 /* ImageTableViewCell.swift in Sources */,
 				4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */,
 				0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */,
 			);
