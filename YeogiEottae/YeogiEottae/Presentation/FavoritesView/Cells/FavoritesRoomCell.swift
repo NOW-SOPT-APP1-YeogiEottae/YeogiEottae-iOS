@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import CoreGraphics
 
 import SnapKit
 
@@ -14,6 +15,8 @@ class FavoritesRoomCell: UICollectionViewCell {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
+    
+    let feedbackGenerator = UINotificationFeedbackGenerator()
     
     var initialGestureLocation: CGPoint = CGPointZero
     
@@ -31,21 +34,83 @@ class FavoritesRoomCell: UICollectionViewCell {
         return view
     }()
     
-    let blueViewToAddFavorites: UIView = {
-        let view = UIView()
-        view.backgroundColor = .secondaryColor(brightness: .secondary600)
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 20
+    /*
+     bludView UI Components
+     */
+    
+    let blueViewLabel: UILabel = {
+        let label = UILabel()
+        label.text = "비교에\n추가"
+        label.font = UIFont.projectFont(name: .b3)
+        label.textColor = .grayColor(brightness: .gray0)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let circleViewForAddToCompareInteraction: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
         return view
     }()
     
-    let redViewToDeleteFavorites: UIView = {
+    var blueCirclePathLayer = CAShapeLayer() {
+        didSet {
+            print("blueCirclePathLayer에 새로운 값이 할당됐다!!!")
+        }
+    }
+    
+    let blueViewToAddCompare: UIView = {
+        let view = UIView()
+        view.backgroundColor = .secondaryColor(brightness: .secondary600)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 19
+        view.layer.cornerCurve = .continuous
+        return view
+    }()
+    
+    /*
+     blueView UIComponents 끝
+     */
+    
+    /*
+     redView UI Components
+     */
+    
+    let redViewLabel: UILabel = {
+        let label = UILabel()
+        label.text = "찜에서\n삭제"
+        label.font = UIFont.projectFont(name: .b3)
+        label.textColor = .grayColor(brightness: .gray0)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let circleViewForRemoveFromCompareInteraction: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    var redCirclePathLayer = CAShapeLayer() {
+        didSet {
+            print("redCirclePathLayer에 새로운 값이 할당됐다!!!")
+        }
+    }
+    
+    let redViewToDeleteFromCompare: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.init(red: 225/255, green: 65/255, blue: 1/255, alpha: 1)
         view.clipsToBounds = true
-        view.layer.cornerRadius = 20
+        view.layer.cornerRadius = 19
+        view.layer.cornerCurve = .continuous
         return view
     }()
+    
+    /*
+     redView UI Components 끝
+     */
     
     let accommodationInfoContainerView = UIView()
     
@@ -264,9 +329,13 @@ class FavoritesRoomCell: UICollectionViewCell {
         //self.layer.cornerRadius = 18
         self.contentView.clipsToBounds = false
         self.contentView.layer.cornerRadius = 18
+        
     }
     
     private func configureViewHierarchy() {
+        
+        self.blueViewToAddCompare.addSubviews(self.blueViewLabel, self.circleViewForAddToCompareInteraction)
+        self.redViewToDeleteFromCompare.addSubviews(self.redViewLabel, self.circleViewForRemoveFromCompareInteraction)
         
         self.ratingContainerView.addSubviews(self.starImageView, self.ratingLabel)
         
@@ -299,18 +368,44 @@ class FavoritesRoomCell: UICollectionViewCell {
         
         self.swipeableView.addSubviews(self.accommodationInfoContainerView, self.roomInfoContainerView)
         
-        self.contentView.addSubviews(self.blueViewToAddFavorites, self.redViewToDeleteFavorites, self.swipeableView)
+        self.contentView.addSubviews(self.blueViewToAddCompare, self.redViewToDeleteFromCompare, self.swipeableView)
         
     }
     
     private func setConstraints() {
         
-        self.blueViewToAddFavorites.snp.makeConstraints { make in
+        self.blueViewToAddCompare.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        self.redViewToDeleteFavorites.snp.makeConstraints { make in
+        self.blueViewLabel.snp.makeConstraints { make in //182 17 157
+            make.top.equalToSuperview().inset(182)
+            make.leading.equalToSuperview().inset(17)
+            make.bottom.equalToSuperview().inset(157)
+        }
+        
+        self.circleViewForAddToCompareInteraction.snp.makeConstraints { make in
+            make.centerY.equalTo(self.blueViewLabel)
+            make.leading.equalTo(self.blueViewLabel.snp.trailing).offset(30)
+            make.width.equalTo(60)
+            make.height.equalTo(60)
+        }
+        
+        self.redViewToDeleteFromCompare.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        self.redViewLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(176)
+            make.trailing.equalToSuperview().inset(17)
+            make.bottom.equalToSuperview().inset(163)
+        }
+        
+        self.circleViewForRemoveFromCompareInteraction.snp.makeConstraints { make in
+            make.centerY.equalTo(self.redViewLabel)
+            make.trailing.equalTo(self.redViewLabel.snp.leading).offset(-30)
+            make.width.equalTo(60)
+            make.height.equalTo(60)
         }
         
         self.swipeableView.snp.makeConstraints { make in
@@ -470,17 +565,29 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     @objc private func handlePanGesture(sender: UIPanGestureRecognizer) {
         print(#function)
-        print("location:", sender.location(in: self.contentView))
-        print("velocity:", sender.velocity(in: self.contentView))
+        
+        if self.swipeableView.frame.origin.x > 0 {
+            self.blueViewToAddCompare.isHidden = false
+            self.redViewToDeleteFromCompare.isHidden = true
+        } else if self.swipeableView.frame.origin.x < 0 {
+            self.blueViewToAddCompare.isHidden = true
+            self.redViewToDeleteFromCompare.isHidden = false
+        }
+        
         let translatedLocation = sender.translation(in: self.contentView)
+        
+        let scaleProportion = 1 + 0.3 * (abs(self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
         
         if translatedLocation.x > 0 {
             self.swipeableView.frame.origin.x = min(translatedLocation.x, self.bounds.width * 0.55)
+            self.drawCircleAtBlueView(circlePercentage: (self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
+            self.circleViewForAddToCompareInteraction.transform = CGAffineTransform(scaleX: scaleProportion, y: scaleProportion)
+            
         } else if translatedLocation.x < 0 {
             self.swipeableView.frame.origin.x = max(translatedLocation.x, -self.bounds.width * 0.55)
+            self.drawCircleAtRedView(circlePercentage: (self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
+            self.circleViewForRemoveFromCompareInteraction.transform = CGAffineTransform(scaleX: scaleProportion, y: scaleProportion)
         }
-        
-        
         
         
         
@@ -491,18 +598,13 @@ class FavoritesRoomCell: UICollectionViewCell {
             print("비긴!!!!")
         case .changed:
             print("changed!!!!")
-            
-            if self.swipeableView.frame.origin.x > 0 {
-                self.blueViewToAddFavorites.isHidden = false
-                self.redViewToDeleteFavorites.isHidden = true
-            } else if self.swipeableView.frame.origin.x < 0 {
-                self.blueViewToAddFavorites.isHidden = true
-                self.redViewToDeleteFavorites.isHidden = false
-            }
-            
         case .ended:
             print("끝!!!!")
+            if abs(self.swipeableView.frame.origin.x) == self.bounds.width * 0.55 {
+                self.feedbackGenerator.notificationOccurred(.success)
+            }
             self.setSwipeableViewToInitialLocaion()
+            
         case .cancelled:
             print("cancelled!!!!")
         case .failed:
@@ -518,6 +620,8 @@ class FavoritesRoomCell: UICollectionViewCell {
         animator.addAnimations {
             self.swipeableView.frame = .zero
             self.contentView.layoutIfNeeded()
+            self.circleViewForAddToCompareInteraction.transform = CGAffineTransform.identity
+            self.circleViewForRemoveFromCompareInteraction.transform = CGAffineTransform.identity
         }
         animator.startAnimation()
     }
@@ -527,6 +631,58 @@ class FavoritesRoomCell: UICollectionViewCell {
         self.ratingLabel.text = "\(rating)"
         self.roomNameLabel.text = roomName
         self.discountedPriceLabel.text = "\(price)"
+    }
+    
+    
+    /// 원에 해당하는 UIBezierPath를 layer로 추가해주는 함수
+    /// - Parameters:
+    ///   - circlePercentage: 원이 그려질 비율 %를 100으로 나눈 값. 0.0 ~ 1.0
+    func drawCircleAtBlueView(circlePercentage: CGFloat) {
+        self.blueCirclePathLayer.removeFromSuperlayer()
+        
+        let path: UIBezierPath = self.getPath(percentage: circlePercentage)
+        let shape = CAShapeLayer()
+        shape.lineWidth = 2
+        shape.path = path.cgPath
+        shape.strokeColor = UIColor.grayColor(brightness: .gray0).cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        
+        //self.blueCirclePathLayer.frame = self.blueViewToAddCompare.bounds
+        self.blueCirclePathLayer = shape
+        self.circleViewForAddToCompareInteraction.layer.addSublayer(self.blueCirclePathLayer)
+    }
+    
+    func drawCircleAtRedView(circlePercentage: CGFloat) {
+        self.redCirclePathLayer.removeFromSuperlayer()
+        
+        let path: UIBezierPath = self.getPath(percentage: circlePercentage, clockwise: false)
+        let shape = CAShapeLayer()
+        shape.lineWidth = 2
+        shape.path = path.cgPath
+        shape.strokeColor = UIColor.grayColor(brightness: .gray0).cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        
+        //self.blueCirclePathLayer.frame = self.blueViewToAddCompare.bounds
+        self.redCirclePathLayer = shape
+        self.circleViewForRemoveFromCompareInteraction.layer.addSublayer(self.redCirclePathLayer)
+    }
+    
+    
+    /// 특정 각도만큼의 호에 해당하는 UIBezierPath를 반환하는 함수
+    /// - Parameter percentage: 원이 몇 % 그려졌는지를 입력. %를 100으로 나눈 값(0.0 ~ 1.0)을 입력.
+    /// - Returns: 그려진 호에 해당하는 UIBezierPath
+    func getPath(percentage: CGFloat, clockwise: Bool = true) -> UIBezierPath {
+        
+        let path: UIBezierPath = UIBezierPath()
+        
+        let radius = self.circleViewForAddToCompareInteraction.bounds.width / 2
+        //let radius: CGFloat = 50
+        
+        path.move(to: CGPoint(x: radius, y: 0))
+        path.addArc(withCenter: CGPoint(x: radius, y: radius), radius: radius, startAngle: -.pi * 0.5, endAngle: -(.pi * 0.5) + (2 * .pi * percentage), clockwise: clockwise)
+        //path.close()
+        
+        return path
     }
     
     
@@ -540,14 +696,6 @@ extension FavoritesRoomCell: UIGestureRecognizerDelegate {
         guard let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return false }
         
         let xVelocity = panGestureRecognizer.velocity(in: self.contentView).x
-        
-//        if xVelocity > 0 {
-//            self.blueViewToAddFavorites.isHidden = false
-//            self.redViewToDeleteFavorites.isHidden = true
-//        } else if xVelocity < 0 {
-//            self.blueViewToAddFavorites.isHidden = true
-//            self.redViewToDeleteFavorites.isHidden = false
-//        }
         
         let xVelocityAbs = abs(panGestureRecognizer.velocity(in: self.contentView).x)
         let yVelocityAbs = abs(panGestureRecognizer.velocity(in: self.contentView).y)
