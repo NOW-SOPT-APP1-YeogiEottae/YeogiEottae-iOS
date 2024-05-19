@@ -46,6 +46,8 @@ enum SystemColor: String, ProjectColor {
     case starLight = "#FFAD0A"
     case starDark = "#FFAC09"
     case caution = "#CA0101"
+    case toast = "#070707"
+    case toastMove = "#3D95FB"
 }
 
 extension UIColor {

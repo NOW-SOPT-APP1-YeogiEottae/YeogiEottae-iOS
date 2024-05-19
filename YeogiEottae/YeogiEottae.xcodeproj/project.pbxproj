@@ -40,6 +40,10 @@
 		0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */; };
 		0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2232BF61D5D00A6F840 /* NSObject+.swift */; };
 		0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */; };
+		0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CA2BF8E83200091A2A /* YeogiToast.swift */; };
+		0BA211CD2BF8E86100091A2A /* YeogiToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */; };
+		0BA211D02BF9CC9A00091A2A /* YeogiAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */; };
+		0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */; };
 		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
 		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
 		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
@@ -55,8 +59,6 @@
 		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
 		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
 		4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */; };
-		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
-		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
 		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */; };
@@ -86,7 +88,6 @@
 		0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B4AA6DE2BEB9E6B00BCEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0B4AA6E02BEB9E6B00BCEA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomData.swift; sourceTree = "<group>"; };
 		0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+.swift"; sourceTree = "<group>"; };
@@ -106,6 +107,10 @@
 		0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFilterView.swift; sourceTree = "<group>"; };
 		0B96F2232BF61D5D00A6F840 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		0BA211CA2BF8E83200091A2A /* YeogiToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToast.swift; sourceTree = "<group>"; };
+		0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToastView.swift; sourceTree = "<group>"; };
+		0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertViewController.swift; sourceTree = "<group>"; };
+		0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertView.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -121,8 +126,6 @@
 		4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD82BF48B1400191932 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
-		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
-		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
@@ -241,6 +244,24 @@
 				0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0BA211C92BF8E82000091A2A /* YeogiToast */ = {
+			isa = PBXGroup;
+			children = (
+				0BA211CA2BF8E83200091A2A /* YeogiToast.swift */,
+				0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */,
+			);
+			path = YeogiToast;
+			sourceTree = "<group>";
+		};
+		0BA211CE2BF9CC7E00091A2A /* YeogiAlert */ = {
+			isa = PBXGroup;
+			children = (
+				0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */,
+				0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */,
+			);
+			path = YeogiAlert;
 			sourceTree = "<group>";
 		};
 		4E278F7F2BEFACE60034097A /* Application */ = {
@@ -410,6 +431,8 @@
 		4E278F912BEFAD8A0034097A /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				0BA211CE2BF9CC7E00091A2A /* YeogiAlert */,
+				0BA211C92BF8E82000091A2A /* YeogiToast */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -573,6 +596,8 @@
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
 				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */,
+				0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */,
 				4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */,
 				4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */,
 				0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */,
@@ -597,10 +622,12 @@
 				0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */,
 				0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */,
 				0B3C2AC62BF7598100878745 /* AddCompareRootView.swift in Sources */,
+				0BA211CD2BF8E86100091A2A /* YeogiToastView.swift in Sources */,
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
 				4E7021452BF24C1000D480AE /* AddSearchFilterListCell.swift in Sources */,
 				0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */,
 				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
+				0BA211D02BF9CC9A00091A2A /* YeogiAlertViewController.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
 				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
 				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
