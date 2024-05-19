@@ -19,7 +19,6 @@ class FavoritesRoomCell: UICollectionViewCell {
     var isBlueCircleFilled: Bool = false
     var isRedCircleFilled: Bool = false
     
-    let impactGenerator = UIImpactFeedbackGenerator(style: .heavy)
     let feedbackGenerator = UINotificationFeedbackGenerator()
     
     var initialGestureLocation: CGPoint = CGPointZero
@@ -645,9 +644,6 @@ class FavoritesRoomCell: UICollectionViewCell {
             
         case .ended:
             print("끝!!!!")
-            if abs(self.swipeableView.frame.origin.x) == self.bounds.width * 0.55 {
-                self.feedbackGenerator.notificationOccurred(.success)
-            }
             self.setSwipeableViewToInitialLocaion()
             
             
@@ -734,16 +730,16 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     private func switchBlueCircleBackgroundColor(toFilled: Bool) {
         
-//        if toFilled {
-//            if self.isBlueCircleFilled == false {
-//                self.impactGenerator.impactOccurred()
-//                self.isBlueCircleFilled = true
-//            }
-//        } else {
-//            self.isBlueCircleFilled = false
-//        }
+        if toFilled {
+            if self.isBlueCircleFilled == false {
+                self.feedbackGenerator.notificationOccurred(.success)
+                self.isBlueCircleFilled = true
+            }
+        } else {
+            self.isBlueCircleFilled = false
+        }
         
-        let animator = UIViewPropertyAnimator(duration: 0.2, dampingRatio: 1)
+        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
         animator.addAnimations {
             switch toFilled {
             case true:
@@ -759,28 +755,28 @@ class FavoritesRoomCell: UICollectionViewCell {
         }
         animator.startAnimation()
         
-        if toFilled {
-            if self.isBlueCircleFilled == false {
-                self.impactGenerator.impactOccurred()
-                self.isBlueCircleFilled = true
-            }
-        } else {
-            self.isBlueCircleFilled = false
-        }
+//        if toFilled {
+//            if self.isBlueCircleFilled == false {
+//                self.impactGenerator.impactOccurred()
+//                self.isBlueCircleFilled = true
+//            }
+//        } else {
+//            self.isBlueCircleFilled = false
+//        }
     }
     
     private func switchRedCircleBackgroundColor(toFilled: Bool) {
         
-//        if toFilled {
-//            if !self.isRedCircleFilled {
-//                self.impactGenerator.impactOccurred()
-//                self.isRedCircleFilled = true
-//            }
-//        } else {
-//            self.isRedCircleFilled = false
-//        }
+        if toFilled {
+            if !self.isRedCircleFilled {
+                self.feedbackGenerator.notificationOccurred(.success)
+                self.isRedCircleFilled = true
+            }
+        } else {
+            self.isRedCircleFilled = false
+        }
         
-        let animator = UIViewPropertyAnimator(duration: 0.2, dampingRatio: 1)
+        let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1)
         animator.addAnimations {
             switch toFilled {
             case true:
@@ -794,14 +790,14 @@ class FavoritesRoomCell: UICollectionViewCell {
         }
         animator.startAnimation()
         
-        if toFilled {
-            if !self.isRedCircleFilled {
-                self.impactGenerator.impactOccurred()
-                self.isRedCircleFilled = true
-            }
-        } else {
-            self.isRedCircleFilled = false
-        }
+//        if toFilled {
+//            if !self.isRedCircleFilled {
+//                self.impactGenerator.impactOccurred()
+//                self.isRedCircleFilled = true
+//            }
+//        } else {
+//            self.isRedCircleFilled = false
+//        }
     }
     
 }
