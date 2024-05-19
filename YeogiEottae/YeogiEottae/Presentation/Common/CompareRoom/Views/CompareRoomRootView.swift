@@ -11,19 +11,21 @@ import SnapKit
 
 final class CompareRoomRootView: UIView {
     
+    var sectionHeaderHeightConstraint: Constraint?
+    
     let tableView = UITableView()
     private let navigationHeader = CompareNavigationBarView()
     private let sectionHeader = CompareCalendarView()
     private let repairView = CompareEditView()
     let filterView = CompareFilterView()
-    
-    var sectionHeaderHeightConstraint: Constraint?
+    private lazy var reservationButton = CompareButton(type: .reservation, addAmount: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setHierarchy()
         setConstraints()
+        setStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -31,16 +33,18 @@ final class CompareRoomRootView: UIView {
     }
     
     private func setHierarchy() {
-        self.addSubview(sectionHeader)
-        self.addSubview(filterView)
-        self.addSubview(tableView)
+        self.addSubviews(
+            sectionHeader,
+            filterView,
+            tableView,
+            reservationButton
+        )
         
         sectionHeader.addSubview(navigationHeader)
         sectionHeader.addSubview(repairView)
     }
     
     private func setConstraints() {
-        
         navigationHeader.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(48)
@@ -65,6 +69,27 @@ final class CompareRoomRootView: UIView {
         tableView.snp.makeConstraints {
             $0.top.equalTo(filterView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        reservationButton.snp.makeConstraints {
+            $0.width.equalTo(337)
+            $0.height.equalTo(50)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(-50)
+        }
+    }
+    
+    private func setStyle() {
+        self.backgroundColor = .white
+        self.tableView.separatorStyle = .none
+    }
+    
+    func showReservationButton() {
+        UIView.animate(withDuration: 0.2) {
+            self.reservationButton.snp.updateConstraints {
+                $0.bottom.equalToSuperview().inset(36) 
+            }
+            self.layoutIfNeeded()
         }
     }
 }

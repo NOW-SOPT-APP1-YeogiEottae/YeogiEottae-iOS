@@ -11,7 +11,7 @@ import SnapKit
 
 final class CompareCalendarView: UIView {
     
-    private let dateButton: UIButton = {
+    private lazy var dateButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .grayColor(brightness: .gray200)
         button.clipsToBounds = true
@@ -34,7 +34,7 @@ final class CompareCalendarView: UIView {
         return label
     }()
     
-    private let headCountButton: UIButton = {
+    private lazy var headCountButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .grayColor(brightness: .gray200)
         button.clipsToBounds = true
