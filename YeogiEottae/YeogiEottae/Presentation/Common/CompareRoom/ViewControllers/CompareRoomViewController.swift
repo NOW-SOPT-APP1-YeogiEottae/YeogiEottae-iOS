@@ -33,6 +33,7 @@ final class CompareRoomViewController: UIViewController {
         
         setRegister()
         setDelegate()
+        getComparerListData()
     }
     
     private func setRegister() {
@@ -59,7 +60,29 @@ final class CompareRoomViewController: UIViewController {
     }
     
     @objc private func addButtonTapped() {
-        //탭 했을 때 동작 추후 구현
+
+    }
+    
+    private func getComparerListData() {
+        CompareService.shared.getComparerListData(price: "1", review: "1") { [weak self] response in
+            switch response {
+            case .success(let data):
+                if let data = data as? [CompareListResponseDTO] {
+                    print(data)
+                }
+                
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
     }
 }
 
