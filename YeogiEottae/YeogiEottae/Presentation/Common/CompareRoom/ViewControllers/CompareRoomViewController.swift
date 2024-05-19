@@ -78,10 +78,6 @@ final class CompareRoomViewController: UIViewController {
         viewController.modalPresentationStyle = .formSheet
         self.present(viewController, animated: true)
     }
-    
-    @objc private func radioButtonTapped() {
-        print("radio")
-    }
 }
 
 
@@ -138,6 +134,11 @@ extension CompareRoomViewController: UIScrollViewDelegate {
 
 extension CompareRoomViewController: CompareTableViewCellDelegate {
     func compareTableViewCellDidTapRadioButton(_ cell: CompareTableViewCell) {
+        
+        let popupViewController = YeogiAlertViewController()
+        popupViewController.modalPresentationStyle = .overFullScreen
+        self.present(popupViewController, animated: false)
+        
         if selectedIndexPath == nil {
             rootView.showReservationButton()
         }

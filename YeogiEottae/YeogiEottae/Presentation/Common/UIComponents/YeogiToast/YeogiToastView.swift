@@ -9,8 +9,6 @@ import UIKit
 
 import SnapKit
 
-import UIKit
-import SnapKit
 
 final class YeogiToastView: UIView {
     
