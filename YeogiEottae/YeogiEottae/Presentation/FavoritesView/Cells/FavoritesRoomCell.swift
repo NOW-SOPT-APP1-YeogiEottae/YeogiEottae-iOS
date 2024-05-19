@@ -15,6 +15,38 @@ class FavoritesRoomCell: UICollectionViewCell {
         return String(describing: self)
     }
     
+    var initialGestureLocation: CGPoint = CGPointZero
+    
+    let panGestureRecognizer: UIPanGestureRecognizer = {
+        let panGestureRecognizer = UIPanGestureRecognizer()
+        panGestureRecognizer.maximumNumberOfTouches = 1
+        return panGestureRecognizer
+    }()
+    
+    let swipeableView: UIView = {
+        let view = UIView()
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 18
+        view.backgroundColor = .grayColor(brightness: .gray0)
+        return view
+    }()
+    
+    let blueViewToAddFavorites: UIView = {
+        let view = UIView()
+        view.backgroundColor = .secondaryColor(brightness: .secondary600)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 20
+        return view
+    }()
+    
+    let redViewToDeleteFavorites: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.init(red: 225/255, green: 65/255, blue: 1/255, alpha: 1)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 20
+        return view
+    }()
+    
     let accommodationInfoContainerView = UIView()
     
     let accommodationImageView: UIImageView = {
@@ -217,6 +249,7 @@ class FavoritesRoomCell: UICollectionViewCell {
         self.setUI()
         self.configureViewHierarchy()
         self.setConstraints()
+        self.setGestureRecognizer()
     }
     
     required init?(coder: NSCoder) {
@@ -225,8 +258,11 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     
     private func setUI() {
-        self.contentView.backgroundColor = .grayColor(brightness: .gray0)
-        self.contentView.clipsToBounds = true
+        self.contentView.backgroundColor = .clear
+        self.contentView.clipsToBounds = false
+        //self.clipsToBounds = true
+        //self.layer.cornerRadius = 18
+        self.contentView.clipsToBounds = false
         self.contentView.layer.cornerRadius = 18
     }
     
@@ -260,14 +296,26 @@ class FavoritesRoomCell: UICollectionViewCell {
             self.discountedPriceCurrencyLabel
         )
         
-        self.contentView.addSubviews(
-            self.accommodationInfoContainerView,
-            self.roomInfoContainerView
-        )
+        
+        self.swipeableView.addSubviews(self.accommodationInfoContainerView, self.roomInfoContainerView)
+        
+        self.contentView.addSubviews(self.blueViewToAddFavorites, self.redViewToDeleteFavorites, self.swipeableView)
         
     }
     
     private func setConstraints() {
+        
+        self.blueViewToAddFavorites.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        self.redViewToDeleteFavorites.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        self.swipeableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         self.accommodationInfoContainerView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(6)
@@ -414,6 +462,65 @@ class FavoritesRoomCell: UICollectionViewCell {
         }
     }
     
+    private func setGestureRecognizer() {
+        self.swipeableView.addGestureRecognizer(self.panGestureRecognizer)
+        self.panGestureRecognizer.delegate = self
+        self.panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(sender:)))
+    }
+    
+    @objc private func handlePanGesture(sender: UIPanGestureRecognizer) {
+        print(#function)
+        print("location:", sender.location(in: self.contentView))
+        print("velocity:", sender.velocity(in: self.contentView))
+        let translatedLocation = sender.translation(in: self.contentView)
+        
+        if translatedLocation.x > 0 {
+            self.swipeableView.frame.origin.x = min(translatedLocation.x, self.bounds.width * 0.55)
+        } else if translatedLocation.x < 0 {
+            self.swipeableView.frame.origin.x = max(translatedLocation.x, -self.bounds.width * 0.55)
+        }
+        
+        
+        
+        
+        
+        switch sender.state {
+        case .possible:
+            print("파써블!!!")
+        case .began:
+            print("비긴!!!!")
+        case .changed:
+            print("changed!!!!")
+            
+            if self.swipeableView.frame.origin.x > 0 {
+                self.blueViewToAddFavorites.isHidden = false
+                self.redViewToDeleteFavorites.isHidden = true
+            } else if self.swipeableView.frame.origin.x < 0 {
+                self.blueViewToAddFavorites.isHidden = true
+                self.redViewToDeleteFavorites.isHidden = false
+            }
+            
+        case .ended:
+            print("끝!!!!")
+            self.setSwipeableViewToInitialLocaion()
+        case .cancelled:
+            print("cancelled!!!!")
+        case .failed:
+            print("failed!!!!")
+        @unknown default:
+            print("default")
+        }
+        
+    }
+    
+    func setSwipeableViewToInitialLocaion() {
+        let animator = UIViewPropertyAnimator(duration: 0.4, dampingRatio: 1)
+        animator.addAnimations {
+            self.swipeableView.frame = .zero
+            self.contentView.layoutIfNeeded()
+        }
+        animator.startAnimation()
+    }
     
     func configureData(accommodationlName: String, rating: Double, roomName: String, price: Int) {
         self.accommodationNameLabel.text = accommodationlName
@@ -422,5 +529,39 @@ class FavoritesRoomCell: UICollectionViewCell {
         self.discountedPriceLabel.text = "\(price)"
     }
     
+    
+}
+
+
+
+extension FavoritesRoomCell: UIGestureRecognizerDelegate {
+    
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return false }
+        
+        let xVelocity = panGestureRecognizer.velocity(in: self.contentView).x
+        
+//        if xVelocity > 0 {
+//            self.blueViewToAddFavorites.isHidden = false
+//            self.redViewToDeleteFavorites.isHidden = true
+//        } else if xVelocity < 0 {
+//            self.blueViewToAddFavorites.isHidden = true
+//            self.redViewToDeleteFavorites.isHidden = false
+//        }
+        
+        let xVelocityAbs = abs(panGestureRecognizer.velocity(in: self.contentView).x)
+        let yVelocityAbs = abs(panGestureRecognizer.velocity(in: self.contentView).y)
+        let ratio = yVelocityAbs / xVelocityAbs
+        //if xVelocity > 30 || xVelocity < -30 {
+        if ratio < 1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
     
 }

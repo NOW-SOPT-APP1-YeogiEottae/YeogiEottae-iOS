@@ -71,6 +71,7 @@ class FavoritesViewController: UIViewController {
     
     private func setPageViewController() {
         self.pageViewController.setViewControllers([self.viewControllerArray[0]], direction: .forward, animated: false)
+        
     }
     
     private func setButtonsAction() {
