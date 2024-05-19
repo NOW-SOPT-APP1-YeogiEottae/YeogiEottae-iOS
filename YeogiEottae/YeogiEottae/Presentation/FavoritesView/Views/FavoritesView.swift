@@ -31,7 +31,6 @@ final class FavoritesView: UIView {
         
         let configuration: UIButton.Configuration = {
             var configuration = UIButton.Configuration.plain()
-            //configuration.baseBackgroundColor = .grayColor(brightness: .gray200)
             configuration.background.backgroundColor = .grayColor(brightness: .gray200)
             configuration.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 30)
             configuration.imagePlacement = .leading
@@ -111,12 +110,9 @@ final class FavoritesView: UIView {
         flowLayout.scrollDirection = .vertical
         flowLayout.sectionInset = UIEdgeInsets(top: 13, left: 19, bottom: 13, right: 19)
         flowLayout.minimumLineSpacing = 12
-        
-        //flowLayout.estimatedItemSize = CGSize(width: 500, height: 300)
-        //if let screenSize {
-        //    print("screenSize is not nil")
-        //    flowLayout.estimatedItemSize = CGSize(width: screenSize.width - (19 * 2), height: 50)
-        //}
+        /*
+         cell의 estimatedSize 는 델리게이트 패턴으로 구현(cell의 너비를 화면 너비와 맞추기 위함. 현재 단계에서는 화면 너비를 구할 수 없기 때문.)
+         */
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.register(FavoritesRoomCell.self, forCellWithReuseIdentifier: FavoritesRoomCell.reuseIdentifier)
@@ -151,7 +147,6 @@ final class FavoritesView: UIView {
         
         self.addSubviews(
             self.fixedHeaderView
-            //self.favoritesCollectionView
         )
     }
     
@@ -182,11 +177,6 @@ final class FavoritesView: UIView {
             make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(self.favoritesDayButton)
         }
-        
-        //self.favoritesCollectionView.snp.makeConstraints { make in
-        //    make.top.equalTo(self.fixedHeaderView.snp.bottom)
-        //    make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
-        //}
     }
     
     

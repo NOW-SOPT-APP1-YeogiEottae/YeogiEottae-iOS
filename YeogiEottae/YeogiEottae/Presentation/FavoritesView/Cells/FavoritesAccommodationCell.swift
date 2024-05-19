@@ -126,123 +126,6 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
         return button
     }()
     
-    
-    /*
-    let roomInfoContainerView = UIView()
-    
-    let roomImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .systemGray5
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 8
-        return imageView
-    }()
-    
-    let roomNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.projectFont(name: .b1)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        return label
-    }()
-    
-    let roomDetailTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "객실정보"
-        label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray600)
-        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        return label
-    }()
-    
-    let roomDetailContentLabel: UILabel = {
-        let label = UILabel()
-        label.text = "기준 2인 최대 2인"
-        label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray700)
-        return label
-    }()
-    
-    let packageTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "패키지"
-        label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray600)
-        return label
-    }()
-    
-    let packageContentLabel: UILabel = {
-        let label = UILabel()
-        label.text = "롯데월드 자유이용권 2매"
-        label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray700)
-        return label
-    }()
-    
-    var discountRateLabel: UILabel = {
-        let label = UILabel()
-        label.text = "10%"
-        label.font = UIFont.projectFont(name: .b7)
-        label.textAlignment = .right
-        label.numberOfLines = 1
-        label.textColor = UIColor.brandColor(brightness: .brand)
-        return label
-    }()
-    
-    var discountPriceLabel: UILabel = {
-        let label = UILabel()
-        label.attributedText = NSAttributedString(
-            string: "30000",
-            attributes: [NSAttributedString.Key.strikethroughStyle: 1]
-        )
-        label.font = UIFont.projectFont(name: .l5)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray700)
-        return label
-    }()
-    
-    var isCouponAppliedLabel: UILabel = {
-        let label = UILabel()
-        label.text = "쿠폰적용시"
-        label.font = UIFont.projectFont(name: .b7)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray700)
-        return label
-    }()
-    
-    var discountedPriceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "90000"
-        label.font = UIFont.projectFont(name: .h3)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray900)
-        return label
-    }()
-    
-    var discountedPriceCurrencyLabel: UILabel = {
-        let label = UILabel()
-        label.text = "원"
-        label.font = UIFont.projectFont(name: .h4)
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = UIColor.grayColor(brightness: .gray900)
-        return label
-    }()
-     */
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -283,29 +166,9 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
             self.chooseRoomButton
         )
         
-        /*
-        self.roomInfoContainerView.addSubviews(
-            self.roomImageView,
-            self.roomNameLabel,
-            self.roomDetailTitleLabel,
-            self.roomDetailContentLabel,
-            self.packageTitleLabel,
-            self.packageContentLabel,
-            
-            self.discountRateLabel,
-            self.discountPriceLabel,
-            self.isCouponAppliedLabel,
-            self.discountedPriceLabel,
-            self.discountedPriceCurrencyLabel
-        )
-         */
-        
         self.contentView.addSubviews(
             self.accommodationInfoContainerView,
             self.statusMessageContainer
-            /*
-            self.roomInfoContainerView
-             */
         )
         
     }
@@ -401,93 +264,12 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
         self.chooseRoomButton.snp.makeConstraints { make in
             make.verticalEdges.trailing.equalToSuperview()
         }
-        
-        /*
-        self.roomInfoContainerView.snp.makeConstraints { make in
-            make.top.equalTo(self.accommodationInfoContainerView.snp.bottom).offset(16)
-            make.horizontalEdges.equalToSuperview().inset(15)
-            make.bottom.equalToSuperview().inset(18)
-        }
-        
-        self.roomImageView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
-            make.width.equalTo(307)
-            make.height.equalTo(143)
-        }
-        
-        self.roomNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.roomImageView.snp.bottom).offset(16)
-            make.horizontalEdges.equalToSuperview().inset(2)
-            make.height.equalTo(19)
-        }
-        
-        self.roomDetailTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.roomNameLabel.snp.bottom).offset(8)
-            make.leading.equalTo(self.roomNameLabel)
-            make.height.equalTo(14)
-        }
-        
-        self.roomDetailContentLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.roomDetailTitleLabel)
-            make.leading.equalTo(self.roomDetailTitleLabel.snp.trailing).offset(12)
-            make.height.equalTo(14)
-            make.trailing.equalTo(self.roomNameLabel)
-        }
-        
-        self.packageTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.roomDetailTitleLabel.snp.bottom).offset(6)
-            make.leading.equalTo(self.roomNameLabel)
-            make.height.equalTo(14)
-        }
-        
-        self.packageContentLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.packageTitleLabel)
-            make.leading.equalTo(self.roomDetailContentLabel)
-            make.height.equalTo(14)
-            make.trailing.equalTo(self.roomNameLabel)
-        }
-        
-        self.discountRateLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(self.discountPriceLabel)
-            make.trailing.equalTo(self.discountPriceLabel.snp.leading).offset(-2)
-            make.height.equalTo(13)
-        }
-        
-        self.discountPriceLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.packageContentLabel.snp.bottom).offset(16)
-            make.trailing.equalToSuperview().inset(2)
-            make.height.equalTo(15)
-        }
-        
-        self.isCouponAppliedLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(self.discountedPriceCurrencyLabel)
-            make.trailing.equalTo(self.discountedPriceLabel.snp.leading).offset(-4)
-            make.height.equalTo(13)
-        }
-        
-        self.discountedPriceLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.discountPriceLabel.snp.bottom).offset(2)
-            make.trailing.equalTo(self.discountedPriceCurrencyLabel.snp.leading)
-            make.height.equalTo(20)
-            make.bottom.equalToSuperview()
-        }
-        
-        self.discountedPriceCurrencyLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(self.discountedPriceLabel)
-            make.trailing.equalToSuperview().inset(2)
-            make.height.equalTo(18)
-        }
-         */
     }
     
     
     func configureData(accommodationlName: String, rating: Double) {
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"
-        /*
-        self.roomNameLabel.text = roomName
-        self.discountedPriceLabel.text = "\(price)"
-         */
     }
     
 }
