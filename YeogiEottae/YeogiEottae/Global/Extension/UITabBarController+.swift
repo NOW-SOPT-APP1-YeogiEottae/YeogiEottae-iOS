@@ -37,7 +37,7 @@ extension UITabBarController {
         tabBarController.tabBar.items?[4].title = StringLiteral.TabBar.myInfoTitle
         
         tabBarController.tabBar.tintColor = UIColor.brandColor(brightness: .brand)
-        tabBarController.selectedIndex = 3
+        tabBarController.selectedIndex = 1
         return tabBarController
     }
     
