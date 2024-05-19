@@ -16,6 +16,10 @@ class FavoritesRoomCell: UICollectionViewCell {
         return String(describing: self)
     }
     
+    var isBlueCircleFilled: Bool = false
+    var isRedCircleFilled: Bool = false
+    
+    let impactGenerator = UIImpactFeedbackGenerator(style: .heavy)
     let feedbackGenerator = UINotificationFeedbackGenerator()
     
     var initialGestureLocation: CGPoint = CGPointZero
@@ -51,6 +55,8 @@ class FavoritesRoomCell: UICollectionViewCell {
     let circleViewForAddToCompareInteraction: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .clear
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 30
         return view
     }()
     
@@ -59,6 +65,12 @@ class FavoritesRoomCell: UICollectionViewCell {
             print("blueCirclePathLayer에 새로운 값이 할당됐다!!!")
         }
     }
+    
+    let addIconImageViewForBlueView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "swipeAddIcon")?.withTintColor(.grayColor(brightness: .gray0).withAlphaComponent(1)))
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     let blueViewToAddCompare: UIView = {
         let view = UIView()
@@ -90,6 +102,8 @@ class FavoritesRoomCell: UICollectionViewCell {
     let circleViewForRemoveFromCompareInteraction: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .clear
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 30
         return view
     }()
     
@@ -98,6 +112,12 @@ class FavoritesRoomCell: UICollectionViewCell {
             print("redCirclePathLayer에 새로운 값이 할당됐다!!!")
         }
     }
+    
+    let deleteIconImageViewForRedView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "swipeDeleteIcon")?.withTintColor(.grayColor(brightness: .gray0)))
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     let redViewToDeleteFromCompare: UIView = {
         let view = UIView()
@@ -334,6 +354,9 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     private func configureViewHierarchy() {
         
+        self.circleViewForAddToCompareInteraction.addSubview(self.addIconImageViewForBlueView)
+        self.circleViewForRemoveFromCompareInteraction.addSubview(self.deleteIconImageViewForRedView)
+        
         self.blueViewToAddCompare.addSubviews(self.blueViewLabel, self.circleViewForAddToCompareInteraction)
         self.redViewToDeleteFromCompare.addSubviews(self.redViewLabel, self.circleViewForRemoveFromCompareInteraction)
         
@@ -391,6 +414,11 @@ class FavoritesRoomCell: UICollectionViewCell {
             make.height.equalTo(60)
         }
         
+        self.addIconImageViewForBlueView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.width.height.equalTo(23)
+        }
+        
         self.redViewToDeleteFromCompare.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -406,6 +434,11 @@ class FavoritesRoomCell: UICollectionViewCell {
             make.trailing.equalTo(self.redViewLabel.snp.leading).offset(-30)
             make.width.equalTo(60)
             make.height.equalTo(60)
+        }
+        
+        self.deleteIconImageViewForRedView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.width.height.equalTo(18)
         }
         
         self.swipeableView.snp.makeConstraints { make in
@@ -576,17 +609,19 @@ class FavoritesRoomCell: UICollectionViewCell {
         
         let translatedLocation = sender.translation(in: self.contentView)
         
-        let scaleProportion = 1 + 0.3 * (abs(self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
+        let circleScaleProportion = 1 + 0.3 * (abs(self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
+        let addIconScaleProportion = 1 + 0.5 * (abs(self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
         
         if translatedLocation.x > 0 {
             self.swipeableView.frame.origin.x = min(translatedLocation.x, self.bounds.width * 0.55)
             self.drawCircleAtBlueView(circlePercentage: (self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
-            self.circleViewForAddToCompareInteraction.transform = CGAffineTransform(scaleX: scaleProportion, y: scaleProportion)
-            
+            self.circleViewForAddToCompareInteraction.transform = CGAffineTransform(scaleX: circleScaleProportion, y: circleScaleProportion)
+            self.addIconImageViewForBlueView.transform = CGAffineTransform(scaleX: addIconScaleProportion, y: addIconScaleProportion)
         } else if translatedLocation.x < 0 {
             self.swipeableView.frame.origin.x = max(translatedLocation.x, -self.bounds.width * 0.55)
             self.drawCircleAtRedView(circlePercentage: (self.swipeableView.frame.origin.x) / (self.bounds.width * 0.55))
-            self.circleViewForRemoveFromCompareInteraction.transform = CGAffineTransform(scaleX: scaleProportion, y: scaleProportion)
+            self.circleViewForRemoveFromCompareInteraction.transform = CGAffineTransform(scaleX: circleScaleProportion, y: circleScaleProportion)
+            self.deleteIconImageViewForRedView.transform = CGAffineTransform(scaleX: addIconScaleProportion, y: addIconScaleProportion)
         }
         
         
@@ -598,12 +633,24 @@ class FavoritesRoomCell: UICollectionViewCell {
             print("비긴!!!!")
         case .changed:
             print("changed!!!!")
+            
+            if abs(self.swipeableView.frame.origin.x) >= self.bounds.width * 0.55 {
+                self.switchBlueCircleBackgroundColor(toFilled: true)
+                self.switchRedCircleBackgroundColor(toFilled: true)
+            } else {
+                print("에휴...")
+                self.switchBlueCircleBackgroundColor(toFilled: false)
+                self.switchRedCircleBackgroundColor(toFilled: false)
+            }
+            
         case .ended:
             print("끝!!!!")
             if abs(self.swipeableView.frame.origin.x) == self.bounds.width * 0.55 {
                 self.feedbackGenerator.notificationOccurred(.success)
             }
             self.setSwipeableViewToInitialLocaion()
+            
+            
             
         case .cancelled:
             print("cancelled!!!!")
@@ -642,7 +689,7 @@ class FavoritesRoomCell: UICollectionViewCell {
         
         let path: UIBezierPath = self.getPath(percentage: circlePercentage)
         let shape = CAShapeLayer()
-        shape.lineWidth = 2
+        shape.lineWidth = 4
         shape.path = path.cgPath
         shape.strokeColor = UIColor.grayColor(brightness: .gray0).cgColor
         shape.fillColor = UIColor.clear.cgColor
@@ -657,7 +704,7 @@ class FavoritesRoomCell: UICollectionViewCell {
         
         let path: UIBezierPath = self.getPath(percentage: circlePercentage, clockwise: false)
         let shape = CAShapeLayer()
-        shape.lineWidth = 2
+        shape.lineWidth = 4
         shape.path = path.cgPath
         shape.strokeColor = UIColor.grayColor(brightness: .gray0).cgColor
         shape.fillColor = UIColor.clear.cgColor
@@ -680,11 +727,66 @@ class FavoritesRoomCell: UICollectionViewCell {
         
         path.move(to: CGPoint(x: radius, y: 0))
         path.addArc(withCenter: CGPoint(x: radius, y: radius), radius: radius, startAngle: -.pi * 0.5, endAngle: -(.pi * 0.5) + (2 * .pi * percentage), clockwise: clockwise)
-        //path.close()
         
         return path
     }
     
+    
+    private func switchBlueCircleBackgroundColor(toFilled: Bool) {
+        
+        if toFilled {
+            //print("자자 toFilled의 매개변수로 true가 드루왔으요~")
+            if self.isBlueCircleFilled == false {
+                //print("자자 현재 isBlueCircleFilled 변수는 false입니다.")
+                self.impactGenerator.impactOccurred()
+                //print("impactOccurred 해줬어용")
+                self.isBlueCircleFilled = true
+                //print("isBlueCircledFilled 변수에 true를 할당해 주었답니다!")
+            }
+        } else {
+            self.isBlueCircleFilled = false
+        }
+        
+        let animator = UIViewPropertyAnimator(duration: 0.2, dampingRatio: 1)
+        animator.addAnimations {
+            switch toFilled {
+            case true:
+                self.circleViewForAddToCompareInteraction.backgroundColor = .grayColor(brightness: .gray0)
+                self.addIconImageViewForBlueView.image = UIImage(named: "swipeAddIcon")?.withTintColor(.secondaryColor(brightness: .secondary600), renderingMode: .alwaysOriginal)
+                
+            case false:
+                self.circleViewForAddToCompareInteraction.backgroundColor = .clear
+                self.addIconImageViewForBlueView.image = UIImage(named: "swipeAddIcon")?.withTintColor(.grayColor(brightness: .gray0), renderingMode: .alwaysOriginal)
+                
+            }
+            self.layoutIfNeeded()
+        }
+        animator.startAnimation()
+    }
+    
+    private func switchRedCircleBackgroundColor(toFilled: Bool) {
+        
+        if toFilled {
+            if !self.isRedCircleFilled {
+                self.impactGenerator.impactOccurred()
+                self.isRedCircleFilled = true
+            }
+        }
+        
+        let animator = UIViewPropertyAnimator(duration: 0.2, dampingRatio: 1)
+        animator.addAnimations {
+            switch toFilled {
+            case true:
+                self.circleViewForRemoveFromCompareInteraction.backgroundColor = .grayColor(brightness: .gray0)
+                self.deleteIconImageViewForRedView.image = UIImage(named: "swipeDeleteIcon")?.withTintColor(UIColor.init(red: 225/255, green: 65/255, blue: 1/255, alpha: 1))
+            case false:
+                self.circleViewForRemoveFromCompareInteraction.backgroundColor = .clear
+                self.deleteIconImageViewForRedView.image = UIImage(named: "swipeDeleteIcon")?.withTintColor(.grayColor(brightness: .gray0))
+            }
+            self.layoutIfNeeded()
+        }
+        animator.startAnimation()
+    }
     
 }
 
@@ -694,8 +796,6 @@ extension FavoritesRoomCell: UIGestureRecognizerDelegate {
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return false }
-        
-        let xVelocity = panGestureRecognizer.velocity(in: self.contentView).x
         
         let xVelocityAbs = abs(panGestureRecognizer.velocity(in: self.contentView).x)
         let yVelocityAbs = abs(panGestureRecognizer.velocity(in: self.contentView).y)
