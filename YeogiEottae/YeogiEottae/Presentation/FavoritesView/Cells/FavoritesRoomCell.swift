@@ -620,6 +620,10 @@ class FavoritesRoomCell: UICollectionViewCell {
                 self.deleteIconImageViewForRedView.transform = CGAffineTransform(scaleX: addIconScaleProportion, y: addIconScaleProportion)
             }
             
+            /*
+             셀 너비의 55%이상 끌어왔을 때 원 내부를 흰색으로 채우려고 헀는데, 어떤 이유에서인지 기기에서는 동작하지만 시뮬레이터에서는 동작하지 않았다!
+             그래서 우선 아래 코드에서 0.55 대신 0.54로 표현하였음.
+             */
             if self.swipeableView.frame.origin.x >= self.bounds.width * 0.54 {
                 if !self.isBlueCircleFilled {
                     self.fillBlueCircle() {
