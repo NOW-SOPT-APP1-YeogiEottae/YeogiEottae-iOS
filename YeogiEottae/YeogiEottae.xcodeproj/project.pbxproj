@@ -39,15 +39,15 @@
 		0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */; };
 		0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2232BF61D5D00A6F840 /* NSObject+.swift */; };
 		0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */; };
+		0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CA2BF8E83200091A2A /* YeogiToast.swift */; };
+		0BA211CD2BF8E86100091A2A /* YeogiToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */; };
+		0BA211D02BF9CC9A00091A2A /* YeogiAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */; };
+		0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */; };
 		4E1FA4F62BF8A8630029ED16 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */; };
 		4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */; };
 		4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */; };
 		4E1FA4FF2BF8D6430029ED16 /* FavoritesRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */; };
 		4E1FA5012BF8F4860029ED16 /* FavoritesAccommodationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */; };
-		0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CA2BF8E83200091A2A /* YeogiToast.swift */; };
-		0BA211CD2BF8E86100091A2A /* YeogiToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */; };
-		0BA211D02BF9CC9A00091A2A /* YeogiAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */; };
-		0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */; };
 		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
 		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
 		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
@@ -113,15 +113,15 @@
 		0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFilterView.swift; sourceTree = "<group>"; };
 		0B96F2232BF61D5D00A6F840 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		0BA211CA2BF8E83200091A2A /* YeogiToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToast.swift; sourceTree = "<group>"; };
+		0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToastView.swift; sourceTree = "<group>"; };
+		0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertViewController.swift; sourceTree = "<group>"; };
+		0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertView.swift; sourceTree = "<group>"; };
 		4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSegmentStackView.swift; sourceTree = "<group>"; };
 		4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRoomCell.swift; sourceTree = "<group>"; };
 		4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAccommodationCell.swift; sourceTree = "<group>"; };
-		0BA211CA2BF8E83200091A2A /* YeogiToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToast.swift; sourceTree = "<group>"; };
-		0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToastView.swift; sourceTree = "<group>"; };
-		0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertViewController.swift; sourceTree = "<group>"; };
-		0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertView.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -258,6 +258,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0BA211C92BF8E82000091A2A /* YeogiToast */ = {
+			isa = PBXGroup;
+			children = (
+				0BA211CA2BF8E83200091A2A /* YeogiToast.swift */,
+				0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */,
+			);
+			path = YeogiToast;
+			sourceTree = "<group>";
+		};
+		0BA211CE2BF9CC7E00091A2A /* YeogiAlert */ = {
+			isa = PBXGroup;
+			children = (
+				0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */,
+				0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */,
+			);
+			path = YeogiAlert;
+			sourceTree = "<group>";
+		};
 		4E1FA4F02BF8A8240029ED16 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,22 +311,6 @@
 				4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */,
 			);
 			path = Cells;
-		0BA211C92BF8E82000091A2A /* YeogiToast */ = {
-			isa = PBXGroup;
-			children = (
-				0BA211CA2BF8E83200091A2A /* YeogiToast.swift */,
-				0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */,
-			);
-			path = YeogiToast;
-			sourceTree = "<group>";
-		};
-		0BA211CE2BF9CC7E00091A2A /* YeogiAlert */ = {
-			isa = PBXGroup;
-			children = (
-				0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */,
-				0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */,
-			);
-			path = YeogiAlert;
 			sourceTree = "<group>";
 		};
 		4E278F7F2BEFACE60034097A /* Application */ = {
@@ -644,7 +646,6 @@
 				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
-				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */,
 				0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */,
 				4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */,
