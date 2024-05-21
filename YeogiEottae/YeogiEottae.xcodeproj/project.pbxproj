@@ -29,7 +29,6 @@
 		0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C552BF21C6400DF1D92 /* UITextField+.swift */; };
 		0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C572BF21C7600DF1D92 /* UIView+.swift */; };
 		0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */; };
-		0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
 		0B8E95EE2BF9DB7300C3F285 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */; };
 		0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */; };
 		0B8E95F22BF9DE6100C3F285 /* CompareTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */; };
@@ -66,7 +65,6 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
-		4E3DCCCF2BF9DCA900C334CC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
 		4E47FDBA2BF91C2300A21B08 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */; };
 		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
 		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
@@ -85,6 +83,7 @@
 		4EE7D0D32BF490A5002BDF8E /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */; };
 		4EE7D0D52BF4912B002BDF8E /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */; };
 		4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D62BF49675002BDF8E /* HotelModel.swift */; };
+		4EF183CF2BFC9954001789FB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -657,21 +656,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E3DCCCF2BF9DCA900C334CC /* String.swift in Sources */,
+				4EF183CF2BFC9954001789FB /* String.swift in Sources */,
 				0B3C2AC82BF75A7F00878745 /* AddCompareTableViewCell.swift in Sources */,
 				4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */,
 				4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */,
 				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
-				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0B8E95F22BF9DE6100C3F285 /* CompareTargetType.swift in Sources */,
 				0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */,
 				0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */,
 				4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */,
 				4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */,
 				0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */,
-				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
 				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
