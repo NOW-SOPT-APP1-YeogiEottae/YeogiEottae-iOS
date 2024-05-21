@@ -84,8 +84,6 @@
 		4EE7D0D52BF4912B002BDF8E /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */; };
 		4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D62BF49675002BDF8E /* HotelModel.swift */; };
 		4EF183CF2BFC9954001789FB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
-		4EF183D52BFCD687001789FB /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4EF183D42BFCD687001789FB /* .gitkeep */; };
-		4EF183D72BFCD698001789FB /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4EF183D62BFCD698001789FB /* .gitkeep */; };
 		87BEE6ED2BF8B90300579642 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6EC2BF8B90300579642 /* HotelDetailViewController.swift */; };
 		87BEE6EF2BF8B91E00579642 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6EE2BF8B91E00579642 /* DetailTableViewCell.swift */; };
 		87BEE6F12BF8B93500579642 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */; };
@@ -170,8 +168,6 @@
 		4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
 		4EE7D0D62BF49675002BDF8E /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
-		4EF183D42BFCD687001789FB /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		4EF183D62BFCD698001789FB /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		87BEE6EC2BF8B90300579642 /* HotelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailViewController.swift; sourceTree = "<group>"; };
 		87BEE6EE2BF8B91E00579642 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -583,7 +579,6 @@
 		4EF183D22BFCD671001789FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4EF183D62BFCD698001789FB /* .gitkeep */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -591,7 +586,6 @@
 		4EF183D32BFCD677001789FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4EF183D42BFCD687001789FB /* .gitkeep */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -696,12 +690,10 @@
 				4E278FB52BF0EF520034097A /* Pretendard-Medium.otf in Resources */,
 				0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */,
 				4E278FB22BF0EF520034097A /* Pretendard-Light.otf in Resources */,
-				4EF183D52BFCD687001789FB /* .gitkeep in Resources */,
 				4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */,
 				4E278FB42BF0EF520034097A /* Pretendard-ExtraBold.otf in Resources */,
 				4E278FB32BF0EF520034097A /* Pretendard-ExtraLight.otf in Resources */,
 				4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */,
-				4EF183D72BFCD698001789FB /* .gitkeep in Resources */,
 				4E278FB62BF0EF520034097A /* Pretendard-Regular.otf in Resources */,
 				4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */,
 				4E278FB12BF0EF520034097A /* Pretendard-Bold.otf in Resources */,
