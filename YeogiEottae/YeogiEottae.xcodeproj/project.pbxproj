@@ -10,10 +10,15 @@
 		0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */; };
 		0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */; };
 		0B3C2AC02BF720A000878745 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2ABF2BF720A000878745 /* Int+.swift */; };
+		0B3C2AC22BF74B0E00878745 /* CompareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC12BF74B0E00878745 /* CompareButton.swift */; };
+		0B3C2AC42BF758A900878745 /* AddCompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC32BF758A900878745 /* AddCompareViewController.swift */; };
+		0B3C2AC62BF7598100878745 /* AddCompareRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */; };
+		0B3C2AC82BF75A7F00878745 /* AddCompareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AC72BF75A7F00878745 /* AddCompareTableViewCell.swift */; };
 		0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */; };
 		0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */; };
 		0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */; };
 		0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DE2BEB9E6B00BCEA76 /* Base */; };
+		0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */; };
 		0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */; };
 		0B719C482BF20B3500DF1D92 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C472BF20B3500DF1D92 /* Moya */; };
 		0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4A2BF20B5400DF1D92 /* Kingfisher */; };
@@ -24,7 +29,11 @@
 		0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C552BF21C6400DF1D92 /* UITextField+.swift */; };
 		0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C572BF21C7600DF1D92 /* UIView+.swift */; };
 		0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */; };
-		0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
+		0B8E95EE2BF9DB7300C3F285 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */; };
+		0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */; };
+		0B8E95F22BF9DE6100C3F285 /* CompareTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */; };
+		0B8E95F42BF9DEAF00C3F285 /* CompareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */; };
+		0B8E95FB2BF9E7AA00C3F285 /* CompareListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */; };
 		0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */; };
 		0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F20A2BF3B26F00A6F840 /* CompareData.swift */; };
 		0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */; };
@@ -35,6 +44,15 @@
 		0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */; };
 		0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2232BF61D5D00A6F840 /* NSObject+.swift */; };
 		0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */; };
+		0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CA2BF8E83200091A2A /* YeogiToast.swift */; };
+		0BA211CD2BF8E86100091A2A /* YeogiToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */; };
+		0BA211D02BF9CC9A00091A2A /* YeogiAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */; };
+		0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */; };
+		4E1FA4F62BF8A8630029ED16 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */; };
+		4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */; };
+		4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */; };
+		4E1FA4FF2BF8D6430029ED16 /* FavoritesRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */; };
+		4E1FA5012BF8F4860029ED16 /* FavoritesAccommodationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */; };
 		4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9B2BEFB5B40034097A /* UIColor+.swift */; };
 		4E278F9E2BF0B15D0034097A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278F9D2BF0B15D0034097A /* String+.swift */; };
 		4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E278FA32BF0CA200034097A /* UIFont+.swift */; };
@@ -47,6 +65,7 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
+		4E47FDBA2BF91C2300A21B08 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */; };
 		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
 		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
 		4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */; };
@@ -68,17 +87,23 @@
 		87BEE6EF2BF8B91E00579642 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6EE2BF8B91E00579642 /* DetailTableViewCell.swift */; };
 		87BEE6F12BF8B93500579642 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */; };
 		87BEE6F32BF8B94A00579642 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F22BF8B94A00579642 /* RoomTableViewCell.swift */; };
+		4EF183CF2BFC9954001789FB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareInfoView.swift; sourceTree = "<group>"; };
 		0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		0B3C2ABF2BF720A000878745 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		0B3C2AC12BF74B0E00878745 /* CompareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButton.swift; sourceTree = "<group>"; };
+		0B3C2AC32BF758A900878745 /* AddCompareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompareViewController.swift; sourceTree = "<group>"; };
+		0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompareRootView.swift; sourceTree = "<group>"; };
+		0B3C2AC72BF75A7F00878745 /* AddCompareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompareTableViewCell.swift; sourceTree = "<group>"; };
 		0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YeogiEottae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4AA6D22BEB9E6A00BCEA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B4AA6DE2BEB9E6B00BCEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomData.swift; sourceTree = "<group>"; };
 		0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+.swift"; sourceTree = "<group>"; };
 		0B719C512BF21C3E00DF1D92 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -87,6 +112,12 @@
 		0B719C572BF21C7600DF1D92 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		0B719C5B2BF21D9100DF1D92 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
+		0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareTargetType.swift; sourceTree = "<group>"; };
+		0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareService.swift; sourceTree = "<group>"; };
+		0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListResponseDTO.swift; sourceTree = "<group>"; };
 		0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareRoomViewController.swift; sourceTree = "<group>"; };
 		0B96F20A2BF3B26F00A6F840 /* CompareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareData.swift; sourceTree = "<group>"; };
 		0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareTableViewCell.swift; sourceTree = "<group>"; };
@@ -97,6 +128,15 @@
 		0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFilterView.swift; sourceTree = "<group>"; };
 		0B96F2232BF61D5D00A6F840 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		0BA211CA2BF8E83200091A2A /* YeogiToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToast.swift; sourceTree = "<group>"; };
+		0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiToastView.swift; sourceTree = "<group>"; };
+		0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertViewController.swift; sourceTree = "<group>"; };
+		0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeogiAlertView.swift; sourceTree = "<group>"; };
+		4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSegmentStackView.swift; sourceTree = "<group>"; };
+		4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRoomCell.swift; sourceTree = "<group>"; };
+		4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAccommodationCell.swift; sourceTree = "<group>"; };
 		4E278F9B2BEFB5B40034097A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E278F9D2BF0B15D0034097A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4E278FA32BF0CA200034097A /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -109,6 +149,7 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD82BF48B1400191932 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +207,7 @@
 		0B4AA6D12BEB9E6A00BCEA76 /* YeogiEottae */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */,
 				4E278F8F2BEFAD830034097A /* Presentation */,
 				4E278F8B2BEFAD620034097A /* Network */,
 				4E278F802BEFACF90034097A /* Global */,
@@ -197,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */,
+				0B3C2AC32BF758A900878745 /* AddCompareViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -206,6 +249,7 @@
 			children = (
 				0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */,
 				0B96F2252BF61ED800A6F840 /* AddButtonCell.swift */,
+				0B3C2AC72BF75A7F00878745 /* AddCompareTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -214,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				0B96F20A2BF3B26F00A6F840 /* CompareData.swift */,
+				0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,8 +272,65 @@
 				0B96F21F2BF619CE00A6F840 /* CompareRoomRootView.swift */,
 				0B96F2212BF61A2200A6F840 /* CompareFilterView.swift */,
 				0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */,
+				0B3C2AC12BF74B0E00878745 /* CompareButton.swift */,
+				0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0BA211C92BF8E82000091A2A /* YeogiToast */ = {
+			isa = PBXGroup;
+			children = (
+				0BA211CA2BF8E83200091A2A /* YeogiToast.swift */,
+				0BA211CC2BF8E86100091A2A /* YeogiToastView.swift */,
+			);
+			path = YeogiToast;
+			sourceTree = "<group>";
+		};
+		0BA211CE2BF9CC7E00091A2A /* YeogiAlert */ = {
+			isa = PBXGroup;
+			children = (
+				0BA211CF2BF9CC9A00091A2A /* YeogiAlertViewController.swift */,
+				0BA211D12BF9CCAE00091A2A /* YeogiAlertView.swift */,
+			);
+			path = YeogiAlert;
+			sourceTree = "<group>";
+		};
+		4E1FA4F02BF8A8240029ED16 /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4FD2BF8D6240029ED16 /* Cells */,
+				4E1FA4F22BF8A8420029ED16 /* Views */,
+				4E1FA4F12BF8A83C0029ED16 /* ViewControllers */,
+			);
+			path = FavoritesView;
+			sourceTree = "<group>";
+		};
+		4E1FA4F12BF8A83C0029ED16 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4F52BF8A8630029ED16 /* FavoritesViewController.swift */,
+				4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4E1FA4F22BF8A8420029ED16 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4F72BF8A8760029ED16 /* FavoritesView.swift */,
+				4E1FA4F92BF8A90C0029ED16 /* FavoritesSegmentStackView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4E1FA4FD2BF8D6240029ED16 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FA4FE2BF8D6430029ED16 /* FavoritesRoomCell.swift */,
+				4E1FA5002BF8F4860029ED16 /* FavoritesAccommodationCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4E278F7F2BEFACE60034097A /* Application */ = {
@@ -359,6 +461,9 @@
 		4E278F8C2BEFAD690034097A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */,
+				0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */,
+				0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -366,6 +471,7 @@
 		4E278F8D2BEFAD6D0034097A /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -373,6 +479,7 @@
 		4E278F8E2BEFAD780034097A /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -381,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				87BEE6E72BF8B88F00579642 /* HotelDetail */,
+				4E1FA4F02BF8A8240029ED16 /* FavoritesView */,
 				4E7021352BF2276800D480AE /* SearchList */,
 				4E278F902BEFAD870034097A /* Common */,
 			);
@@ -399,6 +507,8 @@
 		4E278F912BEFAD8A0034097A /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				0BA211CE2BF9CC7E00091A2A /* YeogiAlert */,
+				0BA211C92BF8E82000091A2A /* YeogiToast */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -598,45 +708,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF183CF2BFC9954001789FB /* String.swift in Sources */,
+				0B3C2AC82BF75A7F00878745 /* AddCompareTableViewCell.swift in Sources */,
 				4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */,
 				4E7021412BF24B5C00D480AE /* SearchFilterModel.swift in Sources */,
 				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
-				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				0B8E95F22BF9DE6100C3F285 /* CompareTargetType.swift in Sources */,
+				0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */,
+				0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */,
 				4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */,
 				4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */,
 				0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */,
-				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
 				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */,
+				0B8E95FB2BF9E7AA00C3F285 /* CompareListResponseDTO.swift in Sources */,
 				0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */,
+				0B3C2AC22BF74B0E00878745 /* CompareButton.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
 				4EE7D0D32BF490A5002BDF8E /* SearchResultCell.swift in Sources */,
+				4E1FA4FF2BF8D6430029ED16 /* FavoritesRoomCell.swift in Sources */,
 				0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */,
 				87BEE6F32BF8B94A00579642 /* RoomTableViewCell.swift in Sources */,
 				4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */,
+				4E1FA5012BF8F4860029ED16 /* FavoritesAccommodationCell.swift in Sources */,
 				0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
+				0B8E95EE2BF9DB7300C3F285 /* NetworkResult.swift in Sources */,
+				0B3C2AC42BF758A900878745 /* AddCompareViewController.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
 				0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */,
 				0B3C2AC02BF720A000878745 /* Int+.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
+				0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */,
 				0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */,
+				0B3C2AC62BF7598100878745 /* AddCompareRootView.swift in Sources */,
+				0BA211CD2BF8E86100091A2A /* YeogiToastView.swift in Sources */,
 				0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */,
 				87BEE6ED2BF8B90300579642 /* HotelDetailViewController.swift in Sources */,
 				4E7021452BF24C1000D480AE /* AddSearchFilterListCell.swift in Sources */,
+				4E1FA4F62BF8A8630029ED16 /* FavoritesViewController.swift in Sources */,
 				0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */,
 				87BEE6EF2BF8B91E00579642 /* DetailTableViewCell.swift in Sources */,
 				4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */,
+				0BA211D02BF9CC9A00091A2A /* YeogiAlertViewController.swift in Sources */,
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
+				4E47FDBA2BF91C2300A21B08 /* FavoritesCollectionViewController.swift in Sources */,
+				4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */,
 				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
 				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
+				4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */,
 				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
 				4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
+				0B8E95F42BF9DEAF00C3F285 /* CompareService.swift in Sources */,
 				4E7021492BF3A94700D480AE /* SearchSegmentCell.swift in Sources */,
 				4EE7D0CF2BF48E3C002BDF8E /* SearchResultView.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
@@ -665,6 +794,7 @@
 /* Begin XCBuildConfiguration section */
 		0B4AA6E12BEB9E6B00BCEA76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -728,6 +858,7 @@
 		};
 		0B4AA6E22BEB9E6B00BCEA76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -784,6 +915,7 @@
 		};
 		0B4AA6E42BEB9E6B00BCEA76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -812,6 +944,7 @@
 		};
 		0B4AA6E52BEB9E6B00BCEA76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

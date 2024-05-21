@@ -26,7 +26,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         return scrollView
     }()
     
-    private let lowPriceButton: UIButton = {
+    private lazy var lowPriceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(StringLiteral.CompareFilter.lowPrice, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
@@ -38,7 +38,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         return button
     }()
     
-    private let highPriceButton: UIButton = {
+    private lazy var highPriceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(StringLiteral.CompareFilter.highRate, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
@@ -50,7 +50,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
         return button
     }()
     
-    private let highDiscountButton: UIButton = {
+    private lazy var highDiscountButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(StringLiteral.CompareFilter.highDiscount, for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray800), for: .normal)
@@ -122,6 +122,7 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.leading.equalToSuperview().offset(12)
             $0.width.equalTo(88)
             $0.verticalEdges.equalToSuperview()
+            $0.height.equalTo(48)
         }
         
         highPriceButton.snp.makeConstraints {
@@ -141,12 +142,6 @@ final class CompareFilterView: UIView, UIScrollViewDelegate {
             $0.trailing.equalTo(scrollView.contentLayoutGuide).inset(38)
             $0.width.equalTo(152)
             $0.centerY.equalToSuperview()
-        }
-        
-        scrollView.contentLayoutGuide.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.height.equalToSuperview()
-            $0.width.equalTo(586) // Calculate total content width
         }
     }
 }

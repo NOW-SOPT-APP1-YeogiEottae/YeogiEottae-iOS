@@ -10,6 +10,7 @@ import SnapKit
 
 protocol CompareTableViewCellDelegate: AnyObject {
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView)
+    func compareTableViewCellDidTapRadioButton(_ cell: CompareTableViewCell)
 }
 
 protocol CompareFilterViewCellDelegate: AnyObject {
@@ -20,9 +21,11 @@ final class CompareRoomViewController: UIViewController {
     
     private var scrollViewOffsetX: CGFloat = 0
     private var isHeaderHidden = false
+    private var isSelected = false
+    private var selectedIndexPath: IndexPath?
     
     private let rootView = CompareRoomRootView()
-    private let dataModel = RoomData.dummyData()
+    private let dataModel = CompareRoomData.dummyData()
     
     override func loadView() {
         self.view = rootView
@@ -33,6 +36,7 @@ final class CompareRoomViewController: UIViewController {
         
         setRegister()
         setDelegate()
+        getComparerListData()
     }
     
     private func setRegister() {
@@ -59,7 +63,43 @@ final class CompareRoomViewController: UIViewController {
     }
     
     @objc private func addButtonTapped() {
-        //탭 했을 때 동작 추후 구현
+        let viewController = AddCompareViewController()
+        if viewController.presentationController is UISheetPresentationController {
+            if let sheet = viewController.sheetPresentationController {
+                sheet.prefersGrabberVisible = true
+                if #available(iOS 16.0, *) {
+                    sheet.detents = [.custom(resolver: { context in
+                        return 665
+                    })]
+                } else {
+                    sheet.detents = [.large()]
+                }
+            }
+        }
+        viewController.modalPresentationStyle = .formSheet
+        self.present(viewController, animated: true)
+    }
+    
+    private func getComparerListData() {
+        CompareService.shared.getComparerListData(price: "1", review: "1") { [weak self] response in
+            switch response {
+            case .success(let data):
+                if let data = data as? [CompareListResponseDTO] {
+                    print(data)
+                }
+                
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
     }
 }
 
@@ -76,7 +116,7 @@ extension CompareRoomViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.addButtonAction = { [weak self] in
-                self?.addButtonTapped()
+                    self?.addButtonTapped()
             }
             return cell
         } else {
@@ -87,6 +127,7 @@ extension CompareRoomViewController: UITableViewDataSource {
             cell.bindData(data: dataModel[indexPath.row])
             cell.delegate = self
             cell.scrollView.contentOffset.x = scrollViewOffsetX
+            cell.isRadioSelected = (indexPath == selectedIndexPath)
             return cell
         }
     }
@@ -115,6 +156,20 @@ extension CompareRoomViewController: UIScrollViewDelegate {
 }
 
 extension CompareRoomViewController: CompareTableViewCellDelegate {
+    func compareTableViewCellDidTapRadioButton(_ cell: CompareTableViewCell) {
+        
+        let popupViewController = YeogiAlertViewController()
+        popupViewController.modalPresentationStyle = .overFullScreen
+        self.present(popupViewController, animated: false)
+        
+        if selectedIndexPath == nil {
+            rootView.showReservationButton()
+        }
+        if let indexPath = rootView.tableView.indexPath(for: cell) {
+            selectedIndexPath = indexPath
+            rootView.tableView.reloadData()
+        }
+    }
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView) {
         scrollViewOffsetX = scrollView.contentOffset.x
         syncScrollViews(excludedScrollView: scrollView)
