@@ -29,6 +29,12 @@
 		0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C552BF21C6400DF1D92 /* UITextField+.swift */; };
 		0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C572BF21C7600DF1D92 /* UIView+.swift */; };
 		0B719C5A2BF21C8C00DF1D92 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */; };
+		0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
+		0B8E95EE2BF9DB7300C3F285 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */; };
+		0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */; };
+		0B8E95F22BF9DE6100C3F285 /* CompareTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */; };
+		0B8E95F42BF9DEAF00C3F285 /* CompareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */; };
+		0B8E95FB2BF9E7AA00C3F285 /* CompareListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */; };
 		0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */; };
 		0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F20A2BF3B26F00A6F840 /* CompareData.swift */; };
 		0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */; };
@@ -103,6 +109,12 @@
 		0B719C572BF21C7600DF1D92 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		0B719C592BF21C8C00DF1D92 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		0B719C5B2BF21D9100DF1D92 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
+		0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareTargetType.swift; sourceTree = "<group>"; };
+		0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareService.swift; sourceTree = "<group>"; };
+		0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListResponseDTO.swift; sourceTree = "<group>"; };
 		0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareRoomViewController.swift; sourceTree = "<group>"; };
 		0B96F20A2BF3B26F00A6F840 /* CompareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareData.swift; sourceTree = "<group>"; };
 		0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareTableViewCell.swift; sourceTree = "<group>"; };
@@ -188,6 +200,7 @@
 		0B4AA6D12BEB9E6A00BCEA76 /* YeogiEottae */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */,
 				4E278F8F2BEFAD830034097A /* Presentation */,
 				4E278F8B2BEFAD620034097A /* Network */,
 				4E278F802BEFACF90034097A /* Global */,
@@ -441,6 +454,9 @@
 		4E278F8C2BEFAD690034097A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */,
+				0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */,
+				0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -448,6 +464,7 @@
 		4E278F8D2BEFAD6D0034097A /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -455,6 +472,7 @@
 		4E278F8E2BEFAD780034097A /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -646,15 +664,20 @@
 				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
 				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
+				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				0B8E95F22BF9DE6100C3F285 /* CompareTargetType.swift in Sources */,
 				0BA211CB2BF8E83200091A2A /* YeogiToast.swift in Sources */,
 				0BA211D22BF9CCAE00091A2A /* YeogiAlertView.swift in Sources */,
 				4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */,
 				4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */,
 				0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */,
+				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
+				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
 				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */,
+				0B8E95FB2BF9E7AA00C3F285 /* CompareListResponseDTO.swift in Sources */,
 				0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */,
 				0B3C2AC22BF74B0E00878745 /* CompareButton.swift in Sources */,
 				0B4AA6D32BEB9E6A00BCEA76 /* AppDelegate.swift in Sources */,
@@ -665,6 +688,7 @@
 				4E1FA5012BF8F4860029ED16 /* FavoritesAccommodationCell.swift in Sources */,
 				0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
+				0B8E95EE2BF9DB7300C3F285 /* NetworkResult.swift in Sources */,
 				0B3C2AC42BF758A900878745 /* AddCompareViewController.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
 				0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */,
@@ -689,6 +713,7 @@
 				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
 				4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */,
 				0B719C582BF21C7600DF1D92 /* UIView+.swift in Sources */,
+				0B8E95F42BF9DEAF00C3F285 /* CompareService.swift in Sources */,
 				4E7021492BF3A94700D480AE /* SearchSegmentCell.swift in Sources */,
 				4EE7D0CF2BF48E3C002BDF8E /* SearchResultView.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
@@ -716,6 +741,7 @@
 /* Begin XCBuildConfiguration section */
 		0B4AA6E12BEB9E6B00BCEA76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -779,6 +805,7 @@
 		};
 		0B4AA6E22BEB9E6B00BCEA76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -835,6 +862,7 @@
 		};
 		0B4AA6E42BEB9E6B00BCEA76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -863,6 +891,7 @@
 		};
 		0B4AA6E52BEB9E6B00BCEA76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8E95F92BF9E11E00C3F285 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
