@@ -17,12 +17,9 @@ class FavoritesCollectionViewController: UIViewController {
         flowLayout.scrollDirection = .vertical
         flowLayout.sectionInset = UIEdgeInsets(top: 13, left: 19, bottom: 13, right: 19)
         flowLayout.minimumLineSpacing = 12
-        
-        //flowLayout.estimatedItemSize = CGSize(width: 500, height: 300)
-        //if let screenSize {
-        //    print("screenSize is not nil")
-        //    flowLayout.estimatedItemSize = CGSize(width: screenSize.width - (19 * 2), height: 50)
-        //}
+        /*
+         여기서 itemSize를 정의할 수도 있지만, indexPath별로 방인지 숙소인지 구분하여 분기처리하기 위해 itemSize를 구하는 코드는 UICollectionViewDelegateFlowLayout으로 구현함.
+         */
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.register(FavoritesRoomCell.self, forCellWithReuseIdentifier: FavoritesRoomCell.reuseIdentifier)
