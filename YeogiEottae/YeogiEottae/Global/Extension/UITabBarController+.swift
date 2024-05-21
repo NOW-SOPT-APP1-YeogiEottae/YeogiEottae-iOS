@@ -11,14 +11,15 @@ extension UITabBarController {
     
     static func getDefault() -> UITabBarController {
         let tabBarController = UITabBarController()
-        let searchListNaviCon = UINavigationController(rootViewController: SearchListViewController())
+        let searchListNavigationController = UINavigationController(rootViewController: SearchListViewController())
+        let favoritesNavigationController = UINavigationController(rootViewController: FavoritesViewController())
 
         tabBarController.setViewControllers(
             [
                 UINavigationController(rootViewController: CompareRoomViewController()),
-                searchListNaviCon,
+                searchListNavigationController,
                 UIViewController(),
-                UIViewController(),
+                favoritesNavigationController,
                 UIViewController()
             ],
             animated: false
