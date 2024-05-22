@@ -25,7 +25,7 @@ final class CompareRoomViewController: UIViewController {
     private var selectedIndexPath: IndexPath?
     
     private let rootView = CompareRoomRootView()
-    private let dataModel = CompareRoomData.dummyData()
+    private var dataModel : [CompareList] = []
     
     override func loadView() {
         self.view = rootView
@@ -84,9 +84,12 @@ final class CompareRoomViewController: UIViewController {
         CompareService.shared.getComparerListData(price: "1", review: "1") { [weak self] response in
             switch response {
             case .success(let data):
-                if let data = data as? [CompareListResponseDTO] {
-                    print(data)
-                }
+                if let data = data as? CompareListResponseDTO {
+                     self?.dataModel = data.result
+                     DispatchQueue.main.async {
+                         self?.rootView.tableView.reloadData()
+                     }
+                 }
                 
             case .requestErr:
                 print("요청 오류 입니다")

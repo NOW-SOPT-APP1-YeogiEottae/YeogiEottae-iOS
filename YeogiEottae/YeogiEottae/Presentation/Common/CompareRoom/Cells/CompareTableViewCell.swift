@@ -148,7 +148,7 @@ final class CompareTableViewCell: UITableViewCell {
         scrollView.delegate = self
     }
     
-    func bindData(data: CompareRoomData) {
+    func bindData(data: CompareList) {
         hotelNameLabel.text = data.hotelName
         roomNameLabel.text = data.roomName
         let url = URL(string: data.imageUrl)

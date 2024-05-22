@@ -119,7 +119,7 @@ final class AddCompareTableViewCell : UITableViewCell {
         }
     }
     
-    func bindData(data: AddRoomData) {
+    func bindData(data: GetLikeCompareResult) {
         let url = URL(string: data.imageUrl)
         roomImageView.kf.setImage(with: url)
         roomLabel.text = data.roomName

@@ -16,7 +16,7 @@ protocol AddTableViewCellDelegate: AnyObject {
 final class AddCompareViewController: UIViewController {
     
     private let rootView = AddCompareRootView()
-    private let dataModel = AddRoomData.dummyData()
+    private var dataModel: [GetLikeCompareResult] = []
     private var likeRoomList: [Int] = []
     
     override func loadView() {
@@ -28,6 +28,7 @@ final class AddCompareViewController: UIViewController {
         
         setRegister()
         setDelegate()
+        getAddCompareData()
     }
     
     private func setRegister() {
@@ -37,6 +38,31 @@ final class AddCompareViewController: UIViewController {
     private func setDelegate() {
         rootView.tableView.dataSource = self
         rootView.tableView.delegate = self
+    }
+    
+    private func getAddCompareData() {
+        CompareService.shared.getLikeCompareData() { [weak self] response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GetLikeCompareResponseDTO {
+                    self?.dataModel = data.result.roomList
+                     DispatchQueue.main.async {
+                         self?.rootView.tableView.reloadData()
+                     }
+                 }
+                
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
     }
 }
 
