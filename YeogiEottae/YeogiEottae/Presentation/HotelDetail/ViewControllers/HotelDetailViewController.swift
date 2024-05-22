@@ -63,7 +63,9 @@ extension HotelDetailViewController {
         switch section {
         case .image:
             return 1
-        case .details, .room:
+        case .details:
+            return 2
+        case .room:
             return 2
         }
     }
@@ -90,14 +92,13 @@ extension HotelDetailViewController {
             return cell
         case .room:
             let cell = tableView.dequeueReusableCell(withIdentifier: RoomTableViewCell.reuseIdentifier, for: indexPath) as! RoomTableViewCell
-            let date = "5.15 수 - 5.16 토"
-            let peopleCount = "2명"
             let roomType = indexPath.row == 0 ? "스탠다드 더블룸" : "패밀리 스위트"
             let price = indexPath.row == 0 ? "156,900원" : "356,900원"
             let bookingInfo = "입실 15:00 탈실 11:00"
             let image = UIImage(named: "room1") ?? UIImage()  // "room1"이 없을 경우 빈 이미지
-            cell.configure(date: date, peopleCount: peopleCount, image: image, roomType: roomType, price: price, bookingInfo: bookingInfo)
+            cell.configure(image: image, roomType: roomType, price: price, bookingInfo: bookingInfo)
             return cell
+            
         }
     }
 }

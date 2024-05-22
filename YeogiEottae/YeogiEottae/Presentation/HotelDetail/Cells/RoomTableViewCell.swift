@@ -11,8 +11,6 @@ import SnapKit
 class RoomTableViewCell: UITableViewCell {
     static let reuseIdentifier = "RoomTableViewCell"
 
-    let dateLabel = UILabel()
-    let peopleCountLabel = UILabel()
     let roomImageView = UIImageView()
     let roomTypeLabel = UILabel()
     let priceLabel = UILabel()
@@ -28,30 +26,24 @@ class RoomTableViewCell: UITableViewCell {
     }
 
     private func setupViews() {
-        dateLabel.font = UIFont.systemFont(ofSize: 12)
-        dateLabel.textAlignment = .center
-        
-        peopleCountLabel.font = UIFont.systemFont(ofSize: 12)
-        peopleCountLabel.textAlignment = .center
         
         roomImageView.contentMode = .scaleAspectFill
         roomImageView.clipsToBounds = true
+        roomImageView.layer.cornerRadius = 10
         
-        roomTypeLabel.font = UIFont.systemFont(ofSize: 16)
-        roomTypeLabel.textColor = .black
+        roomTypeLabel.font = UIFont.projectFont(name: .h3)
+        roomTypeLabel.textColor = UIColor.grayColor(brightness: .gray950)
         
-        priceLabel.font = UIFont.systemFont(ofSize: 16)
-        priceLabel.textColor = .black
+        priceLabel.font = UIFont.projectFont(name: .h3)
+        priceLabel.textColor = UIColor.grayColor(brightness: .gray950)
         priceLabel.textAlignment = .right
         
-        bookingInfoLabel.font = UIFont.systemFont(ofSize: 12)
-        bookingInfoLabel.textColor = .gray
+        bookingInfoLabel.font = UIFont.projectFont(name: .l6)
+        bookingInfoLabel.textColor = UIColor.grayColor(brightness: .gray700)
+        bookingInfoLabel.textAlignment = .right
         
         let topView = UIView()
         contentView.addSubview(topView)
-        topView.addSubview(dateLabel)
-        topView.addSubview(peopleCountLabel)
-        
         contentView.addSubview(roomImageView)
         contentView.addSubview(roomTypeLabel)
         contentView.addSubview(priceLabel)
@@ -62,42 +54,30 @@ class RoomTableViewCell: UITableViewCell {
             make.height.equalTo(44)
         }
         
-        dateLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(16)
-            make.centerY.equalToSuperview()
-        }
-        
-        peopleCountLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(16)
-            make.centerY.equalToSuperview()
-        }
-        
         roomImageView.snp.makeConstraints { make in
-            make.top.equalTo(topView.snp.bottom).offset(8)
-            make.left.right.equalToSuperview()
+            make.top.equalTo(topView.snp.bottom).offset(19)
+            make.left.right.equalToSuperview().inset(19)
             make.height.equalTo(200)
         }
         
         roomTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(roomImageView.snp.bottom).offset(8)
-            make.left.equalToSuperview().offset(16)
+            make.top.equalTo(roomImageView.snp.bottom).offset(24)
+            make.left.equalToSuperview().inset(19)
         }
         
         priceLabel.snp.makeConstraints { make in
-            make.top.equalTo(roomTypeLabel.snp.top)
-            make.right.equalToSuperview().inset(16)
+            make.top.equalTo(roomTypeLabel.snp.top).offset(20)
+            make.right.equalToSuperview().inset(19)
         }
         
         bookingInfoLabel.snp.makeConstraints { make in
-            make.top.equalTo(roomTypeLabel.snp.bottom).offset(4)
-            make.left.equalTo(roomTypeLabel.snp.left)
+            make.top.equalTo(priceLabel.snp.bottom).offset(8)
+            make.right.equalToSuperview().inset(19)
             make.bottom.equalToSuperview().inset(8)
         }
     }
 
-    func configure(date: String, peopleCount: String, image: UIImage, roomType: String, price: String, bookingInfo: String) {
-        dateLabel.text = date
-        peopleCountLabel.text = peopleCount
+    func configure(image: UIImage, roomType: String, price: String, bookingInfo: String) {
         roomImageView.image = image
         roomTypeLabel.text = roomType
         priceLabel.text = price

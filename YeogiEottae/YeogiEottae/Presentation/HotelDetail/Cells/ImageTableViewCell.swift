@@ -11,6 +11,7 @@ import SnapKit
 class ImageTableViewCell: UITableViewCell {
     
     let hotelImageView = UIImageView()
+    let heartButton = UIButton(type: .system)
     let nameLabel = UILabel()
     let moreLabel = UILabel()
     let moreReviewLabel = UILabel()
@@ -30,10 +31,18 @@ class ImageTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func heartButtonTapped() {
+        print("Heart button tapped")
+    }
+
+    
     private func setupViews() {
         hotelImageView.contentMode = .scaleAspectFill
         hotelImageView.clipsToBounds = true
         addSubview(hotelImageView)
+        
+        heartButton.setImage(UIImage(named: "like_btn")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
         
         moreLabel.font = UIFont.projectFont(name: .h6)
         moreLabel.textColor = UIColor.secondaryColor(brightness: .secondary600)
@@ -43,6 +52,7 @@ class ImageTableViewCell: UITableViewCell {
         
         nameLabel.font = UIFont.projectFont(name: .h1)
         nameLabel.textColor = UIColor.grayColor(brightness: .gray950)
+        nameLabel.numberOfLines = 2
         
         addressLabel.font = UIFont.projectFont(name: .b4)
         addressLabel.textColor = UIColor.grayColor(brightness: .gray900)
@@ -61,6 +71,7 @@ class ImageTableViewCell: UITableViewCell {
         starImageView.image = UIImage(named: "starRateBig")
         positionImageView.contentMode = .scaleAspectFit
         
+        addSubview(heartButton)
         addSubview(moreLabel)
         addSubview(moreReviewLabel)
         addSubview(nameLabel)
@@ -79,6 +90,11 @@ class ImageTableViewCell: UITableViewCell {
             make.height.equalTo(375)
         }
         
+        heartButton.snp.makeConstraints { make in
+            make.top.equalTo(hotelImageView.snp.bottom).offset(41)
+            make.right.equalTo(hotelImageView).inset(20)
+        }
+        
         moreLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(25)
             make.right.equalTo(hotelImageView).inset(17)
@@ -92,6 +108,7 @@ class ImageTableViewCell: UITableViewCell {
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(hotelImageView.snp.bottom).offset(29)
             make.left.equalTo(hotelImageView).inset(19)
+            make.right.equalTo(hotelImageView).inset(89)
         }
         
         positionImageView.snp.makeConstraints { make in
