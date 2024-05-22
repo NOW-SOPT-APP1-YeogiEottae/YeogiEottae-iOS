@@ -53,6 +53,7 @@ final class CompareTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.projectFont(name: .b3)
         label.textColor = .grayColor(brightness: .gray900)
+        label.numberOfLines = 2
         return label
     }()
     
@@ -60,6 +61,7 @@ final class CompareTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.projectFont(name: .l4)
         label.textColor = .grayColor(brightness: .gray600)
+        label.numberOfLines = 2
         return label
     }()
     
@@ -117,11 +119,13 @@ final class CompareTableViewCell: UITableViewCell {
         roomNameLabel.snp.makeConstraints {
             $0.leading.equalTo(roomImageView.snp.leading)
             $0.top.equalTo(roomImageView.snp.bottom).offset(3)
+            $0.trailing.equalToSuperview().inset(25)
         }
         
         hotelNameLabel.snp.makeConstraints {
             $0.leading.equalTo(roomImageView)
             $0.top.equalTo(roomNameLabel.snp.bottom).offset(1)
+            $0.trailing.equalToSuperview().inset(25)
         }
         
         arrowImageView.snp.makeConstraints {

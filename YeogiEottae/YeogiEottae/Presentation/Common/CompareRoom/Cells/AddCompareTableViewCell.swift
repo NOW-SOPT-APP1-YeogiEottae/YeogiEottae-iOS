@@ -105,6 +105,7 @@ final class AddCompareTableViewCell : UITableViewCell {
         hotelLabel.snp.makeConstraints {
             $0.leading.equalTo(roomLabel)
             $0.top.equalTo(roomLabel.snp.bottom).offset(2)
+            $0.trailing.equalTo(checkButton.snp.leading)
         }
         
         adressLabel.snp.makeConstraints {
