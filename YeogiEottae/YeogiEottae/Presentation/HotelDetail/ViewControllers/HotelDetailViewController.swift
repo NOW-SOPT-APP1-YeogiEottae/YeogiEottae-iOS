@@ -76,14 +76,16 @@ extension HotelDetailViewController {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
-            cell.configure(with: "나인트리 프리미어 호텔 서울 판교", address: "경기 성남시 수정구 심곡동 296-3", rating: "9.4 740개 평가")
+            cell.configure(with: "나인트리 프리미어 호텔 서울 판교", more: "지도 보기", moreReview: "리뷰 보기", address: "경기 성남시 수정구 심곡동 296-3", rating: "9.4", review: "740개 평가")
             return cell
         case .details:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
+            let logoImage1 = UIImage(named: "price")
+            let logoImage2 = UIImage(named: "gift")
             if indexPath.row == 0 {
-                cell.configure(title: "결제 혜택", detail1: "• 3만원 이상 10% 청구할인 (월 2회, 일 300...", detail2: "• 2만원 이상, 2천원 할인 (월 4회, 일 800명)", detail3: "• +생애 첫결제 시, 5천원 캐시백")
+                cell.configure(logoImage: logoImage1, title: "결제 혜택", more: "더보기", detail1: "• 3만원 이상 10% 청구할인 (월 2회, 일 300...", detail2: "• 2만원 이상, 2천원 할인 (월 4회, 일 800명)", detail3: "• +생애 첫결제 시, 5천원 캐시백")
             } else {
-                cell.configure(title: "수수료", detail1: "• 자유로운 이체는 미국을 타운 [계좌 환전]", detail2: "• 시간 가는 물 모로 는 Let's Puzzle", detail3: "• 아이들이 좋아하는 #티니핑월드")
+                cell.configure(logoImage: logoImage2, title: "숙소 이벤트", more: "더보기", detail1: "• 자유로운 이체는 미국을 타운 [계좌 환전]", detail2: "• 시간 가는 줄 모르는 Let's Puzzle", detail3: "• 아이들이 좋아하는 #티니핑월드")
             }
             return cell
         case .room:
