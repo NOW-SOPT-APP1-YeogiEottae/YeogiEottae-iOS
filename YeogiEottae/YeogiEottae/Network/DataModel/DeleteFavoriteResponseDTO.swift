@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GetFavoritesListResponseDTO: Codable {
+struct DeleteFavoritesListResponseDTO: Codable {
     let code: Int
     let success: Bool
     let message: String

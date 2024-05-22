@@ -28,7 +28,7 @@ extension FavoritesListNetworkingManager {
                 let statusCode = response.statusCode
                 let data = response.data
                 
-                let networkResult = self.judgeStatus(byStatusCode: statusCode, data, FavoritesListResponseDTO.self)
+                let networkResult = self.judgeStatus(byStatusCode: statusCode, data, GetFavoritesListResponseDTO.self)
             case .failure(let moyaError):
                 print(moyaError.localizedDescription)
                 completion(NetworkResult.networkFail)
