@@ -41,7 +41,7 @@ class ImageTableViewCell: UITableViewCell {
         hotelImageView.clipsToBounds = true
         addSubview(hotelImageView)
         
-        heartButton.setImage(UIImage(named: "like_btn")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        heartButton.setImage(UIImage(named: "like20")?.withRenderingMode(.alwaysOriginal), for: .normal)
             heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
         
         moreLabel.font = UIFont.projectFont(name: .h6)

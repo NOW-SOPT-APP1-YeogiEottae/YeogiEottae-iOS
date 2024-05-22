@@ -31,7 +31,7 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource {
     }
     
     private func setupTableView() {
-        tableView = UITableView(frame: .zero, style: .grouped)
+        tableView = UITableView(frame: .zero)
         tableView.dataSource = self
         tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "ImageTableViewCell")
         tableView.register(DetailTableViewCell.self, forCellReuseIdentifier: "DetailTableViewCell")
@@ -42,9 +42,9 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource {
         tableView.contentInsetAdjustmentBehavior = .never
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
@@ -85,9 +85,24 @@ extension HotelDetailViewController {
             let logoImage1 = UIImage(named: "price")
             let logoImage2 = UIImage(named: "gift")
             if indexPath.row == 0 {
-                cell.configure(logoImage: logoImage1, title: "결제 혜택", more: "더보기", detail1: "• 3만원 이상 10% 청구할인 (월 2회, 일 300...", detail2: "• 2만원 이상, 2천원 할인 (월 4회, 일 800명)", detail3: "• +생애 첫결제 시, 5천원 캐시백")
+                cell.configure(
+                    logoImage: logoImage1,
+                    title: "결제 혜택",
+                    more: "더보기",
+                    paymentMethodImage: UIImage(named: "imgTosspay"),
+                    detail1: "• 3만원 이상 10% 5천원 캐시백 (월 2회, 일 300...",
+                    detail2: "• 2만원 이상, 2천원 할인 (월 4회, 일 800명)",
+                    detail3: "• +생애 첫결제 시, 5천원 캐시백"
+                )
             } else {
-                cell.configure(logoImage: logoImage2, title: "숙소 이벤트", more: "더보기", detail1: "• 자유로운 이체는 미국을 타운 [계좌 환전]", detail2: "• 시간 가는 줄 모르는 Let's Puzzle", detail3: "• 아이들이 좋아하는 #티니핑월드")
+                cell.configure(
+                    logoImage: logoImage2,
+                    title: "숙소 이벤트",
+                    more: "더보기",
+                    detail1: "• 자유로운 이체는 미국을 타운 [계좌 환전]",
+                    detail2: "• 시간 가는 줄 모르는 Let's Puzzle",
+                    detail3: "• 아이들이 좋아하는 #티니핑월드"
+                )
             }
             return cell
         case .room:

@@ -17,6 +17,13 @@ class DetailTableViewCell: UITableViewCell {
     let logoImageView = UIImageView()
     let titleLabel = UILabel()
     let moreLabel = UILabel()
+    let paymentMethodImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "imgTosspay"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .lightGray
+        return imageView
+    }()
+    
     let detailLabel1 = UILabel()
     let detailLabel2 = UILabel()
     let detailLabel3 = UILabel()
@@ -50,6 +57,7 @@ class DetailTableViewCell: UITableViewCell {
         
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreLabel)
+        self.contentView.addSubview(self.paymentMethodImageView)
     }
     
     private func setupConstraints() {
@@ -68,8 +76,14 @@ class DetailTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(23)
         }
         
+        self.paymentMethodImageView.snp.makeConstraints { make in
+            make.top.equalTo(self.moreLabel.snp.bottom)
+            make.bottom.equalTo(self.detailLabel1.snp.top)
+            
+        }
+        
         detailLabel1.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            //make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.left.right.equalToSuperview().inset(17)
         }
         
@@ -85,12 +99,16 @@ class DetailTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(logoImage: UIImage?, title: String, more: String, detail1: String, detail2: String, detail3: String) {
+    func configure(logoImage: UIImage?, title: String, more: String, paymentMethodImage: UIImage? = nil, detail1: String, detail2: String, detail3: String) {
         logoImageView.image = logoImage
         titleLabel.text = title
         moreLabel.text = more
+        self.paymentMethodImageView.image = paymentMethodImage
         detailLabel1.text = detail1
         detailLabel2.text = detail2
         detailLabel3.text = detail3
+        
+        detailLabel1.setFont(forSubstring: "5천원 캐시백", toFont: UIFont.projectFont(name: .h5))
+        detailLabel3.setFont(forSubstring: "5천원 캐시백", toFont: UIFont.projectFont(name: .h5))
     }
 }
