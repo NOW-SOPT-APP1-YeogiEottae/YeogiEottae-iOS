@@ -7,9 +7,50 @@
 
 import UIKit
 
-class HotelDetailViewController: UIViewController, UITableViewDataSource {
+class HotelDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
+    
+    var hotelDetailDTO: GetHotelDetailResponseDTO? = nil
+    
+    var hotelID: Int = 0 {
+        didSet {
+            //네트워크 통신 코드
+            print("????")
+            HotelDetailService.shared.getHotelDetailData(hotelID: self.hotelID) { result in //thread1에서 작동되는 내용
+                switch result {
+                case .success(let data):
+                    guard let hotelDetailDTO = data as? GetHotelDetailResponseDTO else { fatalError() }
+                    
+                    self.hotelDetailDTO = hotelDetailDTO
+                    
+                    //(공식문서) 원래 reloadData()는 메인 스레드에서만 작동되어야함. 하지만 thread1의 코드 내부에 있으므로 DispatchQueue.main.async 코드를 통해 메인스레드에서 작동되도록 시킴.
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData() //tableView의 데이터를 다시 갱신하는 것(UITableViewDataSource의 함수인 cellForItemAt 함수를 다시 호출하게 됨) UI가 api 연결 완료되기 전에 그려졌더라도 api 연결 후 UI가 갱신되도록 함.
+                    }
+                    
+                    
+                    let hotelDetail = hotelDetailDTO.hotelDetail
+                    print("hotel name is", hotelDetail.hotelName)
+                    print("hotel location is", hotelDetail.location)
+                    print("hotel rate is", hotelDetail.reviewRate)
+                    
+                    
+                case .requestErr:
+                    fatalError()
+                case .decodedErr:
+                    fatalError()
+                case .pathErr:
+                    fatalError()
+                case .serverErr:
+                    fatalError()
+                case .networkFail:
+                    fatalError()
+                }
+            }
+            
+        }
+    }
     
     enum Section: Int, CaseIterable {
         case image, details, room
@@ -31,8 +72,10 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource {
     }
     
     private func setupTableView() {
-        tableView = UITableView(frame: .zero, style: .grouped)
+        tableView = UITableView(frame: .zero)
         tableView.dataSource = self
+        tableView.delegate = self
+        
         tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "ImageTableViewCell")
         tableView.register(DetailTableViewCell.self, forCellReuseIdentifier: "DetailTableViewCell")
         tableView.register(RoomTableViewCell.self, forCellReuseIdentifier: "RoomTableViewCell")
@@ -42,9 +85,9 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource {
         tableView.contentInsetAdjustmentBehavior = .never
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
@@ -63,8 +106,32 @@ extension HotelDetailViewController {
         switch section {
         case .image:
             return 1
-        case .details, .room:
+        case .details:
             return 2
+        case .room:
+            return 2
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            guard let sectionType = Section(rawValue: section) else { return nil }
+            
+            switch sectionType {
+            case .room:
+                return DateRangeHeaderView()
+            default:
+                return nil
+            }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let sectionType = Section(rawValue: section) else { return 0 }
+        
+        switch sectionType {
+        case .room:
+            return 44  // Set the height of the header, adjust as needed
+        default:
+            return 0.1  // Min height for sections without headers
         }
     }
     
@@ -76,26 +143,51 @@ extension HotelDetailViewController {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
-            cell.configure(with: "나인트리 프리미어 호텔 서울 판교", address: "경기 성남시 수정구 심곡동 296-3", rating: "9.4 740개 평가")
+            cell.configure(
+                with: "나인트리 프리미어 호텔 서울 판교",
+                more: "지도 보기",
+                moreReview: "리뷰 보기",
+                address: "경기 성남시 수정구 심곡동 296-3",
+                rating: "9.4",
+                review: "740개 평가"
+            )
+            
+            cell.configure(with: self.hotelDetailDTO)
             return cell
         case .details:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
+            let logoImage1 = UIImage(named: "price")
+            let logoImage2 = UIImage(named: "gift")
             if indexPath.row == 0 {
-                cell.configure(title: "결제 혜택", detail1: "• 3만원 이상 10% 청구할인 (월 2회, 일 300...", detail2: "• 2만원 이상, 2천원 할인 (월 4회, 일 800명)", detail3: "• +생애 첫결제 시, 5천원 캐시백")
+                cell.configure(
+                    logoImage: logoImage1,
+                    title: "결제 혜택",
+                    more: "더보기",
+                    payment: "토스페이", paymentMethodImage: UIImage(named: "imgTosspay"),
+                    detail1: "• 3만원 이상 10% 5천원 캐시백 (월 2회, 일 300...",
+                    detail2: "• 2만원 이상, 2천원 할인 (월 4회, 일 800명)",
+                    detail3: "• +생애 첫결제 시, 5천원 캐시백"
+                )
             } else {
-                cell.configure(title: "수수료", detail1: "• 자유로운 이체는 미국을 타운 [계좌 환전]", detail2: "• 시간 가는 물 모로 는 Let's Puzzle", detail3: "• 아이들이 좋아하는 #티니핑월드")
+                cell.configure(
+                    logoImage: logoImage2,
+                    title: "숙소 이벤트",
+                    more: "더보기",
+                    detail1: "• 자유로운 이체는 미국을 타운 [계좌 환전]",
+                    detail2: "• 시간 가는 줄 모르는 Let's Puzzle",
+                    detail3: "• 아이들이 좋아하는 #티니핑월드"
+                )
             }
             return cell
         case .room:
             let cell = tableView.dequeueReusableCell(withIdentifier: RoomTableViewCell.reuseIdentifier, for: indexPath) as! RoomTableViewCell
-            let date = "5.15 수 - 5.16 토"
-            let peopleCount = "2명"
             let roomType = indexPath.row == 0 ? "스탠다드 더블룸" : "패밀리 스위트"
             let price = indexPath.row == 0 ? "156,900원" : "356,900원"
             let bookingInfo = "입실 15:00 탈실 11:00"
             let image = UIImage(named: "room1") ?? UIImage()  // "room1"이 없을 경우 빈 이미지
-            cell.configure(date: date, peopleCount: peopleCount, image: image, roomType: roomType, price: price, bookingInfo: bookingInfo)
+            cell.configure(image: image, roomType: roomType, price: price, bookingInfo: bookingInfo)
             return cell
+            
         }
     }
 }
