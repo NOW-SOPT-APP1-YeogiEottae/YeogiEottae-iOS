@@ -11,10 +11,14 @@ struct GetLikeCompareResponseDTO: Codable {
     let code: Int
     let success: Bool
     let message: String
-    let result: [RoomList]
+    let result: LikeCompareroomList
 }
 
-struct RoomList: Codable {
+struct LikeCompareroomList: Codable {
+    let roomList: [GetLikeCompareResult]
+}
+
+struct GetLikeCompareResult: Codable {
     let roomId: Int
     let hotelName: String
     let roomName: String
