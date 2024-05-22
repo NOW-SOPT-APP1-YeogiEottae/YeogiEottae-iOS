@@ -154,5 +154,15 @@ class ImageTableViewCell: UITableViewCell {
         
         hotelImageView.image = UIImage(named: "hotel1")
     }
+    
+    func configure(with data: GetHotelDetailResponseDTO?) {
+        guard let unwrappedData = data else { return }
+        let hotelDetail = unwrappedData.hotelDetail
+        
+        self.nameLabel.text = hotelDetail.hotelName
+        self.addressLabel.text = hotelDetail.location
+        self.ratingLabel.text = "\(hotelDetail.reviewRate)" //문자열 보간법(Sting interpolation)
+        self.reviewLabel.text = "\(hotelDetail.reviewCount)"
+    }
 }
 

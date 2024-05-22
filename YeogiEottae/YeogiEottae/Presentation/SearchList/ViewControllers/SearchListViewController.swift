@@ -164,25 +164,25 @@ class SearchListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HotelDetailService.shared.getHotelDetailData(hotelID: 1) { result in
-            switch result {
-                
-            case .success(let data):
-                guard let hotelDetail = data as? GetHotelDetailResponseDTO else { return }
-                print("성공!!!!")
-                print(hotelDetail)
-            case .requestErr:
-                fatalError()
-            case .decodedErr:
-                fatalError()
-            case .pathErr:
-                fatalError()
-            case .serverErr:
-                fatalError()
-            case .networkFail:
-                fatalError()
-            }
-        }
+//        HotelDetailService.shared.getHotelDetailData(hotelID: 1) { result in
+//            switch result {
+//                
+//            case .success(let data):
+//                guard let hotelDetail = data as? GetHotelDetailResponseDTO else { return }
+//                print("성공!!!!")
+//                print(hotelDetail)
+//            case .requestErr:
+//                fatalError()
+//            case .decodedErr:
+//                fatalError()
+//            case .pathErr:
+//                fatalError()
+//            case .serverErr:
+//                fatalError()
+//            case .networkFail:
+//                fatalError()
+//            }
+//        }
         
         self.setPageVC()
         self.configureViewHierarchy()
@@ -462,24 +462,7 @@ extension SearchListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hotelDetailViewController = HotelDetailViewController()
-        
-        HotelDetailService.shared.getHotelDetailData(hotelID: indexPath.row + 1) { result in
-            switch result {
-            case .success(let data):
-                guard let hotelDetailData = data as? GetHotelDetailResponseDTO else { return }
-            case .networkFail:
-                fatalError()
-            case .requestErr:
-                fatalError()
-            case .decodedErr:
-                fatalError()
-            case .pathErr:
-                fatalError()
-            case .serverErr:
-                fatalError()
-            }
-        }
-        
+        hotelDetailViewController.hotelID = indexPath.row + 1
         
         self.navigationController?.pushViewController(hotelDetailViewController, animated: true)
     }

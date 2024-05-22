@@ -11,7 +11,12 @@ struct GetHotelDetailResponseDTO: Codable {
     let code: Int
     let success: Bool
     let message: String
-    let result: HotelDetail
+    let hotelDetail: HotelDetail
+    
+    enum CodingKeys: String, CodingKey {
+        case code, success, message
+        case hotelDetail = "result"
+    }
 }
 
 struct HotelDetail: Codable {

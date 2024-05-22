@@ -11,6 +11,47 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     var tableView: UITableView!
     
+    var hotelDetailDTO: GetHotelDetailResponseDTO? = nil
+    
+    var hotelID: Int = 0 {
+        didSet {
+            //네트워크 통신 코드
+            print("????")
+            HotelDetailService.shared.getHotelDetailData(hotelID: self.hotelID) { result in //thread1에서 작동되는 내용
+                switch result {
+                case .success(let data):
+                    guard let hotelDetailDTO = data as? GetHotelDetailResponseDTO else { fatalError() }
+                    
+                    self.hotelDetailDTO = hotelDetailDTO
+                    
+                    //(공식문서) 원래 reloadData()는 메인 스레드에서만 작동되어야함. 하지만 thread1의 코드 내부에 있으므로 DispatchQueue.main.async 코드를 통해 메인스레드에서 작동되도록 시킴.
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData() //tableView의 데이터를 다시 갱신하는 것(UITableViewDataSource의 함수인 cellForItemAt 함수를 다시 호출하게 됨) UI가 api 연결 완료되기 전에 그려졌더라도 api 연결 후 UI가 갱신되도록 함.
+                    }
+                    
+                    
+                    let hotelDetail = hotelDetailDTO.hotelDetail
+                    print("hotel name is", hotelDetail.hotelName)
+                    print("hotel location is", hotelDetail.location)
+                    print("hotel rate is", hotelDetail.reviewRate)
+                    
+                    
+                case .requestErr:
+                    fatalError()
+                case .decodedErr:
+                    fatalError()
+                case .pathErr:
+                    fatalError()
+                case .serverErr:
+                    fatalError()
+                case .networkFail:
+                    fatalError()
+                }
+            }
+            
+        }
+    }
+    
     enum Section: Int, CaseIterable {
         case image, details, room
     }
@@ -81,18 +122,18 @@ extension HotelDetailViewController {
             default:
                 return nil
             }
-        }
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            guard let sectionType = Section(rawValue: section) else { return 0 }
-            
-            switch sectionType {
-            case .room:
-                return 44  // Set the height of the header, adjust as needed
-            default:
-                return 0.1  // Min height for sections without headers
-            }
+        guard let sectionType = Section(rawValue: section) else { return 0 }
+        
+        switch sectionType {
+        case .room:
+            return 44  // Set the height of the header, adjust as needed
+        default:
+            return 0.1  // Min height for sections without headers
         }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {
@@ -102,7 +143,16 @@ extension HotelDetailViewController {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
-            cell.configure(with: "나인트리 프리미어 호텔 서울 판교", more: "지도 보기", moreReview: "리뷰 보기", address: "경기 성남시 수정구 심곡동 296-3", rating: "9.4", review: "740개 평가")
+            cell.configure(
+                with: "나인트리 프리미어 호텔 서울 판교",
+                more: "지도 보기",
+                moreReview: "리뷰 보기",
+                address: "경기 성남시 수정구 심곡동 296-3",
+                rating: "9.4",
+                review: "740개 평가"
+            )
+            
+            cell.configure(with: self.hotelDetailDTO)
             return cell
         case .details:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
