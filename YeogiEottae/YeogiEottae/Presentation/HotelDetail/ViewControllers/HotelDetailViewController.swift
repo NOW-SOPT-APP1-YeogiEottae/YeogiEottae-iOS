@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HotelDetailViewController: UIViewController, UITableViewDataSource {
+class HotelDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
     
@@ -33,6 +33,8 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource {
     private func setupTableView() {
         tableView = UITableView(frame: .zero)
         tableView.dataSource = self
+        tableView.delegate = self
+        
         tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "ImageTableViewCell")
         tableView.register(DetailTableViewCell.self, forCellReuseIdentifier: "DetailTableViewCell")
         tableView.register(RoomTableViewCell.self, forCellReuseIdentifier: "RoomTableViewCell")
@@ -70,6 +72,28 @@ extension HotelDetailViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            guard let sectionType = Section(rawValue: section) else { return nil }
+            
+            switch sectionType {
+            case .room:
+                return DateRangeHeaderView()
+            default:
+                return nil
+            }
+        }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            guard let sectionType = Section(rawValue: section) else { return 0 }
+            
+            switch sectionType {
+            case .room:
+                return 44  // Set the height of the header, adjust as needed
+            default:
+                return 0.1  // Min height for sections without headers
+            }
+        }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {
             return UITableViewCell()
@@ -89,7 +113,7 @@ extension HotelDetailViewController {
                     logoImage: logoImage1,
                     title: "결제 혜택",
                     more: "더보기",
-                    paymentMethodImage: UIImage(named: "imgTosspay"),
+                    payment: "토스페이", paymentMethodImage: UIImage(named: "imgTosspay"),
                     detail1: "• 3만원 이상 10% 5천원 캐시백 (월 2회, 일 300...",
                     detail2: "• 2만원 이상, 2천원 할인 (월 4회, 일 800명)",
                     detail3: "• +생애 첫결제 시, 5천원 캐시백"

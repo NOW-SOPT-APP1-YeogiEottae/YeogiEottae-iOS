@@ -20,8 +20,12 @@ class DetailTableViewCell: UITableViewCell {
     let paymentMethodImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "imgTosspay"))
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .lightGray
         return imageView
+    }()
+    let paymentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "토스페이"
+        return label
     }()
     
     let detailLabel1 = UILabel()
@@ -48,6 +52,9 @@ class DetailTableViewCell: UITableViewCell {
         moreLabel.font = UIFont.projectFont(name: .h4)
         moreLabel.textColor = UIColor.secondaryColor(brightness: .secondary600)
         
+        paymentLabel.font = UIFont.projectFont(name: .h5)
+        paymentLabel.textColor = UIColor.grayColor(brightness: .gray950)
+        
         [detailLabel1, detailLabel2, detailLabel3].forEach { label in
             label.font = UIFont.systemFont(ofSize: 14)
             label.textColor = .gray
@@ -57,6 +64,7 @@ class DetailTableViewCell: UITableViewCell {
         
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreLabel)
+        contentView.addSubview(paymentLabel)
         self.contentView.addSubview(self.paymentMethodImageView)
     }
     
@@ -76,14 +84,18 @@ class DetailTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(23)
         }
         
-        self.paymentMethodImageView.snp.makeConstraints { make in
-            make.top.equalTo(self.moreLabel.snp.bottom)
-            make.bottom.equalTo(self.detailLabel1.snp.top)
-            
+        paymentLabel.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(19)
+            make.left.equalTo(paymentMethodImageView.snp.right)
+        }
+        
+        paymentMethodImageView.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(19)
+            make.left.equalToSuperview().inset(22)
         }
         
         detailLabel1.snp.makeConstraints { make in
-            //make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(paymentLabel.snp.bottom).offset(11)
             make.left.right.equalToSuperview().inset(17)
         }
         
@@ -99,10 +111,11 @@ class DetailTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(logoImage: UIImage?, title: String, more: String, paymentMethodImage: UIImage? = nil, detail1: String, detail2: String, detail3: String) {
+    func configure(logoImage: UIImage?, title: String, more: String, payment: String? = nil, paymentMethodImage: UIImage? = nil, detail1: String, detail2: String, detail3: String) {
         logoImageView.image = logoImage
         titleLabel.text = title
         moreLabel.text = more
+        paymentLabel.text = payment
         self.paymentMethodImageView.image = paymentMethodImage
         detailLabel1.text = detail1
         detailLabel2.text = detail2

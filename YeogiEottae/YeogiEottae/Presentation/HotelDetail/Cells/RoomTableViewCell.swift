@@ -42,20 +42,18 @@ class RoomTableViewCell: UITableViewCell {
         bookingInfoLabel.textColor = UIColor.grayColor(brightness: .gray700)
         bookingInfoLabel.textAlignment = .right
         
-        let topView = UIView()
-        contentView.addSubview(topView)
+        let infoView = UIView()
+        infoView.backgroundColor = UIColor.grayColor(brightness: .gray100)
+        infoView.layer.cornerRadius = 8
+        
+        contentView.addSubview(infoView)
         contentView.addSubview(roomImageView)
         contentView.addSubview(roomTypeLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(bookingInfoLabel)
         
-        topView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-            make.height.equalTo(44)
-        }
-        
         roomImageView.snp.makeConstraints { make in
-            make.top.equalTo(topView.snp.bottom).offset(19)
+            make.top.equalToSuperview()
             make.left.right.equalToSuperview().inset(19)
             make.height.equalTo(200)
         }
@@ -73,7 +71,12 @@ class RoomTableViewCell: UITableViewCell {
         bookingInfoLabel.snp.makeConstraints { make in
             make.top.equalTo(priceLabel.snp.bottom).offset(8)
             make.right.equalToSuperview().inset(19)
-            make.bottom.equalToSuperview().inset(8)
+        }
+        
+        infoView.snp.makeConstraints { make in
+            make.top.equalTo(bookingInfoLabel.snp.bottom).offset(18)
+            make.left.right.bottom.equalToSuperview().inset(19)
+            make.height.equalTo(38)
         }
     }
 

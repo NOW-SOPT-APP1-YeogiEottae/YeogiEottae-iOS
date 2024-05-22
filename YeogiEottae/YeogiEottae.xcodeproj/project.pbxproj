@@ -86,10 +86,10 @@
 		87BEE6F12BF8B93500579642 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */; };
 		87BEE6F32BF8B94A00579642 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F22BF8B94A00579642 /* RoomTableViewCell.swift */; };
 		87BEE6F52BFCBF9100579642 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 87BEE6F42BFCBF9100579642 /* Config.xcconfig */; };
-		87BEE6F72BFDC9E400579642 /* DatePersonCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F62BFDC9E400579642 /* DatePersonCountView.swift */; };
 		87BEE70B2BFDF39500579642 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE70A2BFDF39500579642 /* Moya */; };
 		87BEE70E2BFDF3A500579642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE70D2BFDF3A500579642 /* SnapKit */; };
 		87BEE7112BFDF3AE00579642 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE7102BFDF3AE00579642 /* Kingfisher */; };
+		87BEE7132BFE15A700579642 /* DateRangeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7122BFE15A700579642 /* DateRangeHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,7 +174,7 @@
 		87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		87BEE6F22BF8B94A00579642 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		87BEE6F42BFCBF9100579642 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		87BEE6F62BFDC9E400579642 /* DatePersonCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePersonCountView.swift; sourceTree = "<group>"; };
+		87BEE7122BFE15A700579642 /* DateRangeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,7 +618,7 @@
 		87BEE6EB2BF8B8DF00579642 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				87BEE6F62BFDC9E400579642 /* DatePersonCountView.swift */,
+				87BEE7122BFE15A700579642 /* DateRangeHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -742,13 +742,13 @@
 				4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */,
 				4E1FA5012BF8F4860029ED16 /* FavoritesAccommodationCell.swift in Sources */,
 				0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */,
-				87BEE6F72BFDC9E400579642 /* DatePersonCountView.swift in Sources */,
 				4E278FA42BF0CA200034097A /* UIFont+.swift in Sources */,
 				0B8E95EE2BF9DB7300C3F285 /* NetworkResult.swift in Sources */,
 				0B3C2AC42BF758A900878745 /* AddCompareViewController.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
 				0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */,
 				0B3C2AC02BF720A000878745 /* Int+.swift in Sources */,
+				87BEE7132BFE15A700579642 /* DateRangeHeaderView.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
 				0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */,
 				0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */,
