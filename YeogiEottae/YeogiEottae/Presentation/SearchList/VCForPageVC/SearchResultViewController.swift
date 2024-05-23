@@ -34,7 +34,6 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         
         self.rootView.setTableViewDataSourceDelegate(to: self)
-        //self.rootView.setDelegates(to: self)
     }
     
 }
@@ -47,7 +46,6 @@ extension SearchResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let searchResultCell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reuseIdentifier, for: indexPath) as? SearchResultCell else { fatalError() }
         
-        //searchResultCell.configureData(with: self.hotelList[indexPath.item])
         searchResultCell.configureData(with: self.hotelsInfoArray[indexPath.item])
         return searchResultCell
     }

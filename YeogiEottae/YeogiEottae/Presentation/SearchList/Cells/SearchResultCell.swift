@@ -22,10 +22,10 @@ class SearchResultCell: UITableViewCell {
         didSet {
             switch self.isFavorite {
             case true:
-                //서버에 찜 요청하기
+                //서버에 찜 요청하는 코드
                 self.heartButton.isSelected = self.isFavorite
             case false:
-                //서버에 찜 해제 요청하기
+                //서버에 찜 해제 요청하는 코드
                 self.heartButton.isSelected = self.isFavorite
             }
             
@@ -365,7 +365,6 @@ class SearchResultCell: UITableViewCell {
         self.accommodationID = hotelInfoData.hotelID
         self.accommodationImageURL = URL(string: hotelInfoData.imageURL)
         self.accommodationImageView.kf.setImage(with: self.accommodationImageURL)
-        //self.heartButton.isSelected = hotelInfoData.isLiked
         self.transportationAccessibilityLabel.text = hotelInfoData.location
         self.discountedPriceLabel.text = "\(hotelInfoData.price.formattedWithSeparator)"
         self.ratingCountLabel.text = "\(hotelInfoData.reviewCount.formattedWithSeparator)개 평가"

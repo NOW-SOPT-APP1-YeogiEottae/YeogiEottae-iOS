@@ -8,12 +8,8 @@
 import Foundation
 
 /*
- 더미데이터 입니다!
- 사전에 제공된 JSON 데이터를 이용하여 GetHoteListResponseDTO 타입 인스턴스를 반환하는 함수를 가짐.
- 더미데이터이므로, Network 폴더에 넣지 않고, SearchList 폴더의 Models에 구성하였습니다.
+ 서버 측에서 제시해 준 예시 JSON
  */
-
-
 public let jsonString: String = """
 {
   "code": 200,
@@ -80,6 +76,9 @@ public let jsonString: String = """
 }
 """
 
+/// 더미데이터 입니다!
+/// 사전에 제공된 JSON 데이터를 이용하여 GetHoteListResponseDTO 타입 인스턴스를 반환하는 함수를 가짐.
+/// 더미데이터이므로, Network 폴더에 넣지 않고, SearchList 폴더의 Models에 구성하였습니다.
 final class HotelListNetworkingManager {
     static let shared = HotelListNetworkingManager()
     private init() {}
