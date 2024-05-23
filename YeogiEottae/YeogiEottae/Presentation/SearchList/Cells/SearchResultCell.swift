@@ -20,7 +20,17 @@ class SearchResultCell: UITableViewCell {
     var accommodationImageURL: URL? = nil
     var isFavorite: Bool = false {
         didSet {
-            self.heartButton.isSelected = self.isFavorite
+            switch self.isFavorite {
+            case true:
+                //서버에 찜 요청하기
+                self.heartButton.isSelected = self.isFavorite
+            case false:
+                //서버에 찜 해제 요청하기
+                self.heartButton.isSelected = self.isFavorite
+            }
+            
+            
+            
         }
     }
     
@@ -99,10 +109,10 @@ class SearchResultCell: UITableViewCell {
     var heartButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: "like20")
+        configuration.background.backgroundColor = UIColor.grayColor(brightness: .gray200)
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let button = UIButton(configuration: configuration)
-        button.backgroundColor = UIColor.grayColor(brightness: .gray200)
         button.setImage(UIImage(named: "like20"), for: .normal)
         button.setImage(
             UIImage(named: "like20")?.withTintColor(.brandColor(brightness: .brand), renderingMode: .alwaysOriginal),
@@ -188,10 +198,19 @@ class SearchResultCell: UITableViewCell {
         self.setUI()
         self.configureViewHierarchy()
         self.setConstraints()
+        self.setButtonsAction()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.heartButton.convert(self.heartButton.bounds, to: self.contentView).contains(point) {
+            return self.heartButton
+        } else {
+            return super.hitTest(point, with: event)
+        }
     }
     
     private func setUI() {
@@ -321,6 +340,15 @@ class SearchResultCell: UITableViewCell {
             make.height.equalTo(1)
         }
         
+    }
+    
+    private func setButtonsAction() {
+        self.heartButton.addTarget(self, action: #selector(heartButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc private func heartButtonDidTapped() {
+        print(#function, self.accommodationInfo!.hotelName)
+        self.isFavorite.toggle()
     }
         
     
