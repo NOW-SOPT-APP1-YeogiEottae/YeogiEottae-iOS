@@ -29,11 +29,13 @@ struct FavoriteContentDTO: Codable {
 
 struct RoomInformation: Codable {
     let roomID: Int
-    let roomName, roomImage: String
+    let roomName, roomImageURL: String
     let price: Int //쿠폰적용시 가격(쿠폰 미적용시 가격은 하드코딩)
 
     enum CodingKeys: String, CodingKey {
         case roomID = "roomId"
-        case roomName, roomImage, price
+        case roomName
+        case roomImageURL = "roomImage"
+        case price
     }
 }
