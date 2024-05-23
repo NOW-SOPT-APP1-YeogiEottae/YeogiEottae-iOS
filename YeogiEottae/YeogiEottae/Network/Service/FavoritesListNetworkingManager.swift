@@ -16,10 +16,7 @@ final class FavoritesListNetworkingManager {
     private init() {}
 }
 
-
 extension FavoritesListNetworkingManager {
-    
-    
     
     func getFavoriteList(price: String, review: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         self.favoritesListProvider.request(FavoritesListTargetType.getFavoritesListData) { result in
@@ -29,6 +26,7 @@ extension FavoritesListNetworkingManager {
                 let data = response.data
                 
                 let networkResult = self.judgeStatus(byStatusCode: statusCode, data, GetFavoritesListResponseDTO.self)
+                completion(networkResult)
             case .failure(let moyaError):
                 print(moyaError.localizedDescription)
                 completion(NetworkResult.networkFail)
@@ -37,14 +35,11 @@ extension FavoritesListNetworkingManager {
         }
     }
     
-    
     func judgeStatus<T: Codable>(byStatusCode statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         
         switch statusCode {
         case 200..<205:
-            let decodedData = self.decodeJSON(dataToDecode: data)
-            return NetworkResult.success(decodedData)
-            //return isValidData(data: data, T.self)
+            return isValidData(data: data, T.self)
         case 400..<500:
             return .requestErr
         case 500:
@@ -53,18 +48,6 @@ extension FavoritesListNetworkingManager {
             return .networkFail
         }
     }
-    
-    
-    private func decodeJSON(dataToDecode data: Data) -> GetFavoritesListResponseDTO {
-        let decoder = JSONDecoder()
-        do {
-            return try decoder.decode(GetFavoritesListResponseDTO.self, from: data)
-            
-        } catch(let error) {
-            fatalError(error.localizedDescription)
-        }
-    }
-    
     
     func isValidData<T: Codable>(data: Data, _ object: T.Type) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
