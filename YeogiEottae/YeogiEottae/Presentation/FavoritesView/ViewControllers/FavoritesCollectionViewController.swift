@@ -7,9 +7,20 @@
 
 import UIKit
 
+import Moya
+
 class FavoritesCollectionViewController: UIViewController {
     
     var isRoomFavorite: [Bool] = [true, true, false, true, false]
+    
+    let provier = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
+    var favoriteContentsArray: [FavoriteContentDTO] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.favoritesCollectionView.reloadData()
+            }
+        }
+    }
     
     lazy var favoritesCollectionView: UICollectionView = {
         
@@ -29,6 +40,29 @@ class FavoritesCollectionViewController: UIViewController {
         return collectionView
     }()
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.provier.request(.getFavoritesListData) { result in
+            
+            print(Thread().isMainThread)
+            
+            switch result {
+            case .success(let response):
+                let data = response.data
+                let decoder = JSONDecoder()
+                guard let getFavoritesListDTO = try? JSONDecoder().decode(GetFavoritesListResponseDTO.self, from: data) else { return }
+                let favoriteContentsArray = getFavoritesListDTO.result
+                self.favoriteContentsArray = favoriteContentsArray
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,21 +94,24 @@ class FavoritesCollectionViewController: UIViewController {
 
 extension FavoritesCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.favoriteContentsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let favoriteContent = self.favoriteContentsArray[indexPath.item]
         
-        switch self.isRoomFavorite[indexPath.item] {
+        switch favoriteContent.roomInformation != nil {
         case true:
             guard let favoritesRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesRoomCell.reuseIdentifier, for: indexPath) as? FavoritesRoomCell else { fatalError() }
             
             favoritesRoomCell.configureData(
-                accommodationlName: "그랜드 인터컨티넨탈 파르나스",
-                rating: 9.4,
-                roomName: "스탠다드 트윈룸",
-                price: 90000
+                roomID: favoriteContent.roomInformation!.roomID,
+                accommodationlName: favoriteContent.hotelName,
+                rating: favoriteContent.reviewRate,
+                roomName: favoriteContent.roomInformation!.roomName, //switch문을 통해 roomInformation != nil임을 확인했으므로 강제 언래핑
+                price: favoriteContent.roomInformation!.price,
+                imageURL: favoriteContent.roomInformation!.roomImageURL
             )
             
             return favoritesRoomCell
@@ -83,8 +120,8 @@ extension FavoritesCollectionViewController: UICollectionViewDataSource {
             guard let favoritesAccommodationCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesAccommodationCell.reuseIdentifier, for: indexPath) as? FavoritesAccommodationCell else { fatalError() }
             
             favoritesAccommodationCell.configureData(
-                accommodationlName: "그랜드 인터컨티넨탈 파르나스",
-                rating: 9.4
+                accommodationlName: favoriteContent.hotelName,
+                rating: favoriteContent.reviewRate
             )
             
             return favoritesAccommodationCell
@@ -106,8 +143,9 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
         
         guard let screenWidth = self.view.window?.windowScene?.screen.bounds.width else { fatalError() }
         let cellWidth = screenWidth - (19 * 2)
+        let favoriteContent = self.favoriteContentsArray[indexPath.item]
         
-        if self.isRoomFavorite[indexPath.item] {
+        if favoriteContent.roomInformation != nil {
             return CGSize(width: cellWidth, height: 379)
         } else {
             return CGSize(width: cellWidth, height: 139)

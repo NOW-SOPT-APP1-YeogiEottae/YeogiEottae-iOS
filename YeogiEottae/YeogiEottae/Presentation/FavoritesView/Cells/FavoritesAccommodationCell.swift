@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 final class FavoritesAccommodationCell: UICollectionViewCell {
     
@@ -267,9 +268,10 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     }
     
     
-    func configureData(accommodationlName: String, rating: Double) {
+    func configureData(accommodationlName: String, rating: Double/*, imageURL: String*/) {
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"
+        //self.accommodationImageView.kf.setImage(with: URL(string: imageURL))
     }
     
 }

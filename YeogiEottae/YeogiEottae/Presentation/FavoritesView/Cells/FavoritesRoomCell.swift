@@ -6,15 +6,17 @@
 //
 
 import UIKit
-//import CoreGraphics
 
 import SnapKit
+import Kingfisher
 
 class FavoritesRoomCell: UICollectionViewCell {
     
     static var reuseIdentifier: String {
         return String(describing: self)
     }
+    
+    var roomID: Int = 0
     
     var isBlueCircleFilled: Bool = false
     var isRedCircleFilled: Bool = false
@@ -782,11 +784,13 @@ class FavoritesRoomCell: UICollectionViewCell {
     }
     
     
-    func configureData(accommodationlName: String, rating: Double, roomName: String, price: Int) {
+    func configureData(roomID: Int, accommodationlName: String, rating: Double, roomName: String, price: Int, imageURL: String) {
+        self.roomID = roomID
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"
         self.roomNameLabel.text = roomName
         self.discountedPriceLabel.text = "\(price)"
+        self.roomImageView.kf.setImage(with: URL(string: imageURL))
     }
     
     

@@ -15,9 +15,9 @@ class FavoritesViewController: UIViewController {
     
     let viewControllerArray: [UIViewController] = [
         FavoritesCollectionViewController(),
-        FavoritesCollectionViewController(),
-        FavoritesCollectionViewController(),
-        FavoritesCollectionViewController()
+        GreenViewController(),
+        OrangeViewController(),
+        BlueViewController()
     ]
     let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
