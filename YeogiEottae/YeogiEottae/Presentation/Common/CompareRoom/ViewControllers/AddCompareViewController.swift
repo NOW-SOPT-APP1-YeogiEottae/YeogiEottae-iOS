@@ -13,10 +13,15 @@ protocol AddTableViewCellDelegate: AnyObject {
     func addTableViewCellDidTapButton(_ cell: AddCompareTableViewCell)
 }
 
+protocol AddCompareViewControllerDelegate: AnyObject {
+    func didAddRoom()
+}
+
 final class AddCompareViewController: UIViewController {
     
+    weak var delegate: AddCompareViewControllerDelegate?
     private let rootView = AddCompareRootView()
-    private let dataModel = AddRoomData.dummyData()
+    private var dataModel: [GetLikeCompareResult] = []
     private var likeRoomList: [Int] = []
     
     override func loadView() {
@@ -28,6 +33,8 @@ final class AddCompareViewController: UIViewController {
         
         setRegister()
         setDelegate()
+        addButtonTarget()
+        getAddCompareData()
     }
     
     private func setRegister() {
@@ -37,6 +44,67 @@ final class AddCompareViewController: UIViewController {
     private func setDelegate() {
         rootView.tableView.dataSource = self
         rootView.tableView.delegate = self
+    }
+    
+    private func addButtonTarget() {
+        rootView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func addButtonTapped() {
+        let selectedRoomIds = likeRoomList
+        postLikeCompareData(request: selectedRoomIds)
+    }
+    
+    private func postLikeCompareData(request: [Int]) {
+        CompareService.shared.postLikeCompareData(request: PostLikeCompareRequestDTO(roomId: request)) { [weak self] response in
+            switch response {
+            case .success(let data):
+                print(data)
+                if let data = data as? GetLikeCompareResponseDTO {
+                    self?.dataModel = data.result.roomList
+                 }
+                self?.delegate?.didAddRoom()
+                self?.dismiss(animated: true)
+                
+            case .requestErr:
+                YeogiToast.show(type: .warnLimitCompare)
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
+
+    
+    private func getAddCompareData() {
+        CompareService.shared.getLikeCompareData() { [weak self] response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GetLikeCompareResponseDTO {
+                    self?.dataModel = data.result.roomList
+                     DispatchQueue.main.async {
+                         self?.rootView.tableView.reloadData()
+                     }
+                 }
+                
+            case .requestErr:
+                print("요청 오류 입니다")
+            case .decodedErr:
+                print("디코딩 오류 입니다")
+            case .pathErr:
+                print("경로 오류 입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
     }
 }
 

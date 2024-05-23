@@ -105,6 +105,7 @@ final class AddCompareTableViewCell : UITableViewCell {
         hotelLabel.snp.makeConstraints {
             $0.leading.equalTo(roomLabel)
             $0.top.equalTo(roomLabel.snp.bottom).offset(2)
+            $0.trailing.equalTo(checkButton.snp.leading)
         }
         
         adressLabel.snp.makeConstraints {
@@ -119,7 +120,7 @@ final class AddCompareTableViewCell : UITableViewCell {
         }
     }
     
-    func bindData(data: AddRoomData) {
+    func bindData(data: GetLikeCompareResult) {
         let url = URL(string: data.imageUrl)
         roomImageView.kf.setImage(with: url)
         roomLabel.text = data.roomName

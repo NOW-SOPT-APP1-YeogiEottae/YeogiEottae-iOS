@@ -16,6 +16,7 @@ enum ToastType {
     case addHotelLike
     case addRoomLike
     case addCompare
+    case warnLimitCompare
 }
 
 final class YeogiToast {
@@ -39,6 +40,9 @@ final class YeogiToast {
             toastHeight = 48
         case .addRoomLike:
             toastWidth = 297
+            toastHeight = 48
+        case .warnLimitCompare:
+            toastWidth = 199
             toastHeight = 48
         }
         
