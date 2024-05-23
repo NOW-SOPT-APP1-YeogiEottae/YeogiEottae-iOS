@@ -440,6 +440,13 @@ extension SearchListViewController: UITableViewDelegate {
         return searchResultHeaderView
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hotelDetailViewController = HotelDetailViewController()
+        hotelDetailViewController.hotelID = indexPath.row + 1
+        
+        self.navigationController?.pushViewController(hotelDetailViewController, animated: true)
+    }
+    
 }
 
 //MARK: AddListCellProtocol

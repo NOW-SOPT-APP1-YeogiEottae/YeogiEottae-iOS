@@ -7,10 +7,31 @@
 
 import UIKit
 
+import Kingfisher
+
 class SearchResultCell: UITableViewCell {
     
     static var reuseIdentifier: String {
         return String(describing: self)
+    }
+    
+    var accommodationInfo: HotelInfo? = nil
+    var accommodationID: Int = 0
+    var accommodationImageURL: URL? = nil
+    var isFavorite: Bool = false {
+        didSet {
+            switch self.isFavorite {
+            case true:
+                //서버에 찜 요청하는 코드
+                self.heartButton.isSelected = self.isFavorite
+            case false:
+                //서버에 찜 해제 요청하는 코드
+                self.heartButton.isSelected = self.isFavorite
+            }
+            
+            
+            
+        }
     }
     
     let accommodationImageView: UIImageView = {
@@ -88,10 +109,15 @@ class SearchResultCell: UITableViewCell {
     var heartButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: "like20")
+        configuration.background.backgroundColor = UIColor.grayColor(brightness: .gray200)
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let button = UIButton(configuration: configuration)
-        button.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        button.setImage(UIImage(named: "like20"), for: .normal)
+        button.setImage(
+            UIImage(named: "like20")?.withTintColor(.brandColor(brightness: .brand), renderingMode: .alwaysOriginal),
+            for: .selected
+        )
         button.clipsToBounds = true
         button.layer.cornerRadius = 15
         return button
@@ -172,10 +198,19 @@ class SearchResultCell: UITableViewCell {
         self.setUI()
         self.configureViewHierarchy()
         self.setConstraints()
+        self.setButtonsAction()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.heartButton.convert(self.heartButton.bounds, to: self.contentView).contains(point) {
+            return self.heartButton
+        } else {
+            return super.hitTest(point, with: event)
+        }
     }
     
     private func setUI() {
@@ -306,12 +341,35 @@ class SearchResultCell: UITableViewCell {
         }
         
     }
+    
+    private func setButtonsAction() {
+        self.heartButton.addTarget(self, action: #selector(heartButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc private func heartButtonDidTapped() {
+        print(#function, self.accommodationInfo!.hotelName)
+        self.isFavorite.toggle()
+    }
         
     
     func configureData(with data: Hotel) {
         self.nameLabel.text = data.name
         self.discountedPriceLabel.text = "\(data.price)"
         self.ratingLabel.text = "\(data.rate)"
+    }
+    
+    func configureData(with hotelInfoData: HotelInfo) {
+        self.accommodationInfo = hotelInfoData
+        
+        self.nameLabel.text = hotelInfoData.hotelName
+        self.accommodationID = hotelInfoData.hotelID
+        self.accommodationImageURL = URL(string: hotelInfoData.imageURL)
+        self.accommodationImageView.kf.setImage(with: self.accommodationImageURL)
+        self.transportationAccessibilityLabel.text = hotelInfoData.location
+        self.discountedPriceLabel.text = "\(hotelInfoData.price.formattedWithSeparator)"
+        self.ratingCountLabel.text = "\(hotelInfoData.reviewCount.formattedWithSeparator)개 평가"
+        self.ratingLabel.text = "\(hotelInfoData.reviewRate)"
+        self.accommodationKindLabel.text = hotelInfoData.type
     }
     
 }
