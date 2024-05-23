@@ -115,6 +115,7 @@ extension FavoritesCollectionViewController: UICollectionViewDataSource {
         case true:
             guard let favoritesRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesRoomCell.reuseIdentifier, for: indexPath) as? FavoritesRoomCell else { fatalError() }
             
+            favoritesRoomCell.delegate = self
             favoritesRoomCell.configureData(
                 roomID: favoriteContent.roomInformation!.roomID,
                 accommodationlName: favoriteContent.hotelName,
@@ -163,4 +164,17 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
         
     }
     
+}
+
+
+extension FavoritesCollectionViewController: SwipeCellProtocol {
+    func deleteItem(_ cell: UICollectionViewCell) {
+        guard let indexPath = self.favoritesCollectionView.indexPath(for: cell) else { return }
+        /*
+         순서 주의!
+         reloadItems가 아닌 deleteItems(at:) 메서드를 사용했기 때문에, dataSource를 수동으로 변경한 수 deleteItems(at:)를 호출해야 한다.
+         */
+        self.favoriteContentsArray.remove(at: indexPath.item)
+        self.favoritesCollectionView.deleteItems(at: [indexPath])
+    }
 }

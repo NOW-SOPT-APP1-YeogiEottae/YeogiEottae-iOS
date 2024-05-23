@@ -8,7 +8,12 @@
 import UIKit
 
 import SnapKit
+import Moya
 import Kingfisher
+
+protocol SwipeCellProtocol {
+    func deleteItem(_ cell: UICollectionViewCell)
+}
 
 class FavoritesRoomCell: UICollectionViewCell {
     
@@ -16,12 +21,15 @@ class FavoritesRoomCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    var roomID: Int = 0
+    let feedbackGenerator = UINotificationFeedbackGenerator()
+    let compareProvider = MoyaProvider<CompareTargetType>(plugins: [MoyaLoggingPlugin()])
+    let favoriteProvider = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
     
+    var delegate: SwipeCellProtocol?
+    var roomID: Int = 0
     var isBlueCircleFilled: Bool = false
     var isRedCircleFilled: Bool = false
     
-    let feedbackGenerator = UINotificationFeedbackGenerator()
     
     var initialGestureLocation: CGPoint = CGPointZero
     
@@ -795,11 +803,33 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     
     private func addToCompare(roomID: Int, completion: @escaping () -> Void) {
-        completion()
+        
+        self.compareProvider.request(.postLikeCompareDatarequest(request: PostLikeCompareRequestDTO(roomId: [self.roomID]))) { result in
+            switch result {
+            case .success(let response):
+                let data = response.data
+                guard let decodedData = try? JSONDecoder().decode(PostLikeCompareResponseDTO.self, from: data) else { return }
+                print(decodedData.message)
+                completion()
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+                
+            }
+        }
     }
     
     private func removeFromFavorites(roomId: Int, completion: @escaping () -> Void) {
-        completion()
+        
+        self.favoriteProvider.request(.removeFromFavorites(isRoom: true, id: self.roomID)) { result in
+            switch result {
+            case .success(_):
+                self.delegate?.deleteItem(self)
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
+        }
     }
     
 }
