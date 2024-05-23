@@ -114,14 +114,14 @@ extension HotelDetailViewController {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            guard let sectionType = Section(rawValue: section) else { return nil }
-            
-            switch sectionType {
-            case .room:
-                return DateRangeHeaderView()
-            default:
-                return nil
-            }
+        guard let sectionType = Section(rawValue: section) else { return nil }
+        
+        switch sectionType {
+        case .room:
+            return DateRangeHeaderView()
+        default:
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -129,9 +129,9 @@ extension HotelDetailViewController {
         
         switch sectionType {
         case .room:
-            return 44  // Set the height of the header, adjust as needed
+            return 44
         default:
-            return 0.1  // Min height for sections without headers
+            return 0.1
         }
     }
     
@@ -179,13 +179,13 @@ extension HotelDetailViewController {
                 )
             }
             return cell
-        case .room:
-            let cell = tableView.dequeueReusableCell(withIdentifier: RoomTableViewCell.reuseIdentifier, for: indexPath) as! RoomTableViewCell
-            let roomType = indexPath.row == 0 ? "스탠다드 더블룸" : "패밀리 스위트"
-            let price = indexPath.row == 0 ? "156,900원" : "356,900원"
-            let bookingInfo = "입실 15:00 탈실 11:00"
-            let image = UIImage(named: "room1") ?? UIImage()  // "room1"이 없을 경우 빈 이미지
-            cell.configure(image: image, roomType: roomType, price: price, bookingInfo: bookingInfo)
+        case .room:            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RoomTableViewCell.reuseIdentifier, for: indexPath) as? RoomTableViewCell,
+                  let roomDetails = hotelDetailDTO?.hotelDetail.roomList, indexPath.row < roomDetails.count else {
+                return UITableViewCell()
+            }
+            let roomDetail = roomDetails[indexPath.row]
+            cell.configure(with: roomDetail)
             return cell
             
         }

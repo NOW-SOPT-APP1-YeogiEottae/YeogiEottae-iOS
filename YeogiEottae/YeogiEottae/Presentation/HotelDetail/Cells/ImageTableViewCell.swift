@@ -162,7 +162,7 @@ class ImageTableViewCell: UITableViewCell {
         self.nameLabel.text = hotelDetail.hotelName
         self.addressLabel.text = hotelDetail.location
         self.ratingLabel.text = "\(hotelDetail.reviewRate)" //문자열 보간법(Sting interpolation)
-        self.reviewLabel.text = "\(hotelDetail.reviewCount)"
+        self.reviewLabel.text = "\(hotelDetail.reviewCount)개 리뷰"
     }
 }
 
