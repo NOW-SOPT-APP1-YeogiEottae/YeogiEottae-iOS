@@ -7,10 +7,21 @@
 
 import UIKit
 
+import Kingfisher
+
 class SearchResultCell: UITableViewCell {
     
     static var reuseIdentifier: String {
         return String(describing: self)
+    }
+    
+    var accommodationInfo: HotelInfo? = nil
+    var accommodationID: Int = 0
+    var accommodationImageURL: URL? = nil
+    var isFavorite: Bool = false {
+        didSet {
+            self.heartButton.isSelected = self.isFavorite
+        }
     }
     
     let accommodationImageView: UIImageView = {
@@ -92,6 +103,11 @@ class SearchResultCell: UITableViewCell {
         
         let button = UIButton(configuration: configuration)
         button.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        button.setImage(UIImage(named: "like20"), for: .normal)
+        button.setImage(
+            UIImage(named: "like20")?.withTintColor(.brandColor(brightness: .brand), renderingMode: .alwaysOriginal),
+            for: .selected
+        )
         button.clipsToBounds = true
         button.layer.cornerRadius = 15
         return button
@@ -312,6 +328,21 @@ class SearchResultCell: UITableViewCell {
         self.nameLabel.text = data.name
         self.discountedPriceLabel.text = "\(data.price)"
         self.ratingLabel.text = "\(data.rate)"
+    }
+    
+    func configureData(with hotelInfoData: HotelInfo) {
+        self.accommodationInfo = hotelInfoData
+        
+        self.nameLabel.text = hotelInfoData.hotelName
+        self.accommodationID = hotelInfoData.hotelID
+        self.accommodationImageURL = URL(string: hotelInfoData.imageURL)
+        self.accommodationImageView.kf.setImage(with: self.accommodationImageURL)
+        //self.heartButton.isSelected = hotelInfoData.isLiked
+        self.transportationAccessibilityLabel.text = hotelInfoData.location
+        self.discountedPriceLabel.text = "\(hotelInfoData.price.formattedWithSeparator)"
+        self.ratingCountLabel.text = "\(hotelInfoData.reviewCount.formattedWithSeparator)개 평가"
+        self.ratingLabel.text = "\(hotelInfoData.reviewRate)"
+        self.accommodationKindLabel.text = hotelInfoData.type
     }
     
 }

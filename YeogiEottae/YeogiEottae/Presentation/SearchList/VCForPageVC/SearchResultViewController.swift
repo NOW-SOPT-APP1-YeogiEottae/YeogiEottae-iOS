@@ -9,6 +9,7 @@ import UIKit
 
 class SearchResultViewController: UIViewController {
     
+    var hotelsInfoArray: [HotelInfo] = []
     
     let hotelList: [Hotel] = [
         
@@ -22,6 +23,19 @@ class SearchResultViewController: UIViewController {
     
     
     let rootView: SearchResultView = SearchResultView()
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nil, bundle: nil)
+        
+        let hotelListDTO = HotelListNetworkingManager.shared.requestHoteList()
+        let hotelListResult = hotelListDTO.HotelListResult
+        self.hotelsInfoArray = hotelListResult.hotelsArray
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         self.view = self.rootView
@@ -44,7 +58,8 @@ extension SearchResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let searchResultCell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reuseIdentifier, for: indexPath) as? SearchResultCell else { fatalError() }
         
-        searchResultCell.configureData(with: self.hotelList[indexPath.item])
+        //searchResultCell.configureData(with: self.hotelList[indexPath.item])
+        searchResultCell.configureData(with: self.hotelsInfoArray[indexPath.item])
         return searchResultCell
     }
     

@@ -66,6 +66,8 @@
 		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
 		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
 		4E4D0ADB2BF48B3900191932 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */; };
+		4E64F01D2BFEB33200C13419 /* HotelListNeworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E64F01C2BFEB33200C13419 /* HotelListNeworkingManager.swift */; };
+		4E64F0212BFEB47800C13419 /* GetHotelListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E64F0202BFEB47800C13419 /* GetHotelListResponseDTO.swift */; };
 		4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7021362BF2286F00D480AE /* SearchListViewController.swift */; };
 		4E70213D2BF22B0E00D480AE /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213C2BF22B0E00D480AE /* SearchListView.swift */; };
 		4E70213F2BF24ADD00D480AE /* AccomodationKindSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */; };
@@ -157,6 +159,8 @@
 		4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD82BF48B1400191932 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		4E4D0ADA2BF48B3900191932 /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
+		4E64F01C2BFEB33200C13419 /* HotelListNeworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelListNeworkingManager.swift; sourceTree = "<group>"; };
+		4E64F0202BFEB47800C13419 /* GetHotelListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHotelListResponseDTO.swift; sourceTree = "<group>"; };
 		4E7021362BF2286F00D480AE /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		4E70213C2BF22B0E00D480AE /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		4E70213E2BF24ADD00D480AE /* AccomodationKindSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationKindSegmentController.swift; sourceTree = "<group>"; };
@@ -572,6 +576,8 @@
 			children = (
 				4E7021402BF24B5C00D480AE /* SearchFilterModel.swift */,
 				4EE7D0D62BF49675002BDF8E /* HotelModel.swift */,
+				4E64F01C2BFEB33200C13419 /* HotelListNeworkingManager.swift */,
+				4E64F0202BFEB47800C13419 /* GetHotelListResponseDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -739,6 +745,7 @@
 				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
 				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
+				4E64F0212BFEB47800C13419 /* GetHotelListResponseDTO.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */,
 				0B8E95FB2BF9E7AA00C3F285 /* CompareListResponseDTO.swift in Sources */,
@@ -788,6 +795,7 @@
 				4EE7D0CF2BF48E3C002BDF8E /* SearchResultView.swift in Sources */,
 				0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */,
 				87BEE6F12BF8B93500579642 /* ImageTableViewCell.swift in Sources */,
+				4E64F01D2BFEB33200C13419 /* HotelListNeworkingManager.swift in Sources */,
 				4E7021472BF2514B00D480AE /* UITabBarController+.swift in Sources */,
 				4EE7D0D52BF4912B002BDF8E /* SearchResultHeaderView.swift in Sources */,
 				4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */,
