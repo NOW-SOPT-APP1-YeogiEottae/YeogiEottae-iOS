@@ -11,7 +11,8 @@ import Moya
 
 enum FavoritesListTargetType {
     case getFavoritesListData
-    case removeFromFavorites(isRoom: Bool)
+    case addToFavorites(isRoom: Bool, id: Int)
+    case removeFromFavorites(isRoom: Bool, id: Int)
 }
 
 extension FavoritesListTargetType: TargetType {
@@ -28,6 +29,8 @@ extension FavoritesListTargetType: TargetType {
         switch self {
         case .getFavoritesListData:
             return "/api/v1/likes"
+        case .addToFavorites:
+            return "/api/v1/likes"
         case .removeFromFavorites:
             return "/api/v1/likes"
         }
@@ -37,6 +40,8 @@ extension FavoritesListTargetType: TargetType {
         switch self {
         case .getFavoritesListData:
             return .get
+        case .addToFavorites:
+            return .post
         case .removeFromFavorites:
             return .delete
         }
@@ -46,14 +51,27 @@ extension FavoritesListTargetType: TargetType {
         switch self {
         case .getFavoritesListData:
             return .requestPlain
-        case .removeFromFavorites(isRoom: let isRoom):
-            return .requestParameters(parameters: ["roomType": (isRoom ? "1" : "0")], encoding: URLEncoding.queryString)
+        case .addToFavorites(let isRoom, let id):
+            return .requestCompositeParameters(
+                bodyParameters: ["id": id],
+                bodyEncoding: JSONEncoding.default,
+                urlParameters: ["roomType": (isRoom ? "1" : "0")]
+            )
+        case .removeFromFavorites(let isRoom, let id):
+            return .requestCompositeParameters(
+                bodyParameters: ["id": id],
+                bodyEncoding: JSONEncoding.default,
+                urlParameters: ["roomType": (isRoom ? "1" : "0")]
+            )
         }
     }
     
     var headers: [String : String]? {
         switch self {
         case .getFavoritesListData:
+            return ["Content-Type": "application/json",
+                    "userId": "1"]
+        case .addToFavorites:
             return ["Content-Type": "application/json",
                     "userId": "1"]
         case .removeFromFavorites:
