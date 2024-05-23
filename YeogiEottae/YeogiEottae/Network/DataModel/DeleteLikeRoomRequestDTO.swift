@@ -8,5 +8,5 @@
 import Foundation
 
 struct DeleteLikeRoomRequestDTO: Codable {
-    let roomId: [String]
+    let roomId: Int
 }

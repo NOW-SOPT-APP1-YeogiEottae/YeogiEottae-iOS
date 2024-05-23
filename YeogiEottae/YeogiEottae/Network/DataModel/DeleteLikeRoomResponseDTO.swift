@@ -9,5 +9,8 @@ import Foundation
 
 struct DeleteLikeRoomResponseDTO: Codable {
     let code: Int
-    let errorMessage: String
+    let success: Bool
+    let message: String
 }
+
+
