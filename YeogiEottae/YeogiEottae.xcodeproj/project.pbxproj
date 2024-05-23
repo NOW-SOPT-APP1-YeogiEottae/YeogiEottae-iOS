@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B205B372BFD9A9500B0FB83 /* PostLikeCompareRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B362BFD9A9500B0FB83 /* PostLikeCompareRequestDTO.swift */; };
+		0B205B392BFD9AA100B0FB83 /* PostLikeCompareResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B382BFD9AA100B0FB83 /* PostLikeCompareResponseDTO.swift */; };
+		0B205B3B2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B3A2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift */; };
+		0B205B3D2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B3C2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift */; };
+		0B205B3F2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B3E2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift */; };
+		0B205B412BFF18F500B0FB83 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B402BFF18F500B0FB83 /* EmptyDataView.swift */; };
 		0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */; };
 		0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */; };
 		0B3C2AC02BF720A000878745 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2ABF2BF720A000878745 /* Int+.swift */; };
@@ -102,6 +108,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B205B362BFD9A9500B0FB83 /* PostLikeCompareRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikeCompareRequestDTO.swift; sourceTree = "<group>"; };
+		0B205B382BFD9AA100B0FB83 /* PostLikeCompareResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikeCompareResponseDTO.swift; sourceTree = "<group>"; };
+		0B205B3A2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLikeCompareResponseDTO.swift; sourceTree = "<group>"; };
+		0B205B3C2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLikeRoomRequestDTO.swift; sourceTree = "<group>"; };
+		0B205B3E2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLikeRoomResponseDTO.swift; sourceTree = "<group>"; };
+		0B205B402BFF18F500B0FB83 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareInfoView.swift; sourceTree = "<group>"; };
 		0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		0B3C2ABF2BF720A000878745 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
@@ -295,6 +307,7 @@
 				0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */,
 				0B3C2AC12BF74B0E00878745 /* CompareButton.swift */,
 				0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */,
+				0B205B402BFF18F500B0FB83 /* EmptyDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -497,6 +510,11 @@
 				0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */,
 				4EF183D82BFCE428001789FB /* GetFavoritesListResponseDTO.swift */,
 				4EF183DE2BFCF697001789FB /* DeleteFavoriteResponseDTO.swift */,
+				0B205B362BFD9A9500B0FB83 /* PostLikeCompareRequestDTO.swift */,
+				0B205B382BFD9AA100B0FB83 /* PostLikeCompareResponseDTO.swift */,
+				0B205B3A2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift */,
+				0B205B3C2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift */,
+				0B205B3E2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift */,
 				4EF183E02BFE0DB4001789FB /* GetHotelDetailResponseDTO.swift */,
 			);
 			path = DataModel;
@@ -748,6 +766,8 @@
 				4E64F02A2BFF986D00C13419 /* DateRangeHeaderView.swift in Sources */,
 				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
+				0B205B372BFD9A9500B0FB83 /* PostLikeCompareRequestDTO.swift in Sources */,
+				0B205B3D2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift in Sources */,
 				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
 				4EF183DD2BFCE4DF001789FB /* FavoritesListTargetType.swift in Sources */,
 				0B8E95F22BF9DE6100C3F285 /* CompareTargetType.swift in Sources */,
@@ -759,7 +779,9 @@
 				4EF183E32BFE0E42001789FB /* HotelDetailService.swift in Sources */,
 				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
+				0B205B412BFF18F500B0FB83 /* EmptyDataView.swift in Sources */,
 				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
+				0B205B392BFD9AA100B0FB83 /* PostLikeCompareResponseDTO.swift in Sources */,
 				4E64F0212BFEB47800C13419 /* GetHotelListResponseDTO.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
 				0B96F21E2BF6195100A6F840 /* CompareEditView.swift in Sources */,
@@ -779,6 +801,7 @@
 				0B8E95EE2BF9DB7300C3F285 /* NetworkResult.swift in Sources */,
 				0B3C2AC42BF758A900878745 /* AddCompareViewController.swift in Sources */,
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
+				0B205B3B2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift in Sources */,
 				0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */,
 				0B3C2AC02BF720A000878745 /* Int+.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
@@ -800,6 +823,7 @@
 				4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */,
 				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
 				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
+				0B205B3F2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift in Sources */,
 				4EF183E52BFE0E7C001789FB /* HotelDetailTargetType.swift in Sources */,
 				4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */,
 				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,

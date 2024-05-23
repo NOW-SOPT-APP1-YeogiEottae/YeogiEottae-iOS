@@ -22,21 +22,37 @@ final class CompareRoomViewController: UIViewController {
     private var scrollViewOffsetX: CGFloat = 0
     private var isHeaderHidden = false
     private var isSelected = false
+    private var isEditingMode = false
     private var selectedIndexPath: IndexPath?
+    private var radioSelectedStates: [Bool] = []
     
     private let rootView = CompareRoomRootView()
-    private let dataModel = CompareRoomData.dummyData()
+    private var dataModel : [CompareList] = [] {
+        didSet {
+            radioSelectedStates = Array(repeating: false, count: dataModel.count)
+            DispatchQueue.main.async {
+                self.rootView.tableView.reloadData()
+                self.updateViewVisibility()
+            }
+            
+        }
+    }
     
     override func loadView() {
         self.view = rootView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getComparerListData(price: "", review: "")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
         setRegister()
         setDelegate()
-        getComparerListData()
+        setButtonActions()
     }
     
     private func setRegister() {
@@ -52,7 +68,7 @@ final class CompareRoomViewController: UIViewController {
     
     private func syncScrollViews(excludedScrollView: UIScrollView) {
         for cell in rootView.tableView.visibleCells {
-            if let compareCell = cell as? CompareTableViewCell, 
+            if let compareCell = cell as? CompareTableViewCell,
                 compareCell.scrollView != excludedScrollView {
                 compareCell.scrollView.contentOffset.x = scrollViewOffsetX
             }
@@ -62,8 +78,44 @@ final class CompareRoomViewController: UIViewController {
         }
     }
     
+    private func setButtonActions() {
+        rootView.repairView.editButton.addTarget(self, action: #selector(repairButtonTapped), for: .touchUpInside)
+        rootView.emptyDataView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        rootView.filterView.lowPriceButton.addTarget(self, action: #selector(lowPriceButtonTapped), for: .touchUpInside)
+        rootView.filterView.highPriceButton.addTarget(self, action: #selector(highPriceButtonTapped), for: .touchUpInside)
+        rootView.filterView.highDiscountButton.addTarget(self, action: #selector(highDiscountButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func lowPriceButtonTapped() {
+        getComparerListData(price: "", review: "")
+        self.rootView.tableView.reloadData()
+    }
+    
+    @objc private func highPriceButtonTapped() {
+        getComparerListData(price: "", review: "1")
+        self.rootView.tableView.reloadData()
+    }
+    
+    @objc private func highDiscountButtonTapped() {
+        getComparerListData(price: "1", review: "")
+        self.rootView.tableView.reloadData()
+    }
+    
+    @objc private func repairButtonTapped() {
+        isEditingMode.toggle()
+        rootView.repairView.editButton.setTitle(isEditingMode ? "수정완료" : "수정하기", for: .normal)
+        rootView.repairView.editButton.setTitleColor(isEditingMode ? UIColor.secondaryColor(brightness: .secondary600) : UIColor.grayColor(brightness: .gray800), for: .normal)
+        
+        for cell in rootView.tableView.visibleCells {
+            if let compareCell = cell as? CompareTableViewCell {
+                compareCell.isEditedMode = isEditingMode
+            }
+        }
+    }
+    
     @objc private func addButtonTapped() {
         let viewController = AddCompareViewController()
+        viewController.delegate = self
         if viewController.presentationController is UISheetPresentationController {
             if let sheet = viewController.sheetPresentationController {
                 sheet.prefersGrabberVisible = true
@@ -80,12 +132,15 @@ final class CompareRoomViewController: UIViewController {
         self.present(viewController, animated: true)
     }
     
-    private func getComparerListData() {
-        CompareService.shared.getComparerListData(price: "1", review: "1") { [weak self] response in
+    private func getComparerListData(price: String, review: String) {
+        CompareService.shared.getComparerListData(price: "", review: "") { [weak self] response in
             switch response {
             case .success(let data):
-                if let data = data as? [CompareListResponseDTO] {
-                    print(data)
+                if let data = data as? CompareListResponseDTO {
+                    self?.dataModel = data.result
+                    DispatchQueue.main.async {
+                        self?.rootView.tableView.reloadData()
+                    }
                 }
                 
             case .requestErr:
@@ -100,6 +155,12 @@ final class CompareRoomViewController: UIViewController {
                 print("네트워크 오류입니다")
             }
         }
+    }
+    
+    private func updateViewVisibility() {
+        let isEmpty = dataModel.isEmpty
+        rootView.tableView.isHidden = isEmpty
+        rootView.emptyDataView.isHidden = !isEmpty
     }
 }
 
@@ -116,7 +177,7 @@ extension CompareRoomViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.addButtonAction = { [weak self] in
-                    self?.addButtonTapped()
+                self?.addButtonTapped()
             }
             return cell
         } else {
@@ -124,7 +185,8 @@ extension CompareRoomViewController: UITableViewDataSource {
                     as? CompareTableViewCell else {
                 return UITableViewCell()
             }
-            cell.bindData(data: dataModel[indexPath.row])
+            let isRadioSelected = radioSelectedStates[indexPath.row]
+            cell.bindData(data: dataModel[indexPath.row], isRadioSelected: isRadioSelected, isEditedMode: isEditingMode)
             cell.delegate = self
             cell.scrollView.contentOffset.x = scrollViewOffsetX
             cell.isRadioSelected = (indexPath == selectedIndexPath)
@@ -157,17 +219,24 @@ extension CompareRoomViewController: UIScrollViewDelegate {
 
 extension CompareRoomViewController: CompareTableViewCellDelegate {
     func compareTableViewCellDidTapRadioButton(_ cell: CompareTableViewCell) {
-        
-        let popupViewController = YeogiAlertViewController()
-        popupViewController.modalPresentationStyle = .overFullScreen
-        self.present(popupViewController, animated: false)
-        
-        if selectedIndexPath == nil {
-            rootView.showReservationButton()
-        }
-        if let indexPath = rootView.tableView.indexPath(for: cell) {
-            selectedIndexPath = indexPath
-            rootView.tableView.reloadData()
+        if isEditingMode {
+            if let roomId = cell.roomId {
+                let popupViewController = YeogiAlertViewController()
+                popupViewController.roomId = roomId
+                popupViewController.delegate = self
+                popupViewController.modalPresentationStyle = .overFullScreen
+                self.present(popupViewController, animated: false)
+            }
+        } else {
+            if selectedIndexPath == nil {
+                rootView.showReservationButton()
+            }
+            if let indexPath = rootView.tableView.indexPath(for: cell) {
+                selectedIndexPath = indexPath
+                radioSelectedStates[indexPath.row] = !radioSelectedStates[indexPath.row]
+                rootView.tableView.reloadData()
+            }
+            
         }
     }
     func compareTableViewCellDidScroll(_ cell: CompareTableViewCell, scrollView: UIScrollView) {
@@ -180,5 +249,18 @@ extension CompareRoomViewController: CompareFilterViewCellDelegate {
     func compareFilterViewCellDidScroll(_ cell: CompareFilterView, scrollView: UIScrollView) {
         scrollViewOffsetX = scrollView.contentOffset.x
         syncScrollViews(excludedScrollView: scrollView)
+    }
+}
+
+extension CompareRoomViewController: YeogiAlertViewControllerDelegate {
+    func didDeleteRoom() {
+        getComparerListData(price: "", review: "")
+    }
+}
+
+extension CompareRoomViewController: AddCompareViewControllerDelegate {
+    func didAddRoom() {
+        getComparerListData(price: "", review: "")
+        YeogiToast.show(type: .addCompare)
     }
 }
