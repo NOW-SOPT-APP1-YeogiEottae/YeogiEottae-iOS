@@ -20,9 +20,6 @@
 		0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DE2BEB9E6B00BCEA76 /* Base */; };
 		0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */; };
 		0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */; };
-		0B719C482BF20B3500DF1D92 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C472BF20B3500DF1D92 /* Moya */; };
-		0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4A2BF20B5400DF1D92 /* Kingfisher */; };
-		0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0B719C4D2BF20BD700DF1D92 /* SnapKit */; };
 		0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */; };
 		0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C512BF21C3E00DF1D92 /* UIImage+.swift */; };
 		0B719C542BF21C4F00DF1D92 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C532BF21C4F00DF1D92 /* UIStackView+.swift */; };
@@ -84,6 +81,9 @@
 		4EE7D0D52BF4912B002BDF8E /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */; };
 		4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7D0D62BF49675002BDF8E /* HotelModel.swift */; };
 		4EF183CF2BFC9954001789FB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C5B2BF21D9100DF1D92 /* String.swift */; };
+		4EF183E12BFE0DB4001789FB /* GetHotelDetailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF183E02BFE0DB4001789FB /* GetHotelDetailResponseDTO.swift */; };
+		4EF183E32BFE0E42001789FB /* HotelDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF183E22BFE0E42001789FB /* HotelDetailService.swift */; };
+		4EF183E52BFE0E7C001789FB /* HotelDetailTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF183E42BFE0E7C001789FB /* HotelDetailTargetType.swift */; };
 		87BEE6ED2BF8B90300579642 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6EC2BF8B90300579642 /* HotelDetailViewController.swift */; };
 		87BEE6EF2BF8B91E00579642 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6EE2BF8B91E00579642 /* DetailTableViewCell.swift */; };
 		87BEE6F12BF8B93500579642 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */; };
@@ -92,6 +92,11 @@
 		87BEE7042BFDD5AB00579642 /* RoomImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7032BFDD5AB00579642 /* RoomImageViewCell.swift */; };
 		87BEE7062BFDD5C300579642 /* RoomDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7052BFDD5C300579642 /* RoomDetailViewCell.swift */; };
 		87BEE7082BFDD5D000579642 /* RoomInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7072BFDD5D000579642 /* RoomInfoViewCell.swift */; };
+		87BEE6F52BFCBF9100579642 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 87BEE6F42BFCBF9100579642 /* Config.xcconfig */; };
+		87BEE70B2BFDF39500579642 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE70A2BFDF39500579642 /* Moya */; };
+		87BEE70E2BFDF3A500579642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE70D2BFDF3A500579642 /* SnapKit */; };
+		87BEE7112BFDF3AE00579642 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE7102BFDF3AE00579642 /* Kingfisher */; };
+		87BEE7132BFE15A700579642 /* DateRangeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7122BFE15A700579642 /* DateRangeHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +176,9 @@
 		4EE7D0D22BF490A5002BDF8E /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		4EE7D0D42BF4912B002BDF8E /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
 		4EE7D0D62BF49675002BDF8E /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
+		4EF183E02BFE0DB4001789FB /* GetHotelDetailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHotelDetailResponseDTO.swift; sourceTree = "<group>"; };
+		4EF183E22BFE0E42001789FB /* HotelDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailService.swift; sourceTree = "<group>"; };
+		4EF183E42BFE0E7C001789FB /* HotelDetailTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailTargetType.swift; sourceTree = "<group>"; };
 		87BEE6EC2BF8B90300579642 /* HotelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailViewController.swift; sourceTree = "<group>"; };
 		87BEE6EE2BF8B91E00579642 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -180,6 +188,8 @@
 		87BEE7032BFDD5AB00579642 /* RoomImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomImageViewCell.swift; sourceTree = "<group>"; };
 		87BEE7052BFDD5C300579642 /* RoomDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailViewCell.swift; sourceTree = "<group>"; };
 		87BEE7072BFDD5D000579642 /* RoomInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomInfoViewCell.swift; sourceTree = "<group>"; };
+		87BEE6F42BFCBF9100579642 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		87BEE7122BFE15A700579642 /* DateRangeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,9 +197,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B719C4E2BF20BD700DF1D92 /* SnapKit in Frameworks */,
-				0B719C4B2BF20B5400DF1D92 /* Kingfisher in Frameworks */,
-				0B719C482BF20B3500DF1D92 /* Moya in Frameworks */,
+				87BEE7112BFDF3AE00579642 /* Kingfisher in Frameworks */,
+				87BEE70B2BFDF39500579642 /* Moya in Frameworks */,
+				87BEE70E2BFDF3A500579642 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +231,7 @@
 				4E278F802BEFACF90034097A /* Global */,
 				4E278F7F2BEFACE60034097A /* Application */,
 				0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */,
+				87BEE6F42BFCBF9100579642 /* Config.xcconfig */,
 			);
 			path = YeogiEottae;
 			sourceTree = "<group>";
@@ -472,6 +483,7 @@
 				0B8E95ED2BF9DB7300C3F285 /* NetworkResult.swift */,
 				0B8E95EF2BF9DB8300C3F285 /* MoyaPlugin.swift */,
 				0B8E95F12BF9DE6100C3F285 /* CompareTargetType.swift */,
+				4EF183E42BFE0E7C001789FB /* HotelDetailTargetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -480,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */,
+				4EF183E02BFE0DB4001789FB /* GetHotelDetailResponseDTO.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -488,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */,
+				4EF183E22BFE0E42001789FB /* HotelDetailService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -627,6 +641,7 @@
 		87BEE6EB2BF8B8DF00579642 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				87BEE7122BFE15A700579642 /* DateRangeHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -648,9 +663,9 @@
 			);
 			name = YeogiEottae;
 			packageProductDependencies = (
-				0B719C472BF20B3500DF1D92 /* Moya */,
-				0B719C4A2BF20B5400DF1D92 /* Kingfisher */,
-				0B719C4D2BF20BD700DF1D92 /* SnapKit */,
+				87BEE70A2BFDF39500579642 /* Moya */,
+				87BEE70D2BFDF3A500579642 /* SnapKit */,
+				87BEE7102BFDF3AE00579642 /* Kingfisher */,
 			);
 			productName = YeogiEottae;
 			productReference = 0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */;
@@ -681,9 +696,9 @@
 			);
 			mainGroup = 0B4AA6C62BEB9E6A00BCEA76;
 			packageReferences = (
-				0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */,
-				0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				87BEE7092BFDF39500579642 /* XCRemoteSwiftPackageReference "Moya" */,
+				87BEE70C2BFDF3A500579642 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				87BEE70F2BFDF3AE00579642 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0B4AA6D02BEB9E6A00BCEA76 /* Products */;
 			projectDirPath = "";
@@ -703,6 +718,7 @@
 				0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */,
 				4E278FB22BF0EF520034097A /* Pretendard-Light.otf in Resources */,
 				4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */,
+				87BEE6F52BFCBF9100579642 /* Config.xcconfig in Resources */,
 				4E278FB42BF0EF520034097A /* Pretendard-ExtraBold.otf in Resources */,
 				4E278FB32BF0EF520034097A /* Pretendard-ExtraLight.otf in Resources */,
 				4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */,
@@ -734,6 +750,7 @@
 				4EE7D0D72BF49675002BDF8E /* HotelModel.swift in Sources */,
 				4E70214D2BF3B00300D480AE /* SearchSegmentCollectionView.swift in Sources */,
 				0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */,
+				4EF183E32BFE0E42001789FB /* HotelDetailService.swift in Sources */,
 				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
 				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
@@ -757,7 +774,9 @@
 				4E7021372BF2286F00D480AE /* SearchListViewController.swift in Sources */,
 				0B96F2262BF61ED800A6F840 /* AddButtonCell.swift in Sources */,
 				0B3C2AC02BF720A000878745 /* Int+.swift in Sources */,
+				87BEE7132BFE15A700579642 /* DateRangeHeaderView.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
+				4EF183E12BFE0DB4001789FB /* GetHotelDetailResponseDTO.swift in Sources */,
 				0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */,
 				0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */,
 				0B3C2AC62BF7598100878745 /* AddCompareRootView.swift in Sources */,
@@ -777,6 +796,7 @@
 				4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */,
 				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
 				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
+				4EF183E52BFE0E7C001789FB /* HotelDetailTargetType.swift in Sources */,
 				4E1FA4F82BF8A8760029ED16 /* FavoritesView.swift in Sources */,
 				4E7021432BF24BDB00D480AE /* SearchFilterListCell.swift in Sources */,
 				4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */,
@@ -1009,23 +1029,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */ = {
+		87BEE7092BFDF39500579642 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
+			repositoryURL = "https://github.com/Moya/Moya";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 15.0.3;
 			};
 		};
-		0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
-			};
-		};
-		0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		87BEE70C2BFDF3A500579642 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1033,23 +1045,31 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		87BEE70F2BFDF3AE00579642 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B719C472BF20B3500DF1D92 /* Moya */ = {
+		87BEE70A2BFDF39500579642 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B719C462BF20B3500DF1D92 /* XCRemoteSwiftPackageReference "Moya" */;
+			package = 87BEE7092BFDF39500579642 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
-		0B719C4A2BF20B5400DF1D92 /* Kingfisher */ = {
+		87BEE70D2BFDF3A500579642 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B719C492BF20B5400DF1D92 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		0B719C4D2BF20BD700DF1D92 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0B719C4C2BF20BD700DF1D92 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 87BEE70C2BFDF3A500579642 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		87BEE7102BFDF3AE00579642 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87BEE70F2BFDF3AE00579642 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

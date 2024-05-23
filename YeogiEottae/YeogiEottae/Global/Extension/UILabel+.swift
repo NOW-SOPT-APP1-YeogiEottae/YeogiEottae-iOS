@@ -53,5 +53,14 @@ extension UILabel {
             self.numberOfLines = 2
         }
     }
-
+    
+    func setFont(forSubstring substring: String, toFont font: UIFont) {
+            guard let text = self.text, let range = text.range(of: substring) else { return }
+            let nsRange = NSRange(range, in: text)
+            
+            let attributedString = NSMutableAttributedString(string: text)
+            attributedString.addAttribute(.font, value: font, range: nsRange)
+            self.attributedText = attributedString
+        }
+    
 }
