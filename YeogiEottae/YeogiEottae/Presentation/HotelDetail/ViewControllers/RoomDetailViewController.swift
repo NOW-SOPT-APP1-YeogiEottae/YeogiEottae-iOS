@@ -27,13 +27,12 @@ class RoomDetailViewController: UIViewController, UITableViewDataSource {
         tableView.register(RoomInfoViewCell.self, forCellReuseIdentifier: "RoomInfoViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        //.never로 설정했는데 왜 이미지가 끝까지 나타나지 않지?
         tableView.contentInsetAdjustmentBehavior = .never
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
@@ -59,11 +58,13 @@ extension RoomDetailViewController {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RoomImageViewCell", for: indexPath) as! RoomImageViewCell
-            cell.backgroundColor = .red
+            cell.configure(
+                with: "스탠다드 트윈룸"
+            )
             return cell
         case .details:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RoomDetailViewCell", for: indexPath) as! RoomDetailViewCell
-            cell.backgroundColor = .yellow
+            cell.backgroundColor = .systemGray6
             return cell
         case .info:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RoomInfoViewCell", for: indexPath) as! RoomInfoViewCell

@@ -65,4 +65,8 @@ enum StringLiteral {
     enum CurrentFilterCriteria {
         static var YeogiEottaeRecommended = "여기어때 추천순"
     }
+    
+    enum BasicInfo {
+        static var basic1 = "2인 기준 최대 3인 (유료)"
+    }
 }
