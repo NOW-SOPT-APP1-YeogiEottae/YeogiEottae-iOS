@@ -209,7 +209,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let roomImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .systemGray5
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
