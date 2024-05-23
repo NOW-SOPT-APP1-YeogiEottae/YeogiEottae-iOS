@@ -37,7 +37,7 @@ final class CompareTableViewCell: UITableViewCell {
     
     private lazy var radioButton: UIButton = {
         let button = UIButton()
-        button.setImage(isEditedMode ? .cancel : .radioUnchecked, for: .normal)
+        button.setImage(isEditedMode ? .close : .radioUnchecked, for: .normal)
         return button
     }()
     
@@ -188,7 +188,7 @@ final class CompareTableViewCell: UITableViewCell {
     
     func updateRadioButtonImage() {
         if isEditedMode {
-            radioButton.setImage(.cancel, for: .normal)
+            radioButton.setImage(.close, for: .normal)
         } else {
             radioButton.setImage(isRadioSelected ? .radioChecked : .radioUnchecked, for: .normal)
         }
