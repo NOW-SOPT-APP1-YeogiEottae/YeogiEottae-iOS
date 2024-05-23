@@ -18,6 +18,7 @@ final class CompareRoomRootView: UIView {
     private let sectionHeader = CompareCalendarView()
     let repairView = CompareEditView()
     let filterView = CompareFilterView()
+    let emptyDataView = EmptyDataView()
     private lazy var reservationButton = CompareButton(type: .reservation, addAmount: 0)
     
     override init(frame: CGRect) {
@@ -37,7 +38,8 @@ final class CompareRoomRootView: UIView {
             sectionHeader,
             filterView,
             tableView,
-            reservationButton
+            reservationButton,
+            emptyDataView
         )
         
         sectionHeader.addSubview(navigationHeader)
@@ -76,6 +78,11 @@ final class CompareRoomRootView: UIView {
             $0.height.equalTo(50)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(-50)
+        }
+        
+        emptyDataView.snp.makeConstraints {
+            $0.top.equalTo(repairView.snp.top)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     

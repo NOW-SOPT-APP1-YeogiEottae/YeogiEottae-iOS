@@ -12,6 +12,7 @@
 		0B205B3B2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B3A2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift */; };
 		0B205B3D2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B3C2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift */; };
 		0B205B3F2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B3E2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift */; };
+		0B205B412BFF18F500B0FB83 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B205B402BFF18F500B0FB83 /* EmptyDataView.swift */; };
 		0B3C2AB82BF6E78000878745 /* CompareInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */; };
 		0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */; };
 		0B3C2AC02BF720A000878745 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C2ABF2BF720A000878745 /* Int+.swift */; };
@@ -91,6 +92,7 @@
 		0B205B3A2BFD9AB000B0FB83 /* GetLikeCompareResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLikeCompareResponseDTO.swift; sourceTree = "<group>"; };
 		0B205B3C2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLikeRoomRequestDTO.swift; sourceTree = "<group>"; };
 		0B205B3E2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLikeRoomResponseDTO.swift; sourceTree = "<group>"; };
+		0B205B402BFF18F500B0FB83 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareInfoView.swift; sourceTree = "<group>"; };
 		0B3C2AB92BF6EF7F00878745 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		0B3C2ABF2BF720A000878745 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				0B3C2AB72BF6E78000878745 /* CompareInfoView.swift */,
 				0B3C2AC12BF74B0E00878745 /* CompareButton.swift */,
 				0B3C2AC52BF7598100878745 /* AddCompareRootView.swift */,
+				0B205B402BFF18F500B0FB83 /* EmptyDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				0B719C5C2BF21D9100DF1D92 /* String.swift in Sources */,
 				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
+				0B205B412BFF18F500B0FB83 /* EmptyDataView.swift in Sources */,
 				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
 				0B205B392BFD9AA100B0FB83 /* PostLikeCompareResponseDTO.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,

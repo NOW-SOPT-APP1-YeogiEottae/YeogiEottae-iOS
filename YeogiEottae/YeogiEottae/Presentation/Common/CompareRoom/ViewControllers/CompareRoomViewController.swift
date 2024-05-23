@@ -31,6 +31,7 @@ final class CompareRoomViewController: UIViewController {
         didSet {
             radioSelectedStates = Array(repeating: false, count: dataModel.count)
             rootView.tableView.reloadData()
+            updateViewVisibility()
         }
     }
     
@@ -76,6 +77,7 @@ final class CompareRoomViewController: UIViewController {
     
     private func setButtonActions() {
         rootView.repairView.editButton.addTarget(self, action: #selector(repairButtonTapped), for: .touchUpInside)
+        rootView.emptyDataView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
     }
     
     @objc private func repairButtonTapped() {
@@ -132,6 +134,12 @@ final class CompareRoomViewController: UIViewController {
                 print("네트워크 오류입니다")
             }
         }
+    }
+    
+    private func updateViewVisibility() {
+        let isEmpty = dataModel.isEmpty
+        rootView.tableView.isHidden = isEmpty
+        rootView.emptyDataView.isHidden = !isEmpty
     }
 }
 
