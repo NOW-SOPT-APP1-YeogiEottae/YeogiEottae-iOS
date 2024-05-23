@@ -164,6 +164,26 @@ class SearchListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        HotelDetailService.shared.getHotelDetailData(hotelID: 1) { result in
+//            switch result {
+//                
+//            case .success(let data):
+//                guard let hotelDetail = data as? GetHotelDetailResponseDTO else { return }
+//                print("성공!!!!")
+//                print(hotelDetail)
+//            case .requestErr:
+//                fatalError()
+//            case .decodedErr:
+//                fatalError()
+//            case .pathErr:
+//                fatalError()
+//            case .serverErr:
+//                fatalError()
+//            case .networkFail:
+//                fatalError()
+//            }
+//        }
+        
         self.setPageVC()
         self.configureViewHierarchy()
         self.setConstraints()
@@ -438,6 +458,13 @@ extension SearchListViewController: UITableViewDelegate {
         guard let searchResultHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SearchResultHeaderView.reuseIdentifier) as? SearchResultHeaderView else { fatalError() }
         
         return searchResultHeaderView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hotelDetailViewController = HotelDetailViewController()
+        hotelDetailViewController.hotelID = indexPath.row + 1
+        
+        self.navigationController?.pushViewController(hotelDetailViewController, animated: true)
     }
     
 }
