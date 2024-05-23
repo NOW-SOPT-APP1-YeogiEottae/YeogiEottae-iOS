@@ -14,13 +14,7 @@ class FavoritesCollectionViewController: UIViewController {
     var isRoomFavorite: [Bool] = [true, true, false, true, false]
     
     let provier = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
-    var favoriteContentsArray: [FavoriteContentDTO] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.favoritesCollectionView.reloadData()
-            }
-        }
-    }
+    var favoriteContentsArray: [FavoriteContentDTO] = []
     
     lazy var favoritesCollectionView: UICollectionView = {
         
@@ -43,21 +37,7 @@ class FavoritesCollectionViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        self.provier.request(.getFavoritesListData) { result in
-            
-            print(Thread().isMainThread)
-            
-            switch result {
-            case .success(let response):
-                let data = response.data
-                let decoder = JSONDecoder()
-                guard let getFavoritesListDTO = try? JSONDecoder().decode(GetFavoritesListResponseDTO.self, from: data) else { return }
-                let favoriteContentsArray = getFavoritesListDTO.result
-                self.favoriteContentsArray = favoriteContentsArray
-            case .failure(let moyaError):
-                fatalError(moyaError.localizedDescription)
-            }
-        }
+        self.requestFavoritesListAndReloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -68,6 +48,7 @@ class FavoritesCollectionViewController: UIViewController {
         super.viewDidLoad()
         
         self.configureViewHierarchy()
+        self.configureRefreshControl()
         self.setConstraints()
         self.setDelegates()
     }
@@ -76,8 +57,20 @@ class FavoritesCollectionViewController: UIViewController {
         self.view.addSubview(self.favoritesCollectionView)
     }
     
+    private func configureRefreshControl() {
+        self.favoritesCollectionView.refreshControl = UIRefreshControl()
+        self.favoritesCollectionView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc private func handleRefreshControl() {
+        self.requestFavoritesListAndReloadData {
+            DispatchQueue.main.async { //Moya를 통해 구현했기 때문에 main thread에서 동작하는 것이 보장되지만, 노파심에...
+                self.favoritesCollectionView.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
     private func setConstraints() {
-        
         self.favoritesCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -89,6 +82,23 @@ class FavoritesCollectionViewController: UIViewController {
     }
     
     
+    private func requestFavoritesListAndReloadData(completion: (() -> Void)? = nil) {
+        self.provier.request(.getFavoritesListData) { result in
+            switch result {
+            case .success(let response):
+                let data = response.data
+                let decoder = JSONDecoder()
+                guard let getFavoritesListDTO = try? JSONDecoder().decode(GetFavoritesListResponseDTO.self, from: data) else { return }
+                let favoriteContentsArray = getFavoritesListDTO.result
+                self.favoriteContentsArray = favoriteContentsArray
+                self.favoritesCollectionView.reloadData()
+                completion?()
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
+        }
+    }
 }
 
 
@@ -110,7 +120,7 @@ extension FavoritesCollectionViewController: UICollectionViewDataSource {
                 accommodationlName: favoriteContent.hotelName,
                 rating: favoriteContent.reviewRate,
                 roomName: favoriteContent.roomInformation!.roomName, //switch문을 통해 roomInformation != nil임을 확인했으므로 강제 언래핑
-                price: favoriteContent.roomInformation!.price,
+                priceInString: favoriteContent.roomInformation!.price.formattedWithSeparator,
                 imageURL: favoriteContent.roomInformation!.roomImageURL
             )
             

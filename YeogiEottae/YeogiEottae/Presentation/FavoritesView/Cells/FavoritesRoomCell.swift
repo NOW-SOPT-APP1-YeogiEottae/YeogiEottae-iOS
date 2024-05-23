@@ -280,7 +280,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     var discountPriceLabel: UILabel = {
         let label = UILabel()
         label.attributedText = NSAttributedString(
-            string: "30000",
+            string: 30000.formattedWithSeparator,
             attributes: [NSAttributedString.Key.strikethroughStyle: 1]
         )
         label.font = UIFont.projectFont(name: .l5)
@@ -784,12 +784,12 @@ class FavoritesRoomCell: UICollectionViewCell {
     }
     
     
-    func configureData(roomID: Int, accommodationlName: String, rating: Double, roomName: String, price: Int, imageURL: String) {
+    func configureData(roomID: Int, accommodationlName: String, rating: Double, roomName: String, priceInString: String, imageURL: String) {
         self.roomID = roomID
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"
         self.roomNameLabel.text = roomName
-        self.discountedPriceLabel.text = "\(price)"
+        self.discountedPriceLabel.text = priceInString
         self.roomImageView.kf.setImage(with: URL(string: imageURL))
     }
     
