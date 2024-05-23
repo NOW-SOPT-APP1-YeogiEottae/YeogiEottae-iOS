@@ -11,11 +11,8 @@ import SnapKit
 import Moya
 import Kingfisher
 
-protocol SwipeCellProtocol {
-    func deleteItem(_ cell: UICollectionViewCell)
-}
 
-class FavoritesRoomCell: UICollectionViewCell {
+class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     
     static var reuseIdentifier: String {
         return String(describing: self)
@@ -24,8 +21,11 @@ class FavoritesRoomCell: UICollectionViewCell {
     let feedbackGenerator = UINotificationFeedbackGenerator()
     let compareProvider = MoyaProvider<CompareTargetType>(plugins: [MoyaLoggingPlugin()])
     let favoriteProvider = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
+    let tapGestureRecognizerForAccommodationInfo = UITapGestureRecognizer()
+    let tapGestureRecognizerForRoomInfo = UITapGestureRecognizer()
     
-    var delegate: SwipeCellProtocol?
+    var delegate: SwipeCellDelegate?
+    var accommodationID: Int = 0
     var roomID: Int = 0
     var isBlueCircleFilled: Bool = false
     var isRedCircleFilled: Bool = false
@@ -590,10 +590,27 @@ class FavoritesRoomCell: UICollectionViewCell {
         }
     }
     
-    private func setGestureRecognizers() {
+    func setGestureRecognizers() {
+        self.accommodationInfoContainerView.addGestureRecognizer(self.tapGestureRecognizerForAccommodationInfo)
+        self.roomInfoContainerView.addGestureRecognizer(self.tapGestureRecognizerForRoomInfo)
+        self.tapGestureRecognizerForAccommodationInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+        self.tapGestureRecognizerForRoomInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+        
         self.swipeableView.addGestureRecognizer(self.panGestureRecognizer)
         self.panGestureRecognizer.delegate = self
         self.panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(sender:)))
+    }
+    
+    @objc private func handleTapGestureRecognizer(sender: UITapGestureRecognizer) {
+        switch sender {
+        case self.tapGestureRecognizerForAccommodationInfo:
+            self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
+            
+        case self.tapGestureRecognizerForRoomInfo:
+            self.delegate?.roomInfoDidTapped(id: self.roomID)
+        default:
+            return
+        }
     }
     
     @objc private func handlePanGesture(sender: UIPanGestureRecognizer) {
@@ -792,7 +809,8 @@ class FavoritesRoomCell: UICollectionViewCell {
     }
     
     
-    func configureData(roomID: Int, accommodationlName: String, rating: Double, roomName: String, priceInString: String, imageURL: String) {
+    func configureData(accommodationID: Int, roomID: Int, accommodationlName: String, rating: Double, roomName: String, priceInString: String, imageURL: String) {
+        self.accommodationID = accommodationID
         self.roomID = roomID
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"

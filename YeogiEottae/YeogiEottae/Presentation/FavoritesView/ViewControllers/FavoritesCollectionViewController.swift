@@ -117,6 +117,7 @@ extension FavoritesCollectionViewController: UICollectionViewDataSource {
             
             favoritesRoomCell.delegate = self
             favoritesRoomCell.configureData(
+                accommodationID: favoriteContent.hotelID,
                 roomID: favoriteContent.roomInformation!.roomID,
                 accommodationlName: favoriteContent.hotelName,
                 rating: favoriteContent.reviewRate,
@@ -130,7 +131,9 @@ extension FavoritesCollectionViewController: UICollectionViewDataSource {
             
             guard let favoritesAccommodationCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesAccommodationCell.reuseIdentifier, for: indexPath) as? FavoritesAccommodationCell else { fatalError() }
             
+            favoritesAccommodationCell.delegate = self
             favoritesAccommodationCell.configureData(
+                accommodationID: favoriteContent.hotelID,
                 accommodationlName: favoriteContent.hotelName,
                 rating: favoriteContent.reviewRate
             )
@@ -167,7 +170,25 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
 }
 
 
-extension FavoritesCollectionViewController: SwipeCellProtocol {
+extension FavoritesCollectionViewController: SwipeCellDelegate {
+    func accommodationInfoDidTapped(id: Int) {
+        let hotelDetailViewController = HotelDetailViewController()
+        hotelDetailViewController.hotelID = id
+        guard let pageViewController = self.parent as? UIPageViewController else { return }
+        guard let parentViewController = pageViewController.parent else { return }
+        parentViewController.navigationController?.pushViewController(hotelDetailViewController, animated: true)
+    }
+    
+    func roomInfoDidTapped(id: Int) {
+        /*
+         roomDetailViewController가 완성되면 아래 코드 적용하기(일부 수정 가능성 있음)
+         */
+        //let roomDetailViewController(id: Int)
+        //roomDetailViewController.roomID = id
+        //self.navigationController?.pushViewController(roomDetailViewController, animated: true)
+        return
+    }
+    
     func deleteItem(_ cell: UICollectionViewCell) {
         guard let indexPath = self.favoritesCollectionView.indexPath(for: cell) else { return }
         /*

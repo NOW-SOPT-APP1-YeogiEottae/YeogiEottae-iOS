@@ -38,6 +38,7 @@ class FavoritesViewController: UIViewController {
     
     private func configureViewHierarchy() {
         self.view.addSubview(self.pageViewController.view)
+        self.addChild(self.pageViewController)
     }
     
     private func setNavigationBar() {
