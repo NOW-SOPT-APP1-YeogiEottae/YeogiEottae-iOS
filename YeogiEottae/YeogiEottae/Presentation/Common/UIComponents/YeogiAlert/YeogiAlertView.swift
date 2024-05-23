@@ -28,7 +28,7 @@ final class YeogiAlertView: UIView {
         return button
     }()
     
-    private lazy var deleteButton : UIButton = {
+    lazy var deleteButton : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("삭제", for: .normal)
         button.setTitleColor(UIColor.grayColor(brightness: .gray0), for: .normal)

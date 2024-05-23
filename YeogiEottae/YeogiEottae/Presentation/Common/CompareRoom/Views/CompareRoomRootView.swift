@@ -16,7 +16,7 @@ final class CompareRoomRootView: UIView {
     let tableView = UITableView()
     private let navigationHeader = CompareNavigationBarView()
     private let sectionHeader = CompareCalendarView()
-    private let repairView = CompareEditView()
+    let repairView = CompareEditView()
     let filterView = CompareFilterView()
     private lazy var reservationButton = CompareButton(type: .reservation, addAmount: 0)
     
