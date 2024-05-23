@@ -30,8 +30,11 @@ final class CompareRoomViewController: UIViewController {
     private var dataModel : [CompareList] = [] {
         didSet {
             radioSelectedStates = Array(repeating: false, count: dataModel.count)
-            rootView.tableView.reloadData()
-            updateViewVisibility()
+            DispatchQueue.main.async {
+                self.rootView.tableView.reloadData()
+                self.updateViewVisibility()
+            }
+            
         }
     }
     
@@ -40,7 +43,7 @@ final class CompareRoomViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getComparerListData()
+        getComparerListData(price: "", review: "")
     }
     
     override func viewDidLoad() {
@@ -65,7 +68,7 @@ final class CompareRoomViewController: UIViewController {
     
     private func syncScrollViews(excludedScrollView: UIScrollView) {
         for cell in rootView.tableView.visibleCells {
-            if let compareCell = cell as? CompareTableViewCell, 
+            if let compareCell = cell as? CompareTableViewCell,
                 compareCell.scrollView != excludedScrollView {
                 compareCell.scrollView.contentOffset.x = scrollViewOffsetX
             }
@@ -78,6 +81,24 @@ final class CompareRoomViewController: UIViewController {
     private func setButtonActions() {
         rootView.repairView.editButton.addTarget(self, action: #selector(repairButtonTapped), for: .touchUpInside)
         rootView.emptyDataView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        rootView.filterView.lowPriceButton.addTarget(self, action: #selector(lowPriceButtonTapped), for: .touchUpInside)
+        rootView.filterView.highPriceButton.addTarget(self, action: #selector(highPriceButtonTapped), for: .touchUpInside)
+        rootView.filterView.highDiscountButton.addTarget(self, action: #selector(highDiscountButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func lowPriceButtonTapped() {
+        getComparerListData(price: "", review: "")
+        self.rootView.tableView.reloadData()
+    }
+    
+    @objc private func highPriceButtonTapped() {
+        getComparerListData(price: "", review: "1")
+        self.rootView.tableView.reloadData()
+    }
+    
+    @objc private func highDiscountButtonTapped() {
+        getComparerListData(price: "1", review: "")
+        self.rootView.tableView.reloadData()
     }
     
     @objc private func repairButtonTapped() {
@@ -111,8 +132,8 @@ final class CompareRoomViewController: UIViewController {
         self.present(viewController, animated: true)
     }
     
-    private func getComparerListData() {
-        CompareService.shared.getComparerListData(price: "1", review: "1") { [weak self] response in
+    private func getComparerListData(price: String, review: String) {
+        CompareService.shared.getComparerListData(price: "", review: "") { [weak self] response in
             switch response {
             case .success(let data):
                 if let data = data as? CompareListResponseDTO {
@@ -233,12 +254,13 @@ extension CompareRoomViewController: CompareFilterViewCellDelegate {
 
 extension CompareRoomViewController: YeogiAlertViewControllerDelegate {
     func didDeleteRoom() {
-        getComparerListData()
+        getComparerListData(price: "", review: "")
     }
 }
 
 extension CompareRoomViewController: AddCompareViewControllerDelegate {
     func didAddRoom() {
-        getComparerListData()
+        getComparerListData(price: "", review: "")
+        YeogiToast.show(type: .addCompare)
     }
 }

@@ -59,6 +59,7 @@ final class AddCompareViewController: UIViewController {
         CompareService.shared.postLikeCompareData(request: PostLikeCompareRequestDTO(roomId: request)) { [weak self] response in
             switch response {
             case .success(let data):
+                print(data)
                 if let data = data as? GetLikeCompareResponseDTO {
                     self?.dataModel = data.result.roomList
                  }
@@ -66,6 +67,7 @@ final class AddCompareViewController: UIViewController {
                 self?.dismiss(animated: true)
                 
             case .requestErr:
+                YeogiToast.show(type: .warnLimitCompare)
                 print("요청 오류 입니다")
             case .decodedErr:
                 print("디코딩 오류 입니다")
