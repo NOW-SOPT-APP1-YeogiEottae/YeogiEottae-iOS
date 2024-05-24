@@ -87,7 +87,6 @@ class FavoritesCollectionViewController: UIViewController {
             switch result {
             case .success(let response):
                 let data = response.data
-                let decoder = JSONDecoder()
                 guard let getFavoritesListDTO = try? JSONDecoder().decode(GetFavoritesListResponseDTO.self, from: data) else { return }
                 let favoriteContentsArray = getFavoritesListDTO.result
                 self.favoriteContentsArray = favoriteContentsArray
