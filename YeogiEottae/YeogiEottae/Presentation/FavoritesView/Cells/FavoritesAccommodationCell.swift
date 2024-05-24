@@ -286,7 +286,6 @@ final class FavoritesAccommodationCell: UICollectionViewCell, FavoriteCellProtoc
         case self.tapGestureRecognizerForAccommodationInfo:
             self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
         case self.tapGestureRecognizerForRoomInfo:
-            //self.delegate?.roomInfoDidTapped(id: <#T##Int#>)
             self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
         default:
             return
