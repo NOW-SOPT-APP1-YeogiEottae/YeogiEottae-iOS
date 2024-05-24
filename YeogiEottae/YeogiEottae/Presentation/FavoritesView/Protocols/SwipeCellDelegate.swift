@@ -8,5 +8,9 @@
 import UIKit
 
 protocol SwipeCellDelegate: FavoriteCellDelegate {
+    
     func deleteItem(_ cell: UICollectionViewCell)
+    
+    func updateCompareListCount()
+    
 }

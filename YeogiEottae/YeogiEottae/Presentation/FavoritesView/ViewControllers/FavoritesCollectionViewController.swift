@@ -198,4 +198,11 @@ extension FavoritesCollectionViewController: SwipeCellDelegate {
         self.favoriteContentsArray.remove(at: indexPath.item)
         self.favoritesCollectionView.deleteItems(at: [indexPath])
     }
+    
+    func updateCompareListCount() {
+        guard let pageViewController = self.parent as? UIPageViewController else { return }
+        guard let favoritesViewController = pageViewController.parent as? FavoritesViewController else { return }
+        //let favoritesView = favoritesViewController.rootView
+        favoritesViewController.updateCompareListCount()
+    }
 }

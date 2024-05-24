@@ -747,8 +747,8 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     private func fillBlueCircle(completion: (() -> Void)? = nil) {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isBlueCircleFilled = true
-        self.addToCompare(roomID: 0) { // roomID는 임의로 적은 것
-            print("비교하기에 추가됨")
+        self.addToCompare(roomID: self.roomID) {
+            YeogiToast.show(type: .addCompare)
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
@@ -780,8 +780,8 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     private func fillRedCircle(completion: (() -> Void)? = nil) {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isRedCircleFilled = true
-        self.removeFromFavorites(roomId: 0) { // roomID는 임의로 적은 것
-            print("찜에서 삭제됨")
+        self.removeFromFavorites(roomId: self.roomID) {
+            YeogiToast.show(type: .deinitLike)
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
@@ -822,12 +822,13 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     
     private func addToCompare(roomID: Int, completion: @escaping () -> Void) {
         
-        self.compareProvider.request(.postLikeCompareDatarequest(request: PostLikeCompareRequestDTO(roomId: [self.roomID]))) { result in
+        self.compareProvider.request(.postLikeCompareDatarequest(request: PostLikeCompareRequestDTO(roomId: [roomID]))) { result in
             switch result {
             case .success(let response):
                 let data = response.data
                 guard let decodedData = try? JSONDecoder().decode(PostLikeCompareResponseDTO.self, from: data) else { return }
                 print(decodedData.message)
+                self.delegate?.updateCompareListCount()
                 completion()
                 
             case .failure(let moyaError):
@@ -839,10 +840,12 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     
     private func removeFromFavorites(roomId: Int, completion: @escaping () -> Void) {
         
-        self.favoriteProvider.request(.removeFromFavorites(isRoom: true, id: self.roomID)) { result in
+        self.favoriteProvider.request(.removeFromFavorites(isRoom: true, id: roomId)) { result in
             switch result {
             case .success(_):
                 self.delegate?.deleteItem(self)
+                self.delegate?.updateCompareListCount()
+                completion()
                 
             case .failure(let moyaError):
                 fatalError(moyaError.localizedDescription)
