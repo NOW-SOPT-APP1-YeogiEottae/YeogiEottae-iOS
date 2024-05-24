@@ -8,11 +8,11 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 class ImageTableViewCell: UITableViewCell {
     
     let hotelImageView = UIImageView()
-    let heartButton = UIButton(type: .system)
     let nameLabel = UILabel()
     let moreLabel = UILabel()
     let moreReviewLabel = UILabel()
@@ -22,6 +22,17 @@ class ImageTableViewCell: UITableViewCell {
     let positionImageView = UIImageView()
     let starImageView = UIImageView()
     
+    var heartButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: "like20")
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        let button = UIButton(configuration: configuration)
+        button.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 15
+        return button
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -70,7 +81,7 @@ class ImageTableViewCell: UITableViewCell {
         positionImageView.contentMode = .scaleAspectFit
         
         starImageView.image = UIImage(named: "starRateBig")
-        positionImageView.contentMode = .scaleAspectFit
+        starImageView.contentMode = .scaleAspectFit
         
         addSubview(heartButton)
         addSubview(moreLabel)
@@ -156,7 +167,7 @@ class ImageTableViewCell: UITableViewCell {
         hotelImageView.image = UIImage(named: "hotel1")
     }
     
-    func configure(with data: GetHotelDetailResponseDTO?) {
+    func configure(with data: GetHotelDetailResponseDTO?, imageURL: String) {
         guard let unwrappedData = data else { return }
         let hotelDetail = unwrappedData.hotelDetail
         
@@ -164,6 +175,7 @@ class ImageTableViewCell: UITableViewCell {
         self.addressLabel.text = hotelDetail.location
         self.ratingLabel.text = "\(hotelDetail.reviewRate)" //문자열 보간법(Sting interpolation)
         self.reviewLabel.text = "\(hotelDetail.reviewCount)개 리뷰"
+        self.hotelImageView.kf.setImage(with: URL(string: imageURL))
     }
 }
 

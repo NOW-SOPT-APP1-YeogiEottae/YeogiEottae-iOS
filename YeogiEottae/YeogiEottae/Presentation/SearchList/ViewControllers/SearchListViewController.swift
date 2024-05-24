@@ -442,8 +442,10 @@ extension SearchListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hotelDetailViewController = HotelDetailViewController()
-        hotelDetailViewController.hotelID = indexPath.row + 1
+        let imageURL = HotelListNetworkingManager.shared.requestHoteList().HotelListResult.hotelsArray[indexPath.row].imageURL
         
+        hotelDetailViewController.hotelID = indexPath.row + 1
+        hotelDetailViewController.hotelImageURL = imageURL
         self.navigationController?.pushViewController(hotelDetailViewController, animated: true)
     }
     
