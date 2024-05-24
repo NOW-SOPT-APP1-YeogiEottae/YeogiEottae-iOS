@@ -24,7 +24,6 @@
 		0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */; };
 		0B4AA6DC2BEB9E6B00BCEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */; };
 		0B4AA6DF2BEB9E6B00BCEA76 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B4AA6DE2BEB9E6B00BCEA76 /* Base */; };
-		0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */; };
 		0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */; };
 		0B719C502BF21C1E00DF1D92 /* Codable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */; };
 		0B719C522BF21C3E00DF1D92 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B719C512BF21C3E00DF1D92 /* UIImage+.swift */; };
@@ -38,7 +37,6 @@
 		0B8E95F42BF9DEAF00C3F285 /* CompareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */; };
 		0B8E95FB2BF9E7AA00C3F285 /* CompareListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */; };
 		0B96F2032BF32CAD00A6F840 /* CompareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */; };
-		0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F20A2BF3B26F00A6F840 /* CompareData.swift */; };
 		0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */; };
 		0B96F21A2BF618DC00A6F840 /* CompareNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F2192BF618DC00A6F840 /* CompareNavigationBarView.swift */; };
 		0B96F21C2BF6191B00A6F840 /* CompareCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F21B2BF6191B00A6F840 /* CompareCalendarView.swift */; };
@@ -68,6 +66,9 @@
 		4E278FB72BF0EF520034097A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA72BF0D5F30034097A /* Pretendard-Thin.otf */; };
 		4E278FB82BF0EF520034097A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */; };
 		4E278FB92BF0EF520034097A /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E278FA92BF0D5F30034097A /* Pretendard-Black.otf */; };
+		4E3B34F42BFFC2F90080A895 /* SwipeCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3B34F32BFFC2F90080A895 /* SwipeCellDelegate.swift */; };
+		4E3B34F62BFFC3250080A895 /* FavoriteCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3B34F52BFFC3250080A895 /* FavoriteCellDelegate.swift */; };
+		4E3B34F82BFFD37A0080A895 /* FavoriteCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3B34F72BFFD37A0080A895 /* FavoriteCellProtocol.swift */; };
 		4E47FDBA2BF91C2300A21B08 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */; };
 		4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */; };
 		4E4D0AD92BF48B1400191932 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D0AD82BF48B1400191932 /* BlueViewController.swift */; };
@@ -130,7 +131,6 @@
 		0B4AA6D62BEB9E6A00BCEA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B4AA6DB2BEB9E6B00BCEA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B4AA6DE2BEB9E6B00BCEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomData.swift; sourceTree = "<group>"; };
 		0B719C3E2BF20A7F00DF1D92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0B719C4F2BF21C1E00DF1D92 /* Codable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+.swift"; sourceTree = "<group>"; };
 		0B719C512BF21C3E00DF1D92 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -145,7 +145,6 @@
 		0B8E95F32BF9DEAF00C3F285 /* CompareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareService.swift; sourceTree = "<group>"; };
 		0B8E95FA2BF9E7AA00C3F285 /* CompareListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListResponseDTO.swift; sourceTree = "<group>"; };
 		0B96F2022BF32CAD00A6F840 /* CompareRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareRoomViewController.swift; sourceTree = "<group>"; };
-		0B96F20A2BF3B26F00A6F840 /* CompareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareData.swift; sourceTree = "<group>"; };
 		0B96F2172BF618BB00A6F840 /* CompareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareTableViewCell.swift; sourceTree = "<group>"; };
 		0B96F2192BF618DC00A6F840 /* CompareNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareNavigationBarView.swift; sourceTree = "<group>"; };
 		0B96F21B2BF6191B00A6F840 /* CompareCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCalendarView.swift; sourceTree = "<group>"; };
@@ -175,6 +174,9 @@
 		4E278FAB2BF0D5F30034097A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4E278FAC2BF0D5F30034097A /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		4E278FAD2BF0D5F30034097A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		4E3B34F32BFFC2F90080A895 /* SwipeCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCellDelegate.swift; sourceTree = "<group>"; };
+		4E3B34F52BFFC3250080A895 /* FavoriteCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCellDelegate.swift; sourceTree = "<group>"; };
+		4E3B34F72BFFD37A0080A895 /* FavoriteCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCellProtocol.swift; sourceTree = "<group>"; };
 		4E47FDB92BF91C2300A21B08 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD62BF48AFF00191932 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		4E4D0AD82BF48B1400191932 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
@@ -271,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				0B96F20C2BF3B29C00A6F840 /* Views */,
-				0B96F2092BF3B26400A6F840 /* Models */,
 				0B96F2042BF3B22C00A6F840 /* Cells */,
 				0B96F2012BF32C8D00A6F840 /* ViewControllers */,
 			);
@@ -295,15 +296,6 @@
 				0B3C2AC72BF75A7F00878745 /* AddCompareTableViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		0B96F2092BF3B26400A6F840 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0B96F20A2BF3B26F00A6F840 /* CompareData.swift */,
-				0B6B2BA92BF7921000B39CF7 /* AddRoomData.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		0B96F20C2BF3B29C00A6F840 /* Views */ = {
@@ -343,6 +335,7 @@
 		4E1FA4F02BF8A8240029ED16 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
+				4E3B34F22BFFC2E80080A895 /* Protocols */,
 				4E1FA4FD2BF8D6240029ED16 /* Cells */,
 				4E1FA4F22BF8A8420029ED16 /* Views */,
 				4E1FA4F12BF8A83C0029ED16 /* ViewControllers */,
@@ -567,6 +560,16 @@
 				0BA211C92BF8E82000091A2A /* YeogiToast */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		4E3B34F22BFFC2E80080A895 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4E3B34F32BFFC2F90080A895 /* SwipeCellDelegate.swift */,
+				4E3B34F52BFFC3250080A895 /* FavoriteCellDelegate.swift */,
+				4E3B34F72BFFD37A0080A895 /* FavoriteCellProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4E4D0AD52BF48AF200191932 /* VCForPageVC */ = {
@@ -797,6 +800,7 @@
 				4E64F02A2BFF986D00C13419 /* DateRangeHeaderView.swift in Sources */,
 				0B96F2182BF618BB00A6F840 /* CompareTableViewCell.swift in Sources */,
 				0B4AA6D72BEB9E6A00BCEA76 /* ViewController.swift in Sources */,
+				4E3B34F42BFFC2F90080A895 /* SwipeCellDelegate.swift in Sources */,
 				0B205B372BFD9A9500B0FB83 /* PostLikeCompareRequestDTO.swift in Sources */,
 				0B205B3D2BFD9D5000B0FB83 /* DeleteLikeRoomRequestDTO.swift in Sources */,
 				4E4D0AD72BF48AFF00191932 /* GreenViewController.swift in Sources */,
@@ -811,7 +815,6 @@
 				0B8E95F02BF9DB8300C3F285 /* MoyaPlugin.swift in Sources */,
 				0B96F2222BF61A2200A6F840 /* CompareFilterView.swift in Sources */,
 				0B205B412BFF18F500B0FB83 /* EmptyDataView.swift in Sources */,
-				0B96F20B2BF3B26F00A6F840 /* CompareData.swift in Sources */,
 				0B205B392BFD9AA100B0FB83 /* PostLikeCompareResponseDTO.swift in Sources */,
 				4E64F0212BFEB47800C13419 /* GetHotelListResponseDTO.swift in Sources */,
 				0B719C562BF21C6400DF1D92 /* UITextField+.swift in Sources */,
@@ -837,7 +840,6 @@
 				0B3C2AC02BF720A000878745 /* Int+.swift in Sources */,
 				4E278F9E2BF0B15D0034097A /* String+.swift in Sources */,
 				4EF183E12BFE0DB4001789FB /* GetHotelDetailResponseDTO.swift in Sources */,
-				0B6B2BAA2BF7921000B39CF7 /* AddRoomData.swift in Sources */,
 				0B3C2ABA2BF6EF7F00878745 /* UILabel+.swift in Sources */,
 				0B3C2AC62BF7598100878745 /* AddCompareRootView.swift in Sources */,
 				0BA211CD2BF8E86100091A2A /* YeogiToastView.swift in Sources */,
@@ -854,6 +856,7 @@
 				0B719C3F2BF20A7F00DF1D92 /* SceneDelegate.swift in Sources */,
 				4E47FDBA2BF91C2300A21B08 /* FavoritesCollectionViewController.swift in Sources */,
 				4E1FA4FA2BF8A90C0029ED16 /* FavoritesSegmentStackView.swift in Sources */,
+				4E3B34F62BFFC3250080A895 /* FavoriteCellDelegate.swift in Sources */,
 				0B96F2202BF619CE00A6F840 /* CompareRoomRootView.swift in Sources */,
 				0B96F2242BF61D5D00A6F840 /* NSObject+.swift in Sources */,
 				0B205B3F2BFD9DB000B0FB83 /* DeleteLikeRoomResponseDTO.swift in Sources */,
@@ -871,6 +874,7 @@
 				4EF183DB2BFCE45D001789FB /* FavoritesListNetworkingManager.swift in Sources */,
 				4E64F01D2BFEB33200C13419 /* HotelListNeworkingManager.swift in Sources */,
 				4E7021472BF2514B00D480AE /* UITabBarController+.swift in Sources */,
+				4E3B34F82BFFD37A0080A895 /* FavoriteCellProtocol.swift in Sources */,
 				4EE7D0D52BF4912B002BDF8E /* SearchResultHeaderView.swift in Sources */,
 				4E278F9C2BEFB5B40034097A /* UIColor+.swift in Sources */,
 				4EE7D0D12BF49073002BDF8E /* SearchResultViewController.swift in Sources */,

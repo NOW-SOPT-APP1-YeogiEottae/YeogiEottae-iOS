@@ -83,5 +83,41 @@ enum StringLiteral {
         static var refund7 = "예약 후 10분 내 취소될 경우 취소 수수료가 발생하지 않습니다. (*체크인 시간 경과 후 제외)"
         static var refund8 = "예약 후 10분 경과 시엔 해당 숙소의 취소 및 환불 규정이 적용됩니다."
         
+    enum HotelDetail {
+        static var dateRange = "5.15 수 - 5.16 토 1박"
+        static var hotelDetail = "호텔 상세"
+        static var toss = "토스페이"
+        static var roomInfo = "객실정보"
+        static var roomPerson = "기준2인 최대2인"
+        static var package = "패키지"
+        static var amusementpark = "롯데월드 자유이용권 2매"
+        static var coupon = "쿠폰적용시"
+        static var distance = "건대입구역 도보 3분"
+        static var warn = "방을 선택하면 비교하기 기능을 사용할 수 있어요"
+        static var empty = "아직 선택된 방이 없어요"
+        static var select = "선택하기"
+        static var date = "5.2 목 - 5.3 금"
+        static var compare = "비교하기"
+        static var national = "국내 숙소"
+        static var aboard = "해외 숙소"
+        static var rental = "공간대여"
+        static var ticket = "레저•티켓"
+    }
+    
+    enum SearchList {
+        static var hotel = "호텔"
+        static var rating = "10"
+        static var valuation = "3,333개 평가"
+        static var filter = "필터"
+    }
+    
+    enum Compare {
+        static var reservation = "예약하기"
+        static var add = "추가하기"
+        static var like = "내가 선택한 상품"
+        static var compareEasily = "비교하고 싶은 숙소를 추가하면\n간편하게 비교해볼 수 있어요"
+        static var empty = "아직 추가한 숙소가 없어요"
+        static var edit = "수정하기"
+        static var editComplete = "수정완료"
     }
 }

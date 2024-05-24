@@ -9,7 +9,6 @@ import UIKit
 
 final class FavoritesView: UIView {
     
-    
     var screenSize: CGSize? {
         guard let screen = self.window?.windowScene?.screen else {
             print("screenSize is nil")
@@ -42,7 +41,7 @@ final class FavoritesView: UIView {
         
         let button = UIButton(configuration: configuration)
         button.imageView?.contentMode = .scaleAspectFit
-        button.setTitle("5.2 목 - 5.3 금", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.date, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         
@@ -72,11 +71,28 @@ final class FavoritesView: UIView {
         
         let button = UIButton(configuration: configuration)
         button.imageView?.contentMode = .scaleAspectFit
-        button.setTitle("2명", for: .normal)
+        button.setTitle(StringLiteral.CompareRoom.person, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         
         return button
+    }()
+    
+    let compareButtonBadgeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.textAlignment = .center
+        label.font = UIFont.projectFont(name: .l4)
+        label.textColor = .grayColor(brightness: .gray0)
+        return label
+    }()
+    
+    let compareButtonBadgeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .brandColor(brightness: .brand)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 11
+        return view
     }()
     
     let compareButton: UIButton = {
@@ -97,7 +113,7 @@ final class FavoritesView: UIView {
         }()
         
         let button = UIButton(configuration: configuration)
-        button.setTitle("비교하기", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.compare, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         return button
@@ -139,10 +155,13 @@ final class FavoritesView: UIView {
     
     private func configureViewHierarchy() {
         
+        self.compareButtonBadgeView.addSubview(self.compareButtonBadgeLabel)
+        
         self.fixedHeaderView.addSubviews(
             self.favoritesDayButton,
             self.favoritesHeadCountButton,
-            self.compareButton
+            self.compareButton,
+            self.compareButtonBadgeView
         )
         
         self.addSubviews(
@@ -176,6 +195,16 @@ final class FavoritesView: UIView {
             make.top.equalTo(self.favoritesDayButton)
             make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(self.favoritesDayButton)
+        }
+        
+        self.compareButtonBadgeLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        self.compareButtonBadgeView.snp.makeConstraints { make in
+            make.top.equalTo(self.compareButton).offset(-8)
+            make.trailing.equalTo(self.compareButton).offset(8)
+            make.width.height.equalTo(22)
         }
     }
     

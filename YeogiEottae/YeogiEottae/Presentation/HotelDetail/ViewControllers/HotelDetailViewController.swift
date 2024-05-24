@@ -63,7 +63,7 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "호텔 상세"
+        navigationItem.title = StringLiteral.HotelDetail.hotelDetail
         let shareItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.rightBarButtonItem = shareItem
     }

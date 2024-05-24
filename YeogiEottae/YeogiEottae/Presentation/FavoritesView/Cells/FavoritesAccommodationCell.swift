@@ -8,18 +8,25 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
-final class FavoritesAccommodationCell: UICollectionViewCell {
+final class FavoritesAccommodationCell: UICollectionViewCell, FavoriteCellProtocol {
     
     static var reuseIdentifier: String {
         return String(describing: self)
     }
     
+    var delegate: FavoriteCellDelegate?
+    var accommodationID: Int = 0
+    
+    let tapGestureRecognizerForAccommodationInfo = UITapGestureRecognizer()
+    let tapGestureRecognizerForRoomInfo = UITapGestureRecognizer()
+    
     let accommodationInfoContainerView = UIView()
     
     let accommodationImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .systemGray5
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
@@ -69,7 +76,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     var transportationAccessibilityLabel: UILabel = {
         let label = UILabel()
-        label.text = "건대입구역 도보 3분"
+        label.text = StringLiteral.HotelDetail.distance
         label.font = UIFont.projectFont(name: .l2)
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -100,7 +107,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     let emptyStatusMessageLabel: UILabel = {
         let label = UILabel()
-        label.text = "아직 선택된 방이 없어요"
+        label.text = StringLiteral.HotelDetail.empty
         label.font = UIFont.projectFont(name: .l2)
         label.textColor = .grayColor(brightness: .gray850)
         label.textAlignment = .left
@@ -110,7 +117,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     let emptyStatusDetailMessageLabel: UILabel = {
         let label = UILabel()
-        label.text = "방을 선택하면 비교하기 기능을 사용할 수 있어요"
+        label.text = StringLiteral.HotelDetail.warn
         label.font = UIFont.projectFont(name: .l6)
         label.textColor = .grayColor(brightness: .gray800)
         label.textAlignment = .left
@@ -120,7 +127,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     let chooseRoomButton: UIButton = {
         let button = UIButton()
-        button.setTitle("선택하기", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.select, for: .normal)
         button.setTitleColor(.secondaryColor(brightness: .secondary600), for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .l1)
         return button
@@ -132,6 +139,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
         self.setUI()
         self.configureViewHierarchy()
         self.setConstraints()
+        self.setGestureRecognizers()
     }
     
     required init?(coder: NSCoder) {
@@ -266,10 +274,30 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
         }
     }
     
+    func setGestureRecognizers() {
+        self.accommodationInfoContainerView.addGestureRecognizer(self.tapGestureRecognizerForAccommodationInfo)
+        self.statusMessageContainer.addGestureRecognizer(self.tapGestureRecognizerForRoomInfo)
+        self.tapGestureRecognizerForAccommodationInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+        self.tapGestureRecognizerForRoomInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+    }
     
-    func configureData(accommodationlName: String, rating: Double) {
+    @objc private func handleTapGestureRecognizer(sender: UITapGestureRecognizer) {
+        switch sender {
+        case self.tapGestureRecognizerForAccommodationInfo:
+            self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
+        case self.tapGestureRecognizerForRoomInfo:
+            //self.delegate?.roomInfoDidTapped(id: <#T##Int#>)
+            self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
+        default:
+            return
+        }
+    }
+    
+    func configureData(accommodationID: Int, accommodationlName: String, rating: Double/*, imageURL: String*/) {
+        self.accommodationID = accommodationID
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"
+        //self.accommodationImageView.kf.setImage(with: URL(string: imageURL))
     }
     
 }

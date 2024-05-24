@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 
@@ -92,9 +93,9 @@ final class CompareButton: UIButton {
         
         switch compareButtonType {
         case .reservation:
-            buttonTitleLabel.text = "예약하기"
+            buttonTitleLabel.text = SringLiteral.Compare.reservation
         case .add:
-            buttonTitleLabel.text = "추가하기"
+            buttonTitleLabel.text = SringLiteral.Compare.add
             countLabel.text = "\(addAmount)"
         }
     }

@@ -7,9 +7,14 @@
 
 import UIKit
 
+import Moya
+
 class FavoritesCollectionViewController: UIViewController {
     
     var isRoomFavorite: [Bool] = [true, true, false, true, false]
+    
+    let provier = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
+    var favoriteContentsArray: [FavoriteContentDTO] = []
     
     lazy var favoritesCollectionView: UICollectionView = {
         
@@ -29,11 +34,21 @@ class FavoritesCollectionViewController: UIViewController {
         return collectionView
     }()
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.requestFavoritesListAndReloadData()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureViewHierarchy()
+        self.configureRefreshControl()
         self.setConstraints()
         self.setDelegates()
     }
@@ -42,8 +57,20 @@ class FavoritesCollectionViewController: UIViewController {
         self.view.addSubview(self.favoritesCollectionView)
     }
     
+    private func configureRefreshControl() {
+        self.favoritesCollectionView.refreshControl = UIRefreshControl()
+        self.favoritesCollectionView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc private func handleRefreshControl() {
+        self.requestFavoritesListAndReloadData {
+            DispatchQueue.main.async { //Moya를 통해 구현했기 때문에 main thread에서 동작하는 것이 보장되지만, 노파심에...
+                self.favoritesCollectionView.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
     private func setConstraints() {
-        
         self.favoritesCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -55,26 +82,47 @@ class FavoritesCollectionViewController: UIViewController {
     }
     
     
+    private func requestFavoritesListAndReloadData(completion: (() -> Void)? = nil) {
+        self.provier.request(.getFavoritesListData) { result in
+            switch result {
+            case .success(let response):
+                let data = response.data
+                guard let getFavoritesListDTO = try? JSONDecoder().decode(GetFavoritesListResponseDTO.self, from: data) else { return }
+                let favoriteContentsArray = getFavoritesListDTO.result
+                self.favoriteContentsArray = favoriteContentsArray
+                self.favoritesCollectionView.reloadData()
+                completion?()
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
+        }
+    }
 }
 
 
 extension FavoritesCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.favoriteContentsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let favoriteContent = self.favoriteContentsArray[indexPath.item]
         
-        switch self.isRoomFavorite[indexPath.item] {
+        switch favoriteContent.roomInformation != nil {
         case true:
             guard let favoritesRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesRoomCell.reuseIdentifier, for: indexPath) as? FavoritesRoomCell else { fatalError() }
             
+            favoritesRoomCell.delegate = self
             favoritesRoomCell.configureData(
-                accommodationlName: "그랜드 인터컨티넨탈 파르나스",
-                rating: 9.4,
-                roomName: "스탠다드 트윈룸",
-                price: 90000
+                accommodationID: favoriteContent.hotelID,
+                roomID: favoriteContent.roomInformation!.roomID,
+                accommodationlName: favoriteContent.hotelName,
+                rating: favoriteContent.reviewRate,
+                roomName: favoriteContent.roomInformation!.roomName, //switch문을 통해 roomInformation != nil임을 확인했으므로 강제 언래핑
+                priceInString: favoriteContent.roomInformation!.price.formattedWithSeparator,
+                imageURL: favoriteContent.roomInformation!.roomImageURL
             )
             
             return favoritesRoomCell
@@ -82,9 +130,11 @@ extension FavoritesCollectionViewController: UICollectionViewDataSource {
             
             guard let favoritesAccommodationCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesAccommodationCell.reuseIdentifier, for: indexPath) as? FavoritesAccommodationCell else { fatalError() }
             
+            favoritesAccommodationCell.delegate = self
             favoritesAccommodationCell.configureData(
-                accommodationlName: "그랜드 인터컨티넨탈 파르나스",
-                rating: 9.4
+                accommodationID: favoriteContent.hotelID,
+                accommodationlName: favoriteContent.hotelName,
+                rating: favoriteContent.reviewRate
             )
             
             return favoritesAccommodationCell
@@ -106,8 +156,9 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
         
         guard let screenWidth = self.view.window?.windowScene?.screen.bounds.width else { fatalError() }
         let cellWidth = screenWidth - (19 * 2)
+        let favoriteContent = self.favoriteContentsArray[indexPath.item]
         
-        if self.isRoomFavorite[indexPath.item] {
+        if favoriteContent.roomInformation != nil {
             return CGSize(width: cellWidth, height: 379)
         } else {
             return CGSize(width: cellWidth, height: 139)
@@ -115,4 +166,42 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
         
     }
     
+}
+
+
+extension FavoritesCollectionViewController: SwipeCellDelegate {
+    func accommodationInfoDidTapped(id: Int) {
+        let hotelDetailViewController = HotelDetailViewController()
+        hotelDetailViewController.hotelID = id
+        guard let pageViewController = self.parent as? UIPageViewController else { return }
+        guard let parentViewController = pageViewController.parent else { return }
+        parentViewController.navigationController?.pushViewController(hotelDetailViewController, animated: true)
+    }
+    
+    func roomInfoDidTapped(id: Int) {
+        /*
+         roomDetailViewController가 완성되면 아래 코드 적용하기(일부 수정 가능성 있음)
+         */
+        //let roomDetailViewController(id: Int)
+        //roomDetailViewController.roomID = id
+        //self.navigationController?.pushViewController(roomDetailViewController, animated: true)
+        return
+    }
+    
+    func deleteItem(_ cell: UICollectionViewCell) {
+        guard let indexPath = self.favoritesCollectionView.indexPath(for: cell) else { return }
+        /*
+         순서 주의!
+         reloadItems가 아닌 deleteItems(at:) 메서드를 사용했기 때문에, dataSource를 수동으로 변경한 수 deleteItems(at:)를 호출해야 한다.
+         */
+        self.favoriteContentsArray.remove(at: indexPath.item)
+        self.favoritesCollectionView.deleteItems(at: [indexPath])
+    }
+    
+    func updateCompareListCount() {
+        guard let pageViewController = self.parent as? UIPageViewController else { return }
+        guard let favoritesViewController = pageViewController.parent as? FavoritesViewController else { return }
+        //let favoritesView = favoritesViewController.rootView
+        favoritesViewController.updateCompareListCount()
+    }
 }

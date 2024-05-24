@@ -13,7 +13,7 @@ class FavoritesSegmentStackView: UIStackView {
     
     let segmentButton0: UIButton = {
         let button = UIButton()
-        button.setTitle("국내 숙소", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.national, for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b5) //선택되면 h6
         button.setTitleColor(.grayColor(brightness: .gray850), for: .normal)
         button.setTitleColor(.secondaryColor(brightness: .secondary600), for: .selected)
@@ -23,7 +23,7 @@ class FavoritesSegmentStackView: UIStackView {
     
     let segmentButton1: UIButton = {
         let button = UIButton()
-        button.setTitle("해외 숙소", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.aboard, for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b5)
         button.setTitleColor(.grayColor(brightness: .gray850), for: .normal)
         button.setTitleColor(.secondaryColor(brightness: .secondary600), for: .selected)
@@ -33,7 +33,7 @@ class FavoritesSegmentStackView: UIStackView {
     
     let segmentButton2: UIButton = {
         let button = UIButton()
-        button.setTitle("공간대여", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.rental, for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b5)
         button.setTitleColor(.grayColor(brightness: .gray850), for: .normal)
         button.setTitleColor(.secondaryColor(brightness: .secondary600), for: .selected)
@@ -43,7 +43,7 @@ class FavoritesSegmentStackView: UIStackView {
     
     let segmentButton3: UIButton = {
         let button = UIButton()
-        button.setTitle("레저•티켓", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.ticket, for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .b5)
         button.setTitleColor(.grayColor(brightness: .gray850), for: .normal)
         button.setTitleColor(.secondaryColor(brightness: .secondary600), for: .selected)

@@ -6,20 +6,30 @@
 //
 
 import UIKit
-//import CoreGraphics
 
 import SnapKit
+import Moya
+import Kingfisher
 
-class FavoritesRoomCell: UICollectionViewCell {
+
+class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     
     static var reuseIdentifier: String {
         return String(describing: self)
     }
     
+    let feedbackGenerator = UINotificationFeedbackGenerator()
+    let compareProvider = MoyaProvider<CompareTargetType>(plugins: [MoyaLoggingPlugin()])
+    let favoriteProvider = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
+    let tapGestureRecognizerForAccommodationInfo = UITapGestureRecognizer()
+    let tapGestureRecognizerForRoomInfo = UITapGestureRecognizer()
+    
+    var delegate: SwipeCellDelegate?
+    var accommodationID: Int = 0
+    var roomID: Int = 0
     var isBlueCircleFilled: Bool = false
     var isRedCircleFilled: Bool = false
     
-    let feedbackGenerator = UINotificationFeedbackGenerator()
     
     var initialGestureLocation: CGPoint = CGPointZero
     
@@ -209,7 +219,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let roomImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .systemGray5
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
@@ -237,7 +247,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let roomDetailContentLabel: UILabel = {
         let label = UILabel()
-        label.text = "기준 2인 최대 2인"
+        label.text = StringLiteral.HotelDetail.roomPerson
         label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -247,7 +257,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let packageTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "패키지"
+        label.text = StringLiteral.HotelDetail.package
         label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -257,7 +267,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let packageContentLabel: UILabel = {
         let label = UILabel()
-        label.text = "롯데월드 자유이용권 2매"
+        label.text = StringLiteral.HotelDetail.amusementpark
         label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -278,7 +288,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     var discountPriceLabel: UILabel = {
         let label = UILabel()
         label.attributedText = NSAttributedString(
-            string: "30000",
+            string: 30000.formattedWithSeparator,
             attributes: [NSAttributedString.Key.strikethroughStyle: 1]
         )
         label.font = UIFont.projectFont(name: .l5)
@@ -290,7 +300,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     var isCouponAppliedLabel: UILabel = {
         let label = UILabel()
-        label.text = "쿠폰적용시"
+        label.text = StringLiteral.HotelDetail.coupon
         label.font = UIFont.projectFont(name: .b7)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -580,10 +590,27 @@ class FavoritesRoomCell: UICollectionViewCell {
         }
     }
     
-    private func setGestureRecognizers() {
+    func setGestureRecognizers() {
+        self.accommodationInfoContainerView.addGestureRecognizer(self.tapGestureRecognizerForAccommodationInfo)
+        self.roomInfoContainerView.addGestureRecognizer(self.tapGestureRecognizerForRoomInfo)
+        self.tapGestureRecognizerForAccommodationInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+        self.tapGestureRecognizerForRoomInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+        
         self.swipeableView.addGestureRecognizer(self.panGestureRecognizer)
         self.panGestureRecognizer.delegate = self
         self.panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(sender:)))
+    }
+    
+    @objc private func handleTapGestureRecognizer(sender: UITapGestureRecognizer) {
+        switch sender {
+        case self.tapGestureRecognizerForAccommodationInfo:
+            self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
+            
+        case self.tapGestureRecognizerForRoomInfo:
+            self.delegate?.roomInfoDidTapped(id: self.roomID)
+        default:
+            return
+        }
     }
     
     @objc private func handlePanGesture(sender: UIPanGestureRecognizer) {
@@ -720,8 +747,8 @@ class FavoritesRoomCell: UICollectionViewCell {
     private func fillBlueCircle(completion: (() -> Void)? = nil) {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isBlueCircleFilled = true
-        self.addToCompare(roomID: 0) { // roomID는 임의로 적은 것
-            print("비교하기에 추가됨")
+        self.addToCompare(roomID: self.roomID) {
+            YeogiToast.show(type: .addCompare, animationType: .pushFromBottom)
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
@@ -753,8 +780,8 @@ class FavoritesRoomCell: UICollectionViewCell {
     private func fillRedCircle(completion: (() -> Void)? = nil) {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isRedCircleFilled = true
-        self.removeFromFavorites(roomId: 0) { // roomID는 임의로 적은 것
-            print("찜에서 삭제됨")
+        self.removeFromFavorites(roomId: self.roomID) {
+            YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
@@ -782,20 +809,48 @@ class FavoritesRoomCell: UICollectionViewCell {
     }
     
     
-    func configureData(accommodationlName: String, rating: Double, roomName: String, price: Int) {
+    func configureData(accommodationID: Int, roomID: Int, accommodationlName: String, rating: Double, roomName: String, priceInString: String, imageURL: String) {
+        self.accommodationID = accommodationID
+        self.roomID = roomID
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"
         self.roomNameLabel.text = roomName
-        self.discountedPriceLabel.text = "\(price)"
+        self.discountedPriceLabel.text = priceInString
+        self.roomImageView.kf.setImage(with: URL(string: imageURL))
     }
     
     
     private func addToCompare(roomID: Int, completion: @escaping () -> Void) {
-        completion()
+        
+        self.compareProvider.request(.postLikeCompareDatarequest(request: PostLikeCompareRequestDTO(roomId: [roomID]))) { result in
+            switch result {
+            case .success(let response):
+                let data = response.data
+                guard let decodedData = try? JSONDecoder().decode(PostLikeCompareResponseDTO.self, from: data) else { return }
+                print(decodedData.message)
+                self.delegate?.updateCompareListCount()
+                completion()
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+                
+            }
+        }
     }
     
     private func removeFromFavorites(roomId: Int, completion: @escaping () -> Void) {
-        completion()
+        
+        self.favoriteProvider.request(.removeFromFavorites(isRoom: true, id: roomId)) { result in
+            switch result {
+            case .success(_):
+                self.delegate?.deleteItem(self)
+                self.delegate?.updateCompareListCount()
+                completion()
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
+        }
     }
     
 }

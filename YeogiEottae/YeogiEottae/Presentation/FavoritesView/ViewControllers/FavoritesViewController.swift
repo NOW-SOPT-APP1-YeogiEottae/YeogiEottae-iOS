@@ -7,7 +7,17 @@
 
 import UIKit
 
+import Moya
+
 class FavoritesViewController: UIViewController {
+    
+    let provider = MoyaProvider<CompareTargetType>(plugins: [MoyaLoggingPlugin()])
+    
+    var compareListCount: Int = 0 {
+        didSet {
+            self.rootView.compareButtonBadgeLabel.text = "\(self.compareListCount)"
+        }
+    }
     
     let rootView: FavoritesView = FavoritesView()
     
@@ -15,11 +25,21 @@ class FavoritesViewController: UIViewController {
     
     let viewControllerArray: [UIViewController] = [
         FavoritesCollectionViewController(),
-        FavoritesCollectionViewController(),
-        FavoritesCollectionViewController(),
-        FavoritesCollectionViewController()
+        GreenViewController(),
+        OrangeViewController(),
+        BlueViewController()
     ]
     let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.updateCompareListCount()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         self.view = self.rootView
@@ -36,8 +56,15 @@ class FavoritesViewController: UIViewController {
         self.setButtonsAction()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.updateCompareListCount()
+    }
+    
     private func configureViewHierarchy() {
         self.view.addSubview(self.pageViewController.view)
+        self.addChild(self.pageViewController)
     }
     
     private func setNavigationBar() {
@@ -74,6 +101,8 @@ class FavoritesViewController: UIViewController {
             guard let button = view as? UIButton else { return }
             button.addTarget(self, action: #selector(favoritesSegmentButtonDidTapped(sender:)), for: .touchUpInside)
         }
+        
+        self.rootView.compareButton.addTarget(self, action: #selector(compareButtonDidTapped), for: .touchUpInside)
     }
     
     @objc private func favoritesSegmentButtonDidTapped(sender: UIButton) {
@@ -102,6 +131,24 @@ class FavoritesViewController: UIViewController {
             self.pageViewController.setViewControllers([self.viewControllerArray[4]], direction: isForward, animated: true)
         default:
             return
+        }
+    }
+    
+    @objc private func compareButtonDidTapped() {
+        self.navigationController?.pushViewController(CompareRoomViewController(), animated: true)
+    }
+    
+    func updateCompareListCount() {
+        self.provider.request(.getCompareListData(price: "", review: "")) { result in
+            switch result {
+            case .success(let response):
+                let data = response.data
+                guard let decodedData = try? JSONDecoder().decode(CompareListResponseDTO.self, from: data) else { return }
+                self.compareListCount = decodedData.result.count
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
         }
     }
     
