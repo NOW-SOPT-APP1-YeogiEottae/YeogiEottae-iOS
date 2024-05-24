@@ -63,6 +63,13 @@ class FavoritesViewController: UIViewController {
         self.updateCompareListCount()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let currentIndex = self.favoritesSegmentStackView.currentIndex
+        self.favoritesSegmentStackView.select(at: currentIndex)
+    }
+    
     private func configureViewHierarchy() {
         self.view.addSubview(self.pageViewController.view)
         self.addChild(self.pageViewController)
