@@ -99,7 +99,6 @@ final class YeogiToast {
             
         }
         
-        
         func fadeIn(completion: (() -> Void)? = nil) {
             toastView.alpha = 0
             UIView.animate(withDuration: 0.5) {
@@ -122,8 +121,8 @@ final class YeogiToast {
         
         func pushFromBottom(completion: @escaping () -> Void) {
             print(#function)
-            animatorForPushing.stopAnimation(true)
             animatorForDismissing.stopAnimation(true)
+            animatorForPushing.stopAnimation(true)
             toastViewBottomConstraint.constant = toastHeight
             window.layoutIfNeeded()
             animatorForPushing.addAnimations {
