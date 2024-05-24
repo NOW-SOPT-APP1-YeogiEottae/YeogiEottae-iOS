@@ -35,8 +35,8 @@ class SearchResultCell: UITableViewCell {
                         fatalError()
                     }
                 }
-                
                 self.heartButton.isSelected = self.isFavorite
+                
             case false:
                 //서버에 찜 해제 요청하는 코드
                 self.provider.request(.removeFromFavorites(isRoom: false, id: self.accommodationID)) { result in
@@ -48,8 +48,8 @@ class SearchResultCell: UITableViewCell {
                         fatalError()
                     }
                 }
-                
                 self.heartButton.isSelected = self.isFavorite
+                
             }
             
             
@@ -372,6 +372,12 @@ class SearchResultCell: UITableViewCell {
     @objc private func heartButtonDidTapped() {
         print(#function, self.accommodationInfo!.hotelName)
         self.isFavorite.toggle()
+        switch self.isFavorite {
+        case true:
+            YeogiToast.show(type: .addHotelLike)
+        case false:
+            YeogiToast.show(type: .deinitLike)
+        }
     }
         
     

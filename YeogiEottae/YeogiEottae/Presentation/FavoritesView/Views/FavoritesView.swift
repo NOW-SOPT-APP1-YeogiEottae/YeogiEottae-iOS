@@ -9,7 +9,6 @@ import UIKit
 
 final class FavoritesView: UIView {
     
-    
     var screenSize: CGSize? {
         guard let screen = self.window?.windowScene?.screen else {
             print("screenSize is nil")
@@ -79,6 +78,23 @@ final class FavoritesView: UIView {
         return button
     }()
     
+    let compareButtonBadgeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.textAlignment = .center
+        label.font = UIFont.projectFont(name: .l4)
+        label.textColor = .grayColor(brightness: .gray0)
+        return label
+    }()
+    
+    let compareButtonBadgeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .brandColor(brightness: .brand)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 11
+        return view
+    }()
+    
     let compareButton: UIButton = {
         
         let transformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -139,10 +155,13 @@ final class FavoritesView: UIView {
     
     private func configureViewHierarchy() {
         
+        self.compareButtonBadgeView.addSubview(self.compareButtonBadgeLabel)
+        
         self.fixedHeaderView.addSubviews(
             self.favoritesDayButton,
             self.favoritesHeadCountButton,
-            self.compareButton
+            self.compareButton,
+            self.compareButtonBadgeView
         )
         
         self.addSubviews(
@@ -176,6 +195,16 @@ final class FavoritesView: UIView {
             make.top.equalTo(self.favoritesDayButton)
             make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(self.favoritesDayButton)
+        }
+        
+        self.compareButtonBadgeLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        self.compareButtonBadgeView.snp.makeConstraints { make in
+            make.top.equalTo(self.compareButton).offset(-8)
+            make.trailing.equalTo(self.compareButton).offset(8)
+            make.width.height.equalTo(22)
         }
     }
     
