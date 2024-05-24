@@ -8,18 +8,25 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
-final class FavoritesAccommodationCell: UICollectionViewCell {
+final class FavoritesAccommodationCell: UICollectionViewCell, FavoriteCellProtocol {
     
     static var reuseIdentifier: String {
         return String(describing: self)
     }
     
+    var delegate: FavoriteCellDelegate?
+    var accommodationID: Int = 0
+    
+    let tapGestureRecognizerForAccommodationInfo = UITapGestureRecognizer()
+    let tapGestureRecognizerForRoomInfo = UITapGestureRecognizer()
+    
     let accommodationInfoContainerView = UIView()
     
     let accommodationImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .systemGray5
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
@@ -132,6 +139,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
         self.setUI()
         self.configureViewHierarchy()
         self.setConstraints()
+        self.setGestureRecognizers()
     }
     
     required init?(coder: NSCoder) {
@@ -266,10 +274,30 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
         }
     }
     
+    func setGestureRecognizers() {
+        self.accommodationInfoContainerView.addGestureRecognizer(self.tapGestureRecognizerForAccommodationInfo)
+        self.statusMessageContainer.addGestureRecognizer(self.tapGestureRecognizerForRoomInfo)
+        self.tapGestureRecognizerForAccommodationInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+        self.tapGestureRecognizerForRoomInfo.addTarget(self, action: #selector(handleTapGestureRecognizer(sender:)))
+    }
     
-    func configureData(accommodationlName: String, rating: Double) {
+    @objc private func handleTapGestureRecognizer(sender: UITapGestureRecognizer) {
+        switch sender {
+        case self.tapGestureRecognizerForAccommodationInfo:
+            self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
+        case self.tapGestureRecognizerForRoomInfo:
+            //self.delegate?.roomInfoDidTapped(id: <#T##Int#>)
+            self.delegate?.accommodationInfoDidTapped(id: self.accommodationID)
+        default:
+            return
+        }
+    }
+    
+    func configureData(accommodationID: Int, accommodationlName: String, rating: Double/*, imageURL: String*/) {
+        self.accommodationID = accommodationID
         self.accommodationNameLabel.text = accommodationlName
         self.ratingLabel.text = "\(rating)"
+        //self.accommodationImageView.kf.setImage(with: URL(string: imageURL))
     }
     
 }
