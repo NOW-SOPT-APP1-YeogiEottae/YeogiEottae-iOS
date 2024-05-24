@@ -748,7 +748,7 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isBlueCircleFilled = true
         self.addToCompare(roomID: self.roomID) {
-            YeogiToast.show(type: .addCompare)
+            YeogiToast.show(type: .addCompare, animationType: .pushFromBottom)
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
@@ -781,7 +781,7 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isRedCircleFilled = true
         self.removeFromFavorites(roomId: self.roomID) {
-            YeogiToast.show(type: .deinitLike)
+            YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
