@@ -66,7 +66,7 @@ class SearchListViewController: UIViewController {
     
     let pageViewController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
-    lazy var segmentCollectoinView = self.rootView.segmentCollectionView
+    lazy var segmentCollectionView = self.rootView.segmentCollectionView
     lazy var searchFilterListCollectionView = self.rootView.searchFilterListCollectionView
     
     lazy var pageViewControllerTopConstraint = self.pageViewController.view.topAnchor.constraint(equalTo: self.rootView.filterView.bottomAnchor)
@@ -170,6 +170,13 @@ class SearchListViewController: UIViewController {
         self.setInitialNavigationBar()
         self.updateSearchCondition()
         self.setDelegates()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let currentIndex = self.segmentCollectionView.currentIndex
+        self.segmentCollectionView.select(at: currentIndex)
     }
     
     override func viewDidLayoutSubviews() {
@@ -298,7 +305,7 @@ extension SearchListViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         switch collectionView {
-        case self.segmentCollectoinView:
+        case self.segmentCollectionView:
             return 1
         case self.searchFilterListCollectionView:
             return 2
@@ -311,7 +318,7 @@ extension SearchListViewController: UICollectionViewDataSource {
         
         
         switch collectionView {
-        case self.segmentCollectoinView:
+        case self.segmentCollectionView:
             return 7
             
         case self.searchFilterListCollectionView:
@@ -334,7 +341,7 @@ extension SearchListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch collectionView {
-        case self.segmentCollectoinView:
+        case self.segmentCollectionView:
             guard let searchSegmentCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: SearchSegmentCell.reuseIdentifier,
                 for: indexPath
@@ -380,8 +387,8 @@ extension SearchListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
-        case self.segmentCollectoinView:
-            self.segmentCollectoinView.select(at: indexPath.item)
+        case self.segmentCollectionView:
+            self.segmentCollectionView.select(at: indexPath.item)
             
             var isForward: UIPageViewController.NavigationDirection {
                 let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
@@ -488,16 +495,16 @@ extension SearchListViewController: UIPageViewControllerDelegate {
         let currentIndex = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
         let toIndex = self.vcArray.firstIndex(of: pendingViewControllers[0])!
         if toIndex < currentIndex {
-            self.segmentCollectoinView.select(at: toIndex)
+            self.segmentCollectionView.select(at: toIndex)
         } else {
-            self.segmentCollectoinView.select(at: currentIndex)
+            self.segmentCollectionView.select(at: currentIndex)
         }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         self.isTableViewScrollToTopEnable = true
         let index = self.vcArray.firstIndex(of: self.pageViewController.viewControllers![0])!
-        self.segmentCollectoinView.select(at: index)
+        self.segmentCollectionView.select(at: index)
     }
     
 }

@@ -169,7 +169,8 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
 }
 
 
-extension FavoritesCollectionViewController: SwipeCellDelegate {
+extension FavoritesCollectionViewController: FavoriteCellDelegate {
+    
     func accommodationInfoDidTapped(id: Int) {
         let hotelDetailViewController = HotelDetailViewController()
         hotelDetailViewController.hotelID = id
@@ -188,6 +189,10 @@ extension FavoritesCollectionViewController: SwipeCellDelegate {
         return
     }
     
+}
+
+extension FavoritesCollectionViewController: SwipeCellDelegate {
+    
     func deleteItem(_ cell: UICollectionViewCell) {
         guard let indexPath = self.favoritesCollectionView.indexPath(for: cell) else { return }
         /*
@@ -204,4 +209,5 @@ extension FavoritesCollectionViewController: SwipeCellDelegate {
         //let favoritesView = favoritesViewController.rootView
         favoritesViewController.updateCompareListCount()
     }
+    
 }

@@ -747,8 +747,22 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     private func fillBlueCircle(completion: (() -> Void)? = nil) {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isBlueCircleFilled = true
-        self.addToCompare(roomID: self.roomID) {
-            YeogiToast.show(type: .addCompare, animationType: .pushFromBottom)
+        self.addToCompare(roomID: self.roomID) { result in
+            switch result {
+            case .success(let response):
+                switch response.statusCode {
+                case 200:
+                    YeogiToast.show(type: .addCompare, animationType: .pushFromBottom)
+                case 400:
+                    YeogiToast.show(type: .warnLimitCompare, animationType: .pushFromBottom)
+                default:
+                    return
+                }
+                self.delegate?.updateCompareListCount()
+                
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
@@ -780,8 +794,16 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     private func fillRedCircle(completion: (() -> Void)? = nil) {
         self.feedbackGenerator.notificationOccurred(.success)
         self.isRedCircleFilled = true
-        self.removeFromFavorites(roomId: self.roomID) {
-            YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
+        self.removeFromFavorites(roomId: self.roomID) { result in
+            switch result {
+            case .success:
+                self.delegate?.deleteItem(self)
+                self.delegate?.updateCompareListCount()
+                YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
+            case .failure(let moyaError):
+                fatalError(moyaError.localizedDescription)
+            }
+            
         }
         
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1)
@@ -820,36 +842,17 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
     }
     
     
-    private func addToCompare(roomID: Int, completion: @escaping () -> Void) {
+    private func addToCompare(roomID: Int, completion: @escaping (Result<Response, MoyaError>) -> Void) {
         
         self.compareProvider.request(.postLikeCompareDatarequest(request: PostLikeCompareRequestDTO(roomId: [roomID]))) { result in
-            switch result {
-            case .success(let response):
-                let data = response.data
-                guard let decodedData = try? JSONDecoder().decode(PostLikeCompareResponseDTO.self, from: data) else { return }
-                print(decodedData.message)
-                self.delegate?.updateCompareListCount()
-                completion()
-                
-            case .failure(let moyaError):
-                fatalError(moyaError.localizedDescription)
-                
-            }
+            completion(result)
         }
     }
     
-    private func removeFromFavorites(roomId: Int, completion: @escaping () -> Void) {
+    private func removeFromFavorites(roomId: Int, completion: @escaping (Result<Response, MoyaError>) -> Void) {
         
         self.favoriteProvider.request(.removeFromFavorites(isRoom: true, id: roomId)) { result in
-            switch result {
-            case .success(_):
-                self.delegate?.deleteItem(self)
-                self.delegate?.updateCompareListCount()
-                completion()
-                
-            case .failure(let moyaError):
-                fatalError(moyaError.localizedDescription)
-            }
+            completion(result)
         }
     }
     
