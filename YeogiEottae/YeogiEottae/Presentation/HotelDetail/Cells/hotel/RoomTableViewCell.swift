@@ -8,10 +8,14 @@
 import UIKit
 
 import SnapKit
+import Moya
 
 class RoomTableViewCell: UITableViewCell {
     static let reuseIdentifier = "RoomTableViewCell"
     
+    var provider = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
+    
+    var roomDetail: RoomDetail? = nil
     let roomImageView = UIImageView()
     var roomTypeLabel = UILabel()
     let priceLabel = UILabel()
@@ -26,14 +30,40 @@ class RoomTableViewCell: UITableViewCell {
         label.text = StringLiteral.HotelDetail.roomPerson
         return label
     }()
+    var isFavorite: Bool = false
+    var heartButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: "like20")
+        configuration.background.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        let button = UIButton(configuration: configuration)
+        button.setImage(UIImage(named: "like20"), for: .normal)
+        button.setImage(
+            UIImage(named: "like20")?.withTintColor(.brandColor(brightness: .brand), renderingMode: .alwaysOriginal),
+            for: .selected
+        )
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 15
+        return button
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
+        setButtonsAction()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.heartButton.convert(self.heartButton.bounds, to: self.contentView).contains(point) {
+            return self.heartButton
+        } else {
+            return super.hitTest(point, with: event)
+        }
     }
     
     private func setupViews() {
@@ -68,6 +98,8 @@ class RoomTableViewCell: UITableViewCell {
         contentView.addSubview(infoView)
         contentView.addSubview(roomImageView)
         contentView.addSubview(roomTypeLabel)
+        contentView.addSubview(heartButton)
+        
         contentView.addSubview(priceLabel)
         contentView.addSubview(bookingInfoLabel)
         contentView.addSubview(infoLabel)
@@ -82,6 +114,11 @@ class RoomTableViewCell: UITableViewCell {
         roomTypeLabel.snp.makeConstraints { make in
             make.top.equalTo(roomImageView.snp.bottom).offset(24)
             make.left.equalToSuperview().inset(19)
+        }
+        
+        heartButton.snp.makeConstraints { make in
+            make.top.equalTo(roomImageView.snp.bottom).offset(15)
+            make.right.equalToSuperview().inset(19)
         }
         
         priceLabel.snp.makeConstraints { make in
@@ -113,6 +150,28 @@ class RoomTableViewCell: UITableViewCell {
         
     }
     
+    private func setButtonsAction() {
+        self.heartButton.addTarget(self, action: #selector(heartButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc private func heartButtonDidTapped() {
+        print(#function)
+        self.heartButton.isSelected.toggle()
+        self.isFavorite.toggle()
+        
+        
+        self.provider.request(.addToFavorites(isRoom: true, id: self.roomDetail!.roomID)) { result in
+            
+        }
+        
+        switch self.isFavorite {
+        case true:
+            YeogiToast.show(type: .addRoomLike, animationType: .pushFromBottom)
+        case false:
+            YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
+        }
+    }
+    
     func configure(image: UIImage, roomType: String, price: String, bookingInfo: String) {
         roomImageView.image = image
         roomTypeLabel.text = roomType
@@ -121,9 +180,12 @@ class RoomTableViewCell: UITableViewCell {
     }
     
     func configure(with roomDetail: RoomDetail) {
+        self.roomDetail = roomDetail
         roomTypeLabel.text = roomDetail.roomName
         priceLabel.text = "\(roomDetail.price)원"
         bookingInfoLabel.text = "입실 \(roomDetail.startTime) 퇴실 \(roomDetail.endTime)"
+        self.isFavorite = roomDetail.isLiked
+        self.heartButton.isSelected = self.isFavorite
         
         if let imageUrl = URL(string: roomDetail.imageURL){
             URLSession.shared.dataTask(with: imageUrl) { data, response, error in

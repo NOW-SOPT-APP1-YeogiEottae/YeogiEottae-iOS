@@ -22,13 +22,19 @@ class ImageTableViewCell: UITableViewCell {
     let positionImageView = UIImageView()
     let starImageView = UIImageView()
     
+    var isFavorite: Bool = false
     var heartButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: "like20")
+        configuration.background.backgroundColor = UIColor.grayColor(brightness: .gray200)
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let button = UIButton(configuration: configuration)
-        button.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        button.setImage(UIImage(named: "like20"), for: .normal)
+        button.setImage(
+            UIImage(named: "like20")?.withTintColor(.brandColor(brightness: .brand), renderingMode: .alwaysOriginal),
+            for: .selected
+        )
         button.clipsToBounds = true
         button.layer.cornerRadius = 15
         return button
@@ -37,10 +43,19 @@ class ImageTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
+        setButtonsAction()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.heartButton.convert(self.heartButton.bounds, to: self.contentView).contains(point) {
+            return self.heartButton
+        } else {
+            return super.hitTest(point, with: event)
+        }
     }
     
     @objc private func heartButtonTapped() {
@@ -52,9 +67,6 @@ class ImageTableViewCell: UITableViewCell {
         hotelImageView.contentMode = .scaleAspectFill
         hotelImageView.clipsToBounds = true
         addSubview(hotelImageView)
-        
-        heartButton.setImage(UIImage(named: "like20")?.withRenderingMode(.alwaysOriginal), for: .normal)
-            heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
         
         moreLabel.font = UIFont.projectFont(name: .h6)
         moreLabel.textColor = UIColor.secondaryColor(brightness: .secondary600)
@@ -127,12 +139,12 @@ class ImageTableViewCell: UITableViewCell {
             make.top.equalTo(nameLabel.snp.bottom).offset(25)
             make.left.equalTo(hotelImageView).inset(19)
             make.centerY.equalTo(addressLabel)
-            make.width.height.equalTo(20) // Adjust size as necessary
+            make.width.height.equalTo(20)
         }
         
         addressLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(25)
-            make.left.equalTo(positionImageView.snp.right).offset(4) // Maintain a 4px gap
+            make.left.equalTo(positionImageView.snp.right).offset(4)
             make.right.equalTo(hotelImageView).inset(19)
         }
         
@@ -140,7 +152,7 @@ class ImageTableViewCell: UITableViewCell {
             make.top.equalTo(positionImageView.snp.bottom).offset(11)
             make.left.equalTo(hotelImageView).inset(19)
             make.centerY.equalTo(ratingLabel)
-            make.width.height.equalTo(20) // Adjust size as necessary
+            make.width.height.equalTo(20) 
         }
         
         ratingLabel.snp.makeConstraints { make in
@@ -153,6 +165,22 @@ class ImageTableViewCell: UITableViewCell {
             make.top.equalTo(addressLabel.snp.bottom).offset(11)
             make.left.equalTo(ratingLabel.snp.right).offset(4)
             make.bottom.equalToSuperview().inset(31)
+        }
+    }
+    
+    private func setButtonsAction() {
+        self.heartButton.addTarget(self, action: #selector(heartButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc private func heartButtonDidTapped() {
+        print(#function)
+        self.heartButton.isSelected.toggle()
+        self.isFavorite.toggle()
+        switch self.isFavorite {
+        case true:
+            YeogiToast.show(type: .addHotelLike, animationType: .pushFromBottom)
+        case false:
+            YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
         }
     }
     
@@ -176,6 +204,8 @@ class ImageTableViewCell: UITableViewCell {
         self.ratingLabel.text = "\(hotelDetail.reviewRate)" //문자열 보간법(Sting interpolation)
         self.reviewLabel.text = "\(hotelDetail.reviewCount)개 리뷰"
         self.hotelImageView.kf.setImage(with: URL(string: imageURL))
+        self.isFavorite = hotelDetail.isLiked
+        self.heartButton.isSelected = self.isFavorite
     }
 }
 
