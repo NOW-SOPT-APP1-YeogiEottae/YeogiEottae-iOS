@@ -49,8 +49,6 @@ final class YeogiAlertViewController: UIViewController {
     
     @objc private func deleteButtonTapped() {
         deleteCompareLikeData()
-        self.delegate?.didDeleteRoom()
-        self.dismiss(animated: false)
     }
     
     private func deleteCompareLikeData() {
@@ -58,7 +56,10 @@ final class YeogiAlertViewController: UIViewController {
             switch response {
             case .success(let data):
                 if let data = data as? DeleteLikeRoomResponseDTO {
+                    
                 }
+                self?.delegate?.didDeleteRoom()
+                self?.dismiss(animated: false)
                 
             case .requestErr:
                 print("요청 오류 입니다")
