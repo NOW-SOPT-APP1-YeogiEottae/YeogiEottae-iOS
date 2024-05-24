@@ -18,7 +18,7 @@ extension UITabBarController {
             [
                 UINavigationController(rootViewController: CompareRoomViewController()),
                 searchListNavigationController,
-                HotelDetailViewController(),
+                RoomDetailViewController(),
                 favoritesNavigationController,
                 UIViewController()
             ],
