@@ -28,7 +28,7 @@ class RoomImageViewCell: UITableViewCell {
         label.text = "무료취소 불가"
         return label
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -89,10 +89,9 @@ class RoomImageViewCell: UITableViewCell {
         }
     }
     
-    func configure(with name: String) {
-        nameLabel.text = name
-        
-        roomImageView.image = UIImage(named: "hotel1")
+    func configure(with name: String, image: UIImage) {
+        nameLabel.text = name        
+        roomImageView.image = image
     }
     
     func configure(with roomDetail: RoomDetail) {
@@ -108,5 +107,8 @@ class RoomImageViewCell: UITableViewCell {
         }
     }
 }
+    
+
+
 
 

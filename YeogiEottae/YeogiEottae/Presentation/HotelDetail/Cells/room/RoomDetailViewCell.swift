@@ -149,4 +149,9 @@ class RoomDetailViewCell: UITableViewCell {
             make.right.equalTo(discountPriceLabel.snp.right)
         }
     }
+    
+    func configure(with roomDetail: RoomDetail) {
+        discountedPriceLabel.text = "\(roomDetail.price)"
+        bookingInfoLabel.text = "입실 \(roomDetail.startTime) 퇴실 \(roomDetail.endTime)"
+    }
 }

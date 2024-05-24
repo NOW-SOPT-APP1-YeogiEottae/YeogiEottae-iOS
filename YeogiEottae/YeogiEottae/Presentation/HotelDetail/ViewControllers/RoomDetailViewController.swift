@@ -8,6 +8,7 @@ import UIKit
 
 class RoomDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var roomDetail: RoomDetail?
     var tableView: UITableView!
     
     enum Section: Int, CaseIterable {
@@ -67,13 +68,12 @@ extension RoomDetailViewController {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RoomImageViewCell", for: indexPath) as! RoomImageViewCell
-            cell.configure(
-                with: "스탠다드 트윈룸"
-            )
+            cell.configure(with: roomDetail!)
             return cell
         case .details:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RoomDetailViewCell", for: indexPath) as! RoomDetailViewCell
             cell.backgroundColor = .systemGray6
+            cell.configure(with: roomDetail!)
             return cell
         case .info:
             let cell = RoomInfoViewCell()
@@ -81,5 +81,9 @@ extension RoomDetailViewController {
             
         }
     }
+    
+    func configure(with roomDetail: RoomDetail) {
+            self.roomDetail = roomDetail
+        }
 }
 

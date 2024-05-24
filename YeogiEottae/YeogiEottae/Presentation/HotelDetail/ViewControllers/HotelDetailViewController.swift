@@ -12,7 +12,7 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var tableView: UITableView!
     
     var hotelDetailDTO: GetHotelDetailResponseDTO? = nil
-    
+    var hotelImageURL: String = ""
     var hotelID: Int = 0 {
         didSet {
             //네트워크 통신 코드
@@ -152,7 +152,7 @@ extension HotelDetailViewController {
                 review: "740개 평가"
             )
             
-            cell.configure(with: self.hotelDetailDTO)
+            cell.configure(with: self.hotelDetailDTO, imageURL: self.hotelImageURL)
             return cell
         case .details:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
@@ -195,11 +195,10 @@ extension HotelDetailViewController {
                 return
             }
             
-            let roomDetailVC = RoomDetailViewController() // Assuming you have a specific view controller for room details
-            // Setup roomDetailVC with any necessary data
+            let roomDetailVC = RoomDetailViewController()
             if let roomDetails = hotelDetailDTO?.hotelDetail.roomList, indexPath.row < roomDetails.count {
                 let roomDetail = roomDetails[indexPath.row]
-                roomDetailVC.configure(with: roomDetail) // Make sure to implement this method in RoomDetailViewController to configure it with room data
+                roomDetailVC.configure(with: roomDetail)
             }
             navigationController?.pushViewController(roomDetailVC, animated: true)
         }
