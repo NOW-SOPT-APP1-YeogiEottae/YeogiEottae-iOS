@@ -5,6 +5,7 @@
 //  Created by  정지원 on 5/22/24.
 //
 import UIKit
+
 import SnapKit
 
 class DateRangeHeaderView: UIView {
@@ -32,11 +33,11 @@ class DateRangeHeaderView: UIView {
         layerView.layer.borderColor = UIColor.grayColor(brightness: .gray500).cgColor
         layerView.layer.cornerRadius = 10
         
-        dateRangeLabel.text = "5.15 수 - 5.16 토 1박"
+        dateRangeLabel.text = StringLiteral.HotelDetail.dateRange
         dateRangeLabel.font = UIFont.projectFont(name: .h4)
         dateRangeLabel.textColor = UIColor.secondaryColor(brightness: .secondary500)
         
-        personCountLabel.text = "2명"
+        personCountLabel.text = StringLiteral.CompareRoom.person
         personCountLabel.font = UIFont.projectFont(name: .h4)
         personCountLabel.textColor = UIColor.secondaryColor(brightness: .secondary500)
         

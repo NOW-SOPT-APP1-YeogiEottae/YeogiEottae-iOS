@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class DetailTableViewCell: UITableViewCell {
@@ -24,7 +25,7 @@ class DetailTableViewCell: UITableViewCell {
     }()
     let paymentLabel: UILabel = {
         let label = UILabel()
-        label.text = "토스페이"
+        label.text = StringLiteral.HotelDetail.toss
         return label
     }()
     

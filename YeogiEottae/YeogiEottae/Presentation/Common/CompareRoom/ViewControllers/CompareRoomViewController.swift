@@ -5,6 +5,7 @@
 //  Created by Seonwoo Kim on 5/16/24.
 
 import UIKit
+
 import SnapKit
 
 
@@ -103,7 +104,7 @@ final class CompareRoomViewController: UIViewController {
     
     @objc private func repairButtonTapped() {
         isEditingMode.toggle()
-        rootView.repairView.editButton.setTitle(isEditingMode ? "수정완료" : "수정하기", for: .normal)
+        rootView.repairView.editButton.setTitle(isEditingMode ? StringLiteral.Compare.editComplete : StringLiteral.Compare.edit, for: .normal)
         rootView.repairView.editButton.setTitleColor(isEditingMode ? UIColor.secondaryColor(brightness: .secondary600) : UIColor.grayColor(brightness: .gray800), for: .normal)
         
         for cell in rootView.tableView.visibleCells {
