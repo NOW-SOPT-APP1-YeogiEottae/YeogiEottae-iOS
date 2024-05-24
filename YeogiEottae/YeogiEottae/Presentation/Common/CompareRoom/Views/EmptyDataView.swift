@@ -13,7 +13,7 @@ final class EmptyDataView : UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "아직 추가한 숙소가 없어요"
+        label.text = StringLiteral.Compare.empty
         label.font = UIFont.projectFont(name: .h2)
         label.textColor = .grayColor(brightness: .gray700)
         return label
@@ -21,7 +21,7 @@ final class EmptyDataView : UIView {
     
     private let subTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "비교하고 싶은 숙소를 추가하면\n간편하게 비교해볼 수 있어요"
+        label.text = StringLiteral.Compare.compareEasily
         label.textAlignment = .center
         label.numberOfLines = 2
         label.font = UIFont.projectFont(name: .b6)
@@ -31,7 +31,7 @@ final class EmptyDataView : UIView {
     
     lazy var addButton: UIButton = {
         let button = UIButton()
-        button.setTitle("추가하기", for: .normal)
+        button.setTitle(StringLiteral.Compare.add, for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .h3)
         button.setTitleColor(.secondaryColor(brightness: .secondary600), for: .normal)
         return button

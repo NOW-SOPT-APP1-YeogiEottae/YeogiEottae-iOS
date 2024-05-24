@@ -69,7 +69,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     var transportationAccessibilityLabel: UILabel = {
         let label = UILabel()
-        label.text = "건대입구역 도보 3분"
+        label.text = StringLiteral.HotelDetail.distance
         label.font = UIFont.projectFont(name: .l2)
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -100,7 +100,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     let emptyStatusMessageLabel: UILabel = {
         let label = UILabel()
-        label.text = "아직 선택된 방이 없어요"
+        label.text = StringLiteral.HotelDetail.empty
         label.font = UIFont.projectFont(name: .l2)
         label.textColor = .grayColor(brightness: .gray850)
         label.textAlignment = .left
@@ -110,7 +110,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     let emptyStatusDetailMessageLabel: UILabel = {
         let label = UILabel()
-        label.text = "방을 선택하면 비교하기 기능을 사용할 수 있어요"
+        label.text = StringLiteral.HotelDetail.warn
         label.font = UIFont.projectFont(name: .l6)
         label.textColor = .grayColor(brightness: .gray800)
         label.textAlignment = .left
@@ -120,7 +120,7 @@ final class FavoritesAccommodationCell: UICollectionViewCell {
     
     let chooseRoomButton: UIButton = {
         let button = UIButton()
-        button.setTitle("선택하기", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.select, for: .normal)
         button.setTitleColor(.secondaryColor(brightness: .secondary600), for: .normal)
         button.titleLabel?.font = UIFont.projectFont(name: .l1)
         return button

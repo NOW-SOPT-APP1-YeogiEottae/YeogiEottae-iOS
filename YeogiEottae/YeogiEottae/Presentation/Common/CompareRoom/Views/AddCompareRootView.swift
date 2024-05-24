@@ -14,7 +14,7 @@ final class AddCompareRootView: UIView {
     let tableView = UITableView()
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "내가 선택한 상품"
+        label.text = StringLiteral.Compare.like
         label.textColor = .black
         label.font = UIFont.projectFont(name: .h3)
         return label

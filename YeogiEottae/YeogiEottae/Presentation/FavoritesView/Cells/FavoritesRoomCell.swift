@@ -237,7 +237,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let roomDetailContentLabel: UILabel = {
         let label = UILabel()
-        label.text = "기준 2인 최대 2인"
+        label.text = StringLiteral.HotelDetail.roomPerson
         label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -247,7 +247,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let packageTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "패키지"
+        label.text = StringLiteral.HotelDetail.package
         label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -257,7 +257,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     let packageContentLabel: UILabel = {
         let label = UILabel()
-        label.text = "롯데월드 자유이용권 2매"
+        label.text = StringLiteral.HotelDetail.amusementpark
         label.font = UIFont.pretendardFont(ofSize: 12, weight: 500)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -290,7 +290,7 @@ class FavoritesRoomCell: UICollectionViewCell {
     
     var isCouponAppliedLabel: UILabel = {
         let label = UILabel()
-        label.text = "쿠폰적용시"
+        label.text = StringLiteral.HotelDetail.coupon
         label.font = UIFont.projectFont(name: .b7)
         label.textAlignment = .left
         label.numberOfLines = 1
