@@ -12,7 +12,7 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var tableView: UITableView!
     
     var hotelDetailDTO: GetHotelDetailResponseDTO? = nil
-    
+    var hotelImageURL: String = ""
     var hotelID: Int = 0 {
         didSet {
             //네트워크 통신 코드
@@ -63,7 +63,7 @@ class HotelDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "호텔 상세"
+        //navigationItem.title = StringLiteral.HotelDetail.hotelDetail
         let shareItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.rightBarButtonItem = shareItem
     }
@@ -152,7 +152,7 @@ extension HotelDetailViewController {
                 review: "740개 평가"
             )
             
-            cell.configure(with: self.hotelDetailDTO)
+            cell.configure(with: self.hotelDetailDTO, imageURL: self.hotelImageURL)
             return cell
         case .details:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
@@ -187,9 +187,21 @@ extension HotelDetailViewController {
             let roomDetail = roomDetails[indexPath.row]
             cell.configure(with: roomDetail)
             return cell
-            
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            guard let section = Section(rawValue: indexPath.section), section == .room else {
+                return
+            }
+            
+            let roomDetailVC = RoomDetailViewController()
+            if let roomDetails = hotelDetailDTO?.hotelDetail.roomList, indexPath.row < roomDetails.count {
+                let roomDetail = roomDetails[indexPath.row]
+                roomDetailVC.configure(with: roomDetail)
+            }
+            navigationController?.pushViewController(roomDetailVC, animated: true)
+        }
 }
 
 

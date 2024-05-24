@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class RoomTableViewCell: UITableViewCell {
@@ -17,12 +18,12 @@ class RoomTableViewCell: UITableViewCell {
     let bookingInfoLabel = UILabel()
     let infoLabel: UILabel = {
         let label = UILabel()
-        label.text = "객실정보"
+        label.text = StringLiteral.HotelDetail.roomInfo
         return label
     }()
     let info: UILabel = {
         let label = UILabel()
-        label.text = "기준2인 최대2인"
+        label.text = StringLiteral.HotelDetail.roomPerson
         return label
     }()
     

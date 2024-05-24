@@ -41,7 +41,7 @@ final class FavoritesView: UIView {
         
         let button = UIButton(configuration: configuration)
         button.imageView?.contentMode = .scaleAspectFit
-        button.setTitle("5.2 목 - 5.3 금", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.date, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         
@@ -71,7 +71,7 @@ final class FavoritesView: UIView {
         
         let button = UIButton(configuration: configuration)
         button.imageView?.contentMode = .scaleAspectFit
-        button.setTitle("2명", for: .normal)
+        button.setTitle(StringLiteral.CompareRoom.person, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         
@@ -113,7 +113,7 @@ final class FavoritesView: UIView {
         }()
         
         let button = UIButton(configuration: configuration)
-        button.setTitle("비교하기", for: .normal)
+        button.setTitle(StringLiteral.HotelDetail.compare, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         return button

@@ -68,7 +68,7 @@ class SearchResultCell: UITableViewCell {
     
     let accommodationKindLabel: UILabel = {
         let label = UILabel()
-        label.text = "호텔"
+        label.text = StringLiteral.SearchList.hotel
         label.font = UIFont.projectFont(name: .l7)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -87,7 +87,7 @@ class SearchResultCell: UITableViewCell {
     
     var transportationAccessibilityLabel: UILabel = {
         let label = UILabel()
-        label.text = "건대입구역 도보 3분"
+        label.text = StringLiteral.HotelDetail.distance
         label.font = UIFont.projectFont(name: .l2)
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -111,7 +111,7 @@ class SearchResultCell: UITableViewCell {
     
     var ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "10"
+        label.text = StringLiteral.SearchList.rating
         label.font = UIFont.projectFont(name: .l4)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -121,7 +121,7 @@ class SearchResultCell: UITableViewCell {
     
     var ratingCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "3,333개 평가"
+        label.text = StringLiteral.SearchList.valuation
         label.font = UIFont.projectFont(name: .b6)
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -171,7 +171,7 @@ class SearchResultCell: UITableViewCell {
     
     var isCouponAppliedLabel: UILabel = {
         let label = UILabel()
-        label.text = "쿠폰적용시"
+        label.text = StringLiteral.HotelDetail.coupon
         label.font = UIFont.projectFont(name: .b7)
         label.textAlignment = .left
         label.numberOfLines = 1
