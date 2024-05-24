@@ -133,7 +133,7 @@ final class CompareRoomViewController: UIViewController {
     }
     
     private func getComparerListData(price: String, review: String) {
-        CompareService.shared.getComparerListData(price: "", review: "") { [weak self] response in
+        CompareService.shared.getComparerListData(price: price, review: review) { [weak self] response in
             switch response {
             case .success(let data):
                 if let data = data as? CompareListResponseDTO {
