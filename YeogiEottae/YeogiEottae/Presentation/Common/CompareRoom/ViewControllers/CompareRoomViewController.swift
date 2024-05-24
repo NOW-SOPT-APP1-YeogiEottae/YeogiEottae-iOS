@@ -50,10 +50,10 @@ final class CompareRoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
         setRegister()
         setDelegate()
         setButtonActions()
+        configureController()
     }
     
     private func setRegister() {
@@ -67,10 +67,15 @@ final class CompareRoomViewController: UIViewController {
         rootView.tableView.delegate = self
     }
     
+    private func configureController() {
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     private func syncScrollViews(excludedScrollView: UIScrollView) {
         for cell in rootView.tableView.visibleCells {
             if let compareCell = cell as? CompareTableViewCell,
-                compareCell.scrollView != excludedScrollView {
+               compareCell.scrollView != excludedScrollView {
                 compareCell.scrollView.contentOffset.x = scrollViewOffsetX
             }
         }
@@ -85,6 +90,8 @@ final class CompareRoomViewController: UIViewController {
         rootView.filterView.lowPriceButton.addTarget(self, action: #selector(lowPriceButtonTapped), for: .touchUpInside)
         rootView.filterView.highPriceButton.addTarget(self, action: #selector(highPriceButtonTapped), for: .touchUpInside)
         rootView.filterView.highDiscountButton.addTarget(self, action: #selector(highDiscountButtonTapped), for: .touchUpInside)
+        rootView.navigationHeader.arrowButton  .addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        
     }
     
     @objc private func lowPriceButtonTapped() {
@@ -100,6 +107,11 @@ final class CompareRoomViewController: UIViewController {
     @objc private func highDiscountButtonTapped() {
         getComparerListData(price: "1", review: "")
         self.rootView.tableView.reloadData()
+    }
+    
+    @objc private func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @objc private func repairButtonTapped() {

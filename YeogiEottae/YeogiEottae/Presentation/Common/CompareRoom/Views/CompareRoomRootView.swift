@@ -15,7 +15,7 @@ final class CompareRoomRootView: UIView {
     var sectionHeaderHeightConstraint: Constraint?
     
     let tableView = UITableView()
-    private let navigationHeader = CompareNavigationBarView()
+    let navigationHeader = CompareNavigationBarView()
     private let sectionHeader = CompareCalendarView()
     let repairView = CompareEditView()
     let filterView = CompareFilterView()

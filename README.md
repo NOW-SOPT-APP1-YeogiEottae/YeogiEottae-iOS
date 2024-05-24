@@ -7,9 +7,9 @@
 ## 🍎 역할 분담 및 주요 기능
 | 김선우 | 김민성 | 정지원 |
 | :--------: | :--------: | :--------: | 
-| <img src="https://github.com/NOW-SOPT-APP1-YeogiEottae/YeogiEottae-iOS/assets/95562494/b9e5a7fb-c17f-488a-a16b-3fc509bafca8" width="200px"/> | <img src="https://github.com/NOW-SOPT-APP1-YeogiEottae/YeogiEottae-iOS/assets/95562494/b9e5a7fb-c17f-488a-a16b-3fc509bafca8" width="200px"/> | <img src="https://github.com/NOW-SOPT-APP1-YeogiEottae/YeogiEottae-iOS/assets/95562494/b9e5a7fb-c17f-488a-a16b-3fc509bafca8" width="200px"/> | 
-| View | View | View | 
-| 기능 설명 | 기능 설명 | 기능 설명 | 
+| <img src="https://github.com/NOW-SOPT-APP1-YeogiEottae/YeogiEottae-iOS/assets/95562494/b9e5a7fb-c17f-488a-a16b-3fc509bafca8" width="200px"/> | <img src="https://github.com/NOW-SOPT-APP1-YeogiEottae/YeogiEottae-iOS/assets/95562494/c48109e9-60f9-47ba-8e55-77fd277ea141" width="200px"/> | <img src="https://github.com/NOW-SOPT-APP1-YeogiEottae/YeogiEottae-iOS/assets/95562494/9340af4a-7c5f-4140-8836-2290b185c3a0" width="200px"/> | 
+| CompareRoom | FavoritesView, SearchList | HotelDetail, RoomDetail | 
+| 비교하기 | 찜하기, 검색 | 호텔, 방 상세 | 
 
 
 ## 📌Coding Convention
