@@ -81,7 +81,7 @@ extension SearchResultViewController: UITableViewDataSource {
         searchResultCell.configureData(with: hotelInfo)
         
         if self.favoritesAccommodationIDArray.contains(hotelInfo.hotelID) {
-            searchResultCell.heartButton.isSelected = true
+            searchResultCell.isFavorite = true
         }
         return searchResultCell
     }
