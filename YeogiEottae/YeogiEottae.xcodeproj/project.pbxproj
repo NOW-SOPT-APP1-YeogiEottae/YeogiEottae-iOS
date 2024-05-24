@@ -98,6 +98,9 @@
 		4EF183E32BFE0E42001789FB /* HotelDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF183E22BFE0E42001789FB /* HotelDetailService.swift */; };
 		4EF183E52BFE0E7C001789FB /* HotelDetailTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF183E42BFE0E7C001789FB /* HotelDetailTargetType.swift */; };
 		876C1B2B2C0057DA00DB39A5 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C1B2A2C0057DA00DB39A5 /* SearchListViewController.swift */; };
+		877BBAB32C00B6A600ADE37A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 877BBAB22C00B6A600ADE37A /* SnapKit */; };
+		877BBAB52C00B6B900ADE37A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 877BBAB42C00B6B900ADE37A /* Kingfisher */; };
+		877BBAB72C00B6C500ADE37A /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 877BBAB62C00B6C500ADE37A /* Moya */; };
 		87BEE6ED2BF8B90300579642 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6EC2BF8B90300579642 /* HotelDetailViewController.swift */; };
 		87BEE6EF2BF8B91E00579642 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6EE2BF8B91E00579642 /* DetailTableViewCell.swift */; };
 		87BEE6F12BF8B93500579642 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE6F02BF8B93500579642 /* ImageTableViewCell.swift */; };
@@ -107,9 +110,6 @@
 		87BEE7042BFDD5AB00579642 /* RoomImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7032BFDD5AB00579642 /* RoomImageViewCell.swift */; };
 		87BEE7062BFDD5C300579642 /* RoomDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7052BFDD5C300579642 /* RoomDetailViewCell.swift */; };
 		87BEE7082BFDD5D000579642 /* RoomInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEE7072BFDD5D000579642 /* RoomInfoViewCell.swift */; };
-		87BEE70B2BFDF39500579642 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE70A2BFDF39500579642 /* Moya */; };
-		87BEE70E2BFDF3A500579642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE70D2BFDF3A500579642 /* SnapKit */; };
-		87BEE7112BFDF3AE00579642 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87BEE7102BFDF3AE00579642 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,9 +223,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87BEE7112BFDF3AE00579642 /* Kingfisher in Frameworks */,
-				87BEE70B2BFDF39500579642 /* Moya in Frameworks */,
-				87BEE70E2BFDF3A500579642 /* SnapKit in Frameworks */,
+				877BBAB52C00B6B900ADE37A /* Kingfisher in Frameworks */,
+				877BBAB32C00B6A600ADE37A /* SnapKit in Frameworks */,
+				877BBAB72C00B6C500ADE37A /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,9 +718,9 @@
 			);
 			name = YeogiEottae;
 			packageProductDependencies = (
-				87BEE70A2BFDF39500579642 /* Moya */,
-				87BEE70D2BFDF3A500579642 /* SnapKit */,
-				87BEE7102BFDF3AE00579642 /* Kingfisher */,
+				877BBAB22C00B6A600ADE37A /* SnapKit */,
+				877BBAB42C00B6B900ADE37A /* Kingfisher */,
+				877BBAB62C00B6C500ADE37A /* Moya */,
 			);
 			productName = YeogiEottae;
 			productReference = 0B4AA6CF2BEB9E6A00BCEA76 /* YeogiEottae.app */;
@@ -1124,20 +1124,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		87BEE70A2BFDF39500579642 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87BEE7092BFDF39500579642 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		87BEE70D2BFDF3A500579642 /* SnapKit */ = {
+		877BBAB22C00B6A600ADE37A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87BEE70C2BFDF3A500579642 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		87BEE7102BFDF3AE00579642 /* Kingfisher */ = {
+		877BBAB42C00B6B900ADE37A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87BEE70F2BFDF3AE00579642 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		877BBAB62C00B6C500ADE37A /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87BEE7092BFDF39500579642 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

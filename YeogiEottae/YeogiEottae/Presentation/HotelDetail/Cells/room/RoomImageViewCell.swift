@@ -6,17 +6,29 @@
 //
 
 import UIKit
+
 import SnapKit
+import Moya
 
 class RoomImageViewCell: UITableViewCell {
     
+    var provider = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
+    
+    var roomDetail: RoomDetail?
+    var roomID: Int = 0
+    var isFavorite: Bool = false
     var heartButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: "like20")
+        configuration.background.backgroundColor = UIColor.grayColor(brightness: .gray200)
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let button = UIButton(configuration: configuration)
-        button.backgroundColor = UIColor.grayColor(brightness: .gray200)
+        button.setImage(UIImage(named: "like20"), for: .normal)
+        button.setImage(
+            UIImage(named: "like20")?.withTintColor(.brandColor(brightness: .brand), renderingMode: .alwaysOriginal),
+            for: .selected
+        )
         button.clipsToBounds = true
         button.layer.cornerRadius = 15
         return button
@@ -32,14 +44,23 @@ class RoomImageViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
+        setButtonsAction()
+        
+        self.provider.request(.addToFavorites(isRoom: true, id: self.roomID)) { result in
+            self.heartButton.isSelected = self.roomDetail!.isLiked
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc private func heartButtonTapped() {
-        print("Heart button tapped")
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.heartButton.convert(self.heartButton.bounds, to: self.contentView).contains(point) {
+            return self.heartButton
+        } else {
+            return super.hitTest(point, with: event)
+        }
     }
     
     
@@ -47,9 +68,6 @@ class RoomImageViewCell: UITableViewCell {
         roomImageView.contentMode = .scaleAspectFill
         roomImageView.clipsToBounds = true
         addSubview(roomImageView)
-        
-        heartButton.setImage(UIImage(named: "like20")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
         
         nameLabel.font = UIFont.projectFont(name: .h3)
         nameLabel.textColor = UIColor.grayColor(brightness: .gray950)
@@ -89,13 +107,33 @@ class RoomImageViewCell: UITableViewCell {
         }
     }
     
+    private func setButtonsAction() {
+        self.heartButton.addTarget(self, action: #selector(heartButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc private func heartButtonDidTapped() {
+        print(#function)
+        self.heartButton.isSelected.toggle()
+        self.isFavorite.toggle()
+        switch self.isFavorite {
+        case true:
+            YeogiToast.show(type: .addRoomLike, animationType: .pushFromBottom)
+        case false:
+            YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
+        }
+    }
+    
     func configure(with name: String, image: UIImage) {
         nameLabel.text = name        
         roomImageView.image = image
     }
     
     func configure(with roomDetail: RoomDetail) {
+        self.roomDetail = roomDetail
+        self.roomID = roomDetail.roomID
         nameLabel.text = roomDetail.roomName
+        self.isFavorite = roomDetail.isLiked
+        self.heartButton.isSelected = self.isFavorite
         
         if let imageUrl = URL(string: roomDetail.imageURL){
             URLSession.shared.dataTask(with: imageUrl) { data, response, error in

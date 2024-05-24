@@ -83,7 +83,8 @@ extension RoomDetailViewController {
     }
     
     func configure(with roomDetail: RoomDetail) {
-            self.roomDetail = roomDetail
-        }
+        print(#function, "??")
+        self.roomDetail = roomDetail
+    }
 }
 
