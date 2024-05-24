@@ -187,9 +187,22 @@ extension HotelDetailViewController {
             let roomDetail = roomDetails[indexPath.row]
             cell.configure(with: roomDetail)
             return cell
-            
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            guard let section = Section(rawValue: indexPath.section), section == .room else {
+                return
+            }
+            
+            let roomDetailVC = RoomDetailViewController() // Assuming you have a specific view controller for room details
+            // Setup roomDetailVC with any necessary data
+            if let roomDetails = hotelDetailDTO?.hotelDetail.roomList, indexPath.row < roomDetails.count {
+                let roomDetail = roomDetails[indexPath.row]
+                roomDetailVC.configure(with: roomDetail) // Make sure to implement this method in RoomDetailViewController to configure it with room data
+            }
+            navigationController?.pushViewController(roomDetailVC, animated: true)
+        }
 }
 
 

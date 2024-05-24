@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class RoomDetailViewController: UIViewController, UITableViewDataSource {
+class RoomDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
     
@@ -22,6 +22,7 @@ class RoomDetailViewController: UIViewController, UITableViewDataSource {
     private func setupTableView() {
         tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(RoomImageViewCell.self, forCellReuseIdentifier: "RoomImageViewCell")
         tableView.register(RoomDetailViewCell.self, forCellReuseIdentifier: "RoomDetailViewCell")
         tableView.register(RoomInfoViewCell.self, forCellReuseIdentifier: "RoomInfoViewCell")
@@ -46,9 +47,17 @@ extension RoomDetailViewController {
     }
     //셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let _ = Section(rawValue: section) else { return 0 }
-        return 1
+        guard let section = Section(rawValue: section) else { return 0 }
+        switch section {
+        case .image:
+            return 1
+        case .details:
+            return 1
+        case .info:
+            return 1
+        }
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {
@@ -67,8 +76,7 @@ extension RoomDetailViewController {
             cell.backgroundColor = .systemGray6
             return cell
         case .info:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RoomInfoViewCell", for: indexPath) as! RoomInfoViewCell
-            cell.backgroundColor = .green
+            let cell = RoomInfoViewCell()
             return cell
             
         }

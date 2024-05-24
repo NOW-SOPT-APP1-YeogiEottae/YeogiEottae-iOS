@@ -68,5 +68,20 @@ enum StringLiteral {
     
     enum BasicInfo {
         static var basic1 = "2인 기준 최대 3인 (유료)"
+        static var basic2 = "인원 추가 시 비용이 발생돼요."
+        static var basic3 = "싱글베드 2개"
+        static var basic4 = "객실+욕실 / 12평"
+    }
+    
+    enum RefundPolicy {
+        static var refund1 = "체크인일 기준 3일전 18시까지 : 100% 환불"
+        static var refund2 = "체크인일 기준 3일전 18시 이후~당일 및 No-show : 환불 불가 (연박의 경우 최초 1박 환불 불가, 이후 일자 100% 환불)"
+        static var refund3 = "취소, 환불 시 수수료가 발생할 수 있습니다."
+        static var refund4 = "아래 객실은 별도의 취소 규정이 적용되오니 참고 부탁드립니다"
+        static var refund5 = "[룸온리 특가], [호텔딜], [오픈런] 객실: 체크인일 기준 7일 전 18시까지 100% 환불, 이후 환불 불가 (연박의 경우 최초 1회 환불 불가 이 일자 100% 환불)"
+        static var refund6 = "[특가],[취소불가] 객실: 취소, 변경, 환불 불가"
+        static var refund7 = "예약 후 10분 내 취소될 경우 취소 수수료가 발생하지 않습니다. (*체크인 시간 경과 후 제외)"
+        static var refund8 = "예약 후 10분 경과 시엔 해당 숙소의 취소 및 환불 규정이 적용됩니다."
+        
     }
 }

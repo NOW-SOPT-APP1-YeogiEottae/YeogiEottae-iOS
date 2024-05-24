@@ -95,15 +95,18 @@ class RoomImageViewCell: UITableViewCell {
         roomImageView.image = UIImage(named: "hotel1")
     }
     
-//    func configure(with data: GetHotelDetailResponseDTO?) {
-//        guard let unwrappedData = data else { return }
-//        let hotelDetail = unwrappedData.hotelDetail
-//        
-//        self.nameLabel.text = hotelDetail.hotelName
-//        self.addressLabel.text = hotelDetail.location
-//        self.ratingLabel.text = "\(hotelDetail.reviewRate)" //문자열 보간법(Sting interpolation)
-//        self.reviewLabel.text = "\(hotelDetail.reviewCount)개 리뷰"
-//    }
+    func configure(with roomDetail: RoomDetail) {
+        nameLabel.text = roomDetail.roomName
+        
+        if let imageUrl = URL(string: roomDetail.imageURL){
+            URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async { [weak self] in
+                    self?.roomImageView.image = UIImage(data: data)
+                }
+            }.resume()
+        }
+    }
 }
 
 
