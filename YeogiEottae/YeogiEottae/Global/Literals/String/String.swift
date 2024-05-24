@@ -82,7 +82,8 @@ enum StringLiteral {
         static var refund6 = "[특가],[취소불가] 객실: 취소, 변경, 환불 불가"
         static var refund7 = "예약 후 10분 내 취소될 경우 취소 수수료가 발생하지 않습니다. (*체크인 시간 경과 후 제외)"
         static var refund8 = "예약 후 10분 경과 시엔 해당 숙소의 취소 및 환불 규정이 적용됩니다."
-        
+    }
+    
     enum HotelDetail {
         static var dateRange = "5.15 수 - 5.16 토 1박"
         static var hotelDetail = "호텔 상세"
