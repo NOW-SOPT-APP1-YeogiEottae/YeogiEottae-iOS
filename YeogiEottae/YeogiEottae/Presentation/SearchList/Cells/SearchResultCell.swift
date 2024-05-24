@@ -374,9 +374,9 @@ class SearchResultCell: UITableViewCell {
         self.isFavorite.toggle()
         switch self.isFavorite {
         case true:
-            YeogiToast.show(type: .addHotelLike)
+            YeogiToast.show(type: .addHotelLike, animationType: .pushFromBottom)
         case false:
-            YeogiToast.show(type: .deinitLike)
+            YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
         }
     }
         
