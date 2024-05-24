@@ -56,6 +56,12 @@ final class CompareRoomViewController: UIViewController {
         configureController()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     private func setRegister() {
         rootView.tableView.register(CompareTableViewCell.self, forCellReuseIdentifier: CompareTableViewCell.className)
         rootView.tableView.register(AddButtonCell.self, forCellReuseIdentifier: AddButtonCell.className)
@@ -111,7 +117,6 @@ final class CompareRoomViewController: UIViewController {
     
     @objc private func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
-        self.tabBarController?.tabBar.isHidden = false
     }
     
     @objc private func repairButtonTapped() {
