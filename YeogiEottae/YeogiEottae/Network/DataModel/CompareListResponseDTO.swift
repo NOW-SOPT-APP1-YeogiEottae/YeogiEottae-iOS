@@ -11,10 +11,10 @@ struct CompareListResponseDTO: Codable {
     let code: Int
     let success: Bool
     let message: String
-    let result: [RoomDTO]
+    let result: [CompareList]
 }
 
-struct RoomDTO: Codable {
+struct CompareList: Codable {
     let roomId: Int
     let hotelName: String
     let roomName: String
@@ -22,15 +22,5 @@ struct RoomDTO: Codable {
     let reviewRate: Double
     let reviewCount: Int
     let imageUrl: String
-    
-    enum CodingKeys: String, CodingKey {
-        case roomId = "roomID"
-        case hotelName
-        case roomName
-        case price
-        case reviewRate
-        case reviewCount
-        case imageUrl = "imageURL"
-    }
 }
 

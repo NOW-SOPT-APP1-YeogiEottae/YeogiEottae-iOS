@@ -72,6 +72,8 @@ final class YeogiToastView: UIView {
             message = "찜에 추가했어요"
         case .addCompare:
             message = "비교하기에 추가했어요"
+        case .warnLimitCompare:
+            message = "5개까지 추가할 수 있어요"
         }
         self.messageLabel.text = message
         self.backgroundColor = backgroundColor?.withAlphaComponent(0.8)
@@ -100,7 +102,7 @@ final class YeogiToastView: UIView {
             self.addSubviews(cancelButton, moveButton, divideView, subTitleLabel)
         case .addRoomLike, .addCompare:
             self.addSubviews(moveButton, divideView, cancelButton)
-        case nil:
+        case .warnLimitCompare, .none:
             break
         }
     }
@@ -181,7 +183,7 @@ final class YeogiToastView: UIView {
                 $0.centerY.equalToSuperview()
                 $0.trailing.equalToSuperview().inset(18)
             }
-        case nil:
+        case .warnLimitCompare, nil:
             break
         }
     }
