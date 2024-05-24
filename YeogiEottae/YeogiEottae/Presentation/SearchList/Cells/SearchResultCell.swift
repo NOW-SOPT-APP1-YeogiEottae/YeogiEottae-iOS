@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Moya
 import Kingfisher
 
 class SearchResultCell: UITableViewCell {
@@ -14,6 +15,8 @@ class SearchResultCell: UITableViewCell {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
+    
+    var provider = MoyaProvider<FavoritesListTargetType>(plugins: [MoyaLoggingPlugin()])
     
     var accommodationInfo: HotelInfo? = nil
     var accommodationID: Int = 0
@@ -23,9 +26,29 @@ class SearchResultCell: UITableViewCell {
             switch self.isFavorite {
             case true:
                 //서버에 찜 요청하는 코드
+                self.provider.request(.addToFavorites(isRoom: false, id: self.accommodationID)) { result in
+                    switch result {
+                    case .success:
+                        print("찜 추가 성공")
+                        return
+                    case .failure:
+                        fatalError()
+                    }
+                }
+                
                 self.heartButton.isSelected = self.isFavorite
             case false:
                 //서버에 찜 해제 요청하는 코드
+                self.provider.request(.removeFromFavorites(isRoom: false, id: self.accommodationID)) { result in
+                    switch result {
+                    case .success:
+                        print("찜 삭제 성공")
+                        return
+                    case .failure:
+                        fatalError()
+                    }
+                }
+                
                 self.heartButton.isSelected = self.isFavorite
             }
             
