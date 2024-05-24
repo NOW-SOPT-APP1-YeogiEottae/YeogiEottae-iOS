@@ -93,9 +93,9 @@ final class CompareButton: UIButton {
         
         switch compareButtonType {
         case .reservation:
-            buttonTitleLabel.text = SringLiteral.Compare.reservation
+            buttonTitleLabel.text = StringLiteral.Compare.reservation
         case .add:
-            buttonTitleLabel.text = SringLiteral.Compare.add
+            buttonTitleLabel.text = StringLiteral.Compare.add
             countLabel.text = "\(addAmount)"
         }
     }
