@@ -758,6 +758,7 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
                 default:
                     return
                 }
+                self.delegate?.updateCompareListCount()
                 
             case .failure(let moyaError):
                 fatalError(moyaError.localizedDescription)
@@ -796,6 +797,8 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
         self.removeFromFavorites(roomId: self.roomID) { result in
             switch result {
             case .success:
+                self.delegate?.deleteItem(self)
+                self.delegate?.updateCompareListCount()
                 YeogiToast.show(type: .deinitLike, animationType: .pushFromBottom)
             case .failure(let moyaError):
                 fatalError(moyaError.localizedDescription)
@@ -844,36 +847,12 @@ class FavoritesRoomCell: UICollectionViewCell, FavoriteCellProtocol {
         self.compareProvider.request(.postLikeCompareDatarequest(request: PostLikeCompareRequestDTO(roomId: [roomID]))) { result in
             completion(result)
         }
-//        self.compareProvider.request(.postLikeCompareDatarequest(request: PostLikeCompareRequestDTO(roomId: [roomID]))) { result in
-//            switch result {
-//            case .success(let response):
-//                let data = response.data
-//                guard let decodedData = try? JSONDecoder().decode(PostLikeCompareResponseDTO.self, from: data) else { return }
-//                print(decodedData.message)
-//                self.delegate?.updateCompareListCount()
-//                completion()
-//                
-//            case .failure(let moyaError):
-//                fatalError(moyaError.localizedDescription)
-//                
-//            }
-//        }
     }
     
     private func removeFromFavorites(roomId: Int, completion: @escaping (Result<Response, MoyaError>) -> Void) {
         
         self.favoriteProvider.request(.removeFromFavorites(isRoom: true, id: roomId)) { result in
             completion(result)
-            
-//            switch result {
-//            case .success(_):
-//                self.delegate?.deleteItem(self)
-//                self.delegate?.updateCompareListCount()
-//                completion()
-//                
-//            case .failure(let moyaError):
-//                fatalError(moyaError.localizedDescription)
-//            }
         }
     }
     
