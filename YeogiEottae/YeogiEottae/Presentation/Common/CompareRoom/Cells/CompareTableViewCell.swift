@@ -13,7 +13,15 @@ final class CompareTableViewCell: UITableViewCell {
     
     weak var delegate: CompareTableViewCellDelegate?
     
+    var roomId: Int?
+    
     var isRadioSelected = false {
+        didSet {
+            updateRadioButtonImage()
+        }
+    }
+    
+    var isEditedMode = false {
         didSet {
             updateRadioButtonImage()
         }
@@ -29,7 +37,7 @@ final class CompareTableViewCell: UITableViewCell {
     
     private lazy var radioButton: UIButton = {
         let button = UIButton()
-        button.setImage(.radioUnchecked, for: .normal)
+        button.setImage(isEditedMode ? .close : .radioUnchecked, for: .normal)
         return button
     }()
     
@@ -60,6 +68,7 @@ final class CompareTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.projectFont(name: .l4)
         label.textColor = .grayColor(brightness: .gray600)
+        label.numberOfLines = 2
         return label
     }()
     
@@ -81,6 +90,7 @@ final class CompareTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     private func setHierarchy() {
         contentView.addSubview(stickyView)
@@ -117,11 +127,13 @@ final class CompareTableViewCell: UITableViewCell {
         roomNameLabel.snp.makeConstraints {
             $0.leading.equalTo(roomImageView.snp.leading)
             $0.top.equalTo(roomImageView.snp.bottom).offset(3)
+            $0.trailing.equalToSuperview().inset(25)
         }
         
         hotelNameLabel.snp.makeConstraints {
             $0.leading.equalTo(roomImageView)
             $0.top.equalTo(roomNameLabel.snp.bottom).offset(1)
+            $0.trailing.equalToSuperview().inset(25)
         }
         
         arrowImageView.snp.makeConstraints {
@@ -148,7 +160,8 @@ final class CompareTableViewCell: UITableViewCell {
         scrollView.delegate = self
     }
     
-    func bindData(data: CompareRoomData) {
+    func bindData(data: CompareList, isRadioSelected: Bool, isEditedMode: Bool) {
+        self.roomId = data.roomId
         hotelNameLabel.text = data.hotelName
         roomNameLabel.text = data.roomName
         let url = URL(string: data.imageUrl)
@@ -159,6 +172,10 @@ final class CompareTableViewCell: UITableViewCell {
         infoView.discountPriceLabel.attributedText = discountPrice.formattedWithSeparator.strikeThrough()
         infoView.reviewAmountLabel.text = "(\(data.reviewCount.formattedWithSeparator))"
         infoView.ratingLabel.text = "\(data.reviewRate)"
+        
+        self.isRadioSelected = isRadioSelected
+        self.isEditedMode = isEditedMode
+        updateRadioButtonImage()
     }
     
     private func configureButton() {
@@ -166,11 +183,15 @@ final class CompareTableViewCell: UITableViewCell {
     }
     
     @objc private func radioButtonTapped() {
-        delegate?.compareTableViewCellDidTapRadioButton(self)
+            delegate?.compareTableViewCellDidTapRadioButton(self)
     }
     
-    private func updateRadioButtonImage() {
-        radioButton.setImage(isRadioSelected ? .radioChecked : .radioUnchecked, for: .normal)
+    func updateRadioButtonImage() {
+        if isEditedMode {
+            radioButton.setImage(.close, for: .normal)
+        } else {
+            radioButton.setImage(isRadioSelected ? .radioChecked : .radioUnchecked, for: .normal)
+        }
     }
 }
 

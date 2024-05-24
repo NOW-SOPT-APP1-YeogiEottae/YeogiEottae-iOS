@@ -325,7 +325,7 @@ class FavoritesRoomCell: UICollectionViewCell {
         self.setUI()
         self.configureViewHierarchy()
         self.setConstraints()
-        self.setGestureRecognizer()
+        self.setGestureRecognizers()
     }
     
     required init?(coder: NSCoder) {
@@ -580,7 +580,7 @@ class FavoritesRoomCell: UICollectionViewCell {
         }
     }
     
-    private func setGestureRecognizer() {
+    private func setGestureRecognizers() {
         self.swipeableView.addGestureRecognizer(self.panGestureRecognizer)
         self.panGestureRecognizer.delegate = self
         self.panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(sender:)))

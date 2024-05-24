@@ -33,6 +33,54 @@ extension CompareService {
         }
     }
     
+    func getLikeCompareData(completion: @escaping (NetworkResult<Any>) -> Void) {
+        compareProvider.request(.getLikeCompareData) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, GetLikeCompareResponseDTO.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func postLikeCompareData(request: PostLikeCompareRequestDTO, completion: @escaping (NetworkResult<Any>) -> Void) {
+        compareProvider.request(.postLikeCompareDatarequest(request: request)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, PostLikeCompareResponseDTO.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func deleteLikeCompareData (request: DeleteLikeRoomRequestDTO, completion: @escaping (NetworkResult<Any>) -> Void) {
+        compareProvider.request(.deleteLikeCompareData(request: request)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeStatus(by: statusCode, data, DeleteLikeRoomResponseDTO.self)
+                completion(networkResult)
+                
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     
     public func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         
