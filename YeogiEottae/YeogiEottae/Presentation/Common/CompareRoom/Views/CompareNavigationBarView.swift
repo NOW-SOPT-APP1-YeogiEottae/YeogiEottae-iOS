@@ -20,10 +20,10 @@ final class CompareNavigationBarView: UIView {
         return label
     }()
     
-    private let arrowImage : UIImageView =  {
-        let imageView = UIImageView()
-        imageView.image = .arrowBack
-        return imageView
+    let arrowButton : UIButton =  {
+        let button = UIButton()
+        button.setImage(.arrowBack, for: .normal)
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -38,18 +38,18 @@ final class CompareNavigationBarView: UIView {
     }
     
     private func setHierarchy() {
-        self.addSubviews(titleLabel,arrowImage)
+        self.addSubviews(titleLabel,arrowButton)
     }
     
     private func setConstraints() {
-        arrowImage.snp.makeConstraints {
+        arrowButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(20)
         }
         
         titleLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalTo(arrowImage.snp.trailing).offset(12)
+            $0.leading.equalTo(arrowButton.snp.trailing).offset(12)
         }
     }
 }
