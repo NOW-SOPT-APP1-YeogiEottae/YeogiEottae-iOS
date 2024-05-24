@@ -52,6 +52,7 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         
         self.rootView.setTableViewDataSourceDelegate(to: self)
+        self.configureRefreshControl()
     }
     
     func getFavoriteContent(completion: @escaping (_ decodedData: GetFavoritesListResponseDTO) -> Void) {
@@ -65,6 +66,26 @@ class SearchResultViewController: UIViewController {
             case .failure(let moyaError):
                 fatalError(moyaError.localizedDescription)
             }
+        }
+    }
+    
+    private func configureRefreshControl() {
+        self.rootView.tableView.refreshControl = UIRefreshControl()
+        self.rootView.tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc private func handleRefreshControl() {
+        self.requestAccommodationListAndReloadData {
+            DispatchQueue.main.async {
+                self.rootView.tableView.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
+    private func requestAccommodationListAndReloadData(completion: @escaping () -> Void) {
+        self.hotelsInfoArray = HotelListNetworkingManager.shared.requestHoteList().HotelListResult.hotelsArray
+        self.getFavoriteContent { decodedData in
+            completion()
         }
     }
     
